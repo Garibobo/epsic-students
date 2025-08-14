@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>EPSIC Students</title>
+  <title>EPSIC Students Explorer</title>
   <style>
     body {
       margin: 0;
@@ -26,6 +26,10 @@
       height: 40px;
       margin-right: 10px;
     }
+    nav {
+      display: flex;
+      align-items: center;
+    }
     nav select {
       padding: 5px;
       border-radius: 4px;
@@ -35,16 +39,28 @@
     .main {
       padding: 20px;
     }
-    .item {
-      cursor: pointer;
-      margin: 10px 0;
-      padding: 8px;
-      border-radius: 4px;
-      transition: background 0.2s;
-      background: #f0f0f0;
+    ul {
+      list-style-type: none;
+      padding-left: 20px;
     }
-    .item:hover {
-      background: #e0e0e0;
+    li {
+      cursor: pointer;
+      margin: 5px 0;
+    }
+    .folder {
+      font-weight: bold;
+      color: #005a9c;
+    }
+    .file {
+      color: #333;
+    }
+    .qr-section {
+      margin: 20px;
+      text-align: center;
+    }
+    .qr-section img {
+      height: 200px;
+      cursor: pointer;
     }
     .download-btn {
       margin-top: 10px;
@@ -55,18 +71,6 @@
       border-radius: 4px;
       text-decoration: none;
       font-size: 14px;
-    }
-    .qr-section {
-      text-align: center;
-      margin: 20px;
-    }
-    .qr-section img {
-      height: 200px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .qr-section img:hover {
-      transform: scale(1.05);
     }
   </style>
 </head>
@@ -96,46 +100,55 @@
 
   <div class="main">
     <h2 id="folders-title">Dossiers</h2>
-    <div id="folder-list">Chargement...</div>
+    <ul id="tree-root"></ul>
   </div>
 
   <script>
     const repo = "epsic-students";
-    const user = "Garibobo";
-    const folders = ["00-Administratif", "01-Cours"];
-    const folderList = document.getElementById("folder-list");
+    const user = "garibobo";
+    const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
 
-    async function loadFiles(folder) {
-      const res = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${folder}`);
+    async function fetchTree(path, parentElement, level = 0) {
+      if (level > 6) return;
+      const res = await fetch(apiBase + path);
       const data = await res.json();
-      folderList.innerHTML = `<h3>${folder}</h3>`;
       data.forEach(item => {
-        const div = document.createElement("div");
-        div.className = "item";
-        div.innerHTML = `📄 <a href="${item.html_url}" target="_blank">${item.name}</a>`;
-        folderList.appendChild(div);
+        const li = document.createElement("li");
+        li.textContent = item.name;
+        if (item.type === "dir") {
+          li.className = "folder";
+          const subUl = document.createElement("ul");
+          li.onclick = async (e) => {
+            e.stopPropagation();
+            if (subUl.childElementCount === 0) {
+              await fetchTree(item.path, subUl, level + 1);
+            } else {
+              subUl.innerHTML = "";
+            }
+          };
+          li.appendChild(subUl);
+        } else {
+          li.className = "file";
+          li.onclick = () => {
+            window.open(item.html_url, "_blank");
+          };
+        }
+        parentElement.appendChild(li);
       });
     }
 
+    fetchTree("", document.getElementById("tree-root"));
+
     function switchLanguage() {
-      const lang = document.getElementById("lang").value;
-      if (lang === "en") {
-        document.getElementById("title").textContent = "EPSIC Students";
-        document.getElementById("folders-title").textContent = "Folders";
+      const lang = document.getElementById('lang').value;
+      if (lang === 'en') {
+        document.getElementById('title').textContent = 'EPSIC Students';
+        document.getElementById('folders-title').textContent = 'Folders';
       } else {
-        document.getElementById("title").textContent = "EPSIC Students";
-        document.getElementById("folders-title").textContent = "Dossiers";
+        document.getElementById('title').textContent = 'EPSIC Students';
+        document.getElementById('folders-title').textContent = 'Dossiers';
       }
     }
-
-    async function init() {
-      folderList.innerHTML = "";
-      for (const folder of folders) {
-        await loadFiles(folder);
-      }
-    }
-
-    init();
   </script>
 </body>
 </html>
