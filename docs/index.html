@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>EPSIC Students</title>
+  <title>EPSIC Students Explorer</title>
   <style>
     body {
       margin: 0;
@@ -37,32 +37,36 @@
       margin-left: 10px;
     }
     .main {
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+    #treeview {
+      width: 30%;
       padding: 20px;
+      overflow-y: auto;
+      background: #f9f9f9;
+      border-right: 1px solid #ccc;
     }
-    .item {
-      cursor: pointer;
+    #preview {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .folder, .file {
       margin: 5px 0;
-      padding: 6px;
+      cursor: pointer;
+      padding: 5px;
       border-radius: 4px;
-      transition: background 0.2s;
-      color: #005a9c;
     }
-    .item:hover {
+    .folder:hover, .file:hover {
       background: #e0e0e0;
     }
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: 1px solid #ccc;
-      margin-top: 20px;
+    .nested {
+      margin-left: 20px;
+      display: none;
     }
-    .qr-section {
-      text-align: center;
-      margin: 20px;
-    }
-    .qr-section img {
-      height: 200px;
-      cursor: pointer;
+    .active {
+      display: block;
     }
     .download-btn {
       margin-top: 10px;
@@ -73,6 +77,11 @@
       border-radius: 4px;
       text-decoration: none;
       font-size: 14px;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
     }
   </style>
 </head>
@@ -91,19 +100,24 @@
     </nav>
   </header>
 
-  <div class="qr-section">
+  <div style="padding: 20px;">
     <p>QR Code</p>
     <a href="qr-github.png" target="_blank">
-      <img src="qr-github.png" alt="QR Code">
+      <img src="qr-github.png" alt="QR Code" style="height: 150px;">
     </a>
     <br>
     <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
   </div>
 
   <div class="main">
-    <h2 id="folders-title">Dossiers</h2>
-    <div id="folder-list"></div>
-    <iframe id="viewer" src=""></iframe>
+    <div id="treeview">
+      <h2 id="folders-title">Dossiers</h2>
+      <div id="repo-tree">Chargement...</div>
+    </div>
+    <div id="preview">
+      <h2 id="preview-title">Prévisualisation</h2>
+      <iframe id="file-frame" src=""></iframe>
+    </div>
   </div>
 
   <script>
@@ -111,54 +125,50 @@
     const user = "garibobo";
     const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
 
-    const folderMap = {
-      "01-Administratif": "Administratif",
-      "Cours": "Cours"
-    };
-
-    async function fetchFolder(path, container, level = 0) {
+    async function fetchTree(path = "", container) {
       const res = await fetch(apiBase + path);
-      const data = await res.json();
-      data.forEach(item => {
+      const items = await res.json();
+      items.forEach(item => {
         if (item.name.toLowerCase().includes("readme") || item.path.startsWith("docs")) return;
         const div = document.createElement("div");
-        div.className = "item";
-        div.style.marginLeft = `${level * 20}px`;
+        div.textContent = item.name;
         if (item.type === "dir") {
-          div.textContent = "📁 " + item.name;
-          div.onclick = () => fetchFolder(item.path, container, level + 1);
-        } else {
-          div.textContent = "📄 " + item.name;
+          div.className = "folder";
+          const nested = document.createElement("div");
+          nested.className = "nested";
           div.onclick = () => {
-            const viewer = document.getElementById("viewer");
-            viewer.src = `https://github.com/${user}/${repo}/blob/main/${item.path}?raw=true`;
+            nested.classList.toggle("active");
+            if (!nested.hasChildNodes()) {
+              fetchTree(item.path, nested);
+            }
           };
+          container.appendChild(div);
+          container.appendChild(nested);
+        } else {
+          div.className = "file";
+          div.onclick = () => {
+            document.getElementById("file-frame").src = `https://github.com/${user}/${repo}/blob/main/${item.path}?raw=true`;
+          };
+          container.appendChild(div);
         }
-        container.appendChild(div);
       });
     }
 
-    window.onload = () => {
-      const container = document.getElementById("folder-list");
-      Object.keys(folderMap).forEach(folder => {
-        const title = document.createElement("div");
-        title.className = "item";
-        title.textContent = "📁 " + folderMap[folder];
-        title.onclick = () => fetchFolder(folder, container);
-        container.appendChild(title);
-      });
-    };
+    fetchTree("", document.getElementById("repo-tree"));
 
     function switchLanguage() {
       const lang = document.getElementById("lang").value;
       if (lang === "en") {
         document.getElementById("title").textContent = "EPSIC Students";
         document.getElementById("folders-title").textContent = "Folders";
+        document.getElementById("preview-title").textContent = "Preview";
       } else {
         document.getElementById("title").textContent = "EPSIC Students";
         document.getElementById("folders-title").textContent = "Dossiers";
+        document.getElementById("preview-title").textContent = "Prévisualisation";
       }
     }
   </script>
 </body>
 </html>
+
