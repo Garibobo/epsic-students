@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>EPSIC Students Explorer</title>
+  <title>EPSIC Students</title>
   <style>
     body {
       margin: 0;
@@ -37,8 +37,6 @@
       margin-left: 10px;
     }
     .main {
-      display: flex;
-      flex-direction: column;
       padding: 20px;
     }
     .item {
@@ -47,46 +45,24 @@
       padding: 6px;
       border-radius: 4px;
       transition: background 0.2s;
+      color: #005a9c;
     }
     .item:hover {
       background: #e0e0e0;
     }
-    .link {
-      color: #005a9c;
-      text-decoration: none;
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
     }
-    .logo-gallery {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
+    .qr-section {
+      text-align: center;
       margin: 20px;
     }
-    .logo-box {
-      text-align: center;
-    }
-    .logo-box img {
-      height: 80px;
+    .qr-section img {
+      height: 200px;
       cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .fullscreen-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      animation: zoomIn 0.3s ease;
-    }
-    @keyframes zoomIn {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    .fullscreen-overlay img {
-      max-width: 90%;
-      max-height: 90%;
     }
     .download-btn {
       margin-top: 10px;
@@ -97,12 +73,6 @@
       border-radius: 4px;
       text-decoration: none;
       font-size: 14px;
-    }
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: 1px solid #ccc;
-      margin-top: 20px;
     }
   </style>
 </head>
@@ -121,23 +91,19 @@
     </nav>
   </header>
 
-  <div class="logo-gallery">
-    <div class="logo-box">
-      <p>QR Code</p>
-      <a href="qr-github.png" target="_blank">
-        <img src="qr-github.png" alt="QR Code">
-      </a>
-      <br>
-      <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
-    </div>
+  <div class="qr-section">
+    <p>QR Code</p>
+    <a href="qr-github.png" target="_blank">
+      <img src="qr-github.png" alt="QR Code">
+    </a>
+    <br>
+    <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
   </div>
 
   <div class="main">
     <h2 id="folders-title">Dossiers</h2>
-    <div class="item" onclick="loadFolder('01-Administratif')">📁 <span id="folder1">Administratif</span></div>
-    <div class="item" onclick="loadFolder('Cours')">📁 <span id="folder2">Cours</span></div>
-    <div id="file-list"></div>
-    <iframe id="preview-frame" src=""></iframe>
+    <div id="folder-list"></div>
+    <iframe id="viewer" src=""></iframe>
   </div>
 
   <script>
@@ -145,40 +111,54 @@
     const user = "garibobo";
     const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
 
-    async function loadFolder(folder) {
-      const res = await fetch(apiBase + folder);
+    const folderMap = {
+      "01-Administratif": "Administratif",
+      "Cours": "Cours"
+    };
+
+    async function fetchFolder(path, container, level = 0) {
+      const res = await fetch(apiBase + path);
       const data = await res.json();
-      const fileList = document.getElementById("file-list");
-      fileList.innerHTML = "";
       data.forEach(item => {
+        if (item.name.toLowerCase().includes("readme") || item.path.startsWith("docs")) return;
         const div = document.createElement("div");
         div.className = "item";
-        div.textContent = item.name;
-        div.onclick = () => previewFile(item.path);
-        fileList.appendChild(div);
+        div.style.marginLeft = `${level * 20}px`;
+        if (item.type === "dir") {
+          div.textContent = "📁 " + item.name;
+          div.onclick = () => fetchFolder(item.path, container, level + 1);
+        } else {
+          div.textContent = "📄 " + item.name;
+          div.onclick = () => {
+            const viewer = document.getElementById("viewer");
+            viewer.src = `https://github.com/${user}/${repo}/blob/main/${item.path}?raw=true`;
+          };
+        }
+        container.appendChild(div);
       });
     }
 
-    function previewFile(path) {
-      const iframe = document.getElementById("preview-frame");
-      iframe.src = `https://garibobo.github.io/epsic-students/${path}`;
-    }
+    window.onload = () => {
+      const container = document.getElementById("folder-list");
+      Object.keys(folderMap).forEach(folder => {
+        const title = document.createElement("div");
+        title.className = "item";
+        title.textContent = "📁 " + folderMap[folder];
+        title.onclick = () => fetchFolder(folder, container);
+        container.appendChild(title);
+      });
+    };
 
     function switchLanguage() {
-      const lang = document.getElementById('lang').value;
-      if (lang === 'en') {
-        document.getElementById('title').textContent = 'EPSIC Students';
-        document.getElementById('folders-title').textContent = 'Folders';
-        document.getElementById('folder1').textContent = 'Administrative';
-        document.getElementById('folder2').textContent = 'Courses';
+      const lang = document.getElementById("lang").value;
+      if (lang === "en") {
+        document.getElementById("title").textContent = "EPSIC Students";
+        document.getElementById("folders-title").textContent = "Folders";
       } else {
-        document.getElementById('title').textContent = 'EPSIC Students';
-        document.getElementById('folders-title').textContent = 'Dossiers';
-        document.getElementById('folder1').textContent = 'Administratif';
-        document.getElementById('folder2').textContent = 'Cours';
+        document.getElementById("title").textContent = "EPSIC Students";
+        document.getElementById("folders-title").textContent = "Dossiers";
       }
     }
   </script>
 </body>
 </html>
-
