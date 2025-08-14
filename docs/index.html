@@ -2,15 +2,16 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>EPSIC Students</title>
+  <title>EPSIC Students Explorer</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+      color: #333;
     }
     header {
-      background-color: #004080;
+      background: #005a9c;
       color: white;
       padding: 10px 20px;
       display: flex;
@@ -18,34 +19,58 @@
     }
     header img {
       height: 40px;
-      margin-right: 15px;
+      margin-right: 10px;
     }
     h1 {
       margin: 0;
     }
-    .container {
+    .main {
       padding: 20px;
-    }
-    .section h2 {
-      color: #004080;
     }
     ul {
       list-style-type: none;
-      padding-left: 0;
+      padding-left: 20px;
     }
     li {
       margin: 5px 0;
       cursor: pointer;
-      color: #004080;
     }
-    li:hover {
+    .folder::before {
+      content: "📁 ";
+    }
+    .file::before {
+      content: "📄 ";
+    }
+    .file.pdf::before {
+      content: "📑 ";
+    }
+    .file.image::before {
+      content: "🖼️ ";
+    }
+    a {
+      text-decoration: none;
+      color: #005a9c;
+    }
+    a:hover {
       text-decoration: underline;
     }
-    .icon {
-      margin-right: 8px;
+    .qr-section {
+      margin: 20px;
+      text-align: center;
     }
-    #file-viewer {
-      margin-top: 20px;
+    .qr-section img {
+      width: 200px;
+      cursor: pointer;
+    }
+    .download-btn {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 6px 12px;
+      background: #005a9c;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -54,55 +79,50 @@
     <img src="logo-2.png" alt="Logo EPSIC">
     <h1>EPSIC Students</h1>
   </header>
-  <div class="container">
-    <div class="section">
-      <h2>QR Code du site</h2>
-      <a href="qr-github.png" target="_blank">
-        <img src="qr-github.png" alt="QR Code" style="width:200px;">
-      </a>
-      <br>
-      <a href="qr-github.png" download="qr-github.png">
-        <button>Télécharger le QR code</button>
-      </a>
-    </div>
-    <div class="section">
-      <h2>Navigation</h2>
-      <ul id="navigation"></ul>
-    </div>
+
+  <div class="qr-section">
+    <p>QR Code</p>
+    <a href="qr-github.png" target="_blank">
+      <img src="qr-github.png" alt="QR Code">
+    </a>
+    <br>
+    <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
   </div>
-  <script>
-    const repo = "epsic-students";
-    const user = "garibobo";
-    const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
 
-    function getIcon(name, type) {
-      if (type === "dir") return "📁";
-      if (name.endsWith(".pdf")) return "📑";
-      if (name.match(/\.(jpg|jpeg|png|gif)$/i)) return "🖼️";
-      return "📄";
-    }
-
-    async function loadFolder(path = "") {
-      const res = await fetch(apiBase + path);
-      const data = await res.json();
-      const nav = document.getElementById("navigation");
-      nav.innerHTML = "";
-      data.forEach(item => {
-        if (item.name.toLowerCase() === "readme.md" || item.path.startsWith("docs")) return;
-        const li = document.createElement("li");
-        li.innerHTML = `<span class="icon">${getIcon(item.name, item.type)}</span>${item.name}`;
-        li.onclick = () => {
-          if (item.type === "dir") {
-            loadFolder(item.path);
-          } else {
-            window.open(item.html_url, "_blank");
-          }
-        };
-        nav.appendChild(li);
-      });
-    }
-
-    loadFolder();
-  </script>
+  <div class="main">
+    <h2>Navigation</h2>
+    <ul>
+      <li class="folder">Administratif
+        <ul>
+          <li class="file pdf"><a href="01-Administratif/exemple1.pdf" target="_blank">exemple1.pdf</a></li>
+          <li class="file"><a href="01-Administratif/notes.txt" target="_blank">notes.txt</a></li>
+          <li class="folder">Sous-dossier A
+            <ul>
+              <li class="file image"><a href="01-Administratif/Sous-dossier A/image1.png" target="_blank">image1.png</a></li>
+              <li class="file"><a href="01-Administratif/Sous-dossier A/doc1.md" target="_blank">doc1.md</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="folder">Cours
+        <ul>
+          <li class="file pdf"><a href="Cours/cours1.pdf" target="_blank">cours1.pdf</a></li>
+          <li class="file"><a href="Cours/plan.txt" target="_blank">plan.txt</a></li>
+          <li class="folder">Module 1
+            <ul>
+              <li class="file image"><a href="Cours/Module 1/schema.jpg" target="_blank">schema.jpg</a></li>
+              <li class="file"><a href="Cours/Module 1/intro.md" target="_blank">intro.md</a></li>
+              <li class="folder">Exercices
+                <ul>
+                  <li class="file"><a href="Cours/Module 1/Exercices/ex1.txt" target="_blank">ex1.txt</a></li>
+                  <li class="file pdf"><a href="Cours/Module 1/Exercices/ex2.pdf" target="_blank">ex2.pdf</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>
