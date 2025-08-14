@@ -229,11 +229,5 @@ html_content = """
 </html>
 """
 
-# Save the updated HTML to docs/index.html
-import os
-os.makedirs("docs", exist_ok=True)
-with open("docs/index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
 
-print("Le fichier index.html a été recréé sans le logo 'logo-2.png' dans la galerie.")
 
