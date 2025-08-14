@@ -1,123 +1,94 @@
-<!DOCTYPE html>
+import os
+
+# HTML template with dynamic GitHub tree loading
+html_content = """<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>EPSIC Students Explorer</title>
+  <title>EPSIC Students</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: white;
-      color: #333;
+      margin: 0;
+      padding: 0;
     }
     header {
-      background: #005a9c;
+      background-color: #004080;
       color: white;
       padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo-container {
       display: flex;
       align-items: center;
     }
     header img {
       height: 40px;
-      margin-right: 10px;
+      margin-right: 15px;
     }
-    nav {
-      display: flex;
-      align-items: center;
+    h1 {
+      margin: 0;
     }
-    nav select {
-      padding: 5px;
-      border-radius: 4px;
-      border: none;
-      margin-left: 10px;
-    }
-    .main {
+    .container {
       padding: 20px;
     }
-    .tree {
+    .section h2 {
+      color: #004080;
+    }
+    #qr-section img {
+      width: 200px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    #qr-section img:hover {
+      transform: scale(1.1);
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0066cc;
+    }
+    ul {
       list-style-type: none;
       padding-left: 0;
     }
-    .tree li {
+    li {
       margin: 5px 0;
-    }
-    .tree li span {
       cursor: pointer;
-      padding-left: 5px;
+      color: #004080;
     }
-    .indent-1 { margin-left: 20px; }
-    .indent-2 { margin-left: 40px; }
-    .indent-3 { margin-left: 60px; }
-    .indent-4 { margin-left: 80px; }
-    .indent-5 { margin-left: 100px; }
-    .indent-6 { margin-left: 120px; }
-    .indent-7 { margin-left: 140px; }
-    .icon-folder::before {
-      content: "📁 ";
+    li:hover {
+      text-decoration: underline;
     }
-    .icon-file::before {
-      content: "📄 ";
-    }
-    .icon-pdf::before {
-      content: "📑 ";
-    }
-    .icon-img::before {
-      content: "🖼️ ";
-    }
-    .download-btn {
-      margin-top: 10px;
-      display: inline-block;
-      padding: 6px 12px;
-      background: #005a9c;
-      color: white;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .qr-section {
-      text-align: center;
-      margin: 20px;
-    }
-    .qr-section img {
-      height: 200px;
-      cursor: pointer;
+    .tree-item {
+      margin-left: calc(var(--level) * 20px);
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="logo-2.png" alt="Logo EPSIC">
-      <h1 id="title">EPSIC Students</h1>
-    </div>
-    <nav>
-      <label for="lang">🌐</label>
-      <select id="lang" onchange="switchLanguage()">
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-      </select>
-    </nav>
+    <img src="logo-2.png" alt="Logo EPSIC">
+    <h1>EPSIC Students</h1>
   </header>
-
-  <div class="qr-section">
-    <p>QR Code</p>
-    <a href="qr-github.png" target="_blank">
-      <img src="qr-github.png" alt="QR Code">
-    </a>
-    <br>
-    <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
+  <div class="container">
+    <div class="section" id="qr-section">
+      <h2>QR Code du site</h2>
+      <a href="qr-github.png" target="_blank">
+        <img src="qr-github.png" alt="QR Code">
+      </a>
+      <br>
+      <a href="qr-github.png" download="qr-github.png">
+        <button>Télécharger le QR code</button>
+      </a>
+    </div>
+    <div class="section" id="navigation">
+      <h2>Navigation</h2>
+      <ul id="tree-view"></ul>
+    </div>
   </div>
-
-  <div class="main">
-    <h2 id="nav-title">Navigation</h2>
-    <ul class="tree" id="file-tree"></ul>
-  </div>
-
   <script>
     const repo = "epsic-students";
     const user = "garibobo";
@@ -126,53 +97,26 @@
     async function fetchTree(path = "", level = 0) {
       const res = await fetch(apiBase + path);
       const data = await res.json();
-      if (!Array.isArray(data)) return;
-
       for (const item of data) {
         if (item.name.toLowerCase() === "readme.md" || item.path.startsWith("docs")) continue;
-
         const li = document.createElement("li");
-        li.className = `indent-${level}`;
-        const span = document.createElement("span");
-
+        li.style.setProperty("--level", level);
+        li.className = "tree-item";
         if (item.type === "dir") {
-          span.className = "icon-folder";
-          span.textContent = item.name;
-          li.appendChild(span);
-          document.getElementById("file-tree").appendChild(li);
-          await fetchTree(item.path, Math.min(level + 1, 7));
+          li.textContent = "📁 " + item.name;
+          document.getElementById("tree-view").appendChild(li);
+          await fetchTree(item.path, level + 1);
         } else {
-          const ext = item.name.split('.').pop().toLowerCase();
-          if (["png", "jpg", "jpeg", "gif"].includes(ext)) {
-            span.className = "icon-img";
-          } else if (ext === "pdf") {
-            span.className = "icon-pdf";
-          } else {
-            span.className = "icon-file";
-          }
-          const link = document.createElement("a");
-          link.href = item.html_url;
-          link.target = "_blank";
-          link.textContent = item.name;
-          span.appendChild(link);
-          li.appendChild(span);
-          document.getElementById("file-tree").appendChild(li);
+          let icon = "📄";
+          if (/\.(png|jpg|jpeg|gif)$/i.test(item.name)) icon = "🖼️";
+          else if (/\.pdf$/i.test(item.name)) icon = "📑";
+          li.innerHTML = `${icon} <a href="${item.html_url}" target="_blank">${item.name}</a>`;
+          document.getElementById("tree-view").appendChild(li);
         }
       }
     }
 
     fetchTree();
-
-    function switchLanguage() {
-      const lang = document.getElementById('lang').value;
-      if (lang === 'en') {
-        document.getElementById('title').textContent = 'EPSIC Students';
-        document.getElementById('nav-title').textContent = 'Navigation';
-      } else {
-        document.getElementById('title').textContent = 'EPSIC Students';
-        document.getElementById('nav-title').textContent = 'Navigation';
-      }
-    }
   </script>
 </body>
 </html>
