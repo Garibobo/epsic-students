@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>EPSIC Students Explorer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+      color: #333;
+    }
+    header {
+      background: #005a9c;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav select {
+      padding: 5px;
+      border-radius: 4px;
+      border: none;
+      margin-left: 10px;
+    }
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      height: calc(100vh - 60px);
+    }
+    #sidebar, #subfolders, #preview {
+      padding: 20px;
+      overflow-y: auto;
+      border-right: 1px solid #ccc;
+    }
+    #sidebar {
+      width: 20%;
+      background: #f0f0f0;
+    }
+    #subfolders {
+      width: 30%;
+      background: #fafafa;
+    }
+    #preview {
+      flex-grow: 1;
+      background: #fff;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .item {
+      cursor: pointer;
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .item:hover {
+      background: #e0e0e0;
+    }
+    .link {
+      color: #005a9c;
+      text-decoration: none;
+    }
+    .logo-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 20px;
+    }
+    .logo-box {
+      text-align: center;
+    }
+    .logo-box img {
+      height: 80px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .fullscreen-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .fullscreen-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .download-btn {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 6px 12px;
+      background: #005a9c;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="logo-2.png" alt="Logo EPSIC">
+      <h1 id="title">EPSIC Students</h1>
+    </div>
+    <nav>
+      <label for="lang">🌐</label>
+      <select id="lang" onchange="switchLanguage()">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+    </nav>
+  </header>
+
+  <div class="logo-gallery">
+    <div class="logo-box">
+      <p>QR Code</p>
+      <img src="qr-github.png" alt="QR Code" onclick="openFullscreen(this)">
+      <br>
+      <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
+    </div>
+    <div class="logo-box">
+      <img src="logo-2.png" alt="Logo" onclick="openFullscreen(this)">
+    </div>
+  </div>
+
+  <div class="main">
+    <div id="sidebar">
+      <h2 id="folders-title">Dossiers</h2>
+      <div class="item" onclick="loadSubfolders('00-Administratif')">📁 <span id="folder1">Administratif</span></div>
+      <div class="item" onclick="loadSubfolders('01-Cours')">📁 <span id="folder2">Cours</span></div>
+    </div>
+
+    <div id="subfolders">
+      <h2 id="subfolders-title">Sous-dossiers</h2>
+      <div id="subfolder-list">Sélectionnez un dossier à gauche</div>
+    </div>
+
+    <div id="preview">
+      <h2 id="preview-title">Prévisualisation</h2>
+      <div id="file-preview">Sélectionnez un fichier pour le prévisualiser</div>
+    </div>
+  </div>
+
+  <script>
+    function loadSubfolders(folder) {
+      const subfolderList = document.getElementById('subfolder-list');
+      subfolderList.innerHTML = `
+        <div class="item" onclick="previewFile('${folder}/exemple1.md')">📄 exemple1.md</div>
+        <div class="item" onclick="previewFile('${folder}/exemple2.pdf')">📄 exemple2.pdf</div>
+        <div class="item" onclick="previewFile('${folder}/notes.txt')">📄 notes.txt</div>
+      `;
+    }
+
+    function previewFile(path) {
+      const preview = document.getElementById('file-preview');
+      preview.innerHTML = `
+        <p><strong>Fichier :</strong> ${path}</p>
+        <p><a class="link" href="https://github.com/Garibobo/epsic-students/blob/main/${path}" target="_blank">🔗 Voir sur GitHub</a></p>
+        <iframe src="https://github.com/Garibobo/epsic-students/blob/main/${path}" width="100%" height="400px"></iframe>
+      `;
+    }
+
+    function openFullscreen(img) {
+      const overlay = document.createElement('div');
+      overlay.className = 'fullscreen-overlay';
+      overlay.onclick = () => document.body.removeChild(overlay);
+
+      const fullImg = document.createElement('img');
+      fullImg.src = img.src;
+      overlay.appendChild(fullImg);
+
+      document.body.appendChild(overlay);
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById('lang').value;
+      if (lang === 'en') {
+        document.getElementById('title').textContent = 'EPSIC Students';
+        document.getElementById('folders-title').textContent = 'Folders';
+        document.getElementById('folder1').textContent = 'Administrative';
+        document.getElementById('folder2').textContent = 'Courses';
+        document.getElementById('subfolders-title').textContent = 'Subfolders';
+        document.getElementById('preview-title').textContent = 'Preview';
+        document.getElementById('subfolder-list').textContent = 'Select a folder on the left';
+        document.getElementById('file-preview').textContent = 'Select a file to preview';
+      } else {
+        document.getElementById('title').textContent = 'EPSIC Students';
+        document.getElementById('folders-title').textContent = 'Dossiers';
+        document.getElementById('folder1').textContent = 'Administratif';
+        document.getElementById('folder2').textContent = 'Cours';
+        document.getElementById('subfolders-title').textContent = 'Sous-dossiers';
+        document.getElementById('preview-title').textContent = 'Prévisualisation';
+        document.getElementById('subfolder-list').textContent = 'Sélectionnez un dossier à gauche';
+        document.getElementById('file-preview').textContent = 'Sélectionnez un fichier pour le prévisualiser';
+      }
+    }
+  </script>
+</body>
+</html>
