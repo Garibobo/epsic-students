@@ -16,51 +16,58 @@
       padding: 10px 20px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
     }
     header img {
       height: 40px;
       margin-right: 10px;
     }
-    h1 {
-      margin: 0;
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav select {
+      padding: 5px;
+      border-radius: 4px;
+      border: none;
+      margin-left: 10px;
     }
     .main {
       padding: 20px;
     }
-    ul {
+    .tree {
       list-style-type: none;
-      padding-left: 20px;
+      padding-left: 0;
     }
-    li {
+    .tree li {
       margin: 5px 0;
-      cursor: pointer;
     }
-    .folder::before {
+    .tree li span {
+      cursor: pointer;
+      padding-left: 5px;
+    }
+    .indent-1 { margin-left: 20px; }
+    .indent-2 { margin-left: 40px; }
+    .indent-3 { margin-left: 60px; }
+    .indent-4 { margin-left: 80px; }
+    .indent-5 { margin-left: 100px; }
+    .indent-6 { margin-left: 120px; }
+    .indent-7 { margin-left: 140px; }
+    .icon-folder::before {
       content: "📁 ";
     }
-    .file::before {
+    .icon-file::before {
       content: "📄 ";
     }
-    .file.pdf::before {
+    .icon-pdf::before {
       content: "📑 ";
     }
-    .file.image::before {
+    .icon-img::before {
       content: "🖼️ ";
-    }
-    a {
-      text-decoration: none;
-      color: #005a9c;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .qr-section {
-      margin: 20px;
-      text-align: center;
-    }
-    .qr-section img {
-      width: 200px;
-      cursor: pointer;
     }
     .download-btn {
       margin-top: 10px;
@@ -72,12 +79,29 @@
       text-decoration: none;
       font-size: 14px;
     }
+    .qr-section {
+      text-align: center;
+      margin: 20px;
+    }
+    .qr-section img {
+      height: 200px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo-2.png" alt="Logo EPSIC">
-    <h1>EPSIC Students</h1>
+    <div class="logo-container">
+      <img src="logo-2.png" alt="Logo EPSIC">
+      <h1 id="title">EPSIC Students</h1>
+    </div>
+    <nav>
+      <label for="lang">🌐</label>
+      <select id="lang" onchange="switchLanguage()">
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+    </nav>
   </header>
 
   <div class="qr-section">
@@ -90,39 +114,65 @@
   </div>
 
   <div class="main">
-    <h2>Navigation</h2>
-    <ul>
-      <li class="folder">Administratif
-        <ul>
-          <li class="file pdf"><a href="01-Administratif/exemple1.pdf" target="_blank">exemple1.pdf</a></li>
-          <li class="file"><a href="01-Administratif/notes.txt" target="_blank">notes.txt</a></li>
-          <li class="folder">Sous-dossier A
-            <ul>
-              <li class="file image"><a href="01-Administratif/Sous-dossier A/image1.png" target="_blank">image1.png</a></li>
-              <li class="file"><a href="01-Administratif/Sous-dossier A/doc1.md" target="_blank">doc1.md</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="folder">Cours
-        <ul>
-          <li class="file pdf"><a href="Cours/cours1.pdf" target="_blank">cours1.pdf</a></li>
-          <li class="file"><a href="Cours/plan.txt" target="_blank">plan.txt</a></li>
-          <li class="folder">Module 1
-            <ul>
-              <li class="file image"><a href="Cours/Module 1/schema.jpg" target="_blank">schema.jpg</a></li>
-              <li class="file"><a href="Cours/Module 1/intro.md" target="_blank">intro.md</a></li>
-              <li class="folder">Exercices
-                <ul>
-                  <li class="file"><a href="Cours/Module 1/Exercices/ex1.txt" target="_blank">ex1.txt</a></li>
-                  <li class="file pdf"><a href="Cours/Module 1/Exercices/ex2.pdf" target="_blank">ex2.pdf</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <h2 id="nav-title">Navigation</h2>
+    <ul class="tree" id="file-tree"></ul>
   </div>
+
+  <script>
+    const repo = "epsic-students";
+    const user = "garibobo";
+    const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
+
+    async function fetchTree(path = "", level = 0) {
+      const res = await fetch(apiBase + path);
+      const data = await res.json();
+      if (!Array.isArray(data)) return;
+
+      for (const item of data) {
+        if (item.name.toLowerCase() === "readme.md" || item.path.startsWith("docs")) continue;
+
+        const li = document.createElement("li");
+        li.className = `indent-${level}`;
+        const span = document.createElement("span");
+
+        if (item.type === "dir") {
+          span.className = "icon-folder";
+          span.textContent = item.name;
+          li.appendChild(span);
+          document.getElementById("file-tree").appendChild(li);
+          await fetchTree(item.path, Math.min(level + 1, 7));
+        } else {
+          const ext = item.name.split('.').pop().toLowerCase();
+          if (["png", "jpg", "jpeg", "gif"].includes(ext)) {
+            span.className = "icon-img";
+          } else if (ext === "pdf") {
+            span.className = "icon-pdf";
+          } else {
+            span.className = "icon-file";
+          }
+          const link = document.createElement("a");
+          link.href = item.html_url;
+          link.target = "_blank";
+          link.textContent = item.name;
+          span.appendChild(link);
+          li.appendChild(span);
+          document.getElementById("file-tree").appendChild(li);
+        }
+      }
+    }
+
+    fetchTree();
+
+    function switchLanguage() {
+      const lang = document.getElementById('lang').value;
+      if (lang === 'en') {
+        document.getElementById('title').textContent = 'EPSIC Students';
+        document.getElementById('nav-title').textContent = 'Navigation';
+      } else {
+        document.getElementById('title').textContent = 'EPSIC Students';
+        document.getElementById('nav-title').textContent = 'Navigation';
+      }
+    }
+  </script>
 </body>
 </html>
