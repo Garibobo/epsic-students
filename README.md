@@ -8,5 +8,5 @@ Plateforme d'aide pour l'apprentissage des apprenant.e.s du domaine de l'électr
 
 
 <img src="[[![Uploading qr-github.png…]
-](https://www.canva.com/design/DAGr3kpSXBE/hqjFz3_2-Hmj4Jv_VPJwNA/edit?utm_content=DAGr3kpSXBE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)](https://www.canva.com/design/DAGr3kpSXBE/hqjFz3_2-Hmj4Jv_VPJwNA/edit?utm_content=DAGr3kpSXBE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)" alt="https://github.com/Garibobo/epsic-students"> alt="[https://garibobo.github.io/epsic-students/](https://garibobo.github.io/epsic-students/)">
+](https://www.canva.com/design/DAGr3kpSXBE/hqjFz3_2-Hmj4Jv_VPJwNA/edit?utm_content=DAGr3kpSXBE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)](https://www.canva.com/design/DAGr3kpSXBE/hqjFz3_2-Hmj4Jv_VPJwNA/edit?utm_content=DAGr3kpSXBE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)" alt="https://github.com/Garibobo/epsic-students"> alt="[(https://garibobo.github.io/epsic-students/)">
 </a>
