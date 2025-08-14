@@ -1,233 +1,126 @@
-html_content = """
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>EPSIC Students Explorer</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: white;
-      color: #333;
-    }
-    header {
-      background: #005a9c;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    header img {
-      height: 40px;
-      margin-right: 10px;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-    }
-    nav select {
-      padding: 5px;
-      border-radius: 4px;
-      border: none;
-      margin-left: 10px;
-    }
-    .main {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      height: auto;
-    }
-    #sidebar, #subfolders, #preview {
-      padding: 20px;
-      overflow-y: auto;
-      border-right: 1px solid #ccc;
-      min-width: 300px;
-      flex: 1;
-    }
-    #sidebar {
-      background: #f0f0f0;
-    }
-    #subfolders {
-      background: #fafafa;
-    }
-    #preview {
-      background: #fff;
-    }
-    h2 {
-      margin-top: 0;
-    }
-    .item {
-      cursor: pointer;
-      margin: 10px 0;
-      padding: 8px;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-    .item:hover {
-      background: #e0e0e0;
-    }
-    .link {
-      color: #005a9c;
-      text-decoration: none;
-    }
-    .gallery {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px;
-      flex-wrap: wrap;
-    }
-    .gallery div {
-      text-align: center;
-    }
-    .gallery img {
-      height: 80px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.1);
-    }
-    .download-btn {
-      margin-top: 10px;
-      display: inline-block;
-      padding: 6px 12px;
-      background-color: #005a9c;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    @media (max-width: 768px) {
-      .main {
-        flex-direction: column;
-      }
-      #sidebar, #subfolders, #preview {
-        min-width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>EPSIC Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 40px;
+            margin-right: 15px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #004080;
+        }
+        #qr-section img {
+            width: 200px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        #qr-section img:hover {
+            transform: scale(1.1);
+        }
+        #file-viewer {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            white-space: pre-wrap;
+            background-color: #f9f9f9;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0066cc;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 5px 0;
+            cursor: pointer;
+            color: #004080;
+        }
+        li:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <img src="logo-2.png" alt="Logo EPSIC">
-      <h1 id="title">EPSIC Students</h1>
+    <header>
+        <img src="logo-2.png" alt="Logo EPSIC">
+        <h1>EPSIC Students</h1>
+    </header>
+    <div class="container">
+        <div class="section" id="qr-section">
+            <h2>QR Code du site</h2>
+            <img src="qr-github.png" alt="QR Code" id="qr-image">
+            <br>
+            <a href="qr-github.png" download="qr-github.png">
+                <button>Télécharger le QR code</button>
+            </a>
+        </div>
+        <div class="section" id="navigation">
+            <h2>Navigation dans les dossiers</h2>
+            <ul id="folders">
+                <li onclick="loadFolder('Administratif')">📁 Administratif</li>
+                <li onclick="loadFolder('Cours')">📁 Cours</li>
+            </ul>
+            <ul id="files"></ul>
+            <div id="file-viewer"></div>
+        </div>
     </div>
-    <nav>
-      <label for="lang">🌐</label>
-      <select id="lang" onchange="switchLanguage()">
-        <option value="fr">Français</option>
-        <option value="en">English</option>
-      </select>
-    </nav>
-  </header>
+    <script>
+        const repo = "epsic-students";
+        const user = "garibobo";
+        const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
 
-  <div class="gallery">
-    <div>
-      <p style="text-align: center;">QR Code</p>
-      <img src="qr-github.png" alt="QR Code" onclick="openFullscreen(this)">
-      <br>
-      <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
-    </div>
-  </div>
+        async function loadFolder(folder) {
+            const res = await fetch(apiBase + folder);
+            const data = await res.json();
+            const filesList = document.getElementById("files");
+            filesList.innerHTML = "";
+            data.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item.name;
+                li.onclick = () => loadFile(item.path);
+                filesList.appendChild(li);
+            });
+        }
 
-  <div class="main">
-    <div id="sidebar">
-      <h2 id="folders-title">Dossiers</h2>
-      <div class="item" onclick="loadSubfolders('00-Administratif')">📁 <span id="folder1">Administratif</span></div>
-      <div class="item" onclick="loadSubfolders('01-Cours')">📁 <span id="folder2">Cours</span></div>
-    </div>
-
-    <div id="subfolders">
-      <h2 id="subfolders-title">Sous-dossiers</h2>
-      <div id="subfolder-list">Sélectionnez un dossier à gauche</div>
-    </div>
-
-    <div id="preview">
-      <h2 id="preview-title">Prévisualisation</h2>
-      <div id="file-preview">Sélectionnez un fichier pour le prévisualiser</div>
-    </div>
-  </div>
-
-  <script>
-    function loadSubfolders(folder) {
-      const subfolderList = document.getElementById('subfolder-list');
-      subfolderList.innerHTML = `
-        <div class="item" onclick="previewFile('${folder}/exemple1.md')">📄 exemple1.md</div>
-        <div class="item" onclick="previewFile('${folder}/exemple2.pdf')">📄 exemple2.pdf</div>
-        <div class="item" onclick="previewFile('${folder}/notes.txt')">📄 notes.txt</div>
-      `;
-    }
-
-    function previewFile(path) {
-      const preview = document.getElementById('file-preview');
-      preview.innerHTML = `
-        <p><strong>Fichier :</strong> ${path}</p>
-        <p><a class="link" href="https://github.com/Garibobo/epsic-students/blob/main/${path}" target="_blank">🔗 Voir sur GitHub</a></p>
-        <iframe src="https://github.com/Garibobo/epsic-students/blob/main/${path}" width="100%" height="400px"></iframe>
-      `;
-    }
-
-    function switchLanguage() {
-      const lang = document.getElementById('lang').value;
-      if (lang === 'en') {
-        document.getElementById('title').textContent = 'EPSIC Students';
-        document.getElementById('folders-title').textContent = 'Folders';
-        document.getElementById('folder1').textContent = 'Administrative';
-        document.getElementById('folder2').textContent = 'Courses';
-        document.getElementById('subfolders-title').textContent = 'Subfolders';
-        document.getElementById('preview-title').textContent = 'Preview';
-        document.getElementById('subfolder-list').textContent = 'Select a folder on the left';
-        document.getElementById('file-preview').textContent = 'Select a file to preview';
-      } else {
-        document.getElementById('title').textContent = 'EPSIC Students';
-        document.getElementById('folders-title').textContent = 'Dossiers';
-        document.getElementById('folder1').textContent = 'Administratif';
-        document.getElementById('folder2').textContent = 'Cours';
-        document.getElementById('subfolders-title').textContent = 'Sous-dossiers';
-        document.getElementById('preview-title').textContent = 'Prévisualisation';
-        document.getElementById('subfolder-list').textContent = 'Sélectionnez un dossier à gauche';
-        document.getElementById('file-preview').textContent = 'Sélectionnez un fichier pour le prévisualiser';
-      }
-    }
-
-    function openFullscreen(img) {
-      const fullscreen = document.createElement('div');
-      fullscreen.style.position = 'fixed';
-      fullscreen.style.top = 0;
-      fullscreen.style.left = 0;
-      fullscreen.style.width = '100vw';
-      fullscreen.style.height = '100vh';
-      fullscreen.style.background = 'rgba(0,0,0,0.9)';
-      fullscreen.style.display = 'flex';
-      fullscreen.style.alignItems = 'center';
-      fullscreen.style.justifyContent = 'center';
-      fullscreen.style.zIndex = 9999;
-      fullscreen.style.animation = 'fadeIn 0.3s ease';
-      fullscreen.onclick = () => document.body.removeChild(fullscreen);
-
-      const fullImg = document.createElement('img');
-      fullImg.src = img.src;
-      fullImg.style.maxWidth = '90%';
-      fullImg.style.maxHeight = '90%';
-      fullImg.style.border = '4px solid white';
-      fullImg.style.borderRadius = '8px';
-      fullscreen.appendChild(fullImg);
-
-      document.body.appendChild(fullscreen);
-    }
-  </script>
+        async function loadFile(path) {
+            const res = await fetch(apiBase + path);
+            const data = await res.json();
+            const content = atob(data.content);
+            document.getElementById("file-viewer").textContent = content;
+        }
+    </script>
 </body>
 </html>
-"""
-
-
-
