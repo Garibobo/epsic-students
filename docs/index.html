@@ -37,30 +37,56 @@
       margin-left: 10px;
     }
     .main {
+      display: flex;
+      flex-direction: column;
       padding: 20px;
     }
-    ul {
-      list-style-type: none;
-      padding-left: 20px;
-    }
-    li {
+    .item {
       cursor: pointer;
       margin: 5px 0;
+      padding: 6px;
+      border-radius: 4px;
+      transition: background 0.2s;
     }
-    .folder {
-      font-weight: bold;
+    .item:hover {
+      background: #e0e0e0;
+    }
+    .link {
       color: #005a9c;
+      text-decoration: none;
     }
-    .file {
-      color: #333;
-    }
-    .qr-section {
+    .logo-gallery {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
       margin: 20px;
+    }
+    .logo-box {
       text-align: center;
     }
-    .qr-section img {
-      height: 200px;
+    .logo-box img {
+      height: 80px;
       cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .fullscreen-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .fullscreen-overlay img {
+      max-width: 90%;
+      max-height: 90%;
     }
     .download-btn {
       margin-top: 10px;
@@ -71,6 +97,12 @@
       border-radius: 4px;
       text-decoration: none;
       font-size: 14px;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -89,18 +121,23 @@
     </nav>
   </header>
 
-  <div class="qr-section">
-    <p>QR Code</p>
-    <a href="qr-github.png" target="_blank">
-      <img src="qr-github.png" alt="QR Code">
-    </a>
-    <br>
-    <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
+  <div class="logo-gallery">
+    <div class="logo-box">
+      <p>QR Code</p>
+      <a href="qr-github.png" target="_blank">
+        <img src="qr-github.png" alt="QR Code">
+      </a>
+      <br>
+      <a href="qr-github.png" download class="download-btn">📥 Télécharger</a>
+    </div>
   </div>
 
   <div class="main">
     <h2 id="folders-title">Dossiers</h2>
-    <ul id="tree-root"></ul>
+    <div class="item" onclick="loadFolder('01-Administratif')">📁 <span id="folder1">Administratif</span></div>
+    <div class="item" onclick="loadFolder('Cours')">📁 <span id="folder2">Cours</span></div>
+    <div id="file-list"></div>
+    <iframe id="preview-frame" src=""></iframe>
   </div>
 
   <script>
@@ -108,47 +145,40 @@
     const user = "garibobo";
     const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
 
-    async function fetchTree(path, parentElement, level = 0) {
-      if (level > 6) return;
-      const res = await fetch(apiBase + path);
+    async function loadFolder(folder) {
+      const res = await fetch(apiBase + folder);
       const data = await res.json();
+      const fileList = document.getElementById("file-list");
+      fileList.innerHTML = "";
       data.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item.name;
-        if (item.type === "dir") {
-          li.className = "folder";
-          const subUl = document.createElement("ul");
-          li.onclick = async (e) => {
-            e.stopPropagation();
-            if (subUl.childElementCount === 0) {
-              await fetchTree(item.path, subUl, level + 1);
-            } else {
-              subUl.innerHTML = "";
-            }
-          };
-          li.appendChild(subUl);
-        } else {
-          li.className = "file";
-          li.onclick = () => {
-            window.open(item.html_url, "_blank");
-          };
-        }
-        parentElement.appendChild(li);
+        const div = document.createElement("div");
+        div.className = "item";
+        div.textContent = item.name;
+        div.onclick = () => previewFile(item.path);
+        fileList.appendChild(div);
       });
     }
 
-    fetchTree("", document.getElementById("tree-root"));
+    function previewFile(path) {
+      const iframe = document.getElementById("preview-frame");
+      iframe.src = `https://garibobo.github.io/epsic-students/${path}`;
+    }
 
     function switchLanguage() {
       const lang = document.getElementById('lang').value;
       if (lang === 'en') {
         document.getElementById('title').textContent = 'EPSIC Students';
         document.getElementById('folders-title').textContent = 'Folders';
+        document.getElementById('folder1').textContent = 'Administrative';
+        document.getElementById('folder2').textContent = 'Courses';
       } else {
         document.getElementById('title').textContent = 'EPSIC Students';
         document.getElementById('folders-title').textContent = 'Dossiers';
+        document.getElementById('folder1').textContent = 'Administratif';
+        document.getElementById('folder2').textContent = 'Cours';
       }
     }
   </script>
 </body>
 </html>
+
