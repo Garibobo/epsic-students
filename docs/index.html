@@ -31,22 +31,10 @@
     }
     #qr-section img {
       width: 200px;
-      transition: transform 0.3s ease;
       cursor: pointer;
     }
-    #qr-section img:hover {
-      transform: scale(1.1);
-    }
-    button {
-      margin-top: 10px;
-      padding: 8px 12px;
-      background-color: #004080;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0066cc;
+    #navigation {
+      margin-top: 30px;
     }
     ul {
       list-style-type: none;
@@ -56,14 +44,12 @@
       margin: 5px 0;
       cursor: pointer;
     }
-    .indent-0 { margin-left: 0px; }
-    .indent-1 { margin-left: 20px; }
-    .indent-2 { margin-left: 40px; }
-    .indent-3 { margin-left: 60px; }
-    .indent-4 { margin-left: 80px; }
-    .indent-5 { margin-left: 100px; }
-    .indent-6 { margin-left: 120px; }
-    .indent-7 { margin-left: 140px; }
+    .folder {
+      color: #004080;
+    }
+    .file {
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -82,51 +68,55 @@
         <button>Télécharger le QR code</button>
       </a>
     </div>
-    <div class="section">
+    <div class="section" id="navigation">
       <h2>Navigation</h2>
-      <ul id="navigation"></ul>
+      <ul id="tree"></ul>
     </div>
   </div>
   <script>
-    const repo = "epsic-students";
     const user = "garibobo";
+    const repo = "epsic-students";
     const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
 
-    function getIcon(name, type) {
-      if (type === "dir") return "📁";
-      if (/\.(jpg|jpeg|png|gif)$/i.test(name)) return "🖼️";
-      if (/\.pdf$/i.test(name)) return "📑";
-      return "📄";
-    }
-
-    async function fetchTree(path = "", level = 0, parentUl) {
+    async function fetchTree(path = "", level = 0) {
       try {
         const res = await fetch(apiBase + path);
         const data = await res.json();
+        if (!Array.isArray(data)) return;
+
+        const ul = document.createElement("ul");
+        ul.style.paddingLeft = `${20 * level}px`;
+
         for (const item of data) {
           if (item.name.toLowerCase() === "readme.md" || item.path.startsWith("docs")) continue;
+
           const li = document.createElement("li");
-          li.className = `indent-${Math.min(level, 7)}`;
-          li.textContent = `${getIcon(item.name, item.type)} ${item.name}`;
-          if (item.type === "file") {
-            li.onclick = () => window.open(item.html_url, "_blank");
-          }
-          parentUl.appendChild(li);
+          li.textContent = item.name;
+
           if (item.type === "dir") {
-            const subUl = document.createElement("ul");
-            parentUl.appendChild(subUl);
-            await fetchTree(item.path, level + 1, subUl);
+            li.className = "folder";
+            ul.appendChild(li);
+            const subTree = await fetchTree(item.path, level + 1);
+            if (subTree) ul.appendChild(subTree);
+          } else {
+            li.className = "file";
+            li.onclick = () => window.open(item.html_url, "_blank");
+            ul.appendChild(li);
           }
         }
-      } catch (e) {
-        console.error("Erreur lors du chargement :", e);
+        return ul;
+      } catch (error) {
+        console.error("Erreur lors du chargement :", error);
       }
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const nav = document.getElementById("navigation");
-      fetchTree("", 0, nav);
-    });
+    async function initTree() {
+      const treeContainer = document.getElementById("tree");
+      const tree = await fetchTree();
+      if (tree) treeContainer.appendChild(tree);
+    }
+
+    initTree();
   </script>
 </body>
 </html>
