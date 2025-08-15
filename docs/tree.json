@@ -5,10 +5,30 @@
     "icon": "folder",
     "children": [
       {
-        "type": "file",
-        "name": "planning.pdf",
-        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/planning.pdf",
-        "icon": "file"
+        "type": "folder",
+        "name": "Planning",
+        "icon": "folder",
+        "children": [
+          {
+            "type": "file",
+            "name": "2023-2024.pdf",
+            "icon": "doc",
+            "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/Planning/2023-2024.pdf"
+          }
+        ]
+      },
+      {
+        "type": "folder",
+        "name": "Notes",
+        "icon": "folder",
+        "children": [
+          {
+            "type": "file",
+            "name": "Élèves.xlsx",
+            "icon": "file",
+            "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/Notes/Élèves.xlsx"
+          }
+        ]
       }
     ]
   },
@@ -25,8 +45,8 @@
           {
             "type": "file",
             "name": "index.html",
-            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/HTML/index.html",
-            "icon": "file"
+            "icon": "file",
+            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/HTML/index.html"
           }
         ]
       },
@@ -38,10 +58,29 @@
           {
             "type": "file",
             "name": "style.css",
-            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/CSS/style.css",
-            "icon": "file"
+            "icon": "file",
+            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/CSS/style.css"
           }
         ]
+      },
+      {
+        "type": "folder",
+        "name": "JS",
+        "icon": "folder",
+        "children": [
+          {
+            "type": "file",
+            "name": "script.js",
+            "icon": "file",
+            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/JS/script.js"
+          }
+        ]
+      },
+      {
+        "type": "file",
+        "name": "README.md",
+        "icon": "doc",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/README.md"
       }
     ]
   }

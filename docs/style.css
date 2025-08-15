@@ -1,10 +1,8 @@
-
 body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
 }
-
 .blue-header {
   background-color: #007BFF;
   color: white;
@@ -13,41 +11,33 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-
 #logo-epsic {
   height: 60px;
   margin-right: 1rem;
 }
-
 .fade-in {
   animation: fadeIn 1s ease-in;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 main {
   padding: 1rem;
 }
-
-#qr-section, #navigation {
-  margin-top: 2rem;
+#qr-section h2, #navigation h2 {
+  margin-bottom: 1rem;
 }
-
 .qr-container {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-
 #qr-code {
   max-width: 150px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 #qr-code.fullscreen {
   position: fixed;
   top: 50%;
@@ -58,34 +48,25 @@ main {
   padding: 1rem;
   border: 2px solid #007BFF;
 }
-
-#searchInput {
+#search-input {
   margin-bottom: 1rem;
   padding: 0.5rem;
   width: 100%;
 }
-
 #folder-tree {
   border: 1px solid #ccc;
   padding: 1rem;
   max-height: 70vh;
   overflow-y: auto;
 }
-
 #back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #007BFF;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
   display: none;
-  border-radius: 5px;
+  padding: 0.5rem 1rem;
 }
-
-#loading-overlay {
+#loader-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -97,15 +78,15 @@ main {
   align-items: center;
   justify-content: center;
 }
-
 .loader {
-  font-size: 1.5rem;
-  color: #007BFF;
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #007BFF;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
 }
-
-@media (max-width: 768px) {
-  .qr-container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

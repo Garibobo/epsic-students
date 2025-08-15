@@ -2,15 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EPSIC Students</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="loading-overlay">
-    <div class="loader">Chargement...</div>
+  <div id="loader-overlay">
+    <div class="loader"></div>
   </div>
-
   <header class="blue-header fade-in">
     <img src="logo-2.png" alt="Logo EPSIC" id="logo-epsic" />
     <h1>EPSIC Students</h1>
@@ -31,13 +30,13 @@
 
     <section id="navigation" class="fade-in">
       <h2>Navigation</h2>
-      <input type="text" id="searchInput" placeholder="Rechercher..." onkeyup="filterTree()" />
+      <input type="text" id="search-input" placeholder="Rechercher..." oninput="filterTree()" />
       <button onclick="toggleAll()">Tout replier/déplier</button>
       <div id="folder-tree"></div>
     </section>
-  </main>
 
-  <button id="back-to-top" onclick="scrollToTop()">⬆ Retour en haut</button>
+    <button id="back-to-top" onclick="scrollToTop()">⬆️</button>
+  </main>
 
   <script src="script.js"></script>
 </body>

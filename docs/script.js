@@ -1,6 +1,38 @@
+let treeData = [];
 
-function setLanguage(lang) {
-  alert("Langue changée en : " + lang);
+function loadTree() {
+  fetch("tree.json")
+    .then(res => res.json())
+    .then(data => {
+      treeData = data;
+      renderTree(treeData, document.getElementById("folder-tree"));
+      document.getElementById("loader-overlay").style.display = "none";
+    });
+}
+
+function renderTree(data, container) {
+  container.innerHTML = "";
+  data.forEach(item => {
+    const el = document.createElement("div");
+    el.className = "tree-item";
+    if (item.type === "folder") {
+      el.innerHTML = `📁 <span class="folder-name">${item.name}</span>`;
+      const childrenContainer = document.createElement("div");
+      childrenContainer.style.marginLeft = "1rem";
+      childrenContainer.style.display = "none";
+      el.appendChild(childrenContainer);
+      el.querySelector(".folder-name").onclick = () => {
+        childrenContainer.style.display = childrenContainer.style.display === "none" ? "block" : "none";
+      };
+      renderTree(item.children, childrenContainer);
+    } else {
+      let icon = "📄";
+      if (item.icon === "image") icon = "🖼️";
+      if (item.icon === "doc") icon = "📑";
+      el.innerHTML = `${icon} <a href="${item.url}" target="_blank">${item.name}</a>`;
+    }
+    container.appendChild(el);
+  });
 }
 
 function toggleQR() {
@@ -15,36 +47,37 @@ function downloadQR() {
   link.click();
 }
 
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-window.onscroll = function () {
-  const btn = document.getElementById("back-to-top");
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-};
-
-window.onload = function () {
-  setTimeout(() => {
-    document.getElementById("loading-overlay").style.display = "none";
-  }, 800);
-};
-
-function toggleAll() {
-  const folders = document.querySelectorAll("#folder-tree details");
-  const expand = !Array.from(folders).every(d => d.open);
-  folders.forEach(d => d.open = expand);
+function setLanguage(lang) {
+  fetch("lang.json")
+    .then(res => res.json())
+    .then(data => {
+      document.querySelector("h1").textContent = data[lang]["title"];
+      document.querySelector("#qr-section h2").textContent = data[lang]["qr"];
+      document.querySelector("#navigation h2").textContent = data[lang]["nav"];
+      document.querySelector("button[onclick*='downloadQR']").textContent = data[lang]["download"];
+      document.querySelector("#search-input").placeholder = data[lang]["search"];
+      document.querySelector("button[onclick*='toggleAll']").textContent = data[lang]["toggle"];
+    });
 }
 
 function filterTree() {
-  const input = document.getElementById("searchInput").value.toLowerCase();
-  const items = document.querySelectorAll("#folder-tree li");
-  items.forEach(item => {
-    const text = item.textContent.toLowerCase();
-    item.style.display = text.includes(input) ? "" : "none";
+  const query = document.getElementById("search-input").value.toLowerCase();
+  const filtered = treeData.filter(item => JSON.stringify(item).toLowerCase().includes(query));
+  renderTree(filtered, document.getElementById("folder-tree"));
+}
+
+function toggleAll() {
+  document.querySelectorAll("#folder-tree div > div").forEach(el => {
+    el.style.display = el.style.display === "none" ? "block" : "none";
   });
 }
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+window.onscroll = () => {
+  document.getElementById("back-to-top").style.display = window.scrollY > 200 ? "block" : "none";
+};
+
+window.onload = loadTree;

@@ -2,15 +2,17 @@
   "fr": {
     "title": "EPSIC Students",
     "qr": "QR Code",
+    "nav": "Navigation",
     "download": "Télécharger le QR code",
-    "navigation": "Navigation",
-    "search": "Rechercher..."
+    "search": "Rechercher...",
+    "toggle": "Tout replier/déplier"
   },
   "en": {
     "title": "EPSIC Students",
     "qr": "QR Code",
+    "nav": "Navigation",
     "download": "Download QR code",
-    "navigation": "Navigation",
-    "search": "Search..."
+    "search": "Search...",
+    "toggle": "Toggle all"
   }
 }
