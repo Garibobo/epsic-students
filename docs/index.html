@@ -2,16 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EPSIC Students</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div id="loader-overlay">
-    <div class="loader"></div>
-  </div>
+  <div id="loader-overlay"><div class="spinner"></div></div>
   <header class="blue-header fade-in">
-    <img src="logo-2.png" alt="Logo EPSIC" id="logo-epsic" />
+    <img src="logo-2.png" alt="Logo EPSIC" id="logo-epsic"/>
     <h1>EPSIC Students</h1>
     <div id="language-selector">
       <button onclick="setLanguage('fr')">Français</button>
@@ -23,21 +21,20 @@
     <section id="qr-section" class="fade-in">
       <h2>QR Code</h2>
       <div class="qr-container">
-        <img src="qr-code.png" alt="QR Code" id="qr-code" onclick="toggleQR()" />
+        <img src="qr-code.png" alt="QR Code" id="qr-code" onclick="toggleQR()"/>
         <button onclick="downloadQR()">Télécharger le QR code</button>
       </div>
     </section>
 
     <section id="navigation" class="fade-in">
       <h2>Navigation</h2>
-      <input type="text" id="search-input" placeholder="Rechercher..." oninput="filterTree()" />
+      <input type="text" id="search" placeholder="Rechercher..."/>
       <button onclick="toggleAll()">Tout replier/déplier</button>
       <div id="folder-tree"></div>
     </section>
-
-    <button id="back-to-top" onclick="scrollToTop()">⬆️</button>
   </main>
 
+  <button id="back-to-top" onclick="scrollToTop()">⬆️</button>
   <script src="script.js"></script>
 </body>
 </html>
