@@ -1,55 +1,31 @@
-<!DOCTYPE html>
+import os
+
+# HTML content with dynamic navigation and exclusions
+html_content = """<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>EPSIC Students</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #004080;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-    }
-    header img {
-      height: 40px;
-      margin-right: 15px;
-    }
-    h1 {
-      margin: 0;
-    }
-    .container {
-      padding: 20px;
-    }
-    .section h2 {
-      color: #004080;
-    }
-    #qr-section img {
-      width: 200px;
-      cursor: pointer;
-    }
-    #navigation {
-      margin-top: 30px;
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    li {
-      margin: 5px 0;
-      cursor: pointer;
-    }
-    .folder {
-      color: #004080;
-    }
-    .file {
-      color: #333;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #004080; color: white; padding: 10px 20px; display: flex; align-items: center; }
+    header img { height: 40px; margin-right: 15px; }
+    h1 { margin: 0; }
+    .container { padding: 20px; }
+    .section { margin-bottom: 30px; }
+    .section h2 { color: #004080; }
+    ul { list-style-type: none; padding-left: 0; }
+    li { margin: 5px 0; cursor: pointer; color: #004080; }
+    li:hover { text-decoration: underline; }
+    .indent-1 { margin-left: 20px; }
+    .indent-2 { margin-left: 40px; }
+    .indent-3 { margin-left: 60px; }
+    .indent-4 { margin-left: 80px; }
+    .indent-5 { margin-left: 100px; }
+    .indent-6 { margin-left: 120px; }
+    .indent-7 { margin-left: 140px; }
+    button { margin-top: 10px; padding: 8px 12px; background-color: #004080; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #0066cc; }
   </style>
 </head>
 <body>
@@ -61,7 +37,7 @@
     <div class="section" id="qr-section">
       <h2>QR Code du site</h2>
       <a href="qr-github.png" target="_blank">
-        <img src="qr-github.png" alt="QR Code">
+        <img src="qr-github.png" alt="QR Code" style="width:200px;">
       </a>
       <br>
       <a href="qr-github.png" download="qr-github.png">
@@ -70,55 +46,49 @@
     </div>
     <div class="section" id="navigation">
       <h2>Navigation</h2>
-      <ul id="tree"></ul>
+      <ul id="file-tree"></ul>
     </div>
   </div>
   <script>
-    const user = "garibobo";
     const repo = "epsic-students";
+    const user = "garibobo";
     const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
 
     async function fetchTree(path = "", level = 0) {
       try {
         const res = await fetch(apiBase + path);
         const data = await res.json();
-        if (!Array.isArray(data)) return;
-
-        const ul = document.createElement("ul");
-        ul.style.paddingLeft = `${20 * level}px`;
-
-        for (const item of data) {
-          if (item.name.toLowerCase() === "readme.md" || item.path.startsWith("docs")) continue;
-
+        data.forEach(item => {
+          if (item.name.toLowerCase() === "readme.md" || item.path.startsWith("docs")) return;
           const li = document.createElement("li");
-          li.textContent = item.name;
-
+          li.className = "indent-" + Math.min(level, 7);
           if (item.type === "dir") {
-            li.className = "folder";
-            ul.appendChild(li);
-            const subTree = await fetchTree(item.path, level + 1);
-            if (subTree) ul.appendChild(subTree);
+            li.textContent = "📁 " + item.name;
+            document.getElementById("file-tree").appendChild(li);
+            fetchTree(item.path, level + 1);
           } else {
-            li.className = "file";
-            li.onclick = () => window.open(item.html_url, "_blank");
-            ul.appendChild(li);
+            let icon = "📄";
+            if (/\.(png|jpg|jpeg|gif)$/i.test(item.name)) icon = "🖼️";
+            else if (/\.pdf$/i.test(item.name)) icon = "📑";
+            li.innerHTML = `${icon} <a href="${item.html_url}" target="_blank">${item.name}</a>`;
+            document.getElementById("file-tree").appendChild(li);
           }
-        }
-        return ul;
+        });
       } catch (error) {
         console.error("Erreur lors du chargement :", error);
       }
     }
 
-    async function initTree() {
-      const treeContainer = document.getElementById("tree");
-      const tree = await fetchTree();
-      if (tree) treeContainer.appendChild(tree);
-    }
-
-    initTree();
+    fetchTree();
   </script>
 </body>
 </html>
+"""
 
+# Save the updated HTML to docs/index.html
+os.makedirs("docs", exist_ok=True)
+with open("docs/index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("✅ Le fichier index.html a été recréé avec navigation dynamique et exclusions de README et /docs.")
 
