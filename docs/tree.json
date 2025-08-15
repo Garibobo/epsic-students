@@ -1,66 +1,2588 @@
 [
   {
-    "type": "folder",
     "name": "00-Administratif",
+    "type": "folder",
     "icon": "📁",
     "children": [
       {
+        "name": "01-AGENDA-25-26-eleve.xlsx",
         "type": "file",
-        "name": "planning.pdf",
-        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/planning.pdf",
-        "icon": "📑"
+        "icon": "📄",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-AGENDA-25-26-eleve.xlsx"
       },
       {
+        "name": "01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES",
+        "type": "folder",
+        "icon": "📁",
+        "children": [
+          {
+            "name": "ELMO",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "CONTROLE NOMBRE DE NOTES ELMO 1.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELMO/CONTROLE NOMBRE DE NOTES ELMO 1.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES ELMO 2.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELMO/CONTROLE NOMBRE DE NOTES ELMO 2.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES ELMO 3.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELMO/CONTROLE NOMBRE DE NOTES ELMO 3.xlsx"
+              },
+              {
+                "name": "ETIQUETTES NUMERIQUES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ELMO_NOTES.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELMO/ETIQUETTES NUMERIQUES/ELMO_NOTES.xlsx"
+                  }
+                ]
+              },
+              {
+                "name": "NOMBRE DE NOTES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES ELMO 1.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELMO/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES ELMO 1.xlsx"
+                  },
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES ELMO 2.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELMO/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES ELMO 2.xlsx"
+                  },
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES ELMO 3.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELMO/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES ELMO 3.xlsx"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "ELRE",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "CONTROLE NOMBRE DE NOTES ELRE 1.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELRE/CONTROLE NOMBRE DE NOTES ELRE 1.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES ELRE 2.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELRE/CONTROLE NOMBRE DE NOTES ELRE 2.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES ELRE 3.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELRE/CONTROLE NOMBRE DE NOTES ELRE 3.xlsx"
+              },
+              {
+                "name": "ETIQUETTES NUMERIQUES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ELRE_NOTES.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELRE/ETIQUETTES NUMERIQUES/ELRE_NOTES.xlsx"
+                  }
+                ]
+              },
+              {
+                "name": "NOMBRE DE NOTES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES ELRE 1.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELRE/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES ELRE 1.xlsx"
+                  },
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES ELRE 2.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELRE/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES ELRE 2.xlsx"
+                  },
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES ELRE 3.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/ELRE/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES ELRE 3.xlsx"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "IELE",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "CONTROLE NOMBRE DE NOTES IELE 1.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/CONTROLE NOMBRE DE NOTES IELE 1.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES IELE 2.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/CONTROLE NOMBRE DE NOTES IELE 2.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES IELE 3.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/CONTROLE NOMBRE DE NOTES IELE 3.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES IELE 4.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/CONTROLE NOMBRE DE NOTES IELE 4.xlsx"
+              },
+              {
+                "name": "ETIQUETTES NUMERIQUES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "IELE_NOTES.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/ETIQUETTES NUMERIQUES/IELE_NOTES.xlsx"
+                  },
+                  {
+                    "name": "IELE_PASS_NOTES.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/ETIQUETTES NUMERIQUES/IELE_PASS_NOTES.xlsx"
+                  }
+                ]
+              },
+              {
+                "name": "NOMBRE DE NOTES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES IELE 1.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES IELE 1.xlsx"
+                  },
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES IELE 2.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES IELE 2.xlsx"
+                  },
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES IELE 3.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES IELE 3.xlsx"
+                  },
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES IELE 4.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/IELE/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES IELE 4.xlsx"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "PELE",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "CONTROLE NOMBRE DE NOTES PELE 1.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/PELE/CONTROLE NOMBRE DE NOTES PELE 1.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES PELE 2.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/PELE/CONTROLE NOMBRE DE NOTES PELE 2.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES PELE 3.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/PELE/CONTROLE NOMBRE DE NOTES PELE 3.xlsx"
+              },
+              {
+                "name": "CONTROLE NOMBRE DE NOTES PELE 4.xlsx",
+                "type": "file",
+                "icon": "📄",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/PELE/CONTROLE NOMBRE DE NOTES PELE 4.xlsx"
+              },
+              {
+                "name": "ETIQUETTES NUMERIQUES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "PELE_NOTES.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/PELE/ETIQUETTES NUMERIQUES/PELE_NOTES.xlsx"
+                  }
+                ]
+              },
+              {
+                "name": "NOMBRE DE NOTES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "CONTROLE NOMBRE DE NOTES PELE 1-2-3-4.xlsx",
+                    "type": "file",
+                    "icon": "📄",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/01-ETIQUETTES + NOMBRE  NOTES SEMESTRIELLES/PELE/NOMBRE DE NOTES/CONTROLE NOMBRE DE NOTES PELE 1-2-3-4.xlsx"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "02-MESURE-D-AMENAGEMENT-COURS",
+        "type": "folder",
+        "icon": "📁",
+        "children": [
+          {
+            "name": "Demander des mesures dys.pdf",
+            "type": "file",
+            "icon": "📑",
+            "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/02-MESURE-D-AMENAGEMENT-COURS/Demander des mesures dys.pdf"
+          },
+          {
+            "name": "Mesure-d-amenagement-examens",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "Flyer_mesures_amenagements_final_2023.pdf",
+                "type": "file",
+                "icon": "📑",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/02-MESURE-D-AMENAGEMENT-COURS/Mesure-d-amenagement-examens/Flyer_mesures_amenagements_final_2023.pdf"
+              },
+              {
+                "name": "Site Mode d'emploi apprenti.pdf",
+                "type": "file",
+                "icon": "📑",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/02-MESURE-D-AMENAGEMENT-COURS/Mesure-d-amenagement-examens/Site Mode d'emploi apprenti.pdf"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "GUIDE_APPRENTISSAGE_INTERACTIF.pdf",
         "type": "file",
-        "name": "notes.xlsx",
-        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/notes.xlsx",
-        "icon": "📄"
+        "icon": "📑",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/GUIDE_APPRENTISSAGE_INTERACTIF.pdf"
+      },
+      {
+        "name": "Guide IA élèves vfinale v.2.pdf",
+        "type": "file",
+        "icon": "📑",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/Guide IA élèves vfinale v.2.pdf"
+      },
+      {
+        "name": "PROCEDURE APPLICATION DGEP.pdf",
+        "type": "file",
+        "icon": "📑",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/PROCEDURE APPLICATION DGEP.pdf"
+      },
+      {
+        "name": "Reglement_interne_EPSIC.pdf",
+        "type": "file",
+        "icon": "📑",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/Reglement_interne_EPSIC.pdf"
+      },
+      {
+        "name": "Règles de conduite dans la classe.V3.2-25-26.pdf",
+        "type": "file",
+        "icon": "📑",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/Règles de conduite dans la classe.V3.2-25-26.pdf"
+      },
+      {
+        "name": "Support-eleve-v2-25.pdf",
+        "type": "file",
+        "icon": "📑",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/Support-eleve-v2-25.pdf"
+      },
+      {
+        "name": "demande-de-conge-absence.jpg",
+        "type": "file",
+        "icon": "🖼️",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/demande-de-conge-absence.jpg"
+      },
+      {
+        "name": "probleme-informatique.jpg",
+        "type": "file",
+        "icon": "🖼️",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/probleme-informatique.jpg"
+      },
+      {
+        "name": "resultats-examens-2021-2024.pdf",
+        "type": "file",
+        "icon": "📑",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/00-Administratif/resultats-examens-2021-2024.pdf"
       }
     ]
   },
   {
-    "type": "folder",
     "name": "01-Cours",
+    "type": "folder",
     "icon": "📁",
     "children": [
       {
+        "name": "01-Iele",
         "type": "folder",
-        "name": "HTML",
         "icon": "📁",
         "children": [
           {
-            "type": "file",
-            "name": "index.html",
-            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/HTML/index.html",
-            "icon": "📄"
+            "name": "1ère année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "01-Schema-DT",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Hager_Kat3_18_Extrait normes.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/01-Schema-DT/Hager_Kat3_18_Extrait normes.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "02-Prévention des accidents-BT",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Exercices-PREVENTION-DES-ACCIDENTS.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/Exercices-PREVENTION-DES-ACCIDENTS.pdf"
+                  },
+                  {
+                    "name": "Support-de-cours-PREVENTION-DES-ACCIDENTS.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/Support-de-cours-PREVENTION-DES-ACCIDENTS.pdf"
+                  },
+                  {
+                    "name": "ch.1-2-généralités",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "ch.1-regles-vitales",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "chantierreglesvitales21659 1  88811_F_Original_fr_21659.pdf.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/ch.1-regles-vitales/chantierreglesvitales21659 1  88811_F_Original_fr_21659.pdf.pdf"
+                          },
+                          {
+                            "name": "dixreglevitalesindustrie84054_F.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/ch.1-regles-vitales/dixreglevitalesindustrie84054_F.pdf"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "liste des accidents 2003-2012.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/liste des accidents 2003-2012.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.3-dangers-électriques",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Filtres ffp3.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/Filtres ffp3.pdf"
+                      },
+                      {
+                        "name": "Protection de l’ouïeSuva.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/Protection de l’ouïeSuva.pdf"
+                      },
+                      {
+                        "name": "amiante.png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/amiante.png"
+                      },
+                      {
+                        "name": "suva_attention_laser (1).pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/suva_attention_laser (1).pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.4-Amiante",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Acidesgazeetc.dangers.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/Acidesgazeetc.dangers.pdf"
+                      },
+                      {
+                        "name": "SUVA-Identifier-et-manipuler-correctement-les-produits-contenant-de-lamiante-84024_F.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/SUVA-Identifier-et-manipuler-correctement-les-produits-contenant-de-lamiante-84024_F.pdf"
+                      },
+                      {
+                        "name": "skate-park-desamiantage",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "20210531_133855.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133855.jpg"
+                          },
+                          {
+                            "name": "20210531_133857.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133857.jpg"
+                          },
+                          {
+                            "name": "20210531_133859.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133859.jpg"
+                          },
+                          {
+                            "name": "20210531_133920.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133920.jpg"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "03-Electrotechnique",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Exercice.1.6-ELECTROTECHNIQUE-FET-1.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/03-Electrotechnique/Exercice.1.6-ELECTROTECHNIQUE-FET-1.pdf"
+                  },
+                  {
+                    "name": "Support-de-cours-ELECTROTECHNIQUE-FET-1.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/03-Electrotechnique/Support-de-cours-ELECTROTECHNIQUE-FET-1.pdf"
+                  },
+                  {
+                    "name": "ch.1-exercices-corriges",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "guide_du_petit_eolien.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/03-Electrotechnique/ch.1-exercices-corriges/guide_du_petit_eolien.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.2-exercices",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "loi-dome-exercices.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/03-Electrotechnique/ch.2-exercices/loi-dome-exercices.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.3-resistances",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Resume-loi-ohm-kirchoff-mailles-noeds.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/03-Electrotechnique/ch.3-resistances/Resume-loi-ohm-kirchoff-mailles-noeds.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "mendeleiv.png",
+                    "type": "file",
+                    "icon": "🖼️",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/03-Electrotechnique/mendeleiv.png"
+                  },
+                  {
+                    "name": "resume-nbr-d-electrons-conducteurs.png",
+                    "type": "file",
+                    "icon": "🖼️",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/03-Electrotechnique/resume-nbr-d-electrons-conducteurs.png"
+                  }
+                ]
+              },
+              {
+                "name": "04-Mathematiques",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.6-calculs-avec-puissance-de-10-n",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "calculs_puissances_de_10_seria-1-2-3-corrige.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/04-Mathematiques/ch.6-calculs-avec-puissance-de-10-n/calculs_puissances_de_10_seria-1-2-3-corrige.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "manuel-d-utilisation-de-la-ti-30-eco-rs.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/04-Mathematiques/manuel-d-utilisation-de-la-ti-30-eco-rs.pdf"
+                  },
+                  {
+                    "name": "math_ELEVE_2014-pg-1-7.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/1ère année/04-Mathematiques/math_ELEVE_2014-pg-1-7.pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2ème année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "00-NIBT-2020",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "01-OIBT",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "OIBT-c-quoi.docx",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/00-NIBT-2020/01-OIBT/OIBT-c-quoi.docx"
+                      },
+                      {
+                        "name": "OIBT_2015_MAP.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/00-NIBT-2020/01-OIBT/OIBT_2015_MAP.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "NOUVEAUTEE-2020-NIBT",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "06_FLASH NIBT 2020 ASCE 2019.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/00-NIBT-2020/NOUVEAUTEE-2020-NIBT/06_FLASH NIBT 2020 ASCE 2019.pdf"
+                      },
+                      {
+                        "name": "ch.2.page-48.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/00-NIBT-2020/NOUVEAUTEE-2020-NIBT/ch.2.page-48.pdf"
+                      },
+                      {
+                        "name": "informations-détailées.txt",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/00-NIBT-2020/NOUVEAUTEE-2020-NIBT/informations-détailées.txt"
+                      },
+                      {
+                        "name": "nouveautes-resume-2020.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/00-NIBT-2020/NOUVEAUTEE-2020-NIBT/nouveautes-resume-2020.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "corrige-ch.1",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": []
+                  },
+                  {
+                    "name": "support-de-cours-Nibt-2020.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/00-NIBT-2020/support-de-cours-Nibt-2020.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "01-Physique",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Corrections",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": []
+                  },
+                  {
+                    "name": "Questionnaire-PHYSIQUE.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/01-Physique/Questionnaire-PHYSIQUE.pdf"
+                  },
+                  {
+                    "name": "Support-de-cours-Physique.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/01-Physique/Support-de-cours-Physique.pdf"
+                  },
+                  {
+                    "name": "ch.2-vitesse-circonférentielle",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "guide_du_petit_eolien.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/01-Physique/ch.2-vitesse-circonférentielle/guide_du_petit_eolien.pdf"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "03-Electrotechnique-Fet-2",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.10-monophasé",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "puissance active réactiveappartent-1.23.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/03-Electrotechnique-Fet-2/ch.10-monophasé/puissance active réactiveappartent-1.23.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.7.Magnétisme",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "questionnaire-corrige",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.8-condensateurs",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": []
+                  },
+                  {
+                    "name": "questionnaire-electrotechnique-ch7-magnetisme.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/03-Electrotechnique-Fet-2/questionnaire-electrotechnique-ch7-magnetisme.pdf"
+                  },
+                  {
+                    "name": "support-electrotechnique.ch7-7.10.magnetisme.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/03-Electrotechnique-Fet-2/support-electrotechnique.ch7-7.10.magnetisme.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "04-ch.6-Piles-accumulateurs-Fet-1",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Batteries-de-demain_HD.mp4",
+                    "type": "file",
+                    "icon": "📁",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/04-ch.6-Piles-accumulateurs-Fet-1/Batteries-de-demain_HD.mp4"
+                  },
+                  {
+                    "name": "Lithium-NI-CD.et.MHv4.2.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/04-ch.6-Piles-accumulateurs-Fet-1/Lithium-NI-CD.et.MHv4.2.pdf"
+                  },
+                  {
+                    "name": "hydrogene-vecteur-futur __HD.mp4",
+                    "type": "file",
+                    "icon": "📁",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année/04-ch.6-Piles-accumulateurs-Fet-1/hydrogene-vecteur-futur __HD.mp4"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2ème année plus plus",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "00-PIE",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.5-corriger-page-69.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/00-PIE/ch.5-corriger-page-69.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "01-ELECTROTECHNIQUE-CH.6",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.6-Piles-accumulateurs",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Batteries-de-demain_HD.mp4",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/ch.6-Piles-accumulateurs/Batteries-de-demain_HD.mp4"
+                      },
+                      {
+                        "name": "Lithium-NI-CD.et.MHv4.2.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/ch.6-Piles-accumulateurs/Lithium-NI-CD.et.MHv4.2.pdf"
+                      },
+                      {
+                        "name": "hydrogene-vecteur-futur __HD.mp4",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/ch.6-Piles-accumulateurs/hydrogene-vecteur-futur __HD.mp4"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "electro-ch.6-117-120-theorie.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/electro-ch.6-117-120-theorie.pdf"
+                  },
+                  {
+                    "name": "electro-ch.6-questionnaire.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/electro-ch.6-questionnaire.pdf"
+                  },
+                  {
+                    "name": "salt.ph",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement(1).png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/salt.ph/lamp-philip- Aisa Mijena-Movement(1).png"
+                      },
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement(2).png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/salt.ph/lamp-philip- Aisa Mijena-Movement(2).png"
+                      },
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement(3).png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/salt.ph/lamp-philip- Aisa Mijena-Movement(3).png"
+                      },
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement(4).png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/salt.ph/lamp-philip- Aisa Mijena-Movement(4).png"
+                      },
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement.png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/01-ELECTROTECHNIQUE-CH.6/salt.ph/lamp-philip- Aisa Mijena-Movement.png"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "02-MATHEMATIQUES",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.19-Principe-d-équivalence",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "principe-equiv-exp.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/02-MATHEMATIQUES/ch.19-Principe-d-équivalence/principe-equiv-exp.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.22-trigonométrie-page-40-41",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": []
+                  },
+                  {
+                    "name": "img-1-2.jpg",
+                    "type": "file",
+                    "icon": "🖼️",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/02-MATHEMATIQUES/img-1-2.jpg"
+                  },
+                  {
+                    "name": "manuel-d-utilisation-de-la-ti-30-eco-rs.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/02-MATHEMATIQUES/manuel-d-utilisation-de-la-ti-30-eco-rs.pdf"
+                  },
+                  {
+                    "name": "revisions-mathematiques.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/2ème année plus plus/02-MATHEMATIQUES/revisions-mathematiques.pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "3ème année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "01-Télécommunication-ch.8",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Ch.8-Fibre-optique",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "00-intro-fibre",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "20170203_111407.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_111407.jpg"
+                          },
+                          {
+                            "name": "20170203_111418.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_111418.jpg"
+                          },
+                          {
+                            "name": "20170203_111420.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_111420.jpg"
+                          },
+                          {
+                            "name": "20170203_111434.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_111434.jpg"
+                          },
+                          {
+                            "name": "20170203_111445.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_111445.jpg"
+                          },
+                          {
+                            "name": "20170203_112121.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_112121.jpg"
+                          },
+                          {
+                            "name": "20170203_112138.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_112138.jpg"
+                          },
+                          {
+                            "name": "20170203_112243.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_112243.jpg"
+                          },
+                          {
+                            "name": "20170203_112526.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/00-intro-fibre/20170203_112526.jpg"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "1-intro-ftts",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "1.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/1-intro-ftts/1.jpg"
+                          },
+                          {
+                            "name": "2.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/1-intro-ftts/2.jpg"
+                          },
+                          {
+                            "name": "3.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/1-intro-ftts/3.jpg"
+                          },
+                          {
+                            "name": "4.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/1-intro-ftts/4.jpg"
+                          },
+                          {
+                            "name": "5.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/1-intro-ftts/5.jpg"
+                          },
+                          {
+                            "name": "6.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/1-intro-ftts/6.jpg"
+                          },
+                          {
+                            "name": "7.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/1-intro-ftts/7.jpg"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "FO_supp-AG.1.4.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/FO_supp-AG.1.4.pdf"
+                      },
+                      {
+                        "name": "Fibre optique.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/Fibre optique.pdf"
+                      },
+                      {
+                        "name": "Multimedia_Broschuere_FR_110622.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/Multimedia_Broschuere_FR_110622.pdf"
+                      },
+                      {
+                        "name": "prescriptions_tech_SIL.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/prescriptions_tech_SIL.pdf"
+                      },
+                      {
+                        "name": "tableaumulimediahager.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/01-Télécommunication-ch.8/Ch.8-Fibre-optique/tableaumulimediahager.pdf"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "02-Nibt-2020",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "01-INFORMATIONS-SUPPLEMENTAIRES",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "4.24-page-104-cpi-ddr",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "Fiche_produit_CDB116C.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/01-INFORMATIONS-SUPPLEMENTAIRES/4.24-page-104-cpi-ddr/Fiche_produit_CDB116C.pdf"
+                          },
+                          {
+                            "name": "cpi-ddr.png",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/01-INFORMATIONS-SUPPLEMENTAIRES/4.24-page-104-cpi-ddr/cpi-ddr.png"
+                          },
+                          {
+                            "name": "esti-2016-cpi-etc...pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/01-INFORMATIONS-SUPPLEMENTAIRES/4.24-page-104-cpi-ddr/esti-2016-cpi-etc...pdf"
+                          },
+                          {
+                            "name": "testeur-ddr.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/01-INFORMATIONS-SUPPLEMENTAIRES/4.24-page-104-cpi-ddr/testeur-ddr.pdf"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "TBT caracteristique.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/TBT caracteristique.pdf"
+                  },
+                  {
+                    "name": "corrigé-ch.4",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "NIBT-2020-PAGE-111-CORRIGE.oxps",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/corrigé-ch.4/NIBT-2020-PAGE-111-CORRIGE.oxps"
+                      },
+                      {
+                        "name": "page 127 corrigee.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/corrigé-ch.4/page 127 corrigee.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "fiche-t26.png",
+                    "type": "file",
+                    "icon": "🖼️",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/fiche-t26.png"
+                  },
+                  {
+                    "name": "mise-au-neutre-sh3.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/mise-au-neutre-sh3.pdf"
+                  },
+                  {
+                    "name": "nibt-support-eleve-100-110-ddr.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/02-Nibt-2020/nibt-support-eleve-100-110-ddr.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "03-schema",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "01-Brunner-1",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Brunner 1- page 79-chauffe-eau.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03-schema/01-Brunner-1/Brunner 1- page 79-chauffe-eau.pdf"
+                      },
+                      {
+                        "name": "correction-page -121 fet 1.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03-schema/01-Brunner-1/correction-page -121 fet 1.pdf"
+                      },
+                      {
+                        "name": "corriger-115-120-brun-1.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03-schema/01-Brunner-1/corriger-115-120-brun-1.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "02-brunner-2",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "brunner-2-page-8.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03-schema/02-brunner-2/brunner-2-page-8.pdf"
+                      },
+                      {
+                        "name": "correction-1-5-schema.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03-schema/02-brunner-2/correction-1-5-schema.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Hager_Kat3_18_Extrait normes.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03-schema/Hager_Kat3_18_Extrait normes.pdf"
+                  },
+                  {
+                    "name": "schema-01-Base de lecture",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "schema-reel.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03-schema/schema-01-Base de lecture/schema-reel.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "schema-revision-brunner-1-son-relais-minut.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03-schema/schema-revision-brunner-1-son-relais-minut.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "03.5-Electrotechnique-FET-2-ch.10",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "puissance active réactiveappartent.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03.5-Electrotechnique-FET-2-ch.10/puissance active réactiveappartent.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "03.8-Electrotechnique-Fet-3",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.12-Moteurs-cage-ecureuil",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "moteur asynchrone a cage final.docx  Li ELM.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année/03.8-Electrotechnique-Fet-3/ch.12-Moteurs-cage-ecureuil/moteur asynchrone a cage final.docx  Li ELM.pdf"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "3ème année P",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "01-Mathematiques",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.19-Principe-d-équivalence",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "principe-equiv-exp.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/01-Mathematiques/ch.19-Principe-d-équivalence/principe-equiv-exp.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.22-trigonométrie-page-40-41",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": []
+                  },
+                  {
+                    "name": "img-1-2.jpg",
+                    "type": "file",
+                    "icon": "🖼️",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/01-Mathematiques/img-1-2.jpg"
+                  },
+                  {
+                    "name": "revisions-mathematiques.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/01-Mathematiques/revisions-mathematiques.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "02-Physique",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Questionnaire-PHYSIQUE.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/02-Physique/Questionnaire-PHYSIQUE.pdf"
+                  },
+                  {
+                    "name": "Support-de-cours-Physique.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/02-Physique/Support-de-cours-Physique.pdf"
+                  },
+                  {
+                    "name": "ch.2-vitesse-circonférentiel",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "guide_du_petit_eolien.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/02-Physique/ch.2-vitesse-circonférentiel/guide_du_petit_eolien.pdf"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "03-Telecommunication",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "01-FTTX",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Multimedia_Broschuere_FR_110622.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/03-Telecommunication/01-FTTX/Multimedia_Broschuere_FR_110622.pdf"
+                      },
+                      {
+                        "name": "handbuch_ftth_realisation_FR (1).pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/03-Telecommunication/01-FTTX/handbuch_ftth_realisation_FR (1).pdf"
+                      },
+                      {
+                        "name": "prescriptions_tech_SIL.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/03-Telecommunication/01-FTTX/prescriptions_tech_SIL.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.3-pages 23-26.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/03-Telecommunication/ch.3-pages 23-26.pdf"
+                  },
+                  {
+                    "name": "ch.8-FO",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "FO_supp.1.4.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/03-Telecommunication/ch.8-FO/FO_supp.1.4.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "telecom-ch.1-1-6.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/3ème année P/03-Telecommunication/telecom-ch.1-1-6.pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "4ème année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "01-Electrotechnique",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "01-Electrotechnique-ch.9",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "01-appareils-de-mesures",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "t6100",
+                            "type": "folder",
+                            "icon": "📁",
+                            "children": [
+                              {
+                                "name": "T6-1000_eng_tds.pdf",
+                                "type": "file",
+                                "icon": "📑",
+                                "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/01-Electrotechnique-ch.9/01-appareils-de-mesures/t6100/T6-1000_eng_tds.pdf"
+                              },
+                              {
+                                "name": "T61000-article.png",
+                                "type": "file",
+                                "icon": "🖼️",
+                                "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/01-Electrotechnique-ch.9/01-appareils-de-mesures/t6100/T61000-article.png"
+                              },
+                              {
+                                "name": "T61000-specs.png",
+                                "type": "file",
+                                "icon": "🖼️",
+                                "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/01-Electrotechnique-ch.9/01-appareils-de-mesures/t6100/T61000-specs.png"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "name": "02-questionnaire-corrige",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": []
+                      },
+                      {
+                        "name": "Questionnaire-ch.9.22-1-20.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/01-Electrotechnique-ch.9/Questionnaire-ch.9.22-1-20.pdf"
+                      },
+                      {
+                        "name": "fet-2-ch.9-58-65.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/01-Electrotechnique-ch.9/fet-2-ch.9-58-65.pdf"
+                      },
+                      {
+                        "name": "trms-definition.png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/01-Electrotechnique-ch.9/trms-definition.png"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "02-Electrotechnique-ch.14",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "00-Revision-ch.11",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "Chutes-de-tensions-R-14-corrige",
+                            "type": "folder",
+                            "icon": "📁",
+                            "children": [
+                              {
+                                "name": "corr-chutes-de-tension-1-4.pdf",
+                                "type": "file",
+                                "icon": "📑",
+                                "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/00-Revision-ch.11/Chutes-de-tensions-R-14-corrige/corr-chutes-de-tension-1-4.pdf"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "Correction-exercices-compensations",
+                            "type": "folder",
+                            "icon": "📁",
+                            "children": [
+                              {
+                                "name": "corrige-ameli-cos-phi-corrige.pdf",
+                                "type": "file",
+                                "icon": "📑",
+                                "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/00-Revision-ch.11/Correction-exercices-compensations/corrige-ameli-cos-phi-corrige.pdf"
+                              }
+                            ]
+                          },
+                          {
+                            "name": "revision-ch.11-execices.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/00-Revision-ch.11/revision-ch.11-execices.pdf"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "001-Symboles-appareils",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "Hager_Normen_f_web.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/001-Symboles-appareils/Hager_Normen_f_web.pdf"
+                          },
+                          {
+                            "name": "bloc-alim.standard.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/001-Symboles-appareils/bloc-alim.standard.jpg"
+                          },
+                          {
+                            "name": "cablage-transformateurs.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/001-Symboles-appareils/cablage-transformateurs.jpg"
+                          },
+                          {
+                            "name": "symboles.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/001-Symboles-appareils/symboles.jpg"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "01-Questionnaire-corrigees",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": []
+                      },
+                      {
+                        "name": "1_-_Procdure_des_mesures_OIBT_-_JT22.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/1_-_Procdure_des_mesures_OIBT_-_JT22.pdf"
+                      },
+                      {
+                        "name": "Exercices supplémentaires",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "TRANSFORMATEUR ELECTRONIQUE.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/Exercices supplémentaires/TRANSFORMATEUR ELECTRONIQUE.pdf"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Questionnaire-ch.14.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/Questionnaire-ch.14.pdf"
+                      },
+                      {
+                        "name": "chapitre-14.1-14.5.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/02-Electrotechnique-ch.14/chapitre-14.1-14.5.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "03-Electrotechnique-ch.15",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Corrigées",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Corrige-2012",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": []
+                  },
+                  {
+                    "name": "img66.jpg",
+                    "type": "file",
+                    "icon": "🖼️",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/01-Iele/4ème année/01-Electrotechnique/img66.jpg"
+                  }
+                ]
+              },
+              {
+                "name": "02-Nibt",
+                "type": "folder",
+                "icon": "📁",
+                "children": []
+              },
+              {
+                "name": "03-Appareil-électrique",
+                "type": "folder",
+                "icon": "📁",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "4ème année P",
+            "type": "folder",
+            "icon": "📁",
+            "children": []
           }
         ]
       },
       {
+        "name": "02-Pele",
         "type": "folder",
-        "name": "CSS",
         "icon": "📁",
         "children": [
           {
-            "type": "file",
-            "name": "style.css",
-            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/CSS/style.css",
-            "icon": "📄"
+            "name": "1ère année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "01-Mathematiques",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.6-calculs-avec-puissance-de-10-n",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "calculs_puissances_de_10_seria-1-2-3-corrige.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/01-Mathematiques/ch.6-calculs-avec-puissance-de-10-n/calculs_puissances_de_10_seria-1-2-3-corrige.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "manuel-d-utilisation-de-la-ti-30-eco-rs.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/01-Mathematiques/manuel-d-utilisation-de-la-ti-30-eco-rs.pdf"
+                  },
+                  {
+                    "name": "math_ELEVE_2014-pg-1-7.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/01-Mathematiques/math_ELEVE_2014-pg-1-7.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "02-Prévention des accidents-BT",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Exercices-PREVENTION-DES-ACCIDENTS.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/Exercices-PREVENTION-DES-ACCIDENTS.pdf"
+                  },
+                  {
+                    "name": "Support-de-cours-PREVENTION-DES-ACCIDENTS.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/Support-de-cours-PREVENTION-DES-ACCIDENTS.pdf"
+                  },
+                  {
+                    "name": "ch.1-2-généralités",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "ch.1-regles-vitales",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "chantierreglesvitales21659 1  88811_F_Original_fr_21659.pdf.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/ch.1-regles-vitales/chantierreglesvitales21659 1  88811_F_Original_fr_21659.pdf.pdf"
+                          },
+                          {
+                            "name": "dixreglevitalesindustrie84054_F.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/ch.1-regles-vitales/dixreglevitalesindustrie84054_F.pdf"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "liste des accidents 2003-2012.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/liste des accidents 2003-2012.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.3-dangers-électriques",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Filtres ffp3.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/Filtres ffp3.pdf"
+                      },
+                      {
+                        "name": "Protection de l’ouïeSuva.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/Protection de l’ouïeSuva.pdf"
+                      },
+                      {
+                        "name": "amiante.png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/amiante.png"
+                      },
+                      {
+                        "name": "suva_attention_laser (1).pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/suva_attention_laser (1).pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.4-Amiante",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Acidesgazeetc.dangers.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/Acidesgazeetc.dangers.pdf"
+                      },
+                      {
+                        "name": "SUVA-Identifier-et-manipuler-correctement-les-produits-contenant-de-lamiante-84024_F.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/SUVA-Identifier-et-manipuler-correctement-les-produits-contenant-de-lamiante-84024_F.pdf"
+                      },
+                      {
+                        "name": "skate-park-desamiantage",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "20210531_133855.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133855.jpg"
+                          },
+                          {
+                            "name": "20210531_133857.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133857.jpg"
+                          },
+                          {
+                            "name": "20210531_133859.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133859.jpg"
+                          },
+                          {
+                            "name": "20210531_133920.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133920.jpg"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2ème année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "Electrotechnique-ch.6",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.6-Piles-accumulateurs",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Batteries-de-demain_HD.mp4",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/ch.6-Piles-accumulateurs/Batteries-de-demain_HD.mp4"
+                      },
+                      {
+                        "name": "Lithium-NI-CD.et.MHv4.2.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/ch.6-Piles-accumulateurs/Lithium-NI-CD.et.MHv4.2.pdf"
+                      },
+                      {
+                        "name": "hydrogene-vecteur-futur __HD.mp4",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/ch.6-Piles-accumulateurs/hydrogene-vecteur-futur __HD.mp4"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "electro-ch.6-117-120-theorie.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/electro-ch.6-117-120-theorie.pdf"
+                  },
+                  {
+                    "name": "electro-ch.6-questionnaire.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/electro-ch.6-questionnaire.pdf"
+                  },
+                  {
+                    "name": "salt.ph",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement(1).png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/salt.ph/lamp-philip- Aisa Mijena-Movement(1).png"
+                      },
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement(2).png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/salt.ph/lamp-philip- Aisa Mijena-Movement(2).png"
+                      },
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement(3).png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/salt.ph/lamp-philip- Aisa Mijena-Movement(3).png"
+                      },
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement(4).png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/salt.ph/lamp-philip- Aisa Mijena-Movement(4).png"
+                      },
+                      {
+                        "name": "lamp-philip- Aisa Mijena-Movement.png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/02-Pele/2ème année/Electrotechnique-ch.6/salt.ph/lamp-philip- Aisa Mijena-Movement.png"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "3ème année",
+            "type": "folder",
+            "icon": "📁",
+            "children": []
           }
         ]
       },
       {
+        "name": "03-Elmo",
         "type": "folder",
-        "name": "JS",
         "icon": "📁",
         "children": [
           {
-            "type": "file",
-            "name": "script.js",
-            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/JS/script.js",
-            "icon": "📄"
+            "name": "1ère année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "01-Mathématiques",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "manuel-d-utilisation-de-la-ti-30-eco-rs.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/01-Mathématiques/manuel-d-utilisation-de-la-ti-30-eco-rs.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "02-Prévention des accidents-BT",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Exercices-PREVENTION-DES-ACCIDENTS.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/Exercices-PREVENTION-DES-ACCIDENTS.pdf"
+                  },
+                  {
+                    "name": "Support-de-cours-PREVENTION-DES-ACCIDENTS.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/Support-de-cours-PREVENTION-DES-ACCIDENTS.pdf"
+                  },
+                  {
+                    "name": "ch.1-2-généralités",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "ch.1-regles-vitales",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "chantierreglesvitales21659 1  88811_F_Original_fr_21659.pdf.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/ch.1-regles-vitales/chantierreglesvitales21659 1  88811_F_Original_fr_21659.pdf.pdf"
+                          },
+                          {
+                            "name": "dixreglevitalesindustrie84054_F.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/ch.1-regles-vitales/dixreglevitalesindustrie84054_F.pdf"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "liste des accidents 2003-2012.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.1-2-généralités/liste des accidents 2003-2012.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.3-dangers-électriques",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Filtres ffp3.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/Filtres ffp3.pdf"
+                      },
+                      {
+                        "name": "Protection de l’ouïeSuva.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/Protection de l’ouïeSuva.pdf"
+                      },
+                      {
+                        "name": "amiante.png",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/amiante.png"
+                      },
+                      {
+                        "name": "suva_attention_laser (1).pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.3-dangers-électriques/suva_attention_laser (1).pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.4-Amiante",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Acidesgazeetc.dangers.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/Acidesgazeetc.dangers.pdf"
+                      },
+                      {
+                        "name": "SUVA-Identifier-et-manipuler-correctement-les-produits-contenant-de-lamiante-84024_F.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/SUVA-Identifier-et-manipuler-correctement-les-produits-contenant-de-lamiante-84024_F.pdf"
+                      },
+                      {
+                        "name": "skate-park-desamiantage",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "20210531_133855.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133855.jpg"
+                          },
+                          {
+                            "name": "20210531_133857.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133857.jpg"
+                          },
+                          {
+                            "name": "20210531_133859.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133859.jpg"
+                          },
+                          {
+                            "name": "20210531_133920.jpg",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/02-Prévention des accidents-BT/ch.4-Amiante/skate-park-desamiantage/20210531_133920.jpg"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "03-Electrotechnique-ch.1",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Exercice.1.6-ELECTROTECHNIQUE-FET-1.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/03-Electrotechnique-ch.1/Exercice.1.6-ELECTROTECHNIQUE-FET-1.pdf"
+                  },
+                  {
+                    "name": "Support-de-cours-ELECTROTECHNIQUE-FET-1.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/1ère année/03-Electrotechnique-ch.1/Support-de-cours-ELECTROTECHNIQUE-FET-1.pdf"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "2ème année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "00-NIBT-2020",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "NOUVEAUTEE-2020-NIBT",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "06_FLASH NIBT 2020 ASCE 2019.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/00-NIBT-2020/NOUVEAUTEE-2020-NIBT/06_FLASH NIBT 2020 ASCE 2019.pdf"
+                      },
+                      {
+                        "name": "informations-détailées.txt",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/00-NIBT-2020/NOUVEAUTEE-2020-NIBT/informations-détailées.txt"
+                      },
+                      {
+                        "name": "nouveautes-resume-2020.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/00-NIBT-2020/NOUVEAUTEE-2020-NIBT/nouveautes-resume-2020.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "support-de-cours-Nibt-2020.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/00-NIBT-2020/support-de-cours-Nibt-2020.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "01-Electrotechnique",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "ch.3-chutes-de-tensions",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": []
+                  },
+                  {
+                    "name": "ch.3-circuits-séries-mixtes",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "ELMO-RESISTANCE-EQUI-PG-1-2.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.3-circuits-séries-mixtes/ELMO-RESISTANCE-EQUI-PG-1-2.pdf"
+                      },
+                      {
+                        "name": "Support-cours-FET-1.ch.3.19.3.26.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.3-circuits-séries-mixtes/Support-cours-FET-1.ch.3.19.3.26.pdf"
+                      },
+                      {
+                        "name": "exercices-serie-para-mixtes",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "Circuit-mixten-n1.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.3-circuits-séries-mixtes/exercices-serie-para-mixtes/Circuit-mixten-n1.pdf"
+                          },
+                          {
+                            "name": "exercices",
+                            "type": "folder",
+                            "icon": "📁",
+                            "children": [
+                              {
+                                "name": "ex.1-para.jpg",
+                                "type": "file",
+                                "icon": "🖼️",
+                                "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.3-circuits-séries-mixtes/exercices-serie-para-mixtes/exercices/ex.1-para.jpg"
+                              },
+                              {
+                                "name": "exercices-mixtes-1.pdf",
+                                "type": "file",
+                                "icon": "📑",
+                                "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.3-circuits-séries-mixtes/exercices-serie-para-mixtes/exercices/exercices-mixtes-1.pdf"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.6 piles",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "ch.6-Piles-accumulateurs",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "Batteries-de-demain_HD.mp4",
+                            "type": "file",
+                            "icon": "📁",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/ch.6-Piles-accumulateurs/Batteries-de-demain_HD.mp4"
+                          },
+                          {
+                            "name": "Lithium-NI-CD.et.MHv4.2.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/ch.6-Piles-accumulateurs/Lithium-NI-CD.et.MHv4.2.pdf"
+                          },
+                          {
+                            "name": "hydrogene-vecteur-futur __HD.mp4",
+                            "type": "file",
+                            "icon": "📁",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/ch.6-Piles-accumulateurs/hydrogene-vecteur-futur __HD.mp4"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "electro-ch.6-117-120-theorie.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/electro-ch.6-117-120-theorie.pdf"
+                      },
+                      {
+                        "name": "electro-ch.6-questionnaire.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/electro-ch.6-questionnaire.pdf"
+                      },
+                      {
+                        "name": "salt.ph",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "lamp-philip- Aisa Mijena-Movement(1).png",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/salt.ph/lamp-philip- Aisa Mijena-Movement(1).png"
+                          },
+                          {
+                            "name": "lamp-philip- Aisa Mijena-Movement(2).png",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/salt.ph/lamp-philip- Aisa Mijena-Movement(2).png"
+                          },
+                          {
+                            "name": "lamp-philip- Aisa Mijena-Movement(3).png",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/salt.ph/lamp-philip- Aisa Mijena-Movement(3).png"
+                          },
+                          {
+                            "name": "lamp-philip- Aisa Mijena-Movement(4).png",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/salt.ph/lamp-philip- Aisa Mijena-Movement(4).png"
+                          },
+                          {
+                            "name": "lamp-philip- Aisa Mijena-Movement.png",
+                            "type": "file",
+                            "icon": "🖼️",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/01-Electrotechnique/ch.6 piles/salt.ph/lamp-philip- Aisa Mijena-Movement.png"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.7-magnétisme",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "exercices-et-corrigés",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "02-Physique",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "01-Vitesse-accélération",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "exercice-physique-vitesse.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/02-Physique/01-Vitesse-accélération/exercice-physique-vitesse.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Questionnaire-PHYSIQUE.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/02-Physique/Questionnaire-PHYSIQUE.pdf"
+                  },
+                  {
+                    "name": "Support-de-cours-Physique.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/02-Physique/Support-de-cours-Physique.pdf"
+                  },
+                  {
+                    "name": "ch.2-vitesse-circonférentielle",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "guide_du_petit_eolien.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/2ème année/02-Physique/ch.2-vitesse-circonférentielle/guide_du_petit_eolien.pdf"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "3ème année",
+            "type": "folder",
+            "icon": "📁",
+            "children": [
+              {
+                "name": "01-Electrotechnique",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "01-REVISION-ELMO-3",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "pae-label-4-pages.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/01-REVISION-ELMO-3/pae-label-4-pages.pdf"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.10-alternatif-monophasé",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Corrige-du-questionnaire",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "ch.10-corrige-questionnaire-27-33.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/Corrige-du-questionnaire/ch.10-corrige-questionnaire-27-33.pdf"
+                          },
+                          {
+                            "name": "ch.10-corrige-questions-1-15.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/Corrige-du-questionnaire/ch.10-corrige-questions-1-15.pdf"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "Energie - Biere0001.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/Energie - Biere0001.pdf"
+                      },
+                      {
+                        "name": "P+=+Nombre+de+paire+de+pôles.jpg",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/P+=+Nombre+de+paire+de+pôles.jpg"
+                      },
+                      {
+                        "name": "cerclepi.jpg",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/cerclepi.jpg"
+                      },
+                      {
+                        "name": "ch.10-FET-2-suport-de-cours-10.1-10.10.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/ch.10-FET-2-suport-de-cours-10.1-10.10.pdf"
+                      },
+                      {
+                        "name": "ch.10-puissance-active-et-réactive",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "puissance active réactiveappartent-1.23.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/ch.10-puissance-active-et-réactive/puissance active réactiveappartent-1.23.pdf"
+                          }
+                        ]
+                      },
+                      {
+                        "name": "ch.10-questionnaire-page 10.65-10.67.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/ch.10-questionnaire-page 10.65-10.67.pdf"
+                      },
+                      {
+                        "name": "definition-radian.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/definition-radian.pdf"
+                      },
+                      {
+                        "name": "sinusoide.jpg",
+                        "type": "file",
+                        "icon": "🖼️",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/sinusoide.jpg"
+                      },
+                      {
+                        "name": "tableau vitessetrmin.gif",
+                        "type": "file",
+                        "icon": "📁",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.10-alternatif-monophasé/tableau vitessetrmin.gif"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.11.triphasé",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "01-corrige-exercices",
+                        "type": "folder",
+                        "icon": "📁",
+                        "children": [
+                          {
+                            "name": "corrige.ch.11-ex-1-12.pdf",
+                            "type": "file",
+                            "icon": "📑",
+                            "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.11.triphasé/01-corrige-exercices/corrige.ch.11-ex-1-12.pdf"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "name": "ch.8-condensateurs",
+                    "type": "folder",
+                    "icon": "📁",
+                    "children": [
+                      {
+                        "name": "Questionnaire-candensateur.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.8-condensateurs/Questionnaire-candensateur.pdf"
+                      },
+                      {
+                        "name": "chapitre-8-candensateur.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.8-condensateurs/chapitre-8-candensateur.pdf"
+                      },
+                      {
+                        "name": "definition-condensateurs.pdf",
+                        "type": "file",
+                        "icon": "📑",
+                        "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-Electrotechnique/ch.8-condensateurs/definition-condensateurs.pdf"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "01-production-instalation-elec",
+                "type": "folder",
+                "icon": "📁",
+                "children": [
+                  {
+                    "name": "Questionnaire-PAE.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-production-instalation-elec/Questionnaire-PAE.pdf"
+                  },
+                  {
+                    "name": "Support-cours-PAE-ELMO-3.pdf",
+                    "type": "file",
+                    "icon": "📑",
+                    "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/01-production-instalation-elec/Support-cours-PAE-ELMO-3.pdf"
+                  }
+                ]
+              },
+              {
+                "name": "1_-_Procdure_des_mesures_OIBT_-_JT22.pdf",
+                "type": "file",
+                "icon": "📑",
+                "url": "https://github.com/Garibobo/epsic-students/blob/main/01-Cours/03-Elmo/3ème année/1_-_Procdure_des_mesures_OIBT_-_JT22.pdf"
+              }
+            ]
           }
         ]
+      },
+      {
+        "name": "04-Elre",
+        "type": "folder",
+        "icon": "📁",
+        "children": []
       }
     ]
   }
