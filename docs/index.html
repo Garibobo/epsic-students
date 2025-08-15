@@ -1,76 +1,100 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EPSIC Students</title>
-<link href="style.css" rel="stylesheet"/>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  padding: 10px;
-}
-#tree-container {
-  padding-left: 10px;
-}
-ul {
-  list-style-type: none;
-  padding-left: 20px;
-}
-li {
-  margin: 5px 0;
-  word-wrap: break-word;
-}
-a {
-  text-decoration: none;
-  color: #0366d6;
-}
-a:hover {
-  text-decoration: underline;
-}
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-    padding: 5px;
-  }
-  ul {
-    padding-left: 15px;
-  }
-  li {
-    font-size: 16px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <title>EPSIC Students</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="loader-overlay"><div class="spinner"></div></div>
-<header class="blue-header fade-in">
-<img alt="Logo EPSIC" id="logo-epsic" src="logo-2.png"/>
-<h1>EPSIC Students</h1>
-<div id="language-selector">
-<button onclick="setLanguage('fr')">Français</button>
-<button onclick="setLanguage('en')">English</button>
+
+<div id="loader-overlay">
+  <div class="spinner"></div>
 </div>
-</header>
+
 <main>
-<section class="fade-in" id="qr-section">
-<h2>QR Code</h2>
-<div class="qr-container">
-<img alt="QR Code" id="qr-code" onclick="toggleQR()" src="qr-code.png"/>
-<button onclick="downloadQR()">Télécharger le QR code</button>
-</div>
-</section>
-<section class="fade-in" id="navigation">
-<h2>Navigation</h2>
-<input id="search" placeholder="Rechercher..." type="text"/>
-<button onclick="toggleAll()">Tout replier/déplier</button>
-<div id="folder-tree"></div>
-</section>
+  <h1>EPSIC Students</h1>
+
+  <div id="qr-section">
+    <img id="qr-code" src="qrcode_site.png" alt="QR Code">
+  </div>
+
+  <div id="tree-container" class="tree"></div>
+
+  <button id="back-to-top">⬆️ Retour en haut</button>
 </main>
-<button id="back-to-top" onclick="scrollToTop()">⬆️</button>
-<script src="script.js"></script>
+
+<script>
+window.addEventListener('load', () => {
+  document.getElementById('loader-overlay').style.display = 'none';
+});
+
+document.getElementById('qr-code').addEventListener('click', function () {
+  this.classList.toggle('fullscreen');
+});
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+
+document.getElementById('back-to-top').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+fetch('tree.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('tree-container');
+
+    function createTree(nodes) {
+      const ul = document.createElement('ul');
+      nodes.forEach(node => {
+        const li = document.createElement('li');
+
+        if (node.type === 'folder') {
+          li.classList.add('folder');
+
+          const toggle = document.createElement('span');
+          toggle.textContent = '➕';
+          toggle.style.cursor = 'pointer';
+          toggle.style.marginRight = '6px';
+
+          const label = document.createElement('span');
+          label.textContent = node.name;
+          label.style.cursor = 'pointer';
+
+          const childTree = createTree(node.children || []);
+          childTree.style.display = 'none';
+
+          toggle.onclick = () => {
+            const isOpen = childTree.style.display === 'block';
+            childTree.style.display = isOpen ? 'none' : 'block';
+            toggle.textContent = isOpen ? '➕' : '➖';
+          };
+
+          li.appendChild(toggle);
+          li.appendChild(label);
+          li.appendChild(childTree);
+        } else {
+          li.classList.add('file');
+          const a = document.createElement('a');
+          a.href = node.url;
+          a.textContent = node.name;
+          a.target = '_blank';
+          li.appendChild(a);
+        }
+
+        ul.appendChild(li);
+      });
+      return ul;
+    }
+
+    container.appendChild(createTree(data));
+  })
+  .catch(error => {
+    console.error('Erreur lors du chargement de tree.json :', error);
+  });
+</script>
+
 </body>
 </html>
