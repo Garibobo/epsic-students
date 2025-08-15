@@ -105,60 +105,15 @@ main {
 }
 
 
-#top-bar {
-  background: linear-gradient(to right, #007BFF, #00BFFF);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: relative;
-}
-#top-bar h1 {
-  margin: 0;
-}
-#logo {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+#logo-img {
   height: 40px;
+  vertical-align: middle;
+  margin-right: 1rem;
 }
-#nav-bar {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
-#nav-bar a {
-  color: white;
-  margin-left: 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.tree .folder > span {
-  transition: color 0.3s ease;
-}
-.tree .folder > span:hover {
-  color: #00BFFF;
-}
-@media (max-width: 600px) {
-  #top-bar h1 {
-    font-size: 1.2rem;
-    padding: 0.5rem;
-  }
-}
-body.dark-mode {
-  background-color: #121212;
-  color: #f0f0f0;
-}
-#top-bar.dark-mode {
-  background: linear-gradient(to right, #333, #555);
-}
-#footer {
+
+footer {
   text-align: center;
   margin-top: 2rem;
-  padding: 1rem;
   font-size: 0.9rem;
   color: #555;
 }
