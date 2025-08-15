@@ -1,116 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EPSIC Students</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: white;
-      color: #333;
-    }
-    header {
-      background: #005a9c;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-    }
-    header img {
-      height: 40px;
-      margin-right: 10px;
-    }
-    h1.fade-in {
-      margin: 0;
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards;
-    }
-    .container {
-      padding: 20px;
-    }
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1s ease-in forwards;
-    }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-    ul {
-      list-style-type: none;
-      padding-left: 20px;
-    }
-    li {
-      margin: 5px 0;
-      cursor: pointer;
-    }
-    .indent-1 { margin-left: 20px; }
-    .indent-2 { margin-left: 40px; }
-    .indent-3 { margin-left: 60px; }
-    .indent-4 { margin-left: 80px; }
-    .indent-5 { margin-left: 100px; }
-    .indent-6 { margin-left: 120px; }
-    .indent-7 { margin-left: 140px; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img src="logo-2.png" alt="Logo EPSIC">
-    <h1 class="fade-in">EPSIC Students</h1>
+  <header class="blue-header fade-in">
+    <img src="logo-epsic.png" alt="Logo EPSIC" id="logo-epsic" />
+    <h1>EPSIC Students</h1>
+    <div id="language-selector">
+      <button onclick="setLanguage('fr')">Français</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
   </header>
-  <div class="container">
-    <div class="fade-in">
+
+  <main>
+    <section id="qr-section" class="fade-in">
       <h2>QR Code</h2>
-      <a href="qr-github.png" target="_blank">
-        <img src="qr-github.png" alt="QR Code" style="width:200px;">
-      </a>
-      <br>
-      <a href="qr-github.png" download>
-        <button>Télécharger le QR code</button>
-      </a>
-    </div>
-    <div id="navigation" class="fade-in">
+      <img src="qr-code.png" alt="QR Code" id="qr-code" onclick="toggleQR()" />
+      <button onclick="downloadQR()">Télécharger le QR code</button>
+    </section>
+
+    <section id="navigation" class="fade-in">
       <h2>Navigation</h2>
-      <ul id="file-tree"></ul>
-    </div>
-  </div>
-  <script>
-    const user = "garibobo";
-    const repo = "epsic-students";
-    const apiUrl = `https://api.github.com/repos/${user}/${repo}/git/trees/main?recursive=1`;
+      <div id="folder-tree"></div>
+      <div id="file-preview"></div>
+    </section>
+  </main>
 
-    function getIcon(name) {
-      const ext = name.split('.').pop().toLowerCase();
-      if (["jpg", "jpeg", "png", "gif"].includes(ext)) return "🖼️";
-      if (["pdf"].includes(ext)) return "📑";
-      return "📄";
-    }
-
-    fetch(apiUrl)
-      .then(res => res.json())
-      .then(data => {
-        const tree = data.tree.filter(item =>
-          !item.path.startsWith("docs/") &&
-          !item.path.toLowerCase().includes("readme")
-        );
-        const fileTree = document.getElementById("file-tree");
-        tree.forEach(item => {
-          const depth = item.path.split("/").length - 1;
-          const li = document.createElement("li");
-          li.className = `indent-${Math.min(depth, 7)}`;
-          if (item.type === "tree") {
-            li.textContent = "📁 " + item.path.split("/").pop();
-          } else {
-            const name = item.path.split("/").pop();
-            li.innerHTML = `${getIcon(name)} <a href="https://github.com/${user}/${repo}/blob/main/${item.path}" target="_blank">${name}</a>`;
-          }
-          fileTree.appendChild(li);
-        });
-      });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
