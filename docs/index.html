@@ -1,28 +1,28 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>EPSIC Students</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<title>EPSIC Students</title>
+<link href="style.css" rel="stylesheet"/>
 </head>
 <body>
+<header id="top-bar">
+<img alt="Logo" id="logo" src="docs/logo-2.png"/>
+<h1>Apprenant.e.s domaine 3 - Électricité</h1>
+</header>
 
 <div id="loader-overlay">
-  <div class="spinner"></div>
+<div class="spinner"></div>
 </div>
-
 <main>
-  <h1>EPSIC Students</h1>
-
-  <div id="qr-section">
-    <img id="qr-code" src="qrcode_site.png" alt="QR Code">
-  </div>
-
-  <div id="tree-container" class="tree"></div>
-
-  <button id="back-to-top">⬆️ Retour en haut</button>
+<h1>EPSIC Students</h1>
+<div id="qr-section">
+<img alt="QR Code" id="qr-code" src="qrcode_site.png"/>
+</div>
+<div class="tree" id="tree-container"></div>
+<button id="back-to-top">⬆️ Retour en haut</button>
 </main>
-
 <script>
 window.addEventListener('load', () => {
   document.getElementById('loader-overlay').style.display = 'none';
@@ -96,5 +96,8 @@ fetch('tree.json')
   });
 </script>
 
+<footer id="footer">
+  Réalisé par Amir Garibovic - Domaine 3 - V.26
+</footer>
 </body>
 </html>
