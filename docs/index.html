@@ -1,7 +1,5 @@
-import os
 
-# HTML content with dynamic navigation and exclusions
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -83,12 +81,3 @@ html_content = """<!DOCTYPE html>
   </script>
 </body>
 </html>
-"""
-
-# Save the updated HTML to docs/index.html
-os.makedirs("docs", exist_ok=True)
-with open("docs/index.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print("✅ Le fichier index.html a été recréé avec navigation dynamique et exclusions de README et /docs.")
-
