@@ -1,20 +1,51 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>EPSIC Students</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background-color: #004080; color: white; padding: 10px 20px; display: flex; align-items: center; }
-    header img { height: 40px; margin-right: 15px; }
-    h1 { margin: 0; }
-    .container { padding: 20px; }
-    .section { margin-bottom: 30px; }
-    .section h2 { color: #004080; }
-    ul { list-style-type: none; padding-left: 0; }
-    li { margin: 5px 0; cursor: pointer; color: #004080; }
-    li:hover { text-decoration: underline; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: white;
+      color: #333;
+    }
+    header {
+      background: #005a9c;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+    }
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    h1.fade-in {
+      margin: 0;
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+    .container {
+      padding: 20px;
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+    li {
+      margin: 5px 0;
+      cursor: pointer;
+    }
     .indent-1 { margin-left: 20px; }
     .indent-2 { margin-left: 40px; }
     .indent-3 { margin-left: 60px; }
@@ -22,62 +53,64 @@
     .indent-5 { margin-left: 100px; }
     .indent-6 { margin-left: 120px; }
     .indent-7 { margin-left: 140px; }
-    button { margin-top: 10px; padding: 8px 12px; background-color: #004080; color: white; border: none; cursor: pointer; }
-    button:hover { background-color: #0066cc; }
   </style>
 </head>
 <body>
   <header>
     <img src="logo-2.png" alt="Logo EPSIC">
-    <h1>EPSIC Students</h1>
+    <h1 class="fade-in">EPSIC Students</h1>
   </header>
   <div class="container">
-    <div class="section" id="qr-section">
-      <h2>QR Code du site</h2>
+    <div class="fade-in">
+      <h2>QR Code</h2>
       <a href="qr-github.png" target="_blank">
         <img src="qr-github.png" alt="QR Code" style="width:200px;">
       </a>
       <br>
-      <a href="qr-github.png" download="qr-github.png">
+      <a href="qr-github.png" download>
         <button>Télécharger le QR code</button>
       </a>
     </div>
-    <div class="section" id="navigation">
+    <div id="navigation" class="fade-in">
       <h2>Navigation</h2>
       <ul id="file-tree"></ul>
     </div>
   </div>
   <script>
-    const repo = "epsic-students";
     const user = "garibobo";
-    const apiBase = `https://api.github.com/repos/${user}/${repo}/contents/`;
+    const repo = "epsic-students";
+    const apiUrl = `https://api.github.com/repos/${user}/${repo}/git/trees/main?recursive=1`;
 
-    async function fetchTree(path = "", level = 0) {
-      try {
-        const res = await fetch(apiBase + path);
-        const data = await res.json();
-        data.forEach(item => {
-          if (item.name.toLowerCase() === "readme.md" || item.path.startsWith("docs")) return;
-          const li = document.createElement("li");
-          li.className = "indent-" + Math.min(level, 7);
-          if (item.type === "dir") {
-            li.textContent = "📁 " + item.name;
-            document.getElementById("file-tree").appendChild(li);
-            fetchTree(item.path, level + 1);
-          } else {
-            let icon = "📄";
-            if (/\.(png|jpg|jpeg|gif)$/i.test(item.name)) icon = "🖼️";
-            else if (/\.pdf$/i.test(item.name)) icon = "📑";
-            li.innerHTML = `${icon} <a href="${item.html_url}" target="_blank">${item.name}</a>`;
-            document.getElementById("file-tree").appendChild(li);
-          }
-        });
-      } catch (error) {
-        console.error("Erreur lors du chargement :", error);
-      }
+    function getIcon(name) {
+      const ext = name.split('.').pop().toLowerCase();
+      if (["jpg", "jpeg", "png", "gif"].includes(ext)) return "🖼️";
+      if (["pdf"].includes(ext)) return "📑";
+      return "📄";
     }
 
-    fetchTree();
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(data => {
+        const tree = data.tree.filter(item =>
+          !item.path.startsWith("docs/") &&
+          !item.path.toLowerCase().includes("readme")
+        );
+        const fileTree = document.getElementById("file-tree");
+        tree.forEach(item => {
+          const depth = item.path.split("/").length - 1;
+          const li = document.createElement("li");
+          li.className = `indent-${Math.min(depth, 7)}`;
+          if (item.type === "tree") {
+            li.textContent = "📁 " + item.path.split("/").pop();
+          } else {
+            const name = item.path.split("/").pop();
+            li.innerHTML = `${getIcon(name)} <a href="https://github.com/${user}/${repo}/blob/main/${item.path}" target="_blank">${name}</a>`;
+          }
+          fileTree.appendChild(li);
+        });
+      });
   </script>
 </body>
 </html>
+
+
