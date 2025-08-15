@@ -1,0 +1,21 @@
+[
+  {
+    "type": "folder",
+    "name": "projets",
+    "icon": "📁",
+    "children": [
+      {
+        "type": "file",
+        "name": "index.html",
+        "url": "https://github.com/Garibobo/epsic-students/blob/main/projets/index.html",
+        "icon": "📄"
+      }
+    ]
+  },
+  {
+    "type": "file",
+    "name": "image.png",
+    "url": "https://github.com/Garibobo/epsic-students/blob/main/image.png",
+    "icon": "🖼️"
+  }
+]
