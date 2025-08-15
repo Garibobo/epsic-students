@@ -28,7 +28,7 @@ def build_tree(path):
     tree = []
     for item in sorted(os.listdir(path)):
         full_path = os.path.join(path, item)
-        rel_path = os.path.relpath(full_path)
+        rel_path = os.path.relpath(full_path, start=os.getcwd())
         if item in EXCLUDED_FILES or item in EXCLUDED_DIRS:
             continue
         if os.path.isdir(full_path):
