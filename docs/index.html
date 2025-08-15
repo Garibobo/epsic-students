@@ -1,40 +1,76 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EPSIC Students</title>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EPSIC Students</title>
+<link href="style.css" rel="stylesheet"/>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 10px;
+}
+#tree-container {
+  padding-left: 10px;
+}
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+li {
+  margin: 5px 0;
+  word-wrap: break-word;
+}
+a {
+  text-decoration: none;
+  color: #0366d6;
+}
+a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 5px;
+  }
+  ul {
+    padding-left: 15px;
+  }
+  li {
+    font-size: 16px;
+  }
+}
+</style>
 </head>
 <body>
-  <div id="loader-overlay"><div class="spinner"></div></div>
-  <header class="blue-header fade-in">
-    <img src="logo-2.png" alt="Logo EPSIC" id="logo-epsic"/>
-    <h1>EPSIC Students</h1>
-    <div id="language-selector">
-      <button onclick="setLanguage('fr')">Français</button>
-      <button onclick="setLanguage('en')">English</button>
-    </div>
-  </header>
-
-  <main>
-    <section id="qr-section" class="fade-in">
-      <h2>QR Code</h2>
-      <div class="qr-container">
-        <img src="qr-code.png" alt="QR Code" id="qr-code" onclick="toggleQR()"/>
-        <button onclick="downloadQR()">Télécharger le QR code</button>
-      </div>
-    </section>
-
-    <section id="navigation" class="fade-in">
-      <h2>Navigation</h2>
-      <input type="text" id="search" placeholder="Rechercher..."/>
-      <button onclick="toggleAll()">Tout replier/déplier</button>
-      <div id="folder-tree"></div>
-    </section>
-  </main>
-
-  <button id="back-to-top" onclick="scrollToTop()">⬆️</button>
-  <script src="script.js"></script>
+<div id="loader-overlay"><div class="spinner"></div></div>
+<header class="blue-header fade-in">
+<img alt="Logo EPSIC" id="logo-epsic" src="logo-2.png"/>
+<h1>EPSIC Students</h1>
+<div id="language-selector">
+<button onclick="setLanguage('fr')">Français</button>
+<button onclick="setLanguage('en')">English</button>
+</div>
+</header>
+<main>
+<section class="fade-in" id="qr-section">
+<h2>QR Code</h2>
+<div class="qr-container">
+<img alt="QR Code" id="qr-code" onclick="toggleQR()" src="qr-code.png"/>
+<button onclick="downloadQR()">Télécharger le QR code</button>
+</div>
+</section>
+<section class="fade-in" id="navigation">
+<h2>Navigation</h2>
+<input id="search" placeholder="Rechercher..." type="text"/>
+<button onclick="toggleAll()">Tout replier/déplier</button>
+<div id="folder-tree"></div>
+</section>
+</main>
+<button id="back-to-top" onclick="scrollToTop()">⬆️</button>
+<script src="script.js"></script>
 </body>
 </html>
