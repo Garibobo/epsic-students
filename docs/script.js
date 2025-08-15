@@ -1,40 +1,50 @@
+
 function setLanguage(lang) {
   alert("Langue changée en : " + lang);
 }
+
 function toggleQR() {
   const qr = document.getElementById("qr-code");
   qr.classList.toggle("fullscreen");
 }
+
 function downloadQR() {
   const link = document.createElement("a");
   link.href = "qr-code.png";
   link.download = "qr-code.png";
   link.click();
 }
-function createTree(container, data) {
-  data.forEach(item => {
-    const div = document.createElement("div");
-    div.textContent = (item.icon || "") + " " + item.name;
-    if (item.type === "folder") {
-      div.style.fontWeight = "bold";
-      container.appendChild(div);
-      const sub = document.createElement("div");
-      sub.style.marginLeft = "1rem";
-      createTree(sub, item.children || []);
-      container.appendChild(sub);
-    } else if (item.type === "file") {
-      const link = document.createElement("a");
-      link.href = item.url;
-      link.target = "_blank";
-      link.textContent = (item.icon || "") + " " + item.name;
-      container.appendChild(link);
-      container.appendChild(document.createElement("br"));
-    }
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.onscroll = function () {
+  const btn = document.getElementById("back-to-top");
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+window.onload = function () {
+  setTimeout(() => {
+    document.getElementById("loading-overlay").style.display = "none";
+  }, 800);
+};
+
+function toggleAll() {
+  const folders = document.querySelectorAll("#folder-tree details");
+  const expand = !Array.from(folders).every(d => d.open);
+  folders.forEach(d => d.open = expand);
+}
+
+function filterTree() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const items = document.querySelectorAll("#folder-tree li");
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    item.style.display = text.includes(input) ? "" : "none";
   });
 }
-fetch("tree.json")
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById("folder-tree");
-    createTree(container, data);
-  });

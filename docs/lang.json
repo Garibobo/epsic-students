@@ -3,12 +3,14 @@
     "title": "EPSIC Students",
     "qr": "QR Code",
     "download": "Télécharger le QR code",
-    "navigation": "Navigation"
+    "navigation": "Navigation",
+    "search": "Rechercher..."
   },
   "en": {
     "title": "EPSIC Students",
     "qr": "QR Code",
     "download": "Download QR code",
-    "navigation": "Navigation"
+    "navigation": "Navigation",
+    "search": "Search..."
   }
 }
