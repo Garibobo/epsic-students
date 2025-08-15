@@ -59,8 +59,11 @@ for target in TARGET_DIRS:
             "children": build_tree(target)
         })
 
-# Save to tree.json
-with open("tree.json", "w", encoding="utf-8") as f:
+# Assure que le dossier docs existe
+os.makedirs("docs", exist_ok=True)
+
+# Enregistre tree.json dans docs/
+with open("docs/tree.json", "w", encoding="utf-8") as f:
     json.dump(full_tree, f, indent=2, ensure_ascii=False)
 
-print("✅ tree.json has been generated successfully.")
+print("✅ tree.json has been generated successfully in docs/")
