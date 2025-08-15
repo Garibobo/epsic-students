@@ -72,5 +72,19 @@ a:hover {
 </main>
 <button id="back-to-top" onclick="scrollToTop()">⬆️</button>
 <script src="script.js"></script>
+<script>
+fetch('tree.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('tree-container');
+    container.classList.add('tree');
+
+    function createTree(nodes) {
+      const ul = document.createElement('ul');
+      nodes.forEach(node => {
+        const li = document.createElement('li');
+
+        if (node.type === 'folder') {
+          li.classList.add('folder');
 </body>
 </html>
