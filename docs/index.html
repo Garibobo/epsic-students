@@ -74,7 +74,18 @@ async function fetchGitHubTree(path = '') {
   try {
     const response = await fetch(`${GITHUB_API}/${path}`);
     const data = await response.json();
-    return data.filter(item => !item.name.startsWith('.') && item.name !== 'docs');
+    
+    // Si c'est la racine, filtrer pour ne garder que les dossiers autorisés
+    if (path === '') {
+      return data.filter(item => 
+        !item.name.startsWith('.') && 
+        item.name !== 'docs' &&
+        (item.name === '00-Administratif' || item.name === '01-Cours')
+      );
+    }
+    
+    // Pour les sous-dossiers, garder tous les éléments sauf les fichiers cachés
+    return data.filter(item => !item.name.startsWith('.'));
   } catch (error) {
     console.error('Erreur GitHub API:', error);
     return [];
