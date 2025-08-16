@@ -152,9 +152,13 @@ async function loadDynamicTree() {
         icon.textContent = getFileIcon(item.name);
 
         const link = document.createElement('a');
-        link.href = item.html_url;
+        link.href = item.download_url;
         link.textContent = item.name;
-        link.target = '_blank';
+        link.download = item.name;
+        link.onclick = (e) => {
+          e.preventDefault();
+          downloadFile(item.download_url, item.name);
+        };
 
         fileDiv.appendChild(icon);
         fileDiv.appendChild(link);
@@ -205,6 +209,28 @@ async function loadDynamicTree() {
     const container = document.getElementById('tree-container');
     container.innerHTML = '<div style="color: red; text-align: center;">Erreur lors du chargement de l\'arborescence</div>';
     console.error('Erreur lors du chargement GitHub API:', error);
+  }
+}
+
+// Fonction pour télécharger un fichier
+async function downloadFile(url, filename) {
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    
+    const downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(blob);
+    downloadLink.download = filename;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    
+    // Nettoyer l'URL temporaire
+    URL.revokeObjectURL(downloadLink.href);
+  } catch (error) {
+    console.error('Erreur lors du téléchargement:', error);
+    // Fallback: ouvrir dans un nouvel onglet
+    window.open(url, '_blank');
   }
 }
 
