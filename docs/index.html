@@ -125,6 +125,13 @@ async function loadDynamicTree() {
 
         header.onclick = async () => {
           const isOpen = childrenDiv.style.display === 'block';
+          
+          // Animation de feedback tactile
+          header.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            header.style.transform = '';
+          }, 150);
+          
           if (!isOpen && childrenDiv.children.length === 0) {
             // Charger les enfants dynamiquement
             const children = await fetchGitHubTree(item.path);
@@ -133,6 +140,17 @@ async function loadDynamicTree() {
               childrenDiv.appendChild(childElement);
             }
           }
+          
+          // Animations d'ouverture/fermeture
+          if (!isOpen) {
+            childrenDiv.classList.add('expanding');
+            folderDiv.classList.add('expanded');
+            toggle.classList.add('expanded');
+          } else {
+            folderDiv.classList.remove('expanded');
+            toggle.classList.remove('expanded');
+          }
+          
           childrenDiv.style.display = isOpen ? 'none' : 'block';
           toggle.textContent = isOpen ? '▶' : '▼';
         };

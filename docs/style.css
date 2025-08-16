@@ -101,70 +101,124 @@ main {
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: background-color 0.15s ease;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tree .folder > .folder-header:hover {
   background-color: #f3f4f6;
+  transform: scale(1.02);
+}
+
+.tree .folder > .folder-header:active {
+  transform: scale(0.98);
+  background-color: #e5e7eb;
 }
 
 .tree .folder-toggle {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 6px;
-  font-size: 12px;
+  margin-right: 12px;
+  font-size: 16px;
   color: #656d76;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.tree .folder-toggle.expanded {
+  transform: rotate(90deg);
 }
 
 .tree .folder-icon {
-  margin-right: 6px;
-  font-size: 16px;
+  margin-right: 12px;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.tree .folder.expanded .folder-icon {
+  transform: scale(1.1);
 }
 
 .tree .folder-name {
   font-weight: 600;
   color: #0969da;
-  font-size: 14px;
+  font-size: 16px;
+  flex: 1;
 }
 
 .tree .file {
   display: flex;
   align-items: center;
-  padding: 4px 8px;
-  margin: 2px 0;
-  border-radius: 4px;
-  transition: background-color 0.15s ease;
+  padding: 12px 16px;
+  margin: 4px 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tree .file:hover {
   background-color: #f3f4f6;
+  transform: translateX(4px);
+}
+
+.tree .file:active {
+  transform: scale(0.98) translateX(4px);
+  background-color: #e5e7eb;
 }
 
 .tree .file-icon {
-  margin-right: 6px;
-  font-size: 16px;
+  margin-right: 12px;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.tree .file:hover .file-icon {
+  transform: scale(1.1);
 }
 
 .tree .file a {
   color: #0969da;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
+  flex: 1;
+  display: block;
 }
 
 .tree .file a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .tree .folder-children {
-  margin-left: 20px;
-  border-left: 1px solid #d8dee4;
-  padding-left: 12px;
+  margin-left: 24px;
+  border-left: 2px solid #d8dee4;
+  padding-left: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.tree .folder-children.expanding {
+  animation: expandFolder 0.4s ease-out;
+}
+
+@keyframes expandFolder {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #qr-section {
@@ -263,10 +317,35 @@ main {
     font-size: 16px;
     padding: 5px;
   }
-  ul {
-    padding-left: 15px;
+  
+  .tree .folder > .folder-header {
+    padding: 16px 20px;
+    min-height: 56px;
   }
-  li {
-    font-size: 16px;
+  
+  .tree .file {
+    padding: 16px 20px;
+    min-height: 56px;
+  }
+  
+  .tree .folder-toggle {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+  
+  .tree .folder-icon,
+  .tree .file-icon {
+    font-size: 24px;
+    margin-right: 16px;
+  }
+  
+  .tree .folder-name,
+  .tree .file a {
+    font-size: 18px;
+  }
+  
+  #tree-container {
+    height: calc(100vh - 350px);
   }
 }
