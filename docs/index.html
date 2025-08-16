@@ -67,92 +67,138 @@ document.getElementById('download-qr').addEventListener('click', () => {
   document.body.removeChild(link);
 });
 
-fetch('tree.json')
-  .then(response => response.json())
-  .then(data => {
+// GitHub API pour arborescence dynamique
+const GITHUB_API = 'https://api.github.com/repos/Garibobo/epsic-students/contents';
+
+async function fetchGitHubTree(path = '') {
+  try {
+    const response = await fetch(`${GITHUB_API}/${path}`);
+    const data = await response.json();
+    return data.filter(item => !item.name.startsWith('.') && item.name !== 'docs');
+  } catch (error) {
+    console.error('Erreur GitHub API:', error);
+    return [];
+  }
+}
+
+async function loadDynamicTree() {
+  try {
     const container = document.getElementById('tree-container');
     container.innerHTML = ''; // Clear loading
+    
+    const rootItems = await fetchGitHubTree();
+    
+    async function createTreeElement(item) {
+      if (item.type === 'dir') {
+        const folderDiv = document.createElement('div');
+        folderDiv.classList.add('folder');
 
-    function createTree(nodes) {
-      const fragment = document.createDocumentFragment();
-      
-      nodes.forEach(node => {
-        if (node.type === 'folder') {
-          const folderDiv = document.createElement('div');
-          folderDiv.classList.add('folder');
+        const header = document.createElement('div');
+        header.classList.add('folder-header');
 
-          const header = document.createElement('div');
-          header.classList.add('folder-header');
+        const toggle = document.createElement('span');
+        toggle.classList.add('folder-toggle');
+        toggle.textContent = '▶';
 
-          const toggle = document.createElement('span');
-          toggle.classList.add('folder-toggle');
-          toggle.textContent = '▶';
+        const icon = document.createElement('span');
+        icon.classList.add('folder-icon');
+        icon.textContent = '📂';
 
-          const icon = document.createElement('span');
-          icon.classList.add('folder-icon');
-          icon.textContent = '📁';
+        const name = document.createElement('span');
+        name.classList.add('folder-name');
+        name.textContent = item.name;
 
-          const name = document.createElement('span');
-          name.classList.add('folder-name');
-          name.textContent = node.name;
+        const childrenDiv = document.createElement('div');
+        childrenDiv.classList.add('folder-children');
+        childrenDiv.style.display = 'none';
 
-          const childrenDiv = document.createElement('div');
-          childrenDiv.classList.add('folder-children');
-          childrenDiv.style.display = 'none';
-          childrenDiv.appendChild(createTree(node.children || []));
+        header.onclick = async () => {
+          const isOpen = childrenDiv.style.display === 'block';
+          if (!isOpen && childrenDiv.children.length === 0) {
+            // Charger les enfants dynamiquement
+            const children = await fetchGitHubTree(item.path);
+            for (const child of children) {
+              const childElement = await createTreeElement(child);
+              childrenDiv.appendChild(childElement);
+            }
+          }
+          childrenDiv.style.display = isOpen ? 'none' : 'block';
+          toggle.textContent = isOpen ? '▶' : '▼';
+        };
 
-          header.onclick = () => {
-            const isOpen = childrenDiv.style.display === 'block';
-            childrenDiv.style.display = isOpen ? 'none' : 'block';
-            toggle.textContent = isOpen ? '▶' : '▼';
-          };
+        header.appendChild(toggle);
+        header.appendChild(icon);
+        header.appendChild(name);
+        folderDiv.appendChild(header);
+        folderDiv.appendChild(childrenDiv);
+        return folderDiv;
+      } else {
+        const fileDiv = document.createElement('div');
+        fileDiv.classList.add('file');
 
-          header.appendChild(toggle);
-          header.appendChild(icon);
-          header.appendChild(name);
-          folderDiv.appendChild(header);
-          folderDiv.appendChild(childrenDiv);
-          fragment.appendChild(folderDiv);
-        } else {
-          const fileDiv = document.createElement('div');
-          fileDiv.classList.add('file');
+        const icon = document.createElement('span');
+        icon.classList.add('file-icon');
+        icon.textContent = getFileIcon(item.name);
 
-          const icon = document.createElement('span');
-          icon.classList.add('file-icon');
-          icon.textContent = getFileIcon(node.name);
+        const link = document.createElement('a');
+        link.href = item.html_url;
+        link.textContent = item.name;
+        link.target = '_blank';
 
-          const link = document.createElement('a');
-          link.href = node.url;
-          link.textContent = node.name;
-          link.target = '_blank';
-
-          fileDiv.appendChild(icon);
-          fileDiv.appendChild(link);
-          fragment.appendChild(fileDiv);
-        }
-      });
-      return fragment;
+        fileDiv.appendChild(icon);
+        fileDiv.appendChild(link);
+        return fileDiv;
+      }
     }
 
     function getFileIcon(filename) {
       const ext = filename.split('.').pop().toLowerCase();
       switch(ext) {
-        case 'pdf': return '📑';
-        case 'xlsx': case 'xls': return '📊';
-        case 'jpg': case 'jpeg': case 'png': case 'gif': return '🖼️';
-        case 'txt': return '📝';
-        case 'docx': case 'doc': return '📄';
+        // PDF files
+        case 'pdf': return '📕';
+        
+        // Microsoft Office files
+        case 'xlsx': case 'xls': return '📗';
+        case 'docx': case 'doc': return '📘';
+        case 'pptx': case 'ppt': return '📙';
+        
+        // Images
+        case 'jpg': case 'jpeg': case 'png': case 'gif': case 'bmp': case 'webp': case 'svg': return '🖼️';
+        
+        // Text files
+        case 'txt': case 'md': return '📝';
+        
+        // Code files
+        case 'py': case 'js': case 'html': case 'css': case 'json': return '💻';
+        
+        // Archive files
+        case 'zip': case 'rar': case '7z': return '📦';
+        
+        // Video files
+        case 'mp4': case 'avi': case 'mov': case 'wmv': return '🎬';
+        
+        // Audio files
+        case 'mp3': case 'wav': case 'flac': return '🎵';
+        
+        // Default
         default: return '📄';
       }
     }
 
-    container.appendChild(createTree(data));
-  })
-  .catch(error => {
+    // Créer l'arborescence
+    for (const item of rootItems) {
+      const element = await createTreeElement(item);
+      container.appendChild(element);
+    }
+  } catch (error) {
     const container = document.getElementById('tree-container');
     container.innerHTML = '<div style="color: red; text-align: center;">Erreur lors du chargement de l\'arborescence</div>';
-    console.error('Erreur lors du chargement de tree.json :', error);
-  });
+    console.error('Erreur lors du chargement GitHub API:', error);
+  }
+}
+
+// Lancer le chargement
+loadDynamicTree();
 </script>
 
 </body>
