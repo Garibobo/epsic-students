@@ -2,23 +2,158 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Apprenant.e.s domaine 3 - Électricité</title>
+  <title>EPSIC Students</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header id="top-bar">
-    <img src="docs/logo-2.png" alt="Logo" id="logo">
-    <h1>Apprenant.e.s domaine 3 - Électricité</h1>
-  </header>
+<div id="loader-overlay">
+  <div class="spinner"></div>
+</div>
 
-  <main id="tree-container">
-    <!-- Ici s'affichera ton arborescence de navigation -->
-  </main>
+<header class="top-banner">
+  <img src="avatar-colorful.png" alt="Avatar Amir" class="logo">
+  <h1>Apprenant.e.s domaine 3 - Électricité</h1>
+</header>
 
-  <footer id="footer">
-    Réalisé par Amir Garibovic - Domaine 3 - V.26
-  </footer>
+<main>
+
+  <div id="qr-section">
+    <p class="qr-instruction">Cliquez pour agrandir</p>
+    <img id="qr-code" src="qrcode_site.png" alt="QR Code">
+    <button id="download-qr" class="download-btn">Télécharger le QR code</button>
+  </div>
+
+  <h2 class="folders-title">Dossiers:</h2>
+
+  <div id="tree-container" class="tree">
+    <div class="tree-loading">
+      <div class="loading-spinner"></div>
+      Chargement de l'arborescence...
+    </div>
+  </div>
+
+  <button id="back-to-top">⬆️ Retour en haut</button>
+</main>
+
+<footer class="bottom-footer">
+  <p>Réalisé par Amir Garibovic - Domaine 3 - V.26</p>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+  document.getElementById('loader-overlay').style.display = 'none';
+});
+
+document.getElementById('qr-code').addEventListener('click', function () {
+  this.classList.toggle('fullscreen');
+});
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+
+document.getElementById('back-to-top').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.getElementById('download-qr').addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.href = 'qrcode_site.png';
+  link.download = 'qrcode_epsic_students.png';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+
+fetch('tree.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('tree-container');
+    container.innerHTML = ''; // Clear loading
+
+    function createTree(nodes) {
+      const fragment = document.createDocumentFragment();
+      
+      nodes.forEach(node => {
+        if (node.type === 'folder') {
+          const folderDiv = document.createElement('div');
+          folderDiv.classList.add('folder');
+
+          const header = document.createElement('div');
+          header.classList.add('folder-header');
+
+          const toggle = document.createElement('span');
+          toggle.classList.add('folder-toggle');
+          toggle.textContent = '▶';
+
+          const icon = document.createElement('span');
+          icon.classList.add('folder-icon');
+          icon.textContent = '📁';
+
+          const name = document.createElement('span');
+          name.classList.add('folder-name');
+          name.textContent = node.name;
+
+          const childrenDiv = document.createElement('div');
+          childrenDiv.classList.add('folder-children');
+          childrenDiv.style.display = 'none';
+          childrenDiv.appendChild(createTree(node.children || []));
+
+          header.onclick = () => {
+            const isOpen = childrenDiv.style.display === 'block';
+            childrenDiv.style.display = isOpen ? 'none' : 'block';
+            toggle.textContent = isOpen ? '▶' : '▼';
+          };
+
+          header.appendChild(toggle);
+          header.appendChild(icon);
+          header.appendChild(name);
+          folderDiv.appendChild(header);
+          folderDiv.appendChild(childrenDiv);
+          fragment.appendChild(folderDiv);
+        } else {
+          const fileDiv = document.createElement('div');
+          fileDiv.classList.add('file');
+
+          const icon = document.createElement('span');
+          icon.classList.add('file-icon');
+          icon.textContent = getFileIcon(node.name);
+
+          const link = document.createElement('a');
+          link.href = node.url;
+          link.textContent = node.name;
+          link.target = '_blank';
+
+          fileDiv.appendChild(icon);
+          fileDiv.appendChild(link);
+          fragment.appendChild(fileDiv);
+        }
+      });
+      return fragment;
+    }
+
+    function getFileIcon(filename) {
+      const ext = filename.split('.').pop().toLowerCase();
+      switch(ext) {
+        case 'pdf': return '📑';
+        case 'xlsx': case 'xls': return '📊';
+        case 'jpg': case 'jpeg': case 'png': case 'gif': return '🖼️';
+        case 'txt': return '📝';
+        case 'docx': case 'doc': return '📄';
+        default: return '📄';
+      }
+    }
+
+    container.appendChild(createTree(data));
+  })
+  .catch(error => {
+    const container = document.getElementById('tree-container');
+    container.innerHTML = '<div style="color: red; text-align: center;">Erreur lors du chargement de l\'arborescence</div>';
+    console.error('Erreur lors du chargement de tree.json :', error);
+  });
+</script>
 
 </body>
 </html>
