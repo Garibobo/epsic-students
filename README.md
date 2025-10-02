@@ -1,5 +1,5 @@
 Plateforme d'aide pour l'apprentissage des apprenant.e.s du domaine de l'électricité.
-<a href="[URL_de_votre_page](https://garibobo.github.io/epsic-students/)"/>
+<a href="(https://garibobo.github.io/epsic-students/)"/>
 
 <img width="500" height="500" alt="Image" src="https://github.com/user-attachments/assets/e0cd679d-210d-40fd-bdfc-009460fcdf52" />
 
