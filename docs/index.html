@@ -2,7 +2,32 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EPSIC Students</title>
+  
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <meta name="theme-color" content="#1976D2" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Site de ressources pédagogiques pour les apprenants du domaine 3 - Électricité">
+  
+  <!-- Apple PWA Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="EPSIC Students">
+  <link rel="apple-touch-icon" href="avatar-colorful.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="avatar-colorful.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="avatar-colorful.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="avatar-colorful.png">
+  
+  <!-- Microsoft PWA Meta Tags -->
+  <meta name="msapplication-TileImage" content="avatar-colorful.png">
+  <meta name="msapplication-TileColor" content="#007BFF">
+  
+  <!-- Standard Meta Tags -->
+  <link rel="icon" type="image/png" href="avatar-colorful.png">
+  <link rel="shortcut icon" href="avatar-colorful.png">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -312,6 +337,153 @@ function initThemeToggle() {
 
 // Initialiser le toggle de thème
 initThemeToggle();
+
+// Enregistrement du Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then((registration) => {
+        console.log('SW enregistré: ', registration);
+      })
+      .catch((registrationError) => {
+        console.log('Échec enregistrement SW: ', registrationError);
+      });
+  });
+}
+
+// Gestion de l'installation PWA
+let deferredPrompt;
+let installButton;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Empêcher l'affichage automatique du prompt
+  e.preventDefault();
+  deferredPrompt = e;
+  
+  // Créer le bouton d'installation s'il n'existe pas
+  if (!installButton) {
+    createInstallButton();
+  }
+});
+
+function createInstallButton() {
+  installButton = document.createElement('button');
+  installButton.textContent = '📱 Installer l\'app';
+  installButton.className = 'install-btn';
+  installButton.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  `;
+  
+  installButton.addEventListener('mouseenter', () => {
+    installButton.style.transform = 'scale(1.05)';
+    installButton.style.boxShadow = '0 6px 16px rgba(0, 123, 255, 0.4)';
+  });
+  
+  installButton.addEventListener('mouseleave', () => {
+    installButton.style.transform = 'scale(1)';
+    installButton.style.boxShadow = '0 4px 12px rgba(0, 123, 255, 0.3)';
+  });
+  
+  installButton.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      
+      if (outcome === 'accepted') {
+        console.log('PWA installée');
+      } else {
+        console.log('Installation PWA refusée');
+      }
+      
+      deferredPrompt = null;
+      installButton.remove();
+    }
+  });
+  
+  document.body.appendChild(installButton);
+}
+
+// Masquer le bouton si l'app est déjà installée
+window.addEventListener('appinstalled', () => {
+  if (installButton) {
+    installButton.remove();
+  }
+  console.log('PWA installée avec succès');
+});
+
+// Instructions spéciales pour iOS Safari
+function showIOSInstallInstructions() {
+  if (isIOS() && !isInStandaloneMode()) {
+    setTimeout(() => {
+      const iosPrompt = document.createElement('div');
+      iosPrompt.innerHTML = `
+        <div style="
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #007BFF;
+          color: white;
+          padding: 16px 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+          z-index: 1001;
+          max-width: 300px;
+          text-align: center;
+          font-size: 14px;
+          line-height: 1.4;
+        ">
+          <div style="margin-bottom: 8px;">📱 <strong>Installer l'app</strong></div>
+          <div>Appuyez sur <strong>Partager</strong> puis <strong>"Sur l'écran d'accueil"</strong></div>
+          <button onclick="this.parentElement.parentElement.remove()" style="
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 12px;
+            cursor: pointer;
+          ">OK</button>
+        </div>
+      `;
+      document.body.appendChild(iosPrompt);
+      
+      // Auto-masquer après 10 secondes
+      setTimeout(() => {
+        if (iosPrompt.parentElement) {
+          iosPrompt.remove();
+        }
+      }, 10000);
+    }, 3000);
+  }
+}
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent);
+}
+
+function isInStandaloneMode() {
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+}
+
+// Lancer les instructions iOS
+showIOSInstallInstructions();
 </script>
 
 </body>
