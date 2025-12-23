@@ -73,17 +73,20 @@ body.dark-mode .moon-icon {
 .top-banner {
   background-color: #007BFF;
   color: white;
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   height: 80px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .header-left {
+  position: absolute;
+  left: 20px;
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 .top-banner .logo {
@@ -110,11 +113,11 @@ body.dark-mode .moon-icon {
 }
 
 .header-titles {
-  flex: 1;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 1;
 }
 
 .main-title {
@@ -144,10 +147,16 @@ body.dark-mode .moon-icon {
   justify-content: center;
   transition: all 0.3s ease;
   margin-left: 10px;
+  position: absolute;
+  right: 20px;
 }
 
 .direct-access-btn:first-of-type {
-  margin-left: 15px;
+  right: 180px;
+}
+
+.direct-access-btn:nth-of-type(2) {
+  right: 100px;
 }
 
 .direct-access-btn:hover {
@@ -176,7 +185,8 @@ body.dark-mode .moon-icon {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  margin-left: 10px;
+  position: absolute;
+  right: 20px;
 }
 
 .theme-toggle-btn:hover {
@@ -523,7 +533,11 @@ main {
   .top-banner .logo {
     height: 45px !important;
     width: 45px !important;
-    margin-right: 10px !important;
+    margin-right: 0 !important;
+  }
+  
+  .header-left {
+    left: 10px !important;
   }
   
   .main-title {
@@ -599,11 +613,14 @@ main {
   .direct-access-btn {
     width: 35px !important;
     height: 35px !important;
-    margin-left: 6px !important;
   }
   
   .direct-access-btn:first-of-type {
-    margin-left: 8px !important;
+    right: 120px !important;
+  }
+  
+  .direct-access-btn:nth-of-type(2) {
+    right: 75px !important;
   }
   
   .direct-access-icon {
@@ -614,7 +631,7 @@ main {
   .theme-toggle-btn {
     width: 35px !important;
     height: 35px !important;
-    margin-left: 6px !important;
+    right: 10px !important;
   }
   
   .sun-icon, .moon-icon {
@@ -658,12 +675,30 @@ main {
   .top-banner .logo {
     height: 35px !important;
     width: 35px !important;
-    margin-right: 8px !important;
+    margin-right: 0 !important;
   }
   
-  .direct-access-btn, .theme-toggle-btn {
+  .header-left {
+    left: 8px !important;
+  }
+  
+  .direct-access-btn {
     width: 30px !important;
     height: 30px !important;
+  }
+  
+  .direct-access-btn:first-of-type {
+    right: 90px !important;
+  }
+  
+  .direct-access-btn:nth-of-type(2) {
+    right: 55px !important;
+  }
+  
+  .theme-toggle-btn {
+    width: 30px !important;
+    height: 30px !important;
+    right: 8px !important;
   }
   
   .direct-access-icon {
