@@ -1,6 +1,6 @@
 {
-  "name": "Garibobo Site Internet",
-  "short_name": "Garibobo Site",
+  "name": "Site internet Epsic Garibobo",
+  "short_name": "Site Garibobo",
   "description": "Site de ressources pédagogiques pour les apprenants du domaine 3 - Électricité",
   "start_url": "./index.html",
   "display": "standalone",

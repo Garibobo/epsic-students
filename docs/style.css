@@ -118,6 +118,7 @@ body.dark-mode .moon-icon {
   flex-direction: column;
   justify-content: center;
   z-index: 1;
+  margin-left: 80px;
 }
 
 .main-title {
@@ -184,7 +185,7 @@ body.dark-mode .moon-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.3s ease;
   position: absolute;
   right: 20px;
 }
@@ -455,10 +456,32 @@ main {
   cursor: pointer;
   font-size: 14px;
   transition: background-color 0.3s ease;
+  margin-bottom: 10px;
 }
 
 .download-btn:hover {
   background-color: #218838;
+}
+
+.copy-link-btn {
+  background-color: #20c997;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.copy-link-btn:hover {
+  background-color: #1ba085;
+}
+
+.copy-link-btn:active {
+  transform: scale(0.98);
 }
 
 .folders-title {
@@ -540,6 +563,10 @@ main {
     left: 10px !important;
   }
   
+  .header-titles {
+    margin-left: 40px !important;
+  }
+  
   .main-title {
     font-size: 1.2rem !important;
     line-height: 1.1 !important;
@@ -609,6 +636,11 @@ main {
     padding: 12px 20px !important;
   }
   
+  .copy-link-btn {
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+  }
+  
   /* Boutons header compacts pour mobile web */
   .direct-access-btn {
     width: 35px !important;
@@ -659,6 +691,10 @@ main {
 
 /* Styles spécifiques pour très petits écrans (< 480px) */
 @media (max-width: 480px) {
+  .header-titles {
+    margin-left: 25px !important;
+  }
+  
   .main-title {
     font-size: 1.0rem !important;
   }
