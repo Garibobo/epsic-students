@@ -384,6 +384,21 @@ main {
   margin: 20px 0;
 }
 
+.version-number {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 10px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.version-number:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
 .qr-title {
   color: #007BFF;
   font-size: 1.5rem;

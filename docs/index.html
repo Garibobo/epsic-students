@@ -29,6 +29,8 @@
   <link rel="icon" href="avatar-colorful.png" type="image/png">
   
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="update-styles.css">
+  <script src="update-manager.js"></script>
 </head>
 <body>
 
@@ -39,7 +41,7 @@
 <header class="top-banner">
   <div class="header-left">
     <img src="avatar-colorful.png" alt="Avatar Amir" class="logo">
-    <span class="version-number">V.1.25.1</span>
+    <span class="version-number" onclick="updateManager.showFullChangelog()" title="Cliquez pour voir l'historique des mises à jour">V.1.25.1</span>
   </div>
   <div class="header-titles">
     <h1 class="main-title">Site internet Epsic Garibobo</h1>
@@ -57,7 +59,6 @@
 <main>
 
   <div id="qr-section">
-    <h3 class="qr-title">Site Internet Epsic Garibobo</h3>
     <p class="qr-instruction">Cliquez pour agrandir</p>
     <img id="qr-code" src="qrcode_site.png" alt="QR Code">
     <button id="download-qr" class="download-btn">Télécharger le QR code</button>
