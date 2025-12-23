@@ -5,11 +5,12 @@
 
 class UpdateManager {
     constructor() {
-        this.currentVersion = "1.25.1";
+        this.currentVersion = "1.25.1.2";
         this.changelogUrl = "./changelog.json";
         this.lastCheckKey = "epsic_last_update_check";
         this.lastVersionKey = "epsic_last_version_seen";
         this.checkInterval = 24 * 60 * 60 * 1000; // 24 heures
+        this.forceShowChangelog = true; // Toujours afficher le changelog
     }
 
     /**
@@ -31,8 +32,8 @@ class UpdateManager {
             const lastVersionSeen = localStorage.getItem(this.lastVersionKey);
             const currentVersion = changelog.currentVersion;
             
-            // Si c'est la première visite ou une nouvelle version
-            if (!lastVersionSeen || this.compareVersions(currentVersion, lastVersionSeen) > 0) {
+            // Forcer l'affichage du changelog à chaque fois OU si nouvelle version
+            if (this.forceShowChangelog || !lastVersionSeen || this.compareVersions(currentVersion, lastVersionSeen) > 0) {
                 this.showUpdateNotification(changelog);
                 localStorage.setItem(this.lastVersionKey, currentVersion);
             }
@@ -198,12 +199,90 @@ class UpdateManager {
         localStorage.removeItem(this.lastVersionKey);
         await this.checkForUpdates();
     }
+
+    /**
+     * Génère automatiquement la prochaine version (comme Garibobo Agenda)
+     */
+    generateNextVersion(currentVersion) {
+        const parts = currentVersion.split('.');
+        if (parts.length === 4) {
+            // Format: 1.25.1.2 -> 1.25.1.3
+            const lastPart = parseInt(parts[3]) + 1;
+            return `${parts[0]}.${parts[1]}.${parts[2]}.${lastPart}`;
+        } else if (parts.length === 3) {
+            // Format: 1.25.1 -> 1.25.1.2
+            return `${currentVersion}.2`;
+        }
+        return currentVersion;
+    }
+
+    /**
+     * Met à jour automatiquement la version dans le changelog
+     */
+    async updateVersioning(newChanges, changeType = 'fix') {
+        try {
+            const response = await fetch(this.changelogUrl);
+            const changelog = await response.json();
+            
+            const nextVersion = this.generateNextVersion(changelog.currentVersion);
+            const today = new Date().toISOString().split('T')[0];
+            
+            const newUpdate = {
+                version: nextVersion,
+                date: today,
+                title: this.getUpdateTitle(changeType),
+                changes: newChanges,
+                type: changeType
+            };
+            
+            // Ajouter la nouvelle version au début
+            changelog.updates.unshift(newUpdate);
+            changelog.currentVersion = nextVersion;
+            
+            console.log('Nouvelle version générée:', nextVersion);
+            return changelog;
+            
+        } catch (error) {
+            console.error('Erreur lors de la mise à jour du versioning:', error);
+            return null;
+        }
+    }
+
+    /**
+     * Génère un titre automatique selon le type de mise à jour
+     */
+    getUpdateTitle(changeType) {
+        const titles = {
+            'major': 'Mise à jour majeure',
+            'feature': 'Nouvelles fonctionnalités',
+            'fix': 'Corrections et améliorations',
+            'security': 'Corrections de sécurité'
+        };
+        return titles[changeType] || 'Mise à jour';
+    }
 }
 
 // Instance globale
 const updateManager = new UpdateManager();
 
-// Initialisation automatique
+// Initialisation automatique avec affichage forcé du changelog
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('UpdateManager: Initialisation avec changelog forcé');
     updateManager.init();
 });
+
+// Fonction globale pour ajouter facilement de nouvelles versions
+window.addNewVersion = function(changes, type = 'fix') {
+    updateManager.updateVersioning(changes, type).then(changelog => {
+        if (changelog) {
+            console.log('Nouvelle version ajoutée:', changelog.currentVersion);
+            // Ici vous pourriez sauvegarder le changelog mis à jour
+        }
+    });
+};
+
+// Exemple d'utilisation pour les prochaines mises à jour:
+// addNewVersion([
+//     "Correction du bug X",
+//     "Amélioration de la performance Y"
+// ], 'fix');

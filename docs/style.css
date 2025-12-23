@@ -143,6 +143,10 @@ body.dark-mode .moon-icon {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  margin-left: 10px;
+}
+
+.direct-access-btn:first-of-type {
   margin-left: 15px;
 }
 
@@ -381,7 +385,11 @@ main {
 
 #qr-section {
   text-align: center;
-  margin: 20px 0;
+  margin: 30px auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .version-number {
@@ -410,16 +418,22 @@ main {
 .qr-instruction {
   color: black;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-weight: 500;
+  text-align: center;
 }
 
 #qr-code {
-  max-width: 150px;
+  width: 150px;
+  height: 150px;
   cursor: pointer;
   transition: transform 0.3s ease;
   display: block;
-  margin: 0 auto 15px auto;
+  margin: 0 auto 20px auto;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 5px;
+  background: white;
 }
 
 .download-btn {
@@ -560,6 +574,10 @@ main {
   .direct-access-btn {
     width: 45px !important;
     height: 45px !important;
+    margin-left: 8px !important;
+  }
+  
+  .direct-access-btn:first-of-type {
     margin-left: 10px !important;
   }
   
@@ -584,6 +602,17 @@ main {
     padding: 1px 4px !important;
     top: -3px !important;
     left: 70px !important;
+  }
+  
+  /* QR section mobile */
+  #qr-section {
+    margin: 20px auto !important;
+    max-width: 90% !important;
+  }
+  
+  #qr-code {
+    width: 120px !important;
+    height: 120px !important;
   }
   
   #tree-container {

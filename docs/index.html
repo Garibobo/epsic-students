@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EPSIC Students</title>
+  <title>Site internet Epsic Garibobo</title>
   
   <!-- PWA Meta Tags -->
   <link rel="manifest" href="manifest.json">
@@ -14,7 +14,7 @@
   <!-- Apple PWA Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="EPSIC Students">
+  <meta name="apple-mobile-web-app-title" content="Site internet Epsic Garibobo">
   <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
   
@@ -40,14 +40,17 @@
 <header class="top-banner">
   <div class="header-left">
     <img src="avatar-colorful.png" alt="Avatar Amir" class="logo">
-    <span class="version-number" onclick="updateManager.showFullChangelog()" title="Cliquez pour voir l'historique des mises à jour">V.1.25.1</span>
+    <span class="version-number" onclick="updateManager.showFullChangelog()" title="Cliquez pour voir l'historique des mises à jour">V.1.25.1.2</span>
   </div>
   <div class="header-titles">
     <h1 class="main-title">Site internet Epsic Garibobo</h1>
     <h2 class="sub-title">Apprenant.e.s domaine 3 - Électricité</h2>
   </div>
-  <button id="direct-access" class="direct-access-btn" title="Accès direct à Garibobo RA">
+  <button id="direct-access-ra" class="direct-access-btn" title="Accès direct à Garibobo RA">
     <img src="garibobo-ra-icon.png" alt="Garibobo RA" class="direct-access-icon">
+  </button>
+  <button id="direct-access-agenda" class="direct-access-btn" title="Accès direct à Garibobo Agenda">
+    <img src="garibobo-agenda.png" alt="Garibobo Agenda" class="direct-access-icon">
   </button>
   <button id="theme-toggle" class="theme-toggle-btn" title="Basculer le mode sombre">
     <span class="sun-icon">☀️</span>
@@ -516,9 +519,9 @@ function isInStandaloneMode() {
 showIOSInstallInstructions();
 
 // Gestion du bouton d'accès direct vers Garibobo RA
-document.getElementById('direct-access').addEventListener('click', () => {
+document.getElementById('direct-access-ra').addEventListener('click', () => {
   // Animation du bouton
-  const btn = document.getElementById('direct-access');
+  const btn = document.getElementById('direct-access-ra');
   btn.style.transform = 'scale(0.9)';
   setTimeout(() => {
     btn.style.transform = '';
@@ -527,8 +530,22 @@ document.getElementById('direct-access').addEventListener('click', () => {
   // Redirection vers PWA Garibobo RA
   window.open('https://garibobo.github.io/PWA-garibobo-RA/', '_blank');
 });
+
+// Gestion du bouton d'accès direct vers Garibobo Agenda
+document.getElementById('direct-access-agenda').addEventListener('click', () => {
+  // Animation du bouton
+  const btn = document.getElementById('direct-access-agenda');
+  btn.style.transform = 'scale(0.9)';
+  setTimeout(() => {
+    btn.style.transform = '';
+  }, 150);
+  
+  // Redirection vers PWA Garibobo Agenda
+  window.open('https://garibobo.github.io/PWA-garibobo-agenda/', '_blank');
+});
 </script>
 
 <script src="update-manager.js"></script>
+<script src="version-manager.js"></script>
 </body>
 </html>

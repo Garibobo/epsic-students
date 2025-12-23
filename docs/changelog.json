@@ -1,7 +1,21 @@
 {
-  "currentVersion": "1.25.1",
+  "currentVersion": "1.25.1.2",
   "lastUpdateCheck": null,
   "updates": [
+    {
+      "version": "1.25.1.2",
+      "date": "2025-12-23",
+      "title": "Système de versioning automatique et corrections",
+      "changes": [
+        "Implémentation du système de versioning automatique (1.25.1.2, .3, .4, etc.)",
+        "Correction des dossiers dynamiques qui ne s'affichaient plus",
+        "Amélioration du favicon avec cache-busting pour Chrome Win 11",
+        "Utilisation des vrais fichiers favicon_io optimisés",
+        "Ajout de logs de debug pour diagnostiquer les problèmes",
+        "Notification changelog forcée à chaque mise à jour"
+      ],
+      "type": "fix"
+    },
     {
       "version": "1.25.1",
       "date": "2025-12-23",
