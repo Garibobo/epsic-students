@@ -45,6 +45,9 @@
     <h1 class="main-title">Site internet Epsic Garibobo</h1>
     <h2 class="sub-title">Apprenant.e.s domaine 3 - Électricité</h2>
   </div>
+  <button id="direct-access" class="direct-access-btn" title="Accès direct à Garibobo RA">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Garibobo RA" class="direct-access-icon">
+  </button>
   <button id="theme-toggle" class="theme-toggle-btn" title="Basculer le mode sombre">
     <span class="sun-icon">☀️</span>
     <span class="moon-icon">🌙</span>
@@ -484,6 +487,19 @@ function isInStandaloneMode() {
 
 // Lancer les instructions iOS
 showIOSInstallInstructions();
+
+// Gestion du bouton d'accès direct vers Garibobo RA
+document.getElementById('direct-access').addEventListener('click', () => {
+  // Animation du bouton
+  const btn = document.getElementById('direct-access');
+  btn.style.transform = 'scale(0.9)';
+  setTimeout(() => {
+    btn.style.transform = '';
+  }, 150);
+  
+  // Redirection vers PWA Garibobo RA
+  window.open('https://garibobo.github.io/PWA-garibobo-RA/', '_blank');
+});
 </script>
 
 </body>

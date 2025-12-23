@@ -132,7 +132,7 @@ body.dark-mode .moon-icon {
   line-height: 1.2;
 }
 
-.theme-toggle-btn {
+.direct-access-btn {
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
@@ -144,6 +144,35 @@ body.dark-mode .moon-icon {
   justify-content: center;
   transition: all 0.3s ease;
   margin-left: 15px;
+}
+
+.direct-access-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.direct-access-btn:active {
+  transform: scale(0.95);
+}
+
+.direct-access-icon {
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 10px;
 }
 
 .theme-toggle-btn:hover {
@@ -512,11 +541,22 @@ main {
     padding: 12px 20px !important;
   }
   
-  /* Bouton mode sombre optimisé mobile */
-  .theme-toggle-btn {
+  /* Boutons header optimisés mobile */
+  .direct-access-btn {
     width: 45px !important;
     height: 45px !important;
     margin-left: 10px !important;
+  }
+  
+  .direct-access-icon {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .theme-toggle-btn {
+    width: 45px !important;
+    height: 45px !important;
+    margin-left: 8px !important;
   }
   
   .sun-icon, .moon-icon {
