@@ -10,7 +10,8 @@ class UpdateManager {
         this.lastCheckKey = "epsic_last_update_check";
         this.lastVersionKey = "epsic_last_version_seen";
         this.checkInterval = 24 * 60 * 60 * 1000; // 24 heures
-        this.forceShowChangelog = true; // Toujours afficher le changelog
+        this.forceShowChangelog = false; // Afficher le changelog occasionnellement
+        this.changelogFrequency = 20; // 1 fois sur 20 visites
     }
 
     /**
@@ -32,8 +33,12 @@ class UpdateManager {
             const lastVersionSeen = localStorage.getItem(this.lastVersionKey);
             const currentVersion = changelog.currentVersion;
             
-            // Forcer l'affichage du changelog à chaque fois OU si nouvelle version
-            if (this.forceShowChangelog || !lastVersionSeen || this.compareVersions(currentVersion, lastVersionSeen) > 0) {
+            // Afficher le changelog si nouvelle version OU occasionnellement (1/20)
+            const shouldShowChangelog = !lastVersionSeen || 
+                                      this.compareVersions(currentVersion, lastVersionSeen) > 0 ||
+                                      this.shouldShowChangelogRandomly();
+            
+            if (shouldShowChangelog) {
                 this.showUpdateNotification(changelog);
                 localStorage.setItem(this.lastVersionKey, currentVersion);
             }
@@ -190,6 +195,14 @@ class UpdateManager {
                 this.checkForUpdates();
             }
         }, 60 * 60 * 1000);
+    }
+
+    /**
+     * Détermine si le changelog doit être affiché aléatoirement (1 fois sur 20)
+     */
+    shouldShowChangelogRandomly() {
+        const randomChance = Math.floor(Math.random() * this.changelogFrequency) + 1;
+        return randomChance === 1; // 1 chance sur 20
     }
 
     /**

@@ -507,32 +507,57 @@ main {
   100% { transform: rotate(360deg); }
 }
 
+/* Responsive mobile web - écrans petits */
 @media (max-width: 768px) {
   body {
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px;
   }
   
-  /* Header optimisé pour iPhone */
+  /* Header compact pour mobile web */
+  .top-banner {
+    height: 60px !important;
+    padding: 5px 10px !important;
+  }
+  
+  .top-banner .logo {
+    height: 45px !important;
+    width: 45px !important;
+    margin-right: 10px !important;
+  }
+  
   .main-title {
-    font-size: 2.2rem !important;
+    font-size: 1.2rem !important;
+    line-height: 1.1 !important;
   }
   
   .sub-title {
-    font-size: 1.4rem !important;
+    font-size: 0.9rem !important;
+    line-height: 1.1 !important;
   }
   
-  /* Instructions QR plus lisibles */
+  /* QR section réduite pour mobile web */
   .qr-instruction {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
   
   .folders-title {
-    font-size: 1.4rem !important;
+    font-size: 1.1rem !important;
+    margin: 20px 0 10px 0 !important;
   }
   
   .qr-title {
-    font-size: 1.6rem !important;
+    font-size: 1.3rem !important;
+  }
+  
+  #qr-section {
+    margin: 15px auto !important;
+    max-width: 90% !important;
+  }
+  
+  #qr-code {
+    width: 100px !important;
+    height: 100px !important;
   }
   
   .tree .folder > .folder-header {
@@ -570,52 +595,88 @@ main {
     padding: 12px 20px !important;
   }
   
-  /* Boutons header optimisés mobile */
+  /* Boutons header compacts pour mobile web */
   .direct-access-btn {
-    width: 45px !important;
-    height: 45px !important;
-    margin-left: 8px !important;
+    width: 35px !important;
+    height: 35px !important;
+    margin-left: 6px !important;
   }
   
   .direct-access-btn:first-of-type {
-    margin-left: 10px !important;
-  }
-  
-  .direct-access-icon {
-    width: 24px !important;
-    height: 24px !important;
-  }
-  
-  .theme-toggle-btn {
-    width: 45px !important;
-    height: 45px !important;
     margin-left: 8px !important;
   }
   
+  .direct-access-icon {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  
+  .theme-toggle-btn {
+    width: 35px !important;
+    height: 35px !important;
+    margin-left: 6px !important;
+  }
+  
   .sun-icon, .moon-icon {
-    font-size: 22px !important;
+    font-size: 16px !important;
   }
   
-  /* Version number mobile */
+  /* Version number mobile compact */
   .version-number {
-    font-size: 10px !important;
-    padding: 1px 4px !important;
-    top: -3px !important;
-    left: 70px !important;
+    font-size: 8px !important;
+    padding: 1px 3px !important;
+    top: -2px !important;
+    left: 50px !important;
   }
   
-  /* QR section mobile */
-  #qr-section {
-    margin: 20px auto !important;
-    max-width: 90% !important;
+  /* Ajustements finaux mobile web */
+  #tree-container {
+    height: calc(100vh - 280px) !important;
+  }
+  
+  .bottom-footer {
+    font-size: 12px !important;
+    padding: 8px !important;
+  }
+}
+
+/* Styles spécifiques pour très petits écrans (< 480px) */
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 1.0rem !important;
+  }
+  
+  .sub-title {
+    font-size: 0.8rem !important;
+  }
+  
+  .top-banner {
+    height: 50px !important;
+    padding: 3px 8px !important;
+  }
+  
+  .top-banner .logo {
+    height: 35px !important;
+    width: 35px !important;
+    margin-right: 8px !important;
+  }
+  
+  .direct-access-btn, .theme-toggle-btn {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .direct-access-icon {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  
+  .sun-icon, .moon-icon {
+    font-size: 14px !important;
   }
   
   #qr-code {
-    width: 120px !important;
-    height: 120px !important;
-  }
-  
-  #tree-container {
-    height: calc(100vh - 350px);
+    width: 80px !important;
+    height: 80px !important;
   }
 }
