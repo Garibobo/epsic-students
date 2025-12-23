@@ -10,28 +10,28 @@ body {
 
 /* Mode sombre */
 body.dark-mode {
-  background-color: #121212;
+  background-color: #1a1a1a;
   color: #e0e0e0;
 }
 
 body.dark-mode .top-banner {
-  background-color: #1976D2;
+  background-color: #2c3e50;
 }
 
 body.dark-mode .bottom-footer {
-  background-color: #1e1e1e;
+  background-color: #2c3e50;
   border-top: 1px solid #333;
   color: #b0b0b0;
 }
 
 body.dark-mode #tree-container {
-  background-color: #1e1e1e;
-  border: 1px solid #333;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
   color: #e0e0e0;
 }
 
 body.dark-mode .tree .folder > .folder-header:hover {
-  background-color: #2a2a2a;
+  background-color: #4a4a4a;
 }
 
 body.dark-mode .tree .folder > .folder-header:active {
@@ -39,7 +39,7 @@ body.dark-mode .tree .folder > .folder-header:active {
 }
 
 body.dark-mode .tree .file:hover {
-  background-color: #2a2a2a;
+  background-color: #444;
 }
 
 body.dark-mode .tree .file:active {
@@ -118,7 +118,7 @@ body.dark-mode .moon-icon {
   flex-direction: column;
   justify-content: center;
   z-index: 1;
-  margin-left: 80px;
+  margin-left: 10px;
 }
 
 .main-title {
@@ -320,10 +320,15 @@ main {
 }
 
 .tree .folder-name {
-  font-weight: 600;
-  color: #0969da;
-  font-size: 16px;
-  flex: 1;
+  margin-left: 5px;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Amélioration de la lisibilité des noms de dossiers en mode sombre */
+body.dark-mode .tree .folder-name {
+  color: #e0e0e0 !important;
 }
 
 .tree .file {
@@ -549,8 +554,10 @@ main {
   
   /* Header compact pour mobile web */
   .top-banner {
-    height: 60px !important;
-    padding: 5px 10px !important;
+    height: 100px !important;
+    padding: 10px !important;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
   
   .top-banner .logo {
@@ -560,21 +567,30 @@ main {
   }
   
   .header-left {
-    left: 10px !important;
+    position: static !important;
+    order: 1;
+    margin-right: 10px;
   }
   
   .header-titles {
-    margin-left: 40px !important;
+    position: static !important;
+    margin-left: 0 !important;
+    text-align: left !important;
+    order: 2;
+    flex: 1;
+    margin-top: 5px;
   }
   
   .main-title {
-    font-size: 1.2rem !important;
+    font-size: 0.9rem !important;
     line-height: 1.1 !important;
+    margin: 0 !important;
   }
   
   .sub-title {
-    font-size: 0.9rem !important;
+    font-size: 0.7rem !important;
     line-height: 1.1 !important;
+    margin: 2px 0 0 0 !important;
   }
   
   /* QR section réduite pour mobile web */
@@ -641,28 +657,69 @@ main {
     padding: 12px 20px !important;
   }
   
-  /* Boutons header compacts pour mobile web */
+  /* Boutons header compacts pour mobile web - disposition verticale */
   .direct-access-btn {
-    width: 35px !important;
-    height: 35px !important;
+    position: static !important;
+    width: 30px !important;
+    height: 30px !important;
+    margin: 2px !important;
   }
   
   .direct-access-btn:first-of-type {
-    right: 120px !important;
+    right: auto !important;
   }
   
   .direct-access-btn:nth-of-type(2) {
-    right: 75px !important;
+    right: auto !important;
   }
   
   .direct-access-icon {
-    width: 18px !important;
-    height: 18px !important;
+    width: 15px !important;
+    height: 15px !important;
   }
   
   .theme-toggle-btn {
-    width: 35px !important;
-    height: 35px !important;
+    position: static !important;
+    width: 30px !important;
+    height: 30px !important;
+    right: auto !important;
+    margin: 2px !important;
+  }
+  
+  /* Container pour les boutons à droite */
+  .top-banner {
+    position: relative;
+  }
+  
+  .top-banner::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 3;
+  }
+  
+  .direct-access-btn,
+  .theme-toggle-btn {
+    position: absolute !important;
+    right: 10px !important;
+  }
+  
+  .direct-access-btn:first-of-type {
+    top: 10px !important;
+    right: 10px !important;
+  }
+  
+  .direct-access-btn:nth-of-type(2) {
+    top: 45px !important;
+    right: 10px !important;
+  }
+  
+  .theme-toggle-btn {
+    top: 80px !important;
     right: 10px !important;
   }
   
@@ -691,49 +748,48 @@ main {
 
 /* Styles spécifiques pour très petits écrans (< 480px) */
 @media (max-width: 480px) {
+  .top-banner {
+    height: 90px !important;
+    padding: 8px !important;
+  }
+  
   .header-titles {
-    margin-left: 25px !important;
+    margin-left: 0 !important;
   }
   
   .main-title {
-    font-size: 1.0rem !important;
-  }
-  
-  .sub-title {
     font-size: 0.8rem !important;
   }
   
-  .top-banner {
-    height: 50px !important;
-    padding: 3px 8px !important;
+  .sub-title {
+    font-size: 0.6rem !important;
   }
   
   .top-banner .logo {
-    height: 35px !important;
-    width: 35px !important;
+    height: 30px !important;
+    width: 30px !important;
     margin-right: 0 !important;
   }
   
-  .header-left {
-    left: 8px !important;
-  }
-  
   .direct-access-btn {
-    width: 30px !important;
-    height: 30px !important;
+    width: 25px !important;
+    height: 25px !important;
   }
   
   .direct-access-btn:first-of-type {
-    right: 90px !important;
+    top: 8px !important;
+    right: 8px !important;
   }
   
   .direct-access-btn:nth-of-type(2) {
-    right: 55px !important;
+    top: 38px !important;
+    right: 8px !important;
   }
   
   .theme-toggle-btn {
-    width: 30px !important;
-    height: 30px !important;
+    width: 25px !important;
+    height: 25px !important;
+    top: 68px !important;
     right: 8px !important;
   }
   
