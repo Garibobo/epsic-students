@@ -15,32 +15,32 @@
   "categories": ["education", "productivity", "utilities"],
   "icons": [
     {
-      "src": "avatar-colorful.png",
+      "src": "favicon_io/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "avatar-colorful.png",
+      "src": "favicon_io/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "avatar-colorful.png",
+      "src": "favicon_io/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "avatar-colorful.png",
-      "sizes": "96x96",
+      "src": "favicon_io/favicon-32x32.png",
+      "sizes": "32x32",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "avatar-colorful.png",
-      "sizes": "48x48",
+      "src": "favicon_io/favicon-16x16.png",
+      "sizes": "16x16",
       "type": "image/png",
       "purpose": "any"
     }
@@ -53,8 +53,8 @@
       "url": "./index.html#administratif",
       "icons": [
         {
-          "src": "avatar-colorful.png",
-          "sizes": "96x96"
+          "src": "favicon_io/favicon-32x32.png",
+          "sizes": "32x32"
         }
       ]
     },
@@ -65,8 +65,8 @@
       "url": "./index.html#cours",
       "icons": [
         {
-          "src": "avatar-colorful.png",
-          "sizes": "96x96"
+          "src": "favicon_io/favicon-32x32.png",
+          "sizes": "32x32"
         }
       ]
     }
