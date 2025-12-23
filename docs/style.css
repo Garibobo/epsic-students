@@ -27,12 +27,27 @@ body {
   border: 2px solid white;
 }
 
-.top-banner h1 {
+.header-titles {
   flex: 1;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-title {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
+  line-height: 1.2;
+}
+
+.sub-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+  opacity: 0.9;
+  line-height: 1.2;
 }
 
 .bottom-footer {
@@ -314,35 +329,61 @@ main {
 
 @media (max-width: 768px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
     padding: 5px;
   }
   
+  /* Header optimisé pour iPhone */
+  .main-title {
+    font-size: 2.2rem !important;
+  }
+  
+  .sub-title {
+    font-size: 1.4rem !important;
+  }
+  
+  /* Instructions QR plus lisibles */
+  .qr-instruction {
+    font-size: 16px !important;
+  }
+  
+  .folders-title {
+    font-size: 1.4rem !important;
+  }
+  
   .tree .folder > .folder-header {
-    padding: 16px 20px;
-    min-height: 56px;
+    padding: 18px 22px;
+    min-height: 60px;
   }
   
   .tree .file {
-    padding: 16px 20px;
-    min-height: 56px;
+    padding: 18px 22px;
+    min-height: 60px;
   }
   
   .tree .folder-toggle {
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
   }
   
   .tree .folder-icon,
   .tree .file-icon {
-    font-size: 24px;
-    margin-right: 16px;
+    font-size: 26px;
+    margin-right: 18px;
   }
   
+  /* Textes principaux plus gros pour iPhone */
   .tree .folder-name,
   .tree .file a {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  /* Boutons plus accessibles */
+  .download-btn {
+    font-size: 16px !important;
+    padding: 12px 20px !important;
   }
   
   #tree-container {
