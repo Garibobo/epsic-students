@@ -12,16 +12,24 @@
 </div>
 
 <header class="top-banner">
-  <img src="avatar-colorful.png" alt="Avatar Amir" class="logo">
+  <div class="header-left">
+    <img src="avatar-colorful.png" alt="Avatar Amir" class="logo">
+    <span class="version-number">V.1.25.1</span>
+  </div>
   <div class="header-titles">
     <h1 class="main-title">Site internet Epsic Garibobo</h1>
     <h2 class="sub-title">Apprenant.e.s domaine 3 - Électricité</h2>
   </div>
+  <button id="theme-toggle" class="theme-toggle-btn" title="Basculer le mode sombre">
+    <span class="sun-icon">☀️</span>
+    <span class="moon-icon">🌙</span>
+  </button>
 </header>
 
 <main>
 
   <div id="qr-section">
+    <h3 class="qr-title">Site Internet Epsic Garibobo</h3>
     <p class="qr-instruction">Cliquez pour agrandir</p>
     <img id="qr-code" src="qrcode_site.png" alt="QR Code">
     <button id="download-qr" class="download-btn">Télécharger le QR code</button>
@@ -257,6 +265,53 @@ async function downloadFile(url, filename) {
 
 // Lancer le chargement
 loadDynamicTree();
+
+// Gestion du mode sombre
+function initThemeToggle() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  
+  // Récupérer le thème sauvegardé ou utiliser le thème système
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    body.classList.add('dark-mode');
+  }
+  
+  // Écouter les changements du thème système
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      if (e.matches) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+      }
+    }
+  });
+  
+  // Gérer le clic sur le bouton
+  themeToggle.addEventListener('click', () => {
+    const isDark = body.classList.contains('dark-mode');
+    
+    if (isDark) {
+      body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    } else {
+      body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    }
+    
+    // Animation du bouton
+    themeToggle.style.transform = 'rotate(360deg)';
+    setTimeout(() => {
+      themeToggle.style.transform = '';
+    }, 300);
+  });
+}
+
+// Initialiser le toggle de thème
+initThemeToggle();
 </script>
 
 </body>
