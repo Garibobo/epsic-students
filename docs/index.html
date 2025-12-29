@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site internet Epsic Garibobo</title>
+  
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007BFF">
+  <meta name="theme-color" content="#1976D2" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Site de ressources pédagogiques pour les apprenants du domaine 3 - Électricité">
+  
+  <!-- Apple PWA Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Site internet Epsic Garibobo">
+  <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  
+  <!-- Microsoft PWA Meta Tags -->
+  <meta name="msapplication-TileImage" content="favicon_io/android-chrome-192x192.png">
+  <meta name="msapplication-TileColor" content="#007BFF">
+  
+  <!-- Samsung Internet PWA Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="samsung-internet-theme-color" content="#007BFF">
+  <meta name="samsung-internet-background-color" content="#ffffff">
+  <meta name="samsung-internet-display" content="standalone">
+  <meta name="samsung-internet-orientation" content="any">
+  
+  <!-- Standard Meta Tags -->
+  <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico?v=2025.12.23">
+  <link rel="shortcut icon" href="favicon_io/favicon.ico?v=2025.12.23" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="update-styles.css">
+</head>
+<body>
+
+<div id="loader-overlay">
+  <div class="spinner"></div>
+</div>
+
+<header class="top-banner">
+  <div class="header-left">
+    <img src="avatar-colorful.png" alt="Avatar Amir" class="logo">
+  </div>
+  <div class="header-titles">
+    <h1 class="main-title">Site internet Epsic Garibobo</h1>
+    <h2 class="sub-title">Apprenant.e.s domaine 3 - Électricité</h2>
+  </div>
+  <button id="direct-access-ra" class="direct-access-btn" title="Accès direct à Garibobo RA">
+    <img src="garibobo-ra-icon.png" alt="Garibobo RA" class="direct-access-icon">
+  </button>
+  <button id="direct-access-agenda" class="direct-access-btn" title="Accès direct à Garibobo Agenda">
+    <img src="garibobo-agenda.png" alt="Garibobo Agenda" class="direct-access-icon">
+  </button>
+  <button id="theme-toggle" class="theme-toggle-btn" title="Basculer le mode sombre">
+    <span class="sun-icon">☀️</span>
+    <span class="moon-icon">🌙</span>
+  </button>
+</header>
+
+<main>
+
+  <div id="qr-section">
+    <p class="qr-instruction">Cliquez pour agrandir</p>
+    <img id="qr-code" src="qrcode_site.png" alt="QR Code">
+    <button id="download-qr" class="download-btn">Télécharger le QR code</button>
+    <button id="copy-link" class="copy-link-btn">📋 Copier le lien</button>
+  </div>
+
+  <h2 class="folders-title">Dossiers:</h2>
+
+  <div id="tree-container" class="tree">
+    <div class="tree-loading">
+      <div class="loading-spinner"></div>
+      Chargement de l'arborescence...
+    </div>
+  </div>
+
+  <button id="back-to-top">⬆️ Retour en haut</button>
+</main>
+
+<footer class="bottom-footer">
+  <p>Réalisé par Amir Garibovic - Domaine 3 - V.1.25.1.2</p>
+</footer>
+
+<script>
+window.addEventListener('load', () => {
+  document.getElementById('loader-overlay').style.display = 'none';
+});
+
+document.getElementById('qr-code').addEventListener('click', function () {
+  this.classList.toggle('fullscreen');
+});
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+
+document.getElementById('back-to-top').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.getElementById('download-qr').addEventListener('click', () => {
+  const link = document.createElement('a');
+  link.href = 'qrcode_site.png';
+  link.download = 'qrcode_epsic_students.png';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+
+document.getElementById('copy-link').addEventListener('click', async function() {
+  const url = 'https://garibobo.github.io/epsic-students/';
+  const button = this;
+  
+  try {
+    await navigator.clipboard.writeText(url);
+    
+    // Feedback visuel
+    const originalText = button.innerHTML;
+    button.innerHTML = '✅ Copié!';
+    button.style.backgroundColor = '#28a745';
+    
+    setTimeout(() => {
+      button.innerHTML = originalText;
+      button.style.backgroundColor = '#20c997';
+    }, 2000);
+    
+  } catch (err) {
+    // Fallback pour les navigateurs plus anciens
+    const textArea = document.createElement('textarea');
+    textArea.value = url;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    
+    // Feedback visuel
+    const originalText = button.innerHTML;
+    button.innerHTML = '✅ Copié!';
+    button.style.backgroundColor = '#28a745';
+    
+    setTimeout(() => {
+      button.innerHTML = originalText;
+      button.style.backgroundColor = '#20c997';
+    }, 2000);
+  }
+});
+
+// GitHub API pour arborescence dynamique
+const GITHUB_API = 'https://api.github.com/repos/Garibobo/epsic-students/contents';
+
+async function fetchGitHubTree(path = '') {
+  try {
+    const response = await fetch(`${GITHUB_API}/${path}`);
+    const data = await response.json();
+    
+    // Si c'est la racine, filtrer pour ne garder que les dossiers autorisés
+    if (path === '') {
+      return data.filter(item => 
+        !item.name.startsWith('.') && 
+        item.name !== 'docs' &&
+        (item.name === '00-Administratif' || item.name === '01-Cours')
+      );
+    }
+    
+    // Pour les sous-dossiers, garder tous les éléments sauf les fichiers cachés
+    return data.filter(item => !item.name.startsWith('.'));
+  } catch (error) {
+    console.error('Erreur GitHub API:', error);
+    return [];
+  }
+}
+
+async function loadDynamicTree() {
+  try {
+    console.log('Loading dynamic tree...');
+    const container = document.getElementById('tree-container');
+    if (!container) {
+      console.error('tree-container not found!');
+      return;
+    }
+    container.innerHTML = ''; // Clear loading
+    
+    const rootItems = await fetchGitHubTree();
+    console.log('Root items:', rootItems);
+    
+    async function createTreeElement(item) {
+      if (item.type === 'dir') {
+        const folderDiv = document.createElement('div');
+        folderDiv.classList.add('folder');
+
+        const header = document.createElement('div');
+        header.classList.add('folder-header');
+
+        const toggle = document.createElement('span');
+        toggle.classList.add('folder-toggle');
+        toggle.textContent = '▶';
+
+        const icon = document.createElement('span');
+        icon.classList.add('folder-icon');
+        icon.textContent = '📂';
+
+        const name = document.createElement('span');
+        name.classList.add('folder-name');
+        name.textContent = item.name;
+
+        const childrenDiv = document.createElement('div');
+        childrenDiv.classList.add('folder-children');
+        childrenDiv.style.display = 'none';
+
+        header.onclick = async () => {
+          const isOpen = childrenDiv.style.display === 'block';
+          
+          // Animation de feedback tactile
+          header.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            header.style.transform = '';
+          }, 150);
+          
+          if (!isOpen && childrenDiv.children.length === 0) {
+            // Charger les enfants dynamiquement
+            const children = await fetchGitHubTree(item.path);
+            for (const child of children) {
+              const childElement = await createTreeElement(child);
+              childrenDiv.appendChild(childElement);
+            }
+          }
+          
+          // Animations d'ouverture/fermeture
+          if (!isOpen) {
+            childrenDiv.classList.add('expanding');
+            folderDiv.classList.add('expanded');
+            toggle.classList.add('expanded');
+          } else {
+            folderDiv.classList.remove('expanded');
+            toggle.classList.remove('expanded');
+          }
+          
+          childrenDiv.style.display = isOpen ? 'none' : 'block';
+          toggle.textContent = isOpen ? '▶' : '▼';
+        };
+
+        header.appendChild(toggle);
+        header.appendChild(icon);
+        header.appendChild(name);
+        folderDiv.appendChild(header);
+        folderDiv.appendChild(childrenDiv);
+        return folderDiv;
+      } else {
+        const fileDiv = document.createElement('div');
+        fileDiv.classList.add('file');
+
+        const icon = document.createElement('span');
+        icon.classList.add('file-icon');
+        icon.textContent = getFileIcon(item.name);
+
+        const link = document.createElement('a');
+        link.href = item.download_url;
+        link.textContent = item.name;
+        link.download = item.name;
+        link.onclick = (e) => {
+          e.preventDefault();
+          downloadFile(item.download_url, item.name);
+        };
+
+        fileDiv.appendChild(icon);
+        fileDiv.appendChild(link);
+        return fileDiv;
+      }
+    }
+
+    function getFileIcon(filename) {
+      const ext = filename.split('.').pop().toLowerCase();
+      switch(ext) {
+        // PDF files
+        case 'pdf': return '📕';
+        
+        // Microsoft Office files
+        case 'xlsx': case 'xls': return '📗';
+        case 'docx': case 'doc': return '📘';
+        case 'pptx': case 'ppt': return '📙';
+        
+        // Images
+        case 'jpg': case 'jpeg': case 'png': case 'gif': case 'bmp': case 'webp': case 'svg': return '🖼️';
+        
+        // Text files
+        case 'txt': case 'md': return '📝';
+        
+        // Code files
+        case 'py': case 'js': case 'html': case 'css': case 'json': return '💻';
+        
+        // Archive files
+        case 'zip': case 'rar': case '7z': return '📦';
+        
+        // Video files
+        case 'mp4': case 'avi': case 'mov': case 'wmv': return '🎬';
+        
+        // Audio files
+        case 'mp3': case 'wav': case 'flac': return '🎵';
+        
+        // Default
+        default: return '📄';
+      }
+    }
+
+    // Créer l'arborescence
+    if (rootItems.length === 0) {
+      container.innerHTML = '<div style="color: orange; text-align: center;">Aucun dossier trouvé</div>';
+      return;
+    }
+    
+    for (const item of rootItems) {
+      console.log('Creating element for:', item.name);
+      const element = await createTreeElement(item);
+      container.appendChild(element);
+    }
+    console.log('Tree creation completed');
+  } catch (error) {
+    const container = document.getElementById('tree-container');
+    container.innerHTML = '<div style="color: red; text-align: center;">Erreur lors du chargement de l\'arborescence</div>';
+    console.error('Erreur lors du chargement GitHub API:', error);
+  }
+}
+
+// Fonction pour télécharger un fichier
+async function downloadFile(url, filename) {
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    
+    const downloadLink = document.createElement('a');
+    downloadLink.href = URL.createObjectURL(blob);
+    downloadLink.download = filename;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    
+    // Nettoyer l'URL temporaire
+    URL.revokeObjectURL(downloadLink.href);
+  } catch (error) {
+    console.error('Erreur lors du téléchargement:', error);
+    // Fallback: ouvrir dans un nouvel onglet
+    window.open(url, '_blank');
+  }
+}
+
+// Attendre que le DOM soit chargé
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM loaded, starting tree load...');
+  loadDynamicTree();
+  initThemeToggle();
+});
+
+// Fallback si DOMContentLoaded a déjà été déclenché
+if (document.readyState === 'loading') {
+  // DOM pas encore chargé
+} else {
+  // DOM déjà chargé
+  console.log('DOM already loaded, starting tree load...');
+  loadDynamicTree();
+  initThemeToggle();
+}
+
+// Gestion du mode sombre
+function initThemeToggle() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  
+  if (!themeToggle) {
+    console.error('Theme toggle button not found!');
+    return;
+  }
+  
+  // Récupérer le thème sauvegardé ou utiliser le thème système
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    body.classList.add('dark-mode');
+  }
+  
+  // Écouter les changements du thème système
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+      if (e.matches) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+      }
+    }
+  });
+  
+  // Gérer le clic sur le bouton
+  themeToggle.addEventListener('click', () => {
+    console.log('Theme toggle clicked!');
+    const isDark = body.classList.contains('dark-mode');
+    console.log('Current dark mode:', isDark);
+    
+    if (isDark) {
+      body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+      console.log('Switched to light mode');
+    } else {
+      body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+      console.log('Switched to dark mode');
+    }
+    
+    // Animation du bouton
+    themeToggle.style.transform = 'rotate(360deg)';
+    setTimeout(() => {
+      themeToggle.style.transform = '';
+    }, 300);
+  });
+}
+
+// Le toggle de thème est initialisé dans DOMContentLoaded
+
+// Enregistrement du Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then((registration) => {
+        console.log('SW enregistré: ', registration);
+      })
+      .catch((registrationError) => {
+        console.log('Échec enregistrement SW: ', registrationError);
+      });
+  });
+}
+
+// Gestion de l'installation PWA
+let deferredPrompt;
+let installButton;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Empêcher l'affichage automatique du prompt
+  e.preventDefault();
+  deferredPrompt = e;
+  
+  // Créer le bouton d'installation s'il n'existe pas
+  if (!installButton) {
+    createInstallButton();
+  }
+});
+
+function createInstallButton() {
+  installButton = document.createElement('button');
+  installButton.textContent = '📱 Installer l\'app';
+  installButton.className = 'install-btn';
+  installButton.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  `;
+  
+  installButton.addEventListener('mouseenter', () => {
+    installButton.style.transform = 'scale(1.05)';
+    installButton.style.boxShadow = '0 6px 16px rgba(0, 123, 255, 0.4)';
+  });
+  
+  installButton.addEventListener('mouseleave', () => {
+    installButton.style.transform = 'scale(1)';
+    installButton.style.boxShadow = '0 4px 12px rgba(0, 123, 255, 0.3)';
+  });
+  
+  installButton.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      
+      if (outcome === 'accepted') {
+        console.log('PWA installée');
+      } else {
+        console.log('Installation PWA refusée');
+      }
+      
+      deferredPrompt = null;
+      installButton.remove();
+    }
+  });
+  
+  document.body.appendChild(installButton);
+}
+
+// Masquer le bouton si l'app est déjà installée
+window.addEventListener('appinstalled', () => {
+  if (installButton) {
+    installButton.remove();
+  }
+  console.log('PWA installée avec succès');
+});
+
+// Instructions spéciales pour iOS Safari
+function showIOSInstallInstructions() {
+  if (isIOS() && !isInStandaloneMode()) {
+    setTimeout(() => {
+      const iosPrompt = document.createElement('div');
+      iosPrompt.innerHTML = `
+        <div style="
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #007BFF;
+          color: white;
+          padding: 16px 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+          z-index: 1001;
+          max-width: 300px;
+          text-align: center;
+          font-size: 14px;
+          line-height: 1.4;
+        ">
+          <div style="margin-bottom: 8px;">📱 <strong>Installer l'app</strong></div>
+          <div>Appuyez sur <strong>Partager</strong> puis <strong>"Sur l'écran d'accueil"</strong></div>
+          <button onclick="this.parentElement.parentElement.remove()" style="
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 12px;
+            cursor: pointer;
+          ">OK</button>
+        </div>
+      `;
+      document.body.appendChild(iosPrompt);
+      
+      // Auto-masquer après 10 secondes
+      setTimeout(() => {
+        if (iosPrompt.parentElement) {
+          iosPrompt.remove();
+        }
+      }, 10000);
+    }, 3000);
+  }
+}
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent);
+}
+
+function isInStandaloneMode() {
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+}
+
+// Lancer les instructions iOS
+showIOSInstallInstructions();
+
+// Gestion du bouton d'accès direct vers Garibobo RA
+document.getElementById('direct-access-ra').addEventListener('click', () => {
+  // Animation du bouton
+  const btn = document.getElementById('direct-access-ra');
+  btn.style.transform = 'scale(0.9)';
+  setTimeout(() => {
+    btn.style.transform = '';
+  }, 150);
+  
+  // Redirection vers PWA Garibobo RA
+  window.open('https://garibobo.github.io/PWA-garibobo-RA/', '_blank');
+});
+
+// Gestion du bouton d'accès direct vers Garibobo Agenda
+document.getElementById('direct-access-agenda').addEventListener('click', () => {
+  // Animation du bouton
+  const btn = document.getElementById('direct-access-agenda');
+  btn.style.transform = 'scale(0.9)';
+  setTimeout(() => {
+    btn.style.transform = '';
+  }, 150);
+  
+  // Redirection vers PWA Garibobo Agenda
+  window.open('https://garibobo.github.io/PWA-garibobo-agenda/', '_blank');
+});
+</script>
+
+<script src="update-manager.js"></script>
+<script src="version-manager.js"></script>
+</body>
+</html>
