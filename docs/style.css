@@ -545,6 +545,198 @@ body.dark-mode .tree .folder-name {
   100% { transform: rotate(360deg); }
 }
 
+/* Responsive tablettes (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Optimisation pour tablettes en mode portrait et paysage */
+  .tree .folder > .folder-header {
+    padding: 14px 18px;
+    min-height: 52px;
+  }
+  
+  .tree .file {
+    padding: 14px 18px;
+    min-height: 52px;
+  }
+  
+  /* Taille responsive pour dossiers imbriqués profonds sur tablettes */
+  .tree .folder-children .folder-children .folder > .folder-header {
+    padding: 10px 14px !important;
+    min-height: 42px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder > .folder-header {
+    padding: 8px 12px !important;
+    min-height: 38px !important;
+  }
+  
+  .tree .folder-children .folder-children .file {
+    padding: 10px 14px !important;
+    min-height: 42px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .file {
+    padding: 8px 12px !important;
+    min-height: 38px !important;
+  }
+  
+  /* Icônes adaptées pour tablettes */
+  .tree .folder-icon,
+  .tree .file-icon {
+    font-size: 22px;
+    margin-right: 14px;
+  }
+  
+  .tree .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .file-icon {
+    font-size: 18px !important;
+    margin-right: 12px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .folder-children .file-icon {
+    font-size: 16px !important;
+    margin-right: 10px !important;
+  }
+  
+  /* Texte optimisé pour tablettes */
+  .tree .folder-name,
+  .tree .file a {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .tree .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .file a {
+    font-size: 16px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .folder-children .file a {
+    font-size: 14px !important;
+  }
+  
+  /* Toggles pour tablettes */
+  .tree .folder-toggle {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+  
+  .tree .folder-children .folder-children .folder-toggle {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 16px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-toggle {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Indentation optimisée pour tablettes */
+  .tree .folder-children {
+    margin-left: 20px;
+    padding-left: 14px;
+  }
+  
+  .tree .folder-children .folder-children {
+    margin-left: 14px !important;
+    padding-left: 10px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children {
+    margin-left: 10px !important;
+    padding-left: 8px !important;
+  }
+}
+
+/* Responsive grandes tablettes et iPad Pro (1025px+) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  /* Taille responsive pour dossiers imbriqués profonds sur grandes tablettes */
+  .tree .folder-children .folder-children .folder > .folder-header {
+    padding: 12px 16px !important;
+    min-height: 48px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder > .folder-header {
+    padding: 10px 14px !important;
+    min-height: 44px !important;
+  }
+  
+  .tree .folder-children .folder-children .file {
+    padding: 12px 16px !important;
+    min-height: 48px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .file {
+    padding: 10px 14px !important;
+    min-height: 44px !important;
+  }
+  
+  /* Icônes pour grandes tablettes */
+  .tree .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .file-icon {
+    font-size: 20px !important;
+    margin-right: 14px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .folder-children .file-icon {
+    font-size: 18px !important;
+    margin-right: 12px !important;
+  }
+  
+  /* Texte pour grandes tablettes */
+  .tree .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .file a {
+    font-size: 18px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .folder-children .file a {
+    font-size: 16px !important;
+  }
+  
+  /* Indentation pour grandes tablettes */
+  .tree .folder-children .folder-children {
+    margin-left: 18px !important;
+    padding-left: 12px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children {
+    margin-left: 14px !important;
+    padding-left: 10px !important;
+  }
+}
+
+/* Optimisations spécifiques iOS Safari et Android WebView */
+@media screen and (-webkit-min-device-pixel-ratio: 1) {
+  /* Amélioration du touch feedback pour iOS et Android */
+  .tree .folder > .folder-header,
+  .tree .file {
+    -webkit-tap-highlight-color: rgba(0, 123, 255, 0.1);
+    tap-highlight-color: rgba(0, 123, 255, 0.1);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Optimisation des animations pour les appareils mobiles */
+  .tree .folder > .folder-header,
+  .tree .file {
+    will-change: transform, background-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+  
+  /* Amélioration du scroll sur iOS */
+  #tree-container {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+}
+
 /* Responsive mobile web - écrans petits */
 @media (max-width: 768px) {
   body {
@@ -735,6 +927,75 @@ body.dark-mode .tree .folder-name {
     left: 50px !important;
   }
   
+  /* Taille responsive pour dossiers imbriqués profonds (3ème et 4ème niveau) */
+  .tree .folder-children .folder-children .folder > .folder-header {
+    padding: 12px 16px !important;
+    min-height: 44px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder > .folder-header {
+    padding: 10px 14px !important;
+    min-height: 40px !important;
+  }
+  
+  .tree .folder-children .folder-children .file {
+    padding: 12px 16px !important;
+    min-height: 44px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .file {
+    padding: 10px 14px !important;
+    min-height: 40px !important;
+  }
+  
+  /* Réduction des icônes pour niveaux profonds */
+  .tree .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .file-icon {
+    font-size: 20px !important;
+    margin-right: 12px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .folder-children .file-icon {
+    font-size: 18px !important;
+    margin-right: 10px !important;
+  }
+  
+  /* Réduction du texte pour niveaux profonds */
+  .tree .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .file a {
+    font-size: 16px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .folder-children .file a {
+    font-size: 14px !important;
+  }
+  
+  /* Réduction des toggles pour niveaux profonds */
+  .tree .folder-children .folder-children .folder-toggle {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 16px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-toggle {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Réduction de l'indentation pour niveaux profonds */
+  .tree .folder-children .folder-children {
+    margin-left: 16px !important;
+    padding-left: 12px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children {
+    margin-left: 12px !important;
+    padding-left: 8px !important;
+  }
+
   /* Ajustements finaux mobile web */
   #tree-container {
     height: calc(100vh - 280px) !important;
@@ -805,5 +1066,74 @@ body.dark-mode .tree .folder-name {
   #qr-code {
     width: 80px !important;
     height: 80px !important;
+  }
+  
+  /* Taille responsive pour dossiers imbriqués profonds sur très petits écrans */
+  .tree .folder-children .folder-children .folder > .folder-header {
+    padding: 8px 12px !important;
+    min-height: 36px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder > .folder-header {
+    padding: 6px 10px !important;
+    min-height: 32px !important;
+  }
+  
+  .tree .folder-children .folder-children .file {
+    padding: 8px 12px !important;
+    min-height: 36px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .file {
+    padding: 6px 10px !important;
+    min-height: 32px !important;
+  }
+  
+  /* Icônes encore plus petites pour très petits écrans */
+  .tree .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .file-icon {
+    font-size: 16px !important;
+    margin-right: 8px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .folder-children .file-icon {
+    font-size: 14px !important;
+    margin-right: 6px !important;
+  }
+  
+  /* Texte plus petit pour très petits écrans */
+  .tree .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .file a {
+    font-size: 14px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .folder-children .file a {
+    font-size: 12px !important;
+  }
+  
+  /* Toggles plus petits pour très petits écrans */
+  .tree .folder-children .folder-children .folder-toggle {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 14px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-toggle {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 12px !important;
+  }
+  
+  /* Indentation réduite pour très petits écrans */
+  .tree .folder-children .folder-children {
+    margin-left: 12px !important;
+    padding-left: 8px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children {
+    margin-left: 8px !important;
+    padding-left: 6px !important;
   }
 }
