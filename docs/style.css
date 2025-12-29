@@ -1,0 +1,1168 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Mode sombre */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .top-banner {
+  background-color: #2c3e50;
+}
+
+body.dark-mode .bottom-footer {
+  background-color: #2c3e50;
+  border-top: 1px solid #333;
+  color: #b0b0b0;
+}
+
+body.dark-mode #tree-container {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  color: #e0e0e0;
+}
+
+body.dark-mode .tree .folder > .folder-header:hover {
+  background-color: #4a4a4a;
+}
+
+body.dark-mode .tree .folder > .folder-header:active {
+  background-color: #333;
+}
+
+body.dark-mode .tree .file:hover {
+  background-color: #444;
+}
+
+body.dark-mode .tree .file:active {
+  background-color: #333;
+}
+
+body.dark-mode .tree .folder-children {
+  border-left: 2px solid #444;
+}
+
+body.dark-mode .folders-title {
+  color: #e0e0e0;
+}
+
+body.dark-mode .qr-title {
+  color: #64B5F6;
+}
+
+body.dark-mode .qr-instruction {
+  color: #e0e0e0;
+}
+
+body.dark-mode .sun-icon {
+  display: none;
+}
+
+body.dark-mode .moon-icon {
+  display: block;
+}
+
+.top-banner {
+  background-color: #007BFF;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  height: 80px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-left {
+  position: absolute;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.top-banner .logo {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin-right: 20px;
+  border: 2px solid white;
+}
+
+.version-number {
+  position: absolute;
+  top: -5px;
+  left: 80px;
+  color: white;
+  font-size: 12px;
+  font-weight: normal;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.header-titles {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  margin-left: 10px;
+}
+
+.main-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.sub-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+  opacity: 0.9;
+  line-height: 1.2;
+}
+
+.direct-access-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  position: absolute;
+  right: 20px;
+}
+
+.direct-access-btn:first-of-type {
+  right: 180px;
+}
+
+.direct-access-btn:nth-of-type(2) {
+  right: 100px;
+}
+
+.direct-access-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.direct-access-btn:active {
+  transform: scale(0.95);
+}
+
+.direct-access-icon {
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  right: 20px;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.sun-icon, .moon-icon {
+  font-size: 36px;
+  transition: all 0.3s ease;
+}
+
+.moon-icon {
+  display: none;
+}
+
+.bottom-footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+  border-top: 1px solid #dee2e6;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.bottom-footer p {
+  margin: 0;
+}
+
+main {
+  padding: 1rem;
+  flex: 1;
+}
+
+#tree-container {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background-color: #f6f8fa;
+  padding: 16px;
+  margin-bottom: 20px;
+  height: calc(100vh - 400px);
+  overflow-y: auto;
+  position: relative;
+}
+
+.tree-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: #656d76;
+}
+
+.loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #0969da;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+.tree ul {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.tree li {
+  margin: 5px 0;
+  position: relative;
+}
+
+.tree .folder {
+  margin: 2px 0;
+}
+
+.tree .folder > .folder-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tree .folder > .folder-header:hover {
+  background-color: #f3f4f6;
+  transform: scale(1.02);
+}
+
+.tree .folder > .folder-header:active {
+  transform: scale(0.98);
+  background-color: #e5e7eb;
+}
+
+.tree .folder-toggle {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  font-size: 16px;
+  color: #656d76;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.tree .folder-toggle.expanded {
+  transform: rotate(90deg);
+}
+
+.tree .folder-icon {
+  margin-right: 12px;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.tree .folder.expanded .folder-icon {
+  transform: scale(1.1);
+}
+
+.tree .folder-name {
+  margin-left: 5px;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Amélioration de la lisibilité des noms de dossiers en mode sombre */
+body.dark-mode .tree .folder-name {
+  color: #e0e0e0 !important;
+}
+
+.tree .file {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 4px 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  min-height: 48px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tree .file:hover {
+  background-color: #f3f4f6;
+  transform: translateX(4px);
+}
+
+.tree .file:active {
+  transform: scale(0.98) translateX(4px);
+  background-color: #e5e7eb;
+}
+
+.tree .file-icon {
+  margin-right: 12px;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.tree .file:hover .file-icon {
+  transform: scale(1.1);
+}
+
+.tree .file a {
+  color: #0969da;
+  text-decoration: none;
+  font-size: 16px;
+  flex: 1;
+  display: block;
+}
+
+/* Correction couleur liens fichiers en mode sombre - jaune comme sur mobile */
+body.dark-mode .tree .file a {
+  color: #ffd700 !important;
+}
+
+.tree .file a:hover {
+  text-decoration: none;
+}
+
+.tree .folder-children {
+  margin-left: 24px;
+  border-left: 2px solid #d8dee4;
+  padding-left: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.tree .folder-children.expanding {
+  animation: expandFolder 0.4s ease-out;
+}
+
+@keyframes expandFolder {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#qr-section {
+  text-align: center;
+  margin: 30px auto;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.version-number {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 10px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.version-number:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.qr-title {
+  color: #007BFF;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+.qr-instruction {
+  color: black;
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+#qr-code {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto 20px auto;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 5px;
+  background: white;
+}
+
+.download-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.download-btn:hover {
+  background-color: #218838;
+}
+
+.copy-link-btn {
+  background-color: #20c997;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.copy-link-btn:hover {
+  background-color: #1ba085;
+}
+
+.copy-link-btn:active {
+  transform: scale(0.98);
+}
+
+.folders-title {
+  text-align: left;
+  margin: 30px 0 15px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+#qr-code.fullscreen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  z-index: 1000;
+  background: white;
+  padding: 1rem;
+  border: 2px solid #007BFF;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  padding: 0.5rem 1rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#loader-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: white;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #007BFF;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive tablettes (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Optimisation pour tablettes en mode portrait et paysage */
+  .tree .folder > .folder-header {
+    padding: 14px 18px;
+    min-height: 52px;
+  }
+  
+  .tree .file {
+    padding: 14px 18px;
+    min-height: 52px;
+  }
+  
+  /* Taille responsive pour dossiers imbriqués profonds sur tablettes */
+  .tree .folder-children .folder-children .folder > .folder-header {
+    padding: 10px 14px !important;
+    min-height: 42px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder > .folder-header {
+    padding: 8px 12px !important;
+    min-height: 38px !important;
+  }
+  
+  .tree .folder-children .folder-children .file {
+    padding: 10px 14px !important;
+    min-height: 42px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .file {
+    padding: 8px 12px !important;
+    min-height: 38px !important;
+  }
+  
+  /* Icônes adaptées pour tablettes */
+  .tree .folder-icon,
+  .tree .file-icon {
+    font-size: 22px;
+    margin-right: 14px;
+  }
+  
+  .tree .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .file-icon {
+    font-size: 18px !important;
+    margin-right: 12px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .folder-children .file-icon {
+    font-size: 16px !important;
+    margin-right: 10px !important;
+  }
+  
+  /* Texte optimisé pour tablettes */
+  .tree .folder-name,
+  .tree .file a {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .tree .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .file a {
+    font-size: 16px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .folder-children .file a {
+    font-size: 14px !important;
+  }
+  
+  /* Toggles pour tablettes */
+  .tree .folder-toggle {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+  }
+  
+  .tree .folder-children .folder-children .folder-toggle {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 16px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-toggle {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Indentation optimisée pour tablettes */
+  .tree .folder-children {
+    margin-left: 20px;
+    padding-left: 14px;
+  }
+  
+  .tree .folder-children .folder-children {
+    margin-left: 14px !important;
+    padding-left: 10px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children {
+    margin-left: 10px !important;
+    padding-left: 8px !important;
+  }
+}
+
+/* Responsive grandes tablettes et iPad Pro (1025px+) */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  /* Taille responsive pour dossiers imbriqués profonds sur grandes tablettes */
+  .tree .folder-children .folder-children .folder > .folder-header {
+    padding: 12px 16px !important;
+    min-height: 48px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder > .folder-header {
+    padding: 10px 14px !important;
+    min-height: 44px !important;
+  }
+  
+  .tree .folder-children .folder-children .file {
+    padding: 12px 16px !important;
+    min-height: 48px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .file {
+    padding: 10px 14px !important;
+    min-height: 44px !important;
+  }
+  
+  /* Icônes pour grandes tablettes */
+  .tree .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .file-icon {
+    font-size: 20px !important;
+    margin-right: 14px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .folder-children .file-icon {
+    font-size: 18px !important;
+    margin-right: 12px !important;
+  }
+  
+  /* Texte pour grandes tablettes */
+  .tree .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .file a {
+    font-size: 18px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .folder-children .file a {
+    font-size: 16px !important;
+  }
+  
+  /* Indentation pour grandes tablettes */
+  .tree .folder-children .folder-children {
+    margin-left: 18px !important;
+    padding-left: 12px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children {
+    margin-left: 14px !important;
+    padding-left: 10px !important;
+  }
+}
+
+/* Optimisations spécifiques iOS Safari, Android WebView et Samsung Internet */
+@media screen and (-webkit-min-device-pixel-ratio: 1) {
+  /* Amélioration du touch feedback pour iOS, Android et Samsung Internet */
+  .tree .folder > .folder-header,
+  .tree .file {
+    -webkit-tap-highlight-color: rgba(0, 123, 255, 0.1);
+    tap-highlight-color: rgba(0, 123, 255, 0.1);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Optimisation des animations pour les appareils mobiles */
+  .tree .folder > .folder-header,
+  .tree .file {
+    will-change: transform, background-color;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+  
+  /* Amélioration du scroll sur iOS et Samsung Internet */
+  #tree-container {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+}
+
+/* Optimisations spécifiques Samsung Internet */
+@supports (-webkit-appearance: none) {
+  /* Amélioration des performances Samsung Internet */
+  .tree .folder > .folder-header:active,
+  .tree .file:active {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+    transform: scale(0.98) !important;
+  }
+  
+  /* Optimisation du rendu Samsung Internet */
+  .tree .folder-toggle,
+  .tree .folder-icon,
+  .tree .file-icon {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Amélioration de la fluidité des animations Samsung Internet */
+  .tree .folder-children {
+    transform: translateZ(0);
+    will-change: height, opacity;
+  }
+}
+
+/* Responsive mobile web - écrans petits */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  /* Header compact pour mobile web */
+  .top-banner {
+    height: 100px !important;
+    padding: 10px !important;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  
+  .top-banner .logo {
+    height: 45px !important;
+    width: 45px !important;
+    margin-right: 0 !important;
+  }
+  
+  .header-left {
+    position: static !important;
+    order: 1;
+    margin-right: 10px;
+  }
+  
+  .header-titles {
+    position: static !important;
+    margin-left: 0 !important;
+    text-align: left !important;
+    order: 2;
+    flex: 1;
+    margin-top: 5px;
+  }
+  
+  .main-title {
+    font-size: 0.9rem !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+  }
+  
+  .sub-title {
+    font-size: 0.7rem !important;
+    line-height: 1.1 !important;
+    margin: 2px 0 0 0 !important;
+  }
+  
+  /* QR section réduite pour mobile web */
+  .qr-instruction {
+    font-size: 14px !important;
+  }
+  
+  .folders-title {
+    font-size: 1.1rem !important;
+    margin: 20px 0 10px 0 !important;
+  }
+  
+  .qr-title {
+    font-size: 1.3rem !important;
+  }
+  
+  #qr-section {
+    margin: 15px auto !important;
+    max-width: 90% !important;
+  }
+  
+  #qr-code {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .tree .folder > .folder-header {
+    padding: 18px 22px;
+    min-height: 60px;
+  }
+  
+  .tree .file {
+    padding: 18px 22px;
+    min-height: 60px;
+  }
+  
+  .tree .folder-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+  
+  .tree .folder-icon,
+  .tree .file-icon {
+    font-size: 26px;
+    margin-right: 18px;
+  }
+  
+  /* Textes principaux plus gros pour iPhone */
+  .tree .folder-name,
+  .tree .file a {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  /* Boutons plus accessibles */
+  .download-btn {
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+  }
+  
+  .copy-link-btn {
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+  }
+  
+  /* Boutons header compacts pour mobile web - disposition verticale */
+  .direct-access-btn {
+    position: static !important;
+    width: 30px !important;
+    height: 30px !important;
+    margin: 2px !important;
+  }
+  
+  .direct-access-btn:first-of-type {
+    right: auto !important;
+  }
+  
+  .direct-access-btn:nth-of-type(2) {
+    right: auto !important;
+  }
+  
+  .direct-access-icon {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  
+  .theme-toggle-btn {
+    position: static !important;
+    width: 30px !important;
+    height: 30px !important;
+    right: auto !important;
+    margin: 2px !important;
+  }
+  
+  /* Container pour les boutons à droite */
+  .top-banner {
+    position: relative;
+  }
+  
+  .top-banner::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 3;
+  }
+  
+  .direct-access-btn,
+  .theme-toggle-btn {
+    position: absolute !important;
+    right: 10px !important;
+  }
+  
+  .direct-access-btn:first-of-type {
+    top: 10px !important;
+    right: 10px !important;
+  }
+  
+  .direct-access-btn:nth-of-type(2) {
+    top: 45px !important;
+    right: 10px !important;
+  }
+  
+  .theme-toggle-btn {
+    top: 80px !important;
+    right: 10px !important;
+  }
+  
+  .sun-icon, .moon-icon {
+    font-size: 16px !important;
+  }
+  
+  /* Version number mobile compact */
+  .version-number {
+    font-size: 8px !important;
+    padding: 1px 3px !important;
+    top: -2px !important;
+    left: 50px !important;
+  }
+  
+  /* Taille responsive pour dossiers imbriqués profonds (3ème et 4ème niveau) */
+  .tree .folder-children .folder-children .folder > .folder-header {
+    padding: 12px 16px !important;
+    min-height: 44px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder > .folder-header {
+    padding: 10px 14px !important;
+    min-height: 40px !important;
+  }
+  
+  .tree .folder-children .folder-children .file {
+    padding: 12px 16px !important;
+    min-height: 44px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .file {
+    padding: 10px 14px !important;
+    min-height: 40px !important;
+  }
+  
+  /* Réduction des icônes pour niveaux profonds */
+  .tree .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .file-icon {
+    font-size: 20px !important;
+    margin-right: 12px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .folder-children .file-icon {
+    font-size: 18px !important;
+    margin-right: 10px !important;
+  }
+  
+  /* Réduction du texte pour niveaux profonds */
+  .tree .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .file a {
+    font-size: 16px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .folder-children .file a {
+    font-size: 14px !important;
+  }
+  
+  /* Réduction des toggles pour niveaux profonds */
+  .tree .folder-children .folder-children .folder-toggle {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 16px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-toggle {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 14px !important;
+  }
+  
+  /* Réduction de l'indentation pour niveaux profonds */
+  .tree .folder-children .folder-children {
+    margin-left: 16px !important;
+    padding-left: 12px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children {
+    margin-left: 12px !important;
+    padding-left: 8px !important;
+  }
+
+  /* Ajustements finaux mobile web */
+  #tree-container {
+    height: calc(100vh - 280px) !important;
+  }
+  
+  .bottom-footer {
+    font-size: 12px !important;
+    padding: 8px !important;
+  }
+}
+
+/* Styles spécifiques pour très petits écrans (< 480px) */
+@media (max-width: 480px) {
+  .top-banner {
+    height: 90px !important;
+    padding: 8px !important;
+  }
+  
+  .header-titles {
+    margin-left: 0 !important;
+  }
+  
+  .main-title {
+    font-size: 0.8rem !important;
+  }
+  
+  .sub-title {
+    font-size: 0.6rem !important;
+  }
+  
+  .top-banner .logo {
+    height: 30px !important;
+    width: 30px !important;
+    margin-right: 0 !important;
+  }
+  
+  .direct-access-btn {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  
+  .direct-access-btn:first-of-type {
+    top: 8px !important;
+    right: 8px !important;
+  }
+  
+  .direct-access-btn:nth-of-type(2) {
+    top: 38px !important;
+    right: 8px !important;
+  }
+  
+  .theme-toggle-btn {
+    width: 25px !important;
+    height: 25px !important;
+    top: 68px !important;
+    right: 8px !important;
+  }
+  
+  .direct-access-icon {
+    width: 15px !important;
+    height: 15px !important;
+  }
+  
+  .sun-icon, .moon-icon {
+    font-size: 14px !important;
+  }
+  
+  #qr-code {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+  /* Taille responsive pour dossiers imbriqués profonds sur très petits écrans */
+  .tree .folder-children .folder-children .folder > .folder-header {
+    padding: 8px 12px !important;
+    min-height: 36px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder > .folder-header {
+    padding: 6px 10px !important;
+    min-height: 32px !important;
+  }
+  
+  .tree .folder-children .folder-children .file {
+    padding: 8px 12px !important;
+    min-height: 36px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .file {
+    padding: 6px 10px !important;
+    min-height: 32px !important;
+  }
+  
+  /* Icônes encore plus petites pour très petits écrans */
+  .tree .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .file-icon {
+    font-size: 16px !important;
+    margin-right: 8px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-icon,
+  .tree .folder-children .folder-children .folder-children .file-icon {
+    font-size: 14px !important;
+    margin-right: 6px !important;
+  }
+  
+  /* Texte plus petit pour très petits écrans */
+  .tree .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .file a {
+    font-size: 14px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-name,
+  .tree .folder-children .folder-children .folder-children .file a {
+    font-size: 12px !important;
+  }
+  
+  /* Toggles plus petits pour très petits écrans */
+  .tree .folder-children .folder-children .folder-toggle {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 14px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children .folder-toggle {
+    width: 16px !important;
+    height: 16px !important;
+    font-size: 12px !important;
+  }
+  
+  /* Indentation réduite pour très petits écrans */
+  .tree .folder-children .folder-children {
+    margin-left: 12px !important;
+    padding-left: 8px !important;
+  }
+  
+  .tree .folder-children .folder-children .folder-children {
+    margin-left: 8px !important;
+    padding-left: 6px !important;
+  }
+}

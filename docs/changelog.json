@@ -1,0 +1,46 @@
+{
+  "currentVersion": "1.25.1.2",
+  "lastUpdateCheck": null,
+  "updates": [
+    {
+      "version": "1.25.1.2",
+      "date": "2025-12-23",
+      "title": "Système de versioning automatique et corrections",
+      "changes": [
+        "Implémentation du système de versioning automatique (1.25.1.2, .3, .4, etc.)",
+        "Correction des dossiers dynamiques qui ne s'affichaient plus",
+        "Amélioration du favicon avec cache-busting pour Chrome Win 11",
+        "Utilisation des vrais fichiers favicon_io optimisés",
+        "Ajout de logs de debug pour diagnostiquer les problèmes",
+        "Notification changelog forcée à chaque mise à jour"
+      ],
+      "type": "fix"
+    },
+    {
+      "version": "1.25.1",
+      "date": "2025-12-23",
+      "title": "Intégration Garibobo RA et améliorations PWA",
+      "changes": [
+        "Ajout du bouton d'accès direct à Garibobo RA dans l'en-tête",
+        "Redimensionnement des boutons pour correspondre à la taille du logo principal",
+        "Correction du favicon PWA pour tous les navigateurs",
+        "Optimisation des icônes avec favicon_io",
+        "Amélioration de l'expérience utilisateur mobile"
+      ],
+      "type": "feature"
+    },
+    {
+      "version": "1.25.0",
+      "date": "2025-12-22",
+      "title": "Conversion en PWA complète",
+      "changes": [
+        "Conversion du site en Progressive Web App (PWA)",
+        "Ajout du mode sombre avec persistance",
+        "Optimisation mobile pour iPhone",
+        "Ajout du QR code avec titre personnalisé",
+        "Mise à jour de la version dans l'en-tête"
+      ],
+      "type": "major"
+    }
+  ]
+}

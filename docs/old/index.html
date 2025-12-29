@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>EPSIC Students</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader-overlay">
+  <div class="spinner"></div>
+</div>
+
+<main>
+  <h1>EPSIC Students</h1>
+
+  <div id="qr-section">
+    <img id="qr-code" src="qrcode_site.png" alt="QR Code">
+  </div>
+
+  <div id="tree-container" class="tree"></div>
+
+  <button id="back-to-top">⬆️ Retour en haut</button>
+</main>
+
+<script>
+window.addEventListener('load', () => {
+  document.getElementById('loader-overlay').style.display = 'none';
+});
+
+document.getElementById('qr-code').addEventListener('click', function () {
+  this.classList.toggle('fullscreen');
+});
+
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+
+document.getElementById('back-to-top').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+fetch('tree.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('tree-container');
+
+    function createTree(nodes) {
+      const ul = document.createElement('ul');
+      nodes.forEach(node => {
+        const li = document.createElement('li');
+
+        if (node.type === 'folder') {
+          li.classList.add('folder');
+
+          const toggle = document.createElement('span');
+          toggle.textContent = '➕';
+          toggle.style.cursor = 'pointer';
+          toggle.style.marginRight = '6px';
+
+          const label = document.createElement('span');
+          label.textContent = node.name;
+          label.style.cursor = 'pointer';
+
+          const childTree = createTree(node.children || []);
+          childTree.style.display = 'none';
+
+          toggle.onclick = () => {
+            const isOpen = childTree.style.display === 'block';
+            childTree.style.display = isOpen ? 'none' : 'block';
+            toggle.textContent = isOpen ? '➕' : '➖';
+          };
+
+          li.appendChild(toggle);
+          li.appendChild(label);
+          li.appendChild(childTree);
+        } else {
+          li.classList.add('file');
+          const a = document.createElement('a');
+          a.href = node.url;
+          a.textContent = node.name;
+          a.target = '_blank';
+          li.appendChild(a);
+        }
+
+        ul.appendChild(li);
+      });
+      return ul;
+    }
+
+    container.appendChild(createTree(data));
+  })
+  .catch(error => {
+    console.error('Erreur lors du chargement de tree.json :', error);
+  });
+</script>
+
+</body>
+</html>
