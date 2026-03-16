@@ -1,0 +1,448 @@
+
+            <div class="container">
+                <section class="content-section">
+                    <h1>🔋 05. Pile et accumulateur</h1>
+                    
+                    <!-- Sous-chapitre 05.1 : Formules de base -->
+                    <h3 id="formules-base">05.1 Formules de base</h3>
+                    
+                    <div class="formula-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom de la formule</th>
+                                    <th>Expression littérale</th>
+                                    <th>Symboles de grandeurs et d'unités</th>
+                                    <th>Explication</th>
+                                    <th>Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formule 1: Courant débité -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Courant débité par le générateur</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( I = \frac{U}{R} = \frac{U_m}{R_i} = \frac{E - U}{R_i} = \frac{E}{R + R_i} \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( I \) = Courant débité par le générateur = [A]<br>
+                                        \( E \) = FEM = force électromotrice du générateur = [V]<br>
+                                        \( U \) = Tension aux bornes du récepteur = [V]<br>
+                                        \( U_m \) = Chute de tension de la pile provoquée par \( R_i \) = [V]<br>
+                                        \( R_i \) = Résistance interne de la pile = [Ω]<br>
+                                        \( R \) = Résistance du récepteur = [Ω]<br>
+                                        \( R_{Tot} \) = Résistance totale du circuit y.c. le générateur = [Ω]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Courant fourni par une pile ou un générateur. La résistance interne \( R_i \) provoque une chute de tension interne.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formules dérivées -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{U}{I} = [Ω] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{E}{I} - R_i = [Ω] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 2: Force électromotrice E -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Force électromotrice (FEM)</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( E = U + U_m = U + R_i \cdot I = I \cdot (R + R_i) = R_{Tot} \cdot I \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( E \) = Force électromotrice = [V]<br>
+                                        \( U \) = Tension aux bornes du récepteur = [V]<br>
+                                        \( U_m \) = Chute de tension interne = [V]<br>
+                                        \( R_i \) = Résistance interne = [Ω]<br>
+                                        \( I \) = Courant = [A]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        La FEM est la tension totale fournie par le générateur, incluant la chute de tension interne due à \( R_i \).
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 3: Tension aux bornes U -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Tension aux bornes du récepteur</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( U = R \cdot I = E - U_m = E - R_i \cdot I \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( U \) = Tension aux bornes = [V]<br>
+                                        \( R \) = Résistance du récepteur = [Ω]<br>
+                                        \( E \) = Force électromotrice = [V]<br>
+                                        \( U_m \) = Chute de tension interne = [V]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Tension effective disponible aux bornes du récepteur, après déduction de la chute de tension interne.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 4: Chute de tension Um -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Chute de tension interne</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( U_m = R_i \cdot I = E - U \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( U_m \) = Chute de tension interne = [V]<br>
+                                        \( R_i \) = Résistance interne = [Ω]<br>
+                                        \( E \) = Force électromotrice = [V]<br>
+                                        \( U \) = Tension aux bornes = [V]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Perte de tension à l'intérieur de la pile due à sa résistance interne.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 5: Résistance interne Ri -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Résistance interne de la pile</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( R_i = \frac{U_m}{I} = \frac{E}{I} - R = \frac{E - U}{I} \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( R_i \) = Résistance interne = [Ω]<br>
+                                        \( U_m \) = Chute de tension interne = [V]<br>
+                                        \( E \) = Force électromotrice = [V]<br>
+                                        \( I \) = Courant = [A]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Résistance interne de la pile qui limite le courant maximal et provoque une perte de tension.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 6: Résistance totale RTot -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Résistance totale du circuit</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( R_{Tot} = \frac{E}{I} = R + R_i \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( R_{Tot} \) = Résistance totale = [Ω]<br>
+                                        \( E \) = Force électromotrice = [V]<br>
+                                        \( R \) = Résistance du récepteur = [Ω]<br>
+                                        \( R_i \) = Résistance interne = [Ω]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Résistance totale du circuit incluant le générateur (pile + récepteur).
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formules dérivées -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R_{Tot} = R_i + R = [Ω] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Sous-chapitre 05.2 : Charge d'une pile -->
+                    <h3 id="charge-pile">05.2 Charge d'une pile</h3>
+                    
+                    <div class="formula-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom de la formule</th>
+                                    <th>Expression littérale</th>
+                                    <th>Symboles de grandeurs et d'unités</th>
+                                    <th>Explication</th>
+                                    <th>Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formule 1: Quantité d'électricité en Ah -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Quantité d'électricité dans un élément en Ah</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( Q = I \cdot t = [Ah] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( Q \) = Quantité d'électricité = [Ah]<br>
+                                        \( I \) = Courant débité par le générateur = [A]<br>
+                                        \( t \) = Temps = [h]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Capacité électrique d'une pile ou batterie, exprimée en ampères-heures (Ah). Indique combien de temps la pile peut fournir un courant donné.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formules dérivées -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \frac{Q}{t} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{Q}{I} = [h] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 2: Quantité d'électricité en Coulomb -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Quantité d'électricité dans un élément en Coulomb</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( Q = I \cdot t = [C] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( Q \) = Quantité d'électricité = [C] = [As]<br>
+                                        \( I \) = Courant débité par le générateur = [A]<br>
+                                        \( t \) = Temps = [s]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Quantité d'électricité exprimée en Coulombs (C). 1 Coulomb = 1 Ampère × 1 seconde. Conversion: 1 Ah = 3600 C.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formules dérivées -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \frac{Q}{t} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{Q}{I} = [s] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 3: Courant de court-circuit -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Courant de court-circuit d'une pile</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( I_{cc} = \frac{E_{tot}}{R_i / n} = [A] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( I_{cc} \) = Courant de court-circuit = [A]<br>
+                                        \( E_{tot} \) = FEM totale = [V]<br>
+                                        \( R_i \) = Résistance interne d'un élément = [Ω]<br>
+                                        \( n \) = Nombre d'éléments en parallèle
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Courant maximal qu'une pile peut débiter en cas de court-circuit. Limité uniquement par la résistance interne. ⚠️ Dangereux : peut endommager la pile et provoquer un incendie.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Sous-chapitre 05.3 : Couplage de piles et accumulateurs -->
+                    <h3 id="couplage-piles">05.3 Couplage de piles et accumulateurs</h3>
+                    
+                    <div class="formula-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom de la formule</th>
+                                    <th>Expression littérale</th>
+                                    <th>Symboles de grandeurs et d'unités</th>
+                                    <th>Explication</th>
+                                    <th>Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Couplage série - FEM totale -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>FEM totale en couplage série</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( E_{Tot} = E \cdot n = E_1 + E_2 + E_3 + \ldots + E_n \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( E_{Tot} \) = FEM totale = [V]<br>
+                                        \( E \) = FEM d'un élément = [V]<br>
+                                        \( n \) = Nombre d'éléments en série<br>
+                                        \( E_1, E_2, E_3 \) = FEM de chaque élément = [V]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        En couplage série, les tensions s'additionnent. Utilisé pour obtenir une tension plus élevée.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Couplage série - Résistance totale -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Résistance interne totale en série</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( R_{iTot} = R_i \cdot n = R_{i1} + R_{i2} + R_{i3} + \ldots + R_{in} \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( R_{iTot} \) = Résistance interne totale = [Ω]<br>
+                                        \( R_i \) = Résistance interne d'un élément = [Ω]<br>
+                                        \( n \) = Nombre d'éléments en série
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        En série, les résistances internes s'additionnent, ce qui augmente la résistance totale.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Couplage série - Chute de tension totale -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Chute de tension totale en série</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( U_{mTot} = U_m \cdot n = U_{m1} + U_{m2} + U_{m3} + \ldots + U_{mn} \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( U_{mTot} \) = Chute de tension totale = [V]<br>
+                                        \( U_m \) = Chute de tension d'un élément = [V]<br>
+                                        \( n \) = Nombre d'éléments en série
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Chute de tension interne totale dans un couplage série de piles.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formules dérivées pour couplage série -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \frac{U}{R} = \frac{U \cdot n}{R \cdot n} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( E_{Tot} = U + (U_m \cdot n) = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( E_{Tot} = U_m \cdot (U_m \cdot n) = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( E_{Tot} = I \cdot (R + R_i) = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( E_{Tot} = I \cdot R_{Tot} = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U = R \cdot I = E \cdot n - (U_m \cdot n) = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U_{mTot} = R_i \cdot n \cdot I = E \cdot n - U = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{U}{I} = \frac{E \cdot n}{I} - (R_i \cdot n) = [Ω] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R_{iTot} = \frac{U_m \cdot n}{I} = \frac{E \cdot n}{I} - R = [Ω] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R_{Tot} = \frac{E \cdot n}{I} = R + (R_i \cdot n) = [Ω] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R_{iTot} = R_{Tot} - R = [Ω] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Charge d'une batterie -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Charge d'une batterie de n éléments montés en série</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( Q_{Tot} = Q_1 = Q_2 = Q_3 = \ldots = Q_n \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( Q_{Tot} \) = Charge totale de la batterie = [Ah]<br>
+                                        \( Q_1, Q_2, Q_3 \) = Charge de chaque élément = [Ah]<br>
+                                        \( n \) = Nombre d'éléments en série
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        En série, la capacité totale est égale à la capacité d'un seul élément (le plus faible). Le même courant traverse tous les éléments.
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Note importante -->
+                    <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin: 30px 0; border-left: 5px solid #ffc107;">
+                        <h4 style="color: #856404; margin-top: 0;">⚠️ Notes importantes sur les piles et accumulateurs</h4>
+                        <ul style="color: #856404; line-height: 1.8;">
+                            <li><strong>Couplage série</strong> : Augmente la tension, mais la capacité reste celle d'un seul élément.</li>
+                            <li><strong>Couplage parallèle</strong> : Augmente la capacité, mais la tension reste celle d'un seul élément.</li>
+                            <li><strong>Court-circuit</strong> : Éviter absolument ! Peut endommager la pile, provoquer un incendie ou une explosion.</li>
+                            <li><strong>Résistance interne</strong> : Augmente avec l'âge de la pile, réduisant ses performances.</li>
+                            <li><strong>Capacité (Ah)</strong> : Diminue avec l'augmentation du courant de décharge (loi de Peukert).</li>
+                        </ul>
+                    </div>
+                    
+                </section>
+            </div>
+            
+            <div class="navigation-footer">
+                <a href="chapitre-4.html" class="btn-prev">← Chapitre 04 : Effet calorifique du courant</a>
+                <a href="index.html#magnetisme" class="btn-next">Chapitre 06 : Magnétisme →</a>
+            </div>
+        

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulaires d'électrotechnique - Page d'accueil avec sommaire des chapitres">
+    <meta name="author" content="Denis (DS_de_Mo) - Modernisé par Garibobo 2026">
+    <title>Formulaires Électrotechnique Garibobo - Accueil</title>
+    
+    <!-- MathJax pour rendu des formules mathématiques -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.8,
+                minScale: 1.6,
+                mtextInheritFont: true
+            },
+            chtml: {
+                scale: 1.8,
+                minScale: 1.6,
+                mtextInheritFont: true
+            },
+            options: {
+                enableMenu: false,
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    
+    <!-- CSS Moderne -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&family=Oswald:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Styles spécifiques pour les tableaux de formules */
+        body {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Styles MathJax optimisés pour grand écran et PDF */
+        .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+            font-size: 1.8em !important;
+            line-height: 2.2 !important;
+            margin: 0.6em 0 !important;
+        }
+        
+        .formula-table .MathJax,
+        .formula-table .MathJax_Display,
+        .formula-table .MathJax_SVG,
+        .formula-table .MathJax_CHTML {
+            font-size: 1.8em !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.03em !important;
+        }
+        
+        td .MathJax,
+        p .MathJax {
+            font-size: 1.8em !important;
+            vertical-align: middle !important;
+        }
+        
+        @media print {
+            .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+                font-size: 1.9em !important;
+                page-break-inside: avoid !important;
+            }
+        }
+        
+        @media screen and (min-width: 1920px) {
+            .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+                font-size: 2em !important;
+            }
+            .formula-table .MathJax {
+                font-size: 2em !important;
+            }
+        }
+        
+        /* Layout avec sidebar */
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Menu latéral gauche (sidebar) */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #047857 0%, #14b8a6 100%);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 30px 0;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 0 25px 20px 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 1.4em;
+            margin: 0 0 10px 0;
+            color: #FFF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sidebar-header p {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-menu li {
+            margin: 0;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        
+        .sidebar-menu a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: #FFF;
+            padding-left: 30px;
+        }
+        
+        .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-left-color: #FFF;
+            font-weight: 600;
+        }
+        
+        /* Contenu principal */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0 20px;
+        }
+        
+        /* Sections */
+        .content-section {
+            background: white;
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .content-section h2 {
+            font-size: 2.8rem;
+            color: #FF6B35;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .content-section h2::before {
+            content: attr(data-icon);
+            font-size: 3rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        /* Tableaux de formules */
+        .formula-table {
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .formula-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .formula-table thead {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        .formula-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+        
+        .formula-table tbody {
+            display: block;
+            overflow: visible;
+        }
+        
+        .formula-table tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            transition: all 0.3s ease;
+            transform: scale(0.98);
+            transform-origin: center;
+        }
+        
+        .formula-table td {
+            padding: 25px 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+            vertical-align: middle;
+        }
+        
+        .formula-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            transform: scale(1);
+            transform-origin: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25), 
+                        0 0 30px rgba(102, 126, 234, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                        0 0 0 4px #FF9800,
+                        0 0 0 8px #FFB74D;
+            border-radius: 8px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Navigation footer */
+        .navigation-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+        }
+        
+        .navigation-footer a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #047857 0%, #14b8a6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(4, 120, 87, 0.3);
+        }
+        
+        .navigation-footer a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(4, 120, 87, 0.4);
+        }
+        
+        .navigation-footer .btn-prev::before {
+            content: "←";
+            font-size: 1.3rem;
+        }
+        
+        .navigation-footer .btn-next::after {
+            content: "→";
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #e9ecef;
+            color: var(--text-dark);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        .footer strong {
+            color: #047857;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #047857;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #14b8a6;
+        }
+        
+        /* ══ STYLES PAGE DE GARDE SVG V2 ══ */
+        :root {
+            --green:   #1a5c35;
+            --emerald: #22c55e;
+            --blue:    #2563eb;
+            --orange:  #f97316;
+            --light:   #f0faf4;
+            --white:   #ffffff;
+            --smoke:   #64748b;
+            --navy:    #1e3a5f;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            overflow: hidden;
+        }
+        
+        .cover-page {
+            width: 210mm;
+            min-height: 297mm;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            overflow: hidden;
+        }
+        
+        .stripe-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12mm;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--green) 0%, var(--emerald) 55%, var(--orange) 100%);
+            z-index: 10;
+        }
+        
+        .stripe-left::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -5mm;
+            width: 5mm;
+            height: 100%;
+            background: var(--orange);
+            clip-path: polygon(0 0, 100% 12%, 100% 88%, 0 100%);
+        }
+        
+        .tri-br {
+            position: absolute;
+            bottom: -3mm;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 50mm 50mm;
+            border-color: transparent transparent var(--green) transparent;
+            z-index: 10;
+        }
+        
+        .bg-schemas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .cover-header {
+            position: relative;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 7mm 10mm 0 20mm;
+        }
+        
+        .header-titles {
+            display: flex;
+            flex-direction: column;
+            gap: 1mm;
+        }
+        
+        .label-top {
+            font-family: 'Oswald', sans-serif;
+            font-size: 7pt;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--smoke);
+        }
+        
+        .label-school {
+            font-family: 'Oswald', sans-serif;
+            font-size: 9.5pt;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--green);
+        }
+        
+        .divider {
+            position: relative;
+            z-index: 20;
+            margin: 4mm 10mm 0 20mm;
+            height: 1px;
+            background: linear-gradient(to right, var(--green) 0%, var(--emerald) 40%, var(--blue) 75%, transparent 100%);
+        }
+        
+        .center-block {
+            position: relative;
+            z-index: 20;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 14mm 0 20mm;
+            margin-top: 4mm;
+        }
+        
+        .eyebrow {
+            font-family: 'Oswald', sans-serif;
+            font-size: 7.5pt;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--emerald);
+            margin-bottom: 5mm;
+        }
+        
+        .main-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 46pt;
+            font-weight: 700;
+            line-height: 0.92;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 2mm;
+        }
+        
+        .main-title .accent-word {
+            color: var(--blue);
+        }
+        
+        .sub-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 22pt;
+            font-weight: 500;
+            color: var(--orange);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 8mm;
+        }
+        
+        .deco-rule {
+            display: flex;
+            align-items: center;
+            gap: 3mm;
+            margin-bottom: 7mm;
+            max-width: 110mm;
+        }
+        
+        .deco-rule::before {
+            content: '';
+            flex: 1;
+            height: 1.5px;
+            background: linear-gradient(to right, var(--emerald), var(--orange));
+        }
+        
+        .deco-rule::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--orange);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .deco-rule span {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 9pt;
+            color: var(--orange);
+        }
+        
+        .info-box {
+            border-left: 4px solid var(--emerald);
+            padding: 3mm 5mm;
+            background: rgba(34, 197, 94, 0.07);
+            max-width: 115mm;
+        }
+        
+        .info-box p {
+            font-family: 'EB Garamond', serif;
+            font-size: 12pt;
+            line-height: 1.6;
+            color: var(--navy);
+        }
+        
+        .logo-top {
+            position: absolute;
+            bottom: -3mm;
+            left: 12mm;
+            width: 32mm;
+            height: auto;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        
+        .logo-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+            
+            .stripe-left {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 12mm;
+                height: 100%;
+                background: linear-gradient(to bottom, var(--green) 0%, var(--emerald) 55%, var(--orange) 100%);
+                z-index: 10;
+            }
+            
+            .stripe-left::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -5mm;
+                width: 5mm;
+                height: 100%;
+                background: var(--orange);
+                clip-path: polygon(0 0, 100% 12%, 100% 88%, 0 100%);
+            }
+            
+            .tri-br {
+                position: absolute;
+                bottom: -3mm;
+                right: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 0 50mm 50mm;
+                border-color: transparent transparent var(--green) transparent;
+                z-index: 10;
+            }
+            
+            .bg-schemas {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                pointer-events: none;
+            }
+            
+            .cover-header {
+                position: relative;
+                z-index: 20;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                padding: 7mm 10mm 0 20mm;
+            }
+            
+            .header-titles {
+                display: flex;
+                flex-direction: column;
+                gap: 1mm;
+            }
+            
+            .label-top {
+                font-family: 'Oswald', sans-serif;
+                font-size: 7pt;
+                font-weight: 300;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: var(--smoke);
+            }
+            
+            .label-school {
+                font-family: 'Oswald', sans-serif;
+                font-size: 9.5pt;
+                font-weight: 500;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                color: var(--green);
+            }
+            
+            .divider {
+                position: relative;
+                z-index: 20;
+                margin: 4mm 10mm 0 20mm;
+                height: 1px;
+                background: linear-gradient(to right, var(--green) 0%, var(--emerald) 40%, var(--blue) 75%, transparent 100%);
+            }
+            
+            .center-block {
+                position: relative;
+                z-index: 20;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0 14mm 0 20mm;
+                margin-top: 4mm;
+            }
+            
+            .eyebrow {
+                font-family: 'Oswald', sans-serif;
+                font-size: 7.5pt;
+                font-weight: 300;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: var(--emerald);
+                margin-bottom: 5mm;
+            }
+            
+            .main-title {
+                font-family: 'Oswald', sans-serif;
+                font-size: 46pt;
+                font-weight: 700;
+                line-height: 0.92;
+                text-transform: uppercase;
+                color: var(--navy);
+                margin-bottom: 2mm;
+            }
+            
+            .main-title .accent-word {
+                color: var(--blue);
+            }
+            
+            .sub-title {
+                font-family: 'Oswald', sans-serif;
+                font-size: 22pt;
+                font-weight: 500;
+                color: var(--orange);
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                margin-bottom: 8mm;
+            }
+            
+            .deco-rule {
+                display: flex;
+                align-items: center;
+                gap: 3mm;
+                margin-bottom: 7mm;
+                max-width: 110mm;
+            }
+            
+            .deco-rule::before {
+                content: '';
+                flex: 1;
+                height: 1.5px;
+                background: linear-gradient(to right, var(--emerald), var(--orange));
+            }
+            
+            .deco-rule::after {
+                content: '';
+                width: 6px;
+                height: 6px;
+                background: var(--orange);
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
+            
+            .deco-rule span {
+                font-family: 'Source Code Pro', monospace;
+                font-size: 9pt;
+                color: var(--orange);
+            }
+            
+            .info-box {
+                border-left: 4px solid var(--emerald);
+                padding: 3mm 5mm;
+                background: rgba(34, 197, 94, 0.07);
+                max-width: 115mm;
+            }
+            
+            .info-box p {
+                font-family: 'EB Garamond', serif;
+                font-size: 12pt;
+                line-height: 1.6;
+                color: var(--navy);
+            }
+            
+            .logo-top {
+                position: absolute;
+                bottom: -3mm;
+                left: 12mm;
+                width: 32mm;
+                height: auto;
+                z-index: 9999;
+                pointer-events: none;
+            }
+            
+            .logo-top img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-wrapper">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>📐 Formulaires</h2>
+                    <p>Navigation rapide</p>
+                    <li style="padding-left: 20px;"><a href="chapitre-3.html#rendement">↳ 03.3 Rendement</a></li>
+                    <li><a href="chapitre-4.html">🔥 04. Effet calorifique du courant</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-4.html#production-chaleur">↳ 04.1 Production de chaleur</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-4.html#rendement-thermique">↳ 04.2 Rendement thermique</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-4.html#perte-conducteur">↳ 04.3 Perte dans un conducteur</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-4.html#conversion-energies">↳ 04.4 Conversion d'énergies</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-4.html#densite-courant">↳ 04.5 Densité de courant</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-4.html#effet-thermique-resistances">↳ 04.6 Effet thermique sur les résistances</a></li>
+                    <li><a href="chapitre-5.html">🔋 05. Pile et accumulateur</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-5.html#formules-base">↳ 05.1 Formules de base</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-5.html#charge-pile">↳ 05.2 Charge d'une pile</a></li>
+                    <li style="padding-left: 20px;"><a href="chapitre-5.html#couplage-piles">↳ 05.3 Couplage de piles et accumulateurs</a></li>
+                    <li><a href="index.html#magnetisme">🧲 06. Magnétisme</a></li>
+                    <li><a href="index.html#condensateurs">⚙️ 07. Les condensateurs</a></li>
+                    <li><a href="index.html#mesures">� 08. Appareils de mesures</a></li>
+                    <li><a href="index.html#monophase">〰️ 09. Courant et tension alternative en monophasé</a></li>
+                    <li><a href="index.html#triphase">⚡ 10. Triphasé</a></li>
+                    <li><a href="index.html#moteurs">🔄 11. Les moteurs</a></li>
+                    <li><a href="index.html#transformateurs">🔌 12. Les transformateurs</a></li>
+                    <li><a href="index.html#eclairage">💡 13. Éclairage</a></li>
+                    <li><a href="index.html#electronique">🖥️ 14. Électronique</a></li>
+                    <li><a href="index.html#sciences">🔬 15. Sciences</a></li>
+                    <li><a href="index.html#annexes">📚 16. Annexes</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="main-content">
+            <div class="container">
+                
+                <!-- Page de garde SVG -->
+                <div class="cover-page">
+                    <!-- Bandes décoratives -->
+                    <div class="stripe-left"></div>
+                    <div class="tri-br"></div>
+
+                    <!-- Arrière-plan SVG : schémas + formules -->
+                    <svg class="bg-layer" viewBox="0 0 794 1123" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;">
+                        <!-- Schéma circuit série haut droite -->
+                        <g opacity="0.07" transform="translate(370, 60)">
+                            <line x1="0" y1="60" x2="340" y2="60" stroke="#1a5c35" stroke-width="3"/>
+                            <line x1="0" y1="200" x2="340" y2="200" stroke="#1a5c35" stroke-width="3"/>
+                            <line x1="0" y1="60" x2="0" y2="200" stroke="#1a5c35" stroke-width="3"/>
+                            <line x1="340" y1="60" x2="340" y2="200" stroke="#1a5c35" stroke-width="3"/>
+                            <!-- R1 -->
+                            <line x1="0" y1="130" x2="50" y2="130" stroke="#1a5c35" stroke-width="3"/>
+                            <rect x="50" y="112" width="70" height="36" stroke="#1a5c35" stroke-width="3" fill="none"/>
+                            <line x1="120" y1="130" x2="170" y2="130" stroke="#1a5c35" stroke-width="3"/>
+                            <text x="72" y="138" font-size="22" fill="#1a5c35" font-family="serif" font-style="italic">R₁</text>
+                            <!-- R2 -->
+                            <line x1="170" y1="130" x2="220" y2="130" stroke="#1a5c35" stroke-width="3"/>
+                            <rect x="220" y="112" width="70" height="36" stroke="#1a5c35" stroke-width="3" fill="none"/>
+                            <line x1="290" y1="130" x2="340" y2="130" stroke="#1a5c35" stroke-width="3"/>
+                            <text x="242" y="138" font-size="22" fill="#1a5c35" font-family="serif" font-style="italic">R₂</text>
+                            <!-- Nœuds -->
+                            <circle cx="0" cy="130" r="5" fill="#1a5c35"/>
+                            <circle cx="340" cy="130" r="5" fill="#1a5c35"/>
+                            <!-- Labels -->
+                            <text x="0" y="100" font-size="20" fill="#1a5c35" font-family="serif" font-weight="bold">+</text>
+                            <text x="325" y="100" font-size="20" fill="#1a5c35" font-family="serif">–</text>
+                            <!-- U source -->
+                            <line x1="170" y1="60" x2="170" y2="112" stroke="#1a5c35" stroke-width="2" stroke-dasharray="6,4"/>
+                            <text x="176" y="95" font-size="20" fill="#1a5c35" font-family="serif" font-style="italic">U</text>
+                        </g>
+
+                        <!-- Schéma circuit parallèle milieu gauche -->
+                        <g opacity="0.06" transform="translate(60, 320)">
+                            <!-- Rails -->
+                            <line x1="20" y1="20" x2="300" y2="20" stroke="#2563eb" stroke-width="3"/>
+                            <line x1="20" y1="200" x2="300" y2="200" stroke="#2563eb" stroke-width="3"/>
+                            <line x1="20" y1="20" x2="20" y2="200" stroke="#2563eb" stroke-width="3"/>
+                            <line x1="300" y1="20" x2="300" y2="200" stroke="#2563eb" stroke-width="3"/>
+                            <!-- Branche 1 -->
+                            <line x1="80" y1="20" x2="80" y2="72" stroke="#2563eb" stroke-width="2.5"/>
+                            <rect x="60" y="72" width="40" height="70" stroke="#2563eb" stroke-width="2.5" fill="none"/>
+                            <line x1="80" y1="142" x2="80" y2="200" stroke="#2563eb" stroke-width="2.5"/>
+                            <text x="68" y="113" font-size="20" fill="#2563eb" font-family="serif" font-style="italic">R₁</text>
+                            <!-- Branche 2 -->
+                            <line x1="160" y1="20" x2="160" y2="72" stroke="#2563eb" stroke-width="2.5"/>
+                            <rect x="140" y="72" width="40" height="70" stroke="#2563eb" stroke-width="2.5" fill="none"/>
+                            <line x1="160" y1="142" x2="160" y2="200" stroke="#2563eb" stroke-width="2.5"/>
+                            <text x="148" y="113" font-size="20" fill="#2563eb" font-family="serif" font-style="italic">R₂</text>
+                            <!-- Branche 3 -->
+                            <line x1="240" y1="20" x2="240" y2="72" stroke="#2563eb" stroke-width="2.5"/>
+                            <rect x="220" y="72" width="40" height="70" stroke="#2563eb" stroke-width="2.5" fill="none"/>
+                            <line x1="240" y1="142" x2="240" y2="200" stroke="#2563eb" stroke-width="2.5"/>
+                            <text x="228" y="113" font-size="20" fill="#2563eb" font-family="serif" font-style="italic">R₃</text>
+                            <!-- Source -->
+                            <circle cx="300" cy="110" r="26" stroke="#f97316" stroke-width="2.5" fill="none"/>
+                            <text x="291" y="117" font-size="22" fill="#f97316" font-family="serif" font-style="italic">U</text>
+                        </g>
+
+                        <!-- Formules mathématiques fond droit bas -->
+                        <g opacity="0.065" transform="translate(380, 480)" font-family="Georgia, serif" font-style="italic" fill="#1a5c35">
+                            <text x="0" y="0" font-size="28">U = R · I</text>
+                            <text x="0" y="55" font-size="28">P = U · I = R · I²</text>
+                            <text x="0" y="110" font-size="22">R<tspan font-size="16" dy="6">e</tspan><tspan dy="-6"> = </tspan><tspan font-size="18">R₁ + R₂ + R₃</tspan></text>
+                            <text x="0" y="160" font-size="22">1/R<tspan font-size="16" dy="5">e</tspan><tspan dy="-5"> = 1/R₁ + 1/R₂</tspan></text>
+                            <text x="0" y="210" font-size="28">η = P₂ / P₁</text>
+                            <text x="0" y="265" font-size="22">cos φ = P / S</text>
+                            <text x="0" y="315" font-size="22">S = U · I</text>
+                            <text x="0" y="365" font-size="22">Q = √(S²− P²)</text>
+                            <text x="0" y="415" font-size="22">τ = L / R</text>
+                        </g>
+
+                        <!-- Bobine décorative bas gauche -->
+                        <g opacity="0.06" transform="translate(55, 700)">
+                            <line x1="0" y1="40" x2="30" y2="40" stroke="#1a5c35" stroke-width="3"/>
+                            <path d="M30,40 C30,20 50,20 50,40 C50,60 70,60 70,40 C70,20 90,20 90,40 C90,60 110,60 110,40 C110,20 130,20 130,40" stroke="#1a5c35" stroke-width="3" fill="none"/>
+                            <line x1="130" y1="40" x2="160" y2="40" stroke="#1a5c35" stroke-width="3"/>
+                            <text x="55" y="80" font-size="20" fill="#1a5c35" font-family="serif" font-style="italic">L</text>
+                            <!-- Condensateur -->
+                            <line x1="200" y1="40" x2="245" y2="40" stroke="#1a5c35" stroke-width="3"/>
+                            <line x1="245" y1="15" x2="245" y2="65" stroke="#1a5c35" stroke-width="4"/>
+                            <line x1="255" y1="15" x2="255" y2="65" stroke="#1a5c35" stroke-width="4"/>
+                            <line x1="255" y1="40" x2="300" y2="40" stroke="#1a5c35" stroke-width="3"/>
+                            <text x="218" y="80" font-size="20" fill="#1a5c35" font-family="serif" font-style="italic">C</text>
+                        </g>
+
+                        <!-- Triangle de puissance bas droite -->
+                        <g opacity="0.065" transform="translate(470, 760)">
+                            <polygon points="0,120 220,120 220,0" stroke="#2563eb" stroke-width="2.5" fill="none"/>
+                            <text x="100" y="140" font-size="20" fill="#2563eb" font-family="serif" font-style="italic">P</text>
+                            <text x="230" y="65" font-size="20" fill="#2563eb" font-family="serif" font-style="italic">Q</text>
+                            <text x="95" y="65" font-size="22" fill="#f97316" font-family="serif" font-style="italic">S</text>
+                            <!-- angle phi -->
+                            <path d="M0,120 A40,40 0 0,1 33,107" stroke="#1a5c35" stroke-width="2" fill="none"/>
+                            <text x="36" y="116" font-size="18" fill="#1a5c35" font-family="serif" font-style="italic">φ</text>
+                        </g>
+                    </svg>
+
+                    <!-- HEADER -->
+                    <div class="cover-header">
+                        <div class="header-titles">
+                            <span class="label-top">Formulaire de référence</span>
+                            <span class="label-school">École professionnelle — Domaine électricité</span>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- BLOC CENTRAL -->
+                    <div class="center-block">
+                        <p class="eyebrow">Version numérique et version animée en ligne disponible gratuitement.</p>
+
+                        <h1 class="main-title">
+                            Formulaire<br>
+                            <span class="accent-word">Électro</span>technique
+                        </h1>
+
+                        <h2 class="sub-title">Garibobo</h2>
+
+                        <div class="deco-rule"><span>⚡</span></div>
+
+                        <div class="info-box">
+                            <p>Recueil de formules, schémas et tableaux couvrant l'ensemble des domaines des installations électriques.</p>
+                        </div>
+                    </div>
+                </div>
+                    <div style="background: white; border-radius: 15px; padding: 40px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); max-width: 900px; margin: 0 auto;">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0;">
+                                <a href="chapitre-1.html" style="text-decoration: none; color: #2d3748; font-size: 1.3rem; display: flex; align-items: center; transition: all 0.3s; padding: 10px; border-radius: 8px;">
+                                    <span style="font-size: 2.5rem; margin-right: 20px; min-width: 50px;">⚡</span>
+                                    <span><strong>Chapitre 1 :</strong> Loi d'Ohm</span>
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0;">
+                                <a href="chapitre-2.html" style="text-decoration: none; color: #2d3748; font-size: 1.3rem; display: flex; align-items: center; transition: all 0.3s; padding: 10px; border-radius: 8px;">
+                                    <span style="font-size: 2.5rem; margin-right: 20px; min-width: 50px;">🔗</span>
+                                    <span><strong>Chapitre 2 :</strong> Couplages de résistances</span>
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0;">
+                                <a href="chapitre-3.html" style="text-decoration: none; color: #2d3748; font-size: 1.3rem; display: flex; align-items: center; transition: all 0.3s; padding: 10px; border-radius: 8px;">
+                                    <span style="font-size: 2.5rem; margin-right: 20px; min-width: 50px;">💪</span>
+                                    <span><strong>Chapitre 3 :</strong> Travail, énergie et puissance électrique</span>
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0;">
+                                <a href="chapitre-4.html" style="text-decoration: none; color: #2d3748; font-size: 1.3rem; display: flex; align-items: center; transition: all 0.3s; padding: 10px; border-radius: 8px;">
+                                    <span style="font-size: 2.5rem; margin-right: 20px; min-width: 50px;">🔥</span>
+                                    <span><strong>Chapitre 4 :</strong> Effet calorifique du courant</span>
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 2px solid #f0f0f0;">
+                                <a href="chapitre-5.html" style="text-decoration: none; color: #2d3748; font-size: 1.3rem; display: flex; align-items: center; transition: all 0.3s; padding: 10px; border-radius: 8px;">
+                                    <span style="font-size: 2.5rem; margin-right: 20px; min-width: 50px;">🔋</span>
+                                    <span><strong>Chapitre 5 :</strong> Pile et accumulateur</span>
+                                </a>
+                            </li>
+                            <li style="margin-bottom: 0;">
+                                <div style="text-align: center; padding: 20px; background: #f8f9fa; border-radius: 8px; color: #6c757d; font-style: italic;">
+                                    <p style="margin: 0;">📝 Autres chapitres en cours de préparation...</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div style="text-align: center; margin-top: 40px;">
+                            <a href="../index.html" style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
+                                ← Retour à l'accueil
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Contenu original par <strong>Denis (DS_de_Mo)</strong></p>
+            <p>Site modernisé par <strong>Garibobo</strong> - 2026</p>
+            <p class="footer-links">
+                <a href="../index.html">🏠 Accueil</a> |
+                <a href="https://tchapatch-stack.github.io/installations/" target="_blank">📚 Site Original</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

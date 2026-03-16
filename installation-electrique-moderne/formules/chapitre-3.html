@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chapitre 3 - Travail, énergie et puissance électrique - Formulaires d'électrotechnique">
+    <meta name="author" content="Denis (DS_de_Mo) - Modernisé par Garibobo 2026">
+    <title>Chapitre 3 - Travail, énergie et puissance électrique - Formulaires Électrotechnique Garibobo</title>
+    
+    <!-- MathJax pour rendu des formules mathématiques -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.8,  // Augmente la taille de 80% pour excellente lisibilité
+                minScale: 1.6,  // Taille minimale élevée
+                mtextInheritFont: true
+            },
+            chtml: {
+                scale: 1.8,  // Même échelle pour le rendu HTML
+                minScale: 1.6,
+                mtextInheritFont: true
+            },
+            options: {
+                enableMenu: false,  // Désactive le menu contextuel pour export PDF propre
+                renderActions: {
+                    addMenu: []  // Pas de menu pour export PDF
+                }
+            }
+        };
+    </script>
+    
+    <!-- CSS Moderne -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Styles spécifiques pour les tableaux de formules */
+        body {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        
+        /* Styles MathJax optimisés pour grand écran et PDF */
+        .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+            font-size: 1.8em !important;  /* Taille uniforme et très grande */
+            line-height: 2.2 !important;
+            margin: 0.6em 0 !important;
+        }
+        
+        /* Formules dans les tableaux - taille uniforme identique */
+        .formula-table .MathJax,
+        .formula-table .MathJax_Display,
+        .formula-table .MathJax_SVG,
+        .formula-table .MathJax_CHTML {
+            font-size: 1.8em !important;  /* Même taille que formule Rendement global */
+            font-weight: 500 !important;
+            letter-spacing: 0.03em !important;  /* Espacement amélioré */
+        }
+        
+        /* Formules inline dans le texte */
+        td .MathJax,
+        p .MathJax {
+            font-size: 1.8em !important;  /* Même taille partout */
+            vertical-align: middle !important;
+        }
+        
+        /* Optimisation pour impression PDF */
+        @media print {
+            .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+                font-size: 1.9em !important;
+                page-break-inside: avoid !important;
+            }
+        }
+        
+        /* Optimisation pour grands écrans (classe) */
+        @media screen and (min-width: 1920px) {
+            .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+                font-size: 2em !important;  /* Encore plus grand pour projecteur */
+            }
+            .formula-table .MathJax {
+                font-size: 2em !important;
+            }
+        }
+        
+        /* Transition douce pour le curseur */
+        #svg-chap3-main {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        #svg-chap3-main:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* Transitions pour les conteneurs SVG */
+        #svg-chap3-1,
+        #svg-chap3-2,
+        #svg-chap3-3 {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        #svg-chap3-1:hover,
+        #svg-chap3-2:hover,
+        #svg-chap3-3:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* Layout avec sidebar */
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Menu latéral gauche (sidebar) */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #047857 0%, #14b8a6 100%);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 30px 0;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 0 25px 20px 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 1.4em;
+            margin: 0 0 10px 0;
+            color: #FFF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sidebar-header p {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-menu li {
+            margin: 0;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        
+        .sidebar-menu a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: #FFF;
+            padding-left: 30px;
+        }
+        
+        .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-left-color: #FFF;
+            font-weight: 600;
+        }
+        
+        /* Contenu principal */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0 20px;
+        }
+        
+        /* Sections */
+        .content-section {
+            background: white;
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .content-section h2 {
+            font-size: 2.8rem;
+            color: #FF6B35;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .content-section h2::before {
+            content: attr(data-icon);
+            font-size: 3rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .content-section h3 {
+            font-size: 2rem;
+            color: #8B5CF6;
+            margin: 40px 0 30px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #8B5CF6;
+        }
+        
+        /* Tableau 5 colonnes */
+        .formula-table {
+            width: 100%;
+            margin: 30px 0;
+            overflow: visible;
+            padding: 20px 0;
+        }
+        
+        .formula-table table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        .formula-table thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .formula-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-bottom: 3px solid #5a67d8;
+        }
+        
+        .formula-table th:nth-child(1) { width: 20%; }
+        .formula-table th:nth-child(2) { width: 25%; }
+        .formula-table th:nth-child(3) { width: 20%; }
+        .formula-table th:nth-child(4) { width: 25%; }
+        .formula-table th:nth-child(5) { width: 10%; }
+        
+        .formula-table td {
+            padding: 25px 15px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: middle;
+            font-size: 1.05rem;
+        }
+        
+        .formula-table tbody tr {
+            transition: all 0.3s ease;
+            transform: scale(0.98);
+            transform-origin: center;
+        }
+        
+        .formula-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            transform: scale(1);
+            transform-origin: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25), 
+                        0 0 30px rgba(102, 126, 234, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                        0 0 0 4px #FF9800,
+                        0 0 0 8px #FFB74D;
+            border-radius: 8px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .formula-table .formula {
+            font-family: 'JetBrains Mono', 'Consolas', monospace;
+            font-weight: 600;
+            color: #000000;
+            font-size: clamp(0.9rem, 2vw, 1.25rem);
+        }
+        
+        /* Lignes invisibles pour transformations */
+        .formula-table .invisible-row {
+            border: none;
+            background: transparent;
+            color: #000;
+        }
+        
+        .formula-table .invisible-row td {
+            padding: 8px 15px;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        /* Navigation */
+        .navigation-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px;
+            background: white;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .navigation-footer a {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #047857 0%, #14b8a6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .navigation-footer a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(4, 120, 87, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #e9ecef;
+            color: #1a1a1a;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+            margin-left: 280px;
+        }
+        
+        .footer strong {
+            color: #047857;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: #047857;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 25px 20px; margin: -30px 0 20px 0; text-align: center;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+                    <span style="font-size: 1.8rem;">📐</span>
+                    <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700; color: white;">Formulaires Électrotechnique</h2>
+                </div>
+                <p style="margin: 0 0 15px 0; font-size: 0.85rem; opacity: 0.95; color: white;">Formules essentielles pour le domaine de l'électricité</p>
+                <a href="../index.html" style="display: inline-block; color: white; text-decoration: none; padding: 8px 20px; background: rgba(255,255,255,0.2); border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);">
+                    ← Retour à l'accueil
+                </a>
+            </div>
+            <div style="padding: 0 20px 10px 20px;">
+                <p style="font-size: 0.85rem; color: #6b7280; margin: 0; font-weight: 600;">Navigation rapide</p>
+            </div>
+            
+            <nav>
+                <ul class="sidebar-menu">
+                    <!-- CHAPITRE 1: Loi d'Ohm -->
+                    <li>
+                        <a href="chapitre-1.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <circle cx="17" cy="17" r="15" fill="#e8f5ee" stroke="#1a5c35" stroke-width="1.8"/>
+                                <circle cx="17" cy="17" r="10" fill="none" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,3"/>
+                                <text x="17" y="23" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="16" fill="#1a5c35" font-weight="bold">Ω</text>
+                            </svg>
+                            01. Loi d'Ohm
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-1.html#resistance-conducteurs">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="0" y1="12" x2="5" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                                <rect x="5" y="8" width="14" height="8" rx="2" stroke="#22c55e" stroke-width="1.5" fill="#e8f5ee"/>
+                                <line x1="19" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                                <text x="12" y="15" text-anchor="middle" font-size="5" fill="#1a5c35" font-family="Georgia,serif" font-style="italic">R</text>
+                            </svg>
+                            ↳ 01.2 Résistance d'un conducteur
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 2: Couplages de résistances -->
+                    <li>
+                        <a href="chapitre-2.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#e8f5ee" stroke="#1a5c35" stroke-width="1.8"/>
+                                <line x1="2" y1="17" x2="7" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                                <rect x="7" y="13" width="6" height="8" rx="1" fill="white" stroke="#1a5c35" stroke-width="1.5"/>
+                                <line x1="13" y1="17" x2="18" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                                <rect x="18" y="13" width="6" height="8" rx="1" fill="white" stroke="#1a5c35" stroke-width="1.5"/>
+                                <line x1="24" y1="17" x2="32" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                            </svg>
+                            02. Couplages de résistances
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-2.html#circuit-serie">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="0" y1="12" x2="4" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="4" y="8" width="7" height="8" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <line x1="11" y1="12" x2="15" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="15" y="8" width="7" height="8" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <line x1="22" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                            </svg>
+                            ↳ 02.1 Circuit série
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-2.html#resistance-ligne">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="1" y1="8" x2="23" y2="8" stroke="#f97316" stroke-width="1.8"/>
+                                <line x1="1" y1="16" x2="23" y2="16" stroke="#2563eb" stroke-width="1.8"/>
+                                <rect x="7" y="10" width="10" height="4" rx="1" fill="#e8f5ee" stroke="#22c55e" stroke-width="1.2"/>
+                                <text x="12" y="14" text-anchor="middle" font-size="3.5" fill="#1a5c35" font-family="monospace">ΔU</text>
+                            </svg>
+                            ↳ 02.2 Résistance et chute de tension
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-2.html#circuit-parallele">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="0" y1="12" x2="5" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                                <line x1="5" y1="5" x2="5" y2="19" stroke="#22c55e" stroke-width="1.5"/>
+                                <line x1="19" y1="5" x2="19" y2="19" stroke="#22c55e" stroke-width="1.5"/>
+                                <line x1="19" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="5" y="3" width="14" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <rect x="5" y="11" width="14" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <rect x="5" y="17" width="14" height="4" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                            </svg>
+                            ↳ 02.3 Circuit parallèle
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-2.html#diviseur-tension">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="12" y1="0" x2="12" y2="5" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="6" y="5" width="12" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <line x1="12" y1="10" x2="12" y2="14" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="6" y="14" width="12" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <line x1="12" y1="19" x2="12" y2="24" stroke="#22c55e" stroke-width="1.5"/>
+                                <line x1="12" y1="12" x2="21" y2="12" stroke="#f97316" stroke-width="1.3" stroke-dasharray="2,1"/>
+                                <circle cx="21" cy="12" r="1.5" fill="#f97316"/>
+                            </svg>
+                            ↳ 02.4 Diviseur de tension
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 3: Travail, énergie et puissance électrique -->
+                    <li>
+                        <a href="chapitre-3.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="1.8"/>
+                                <polygon points="17,5 21,13 30,14.5 23.5,21 25,29 17,25 9,29 10.5,21 4,14.5 13,13" fill="none" stroke="#f97316" stroke-width="1.6"/>
+                                <text x="17" y="21" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="10" fill="#f97316" font-weight="bold">P</text>
+                            </svg>
+                            03. Travail, énergie et puissance électrique
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-3.html#compteur-energie">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="5" width="18" height="14" rx="2" fill="#fff7ed" stroke="#f97316" stroke-width="1.4"/>
+                                <line x1="3" y1="14" x2="21" y2="14" stroke="#f97316" stroke-width="1"/>
+                                <text x="12" y="12" text-anchor="middle" font-size="4.5" fill="#f97316" font-family="monospace" font-weight="bold">kWh</text>
+                                <rect x="7" y="15.5" width="10" height="2" rx=".5" fill="#f97316" opacity=".35"/>
+                            </svg>
+                            ↳ 03.1 Puissance avec un compteur d'énergie
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-3.html#puissance-electrique">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.4"/>
+                                <text x="12" y="17" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="13" fill="#f97316" font-weight="bold">P</text>
+                            </svg>
+                            ↳ 03.2 Puissance électrique
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-3.html#rendement">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <path d="M2 20 Q12 3 22 20" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+                                <line x1="12" y1="20" x2="12" y2="8" stroke="#f97316" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+                                <text x="12" y="23.5" text-anchor="middle" font-size="5.5" fill="#f97316" font-family="Georgia,serif" font-style="italic">η</text>
+                            </svg>
+                            ↳ 03.3 Rendement
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 4: Effet calorifique du courant -->
+                    <li>
+                        <a href="chapitre-4.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fff3e0" stroke="#e65100" stroke-width="1.8"/>
+                                <path d="M17 30 C11 25 9 18 13 13 C11 20 17 20 15 11 C20 15 21 9 17 5 C24 9 26 19 21 24 C23 19 20 28 17 30Z" fill="none" stroke="#e65100" stroke-width="1.7"/>
+                                <circle cx="17" cy="24" r="2.5" fill="#e65100" opacity=".5"/>
+                            </svg>
+                            04. Effet calorifique du courant
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#production-chaleur">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 22 C8 18 7 13 10 10 C9 15 12 15 11 8 C14 11 15 7 12 4 C17 7 18 14 15 18 C16 14 14 21 12 22Z" fill="none" stroke="#e65100" stroke-width="1.5"/>
+                                <circle cx="12" cy="18" r="1.8" fill="#e65100" opacity=".4"/>
+                            </svg>
+                            ↳ 04.1 Production de chaleur
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#rendement-thermique">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <path d="M2 18 Q12 4 22 18" stroke="#e65100" stroke-width="1.3" fill="none"/>
+                                <line x1="12" y1="18" x2="12" y2="8" stroke="#f97316" stroke-width="1.1" stroke-dasharray="1.5,1"/>
+                                <text x="12" y="22" text-anchor="middle" font-size="5" fill="#e65100" font-family="Georgia,serif" font-style="italic">η</text>
+                            </svg>
+                            ↳ 04.2 Rendement thermique
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#perte-conducteur">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="2" y1="12" x2="22" y2="12" stroke="#e65100" stroke-width="2.5"/>
+                                <path d="M8 8 L8 16 M12 6 L12 18 M16 8 L16 16" stroke="#f97316" stroke-width="1.2" opacity="0.6"/>
+                            </svg>
+                            ↳ 04.3 Perte dans un conducteur
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#conversion-energies">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <circle cx="6" cy="12" r="4" fill="none" stroke="#2563eb" stroke-width="1.3"/>
+                                <path d="M10 12 L14 12" stroke="#22c55e" stroke-width="1.5"/>
+                                <polygon points="13,10 17,12 13,14" fill="#22c55e"/>
+                                <circle cx="18" cy="12" r="4" fill="none" stroke="#e65100" stroke-width="1.3"/>
+                            </svg>
+                            ↳ 04.4 Conversion d'énergies
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#densite-courant">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="4" width="8" height="16" rx="1" fill="none" stroke="#e65100" stroke-width="1.4"/>
+                                <path d="M10 8 L14 8 M10 12 L14 12 M10 16 L14 16" stroke="#f97316" stroke-width="1" stroke-dasharray="2,1"/>
+                                <text x="12" y="22" text-anchor="middle" font-size="4" fill="#e65100" font-family="Georgia,serif" font-style="italic">J</text>
+                            </svg>
+                            ↳ 04.5 Densité de courant
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#effet-thermique-resistances">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="6" y="9" width="12" height="6" rx="1" fill="none" stroke="#e65100" stroke-width="1.3"/>
+                                <path d="M9 6 L9 9 M12 5 L12 9 M15 6 L15 9" stroke="#f97316" stroke-width="1.1"/>
+                                <text x="12" y="13.5" text-anchor="middle" font-size="3.5" fill="#e65100" font-family="Georgia,serif" font-style="italic">R</text>
+                            </svg>
+                            ↳ 04.6 Effet thermique sur les résistances
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 5: Pile et accumulateur -->
+                    <li>
+                        <a href="chapitre-5.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8"/>
+                                <rect x="10" y="8" width="14" height="20" rx="2" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+                                <rect x="13" y="5" width="3" height="3" fill="#16a34a"/>
+                                <rect x="18" y="5" width="3" height="3" fill="#16a34a"/>
+                                <line x1="14" y1="15" x2="20" y2="15" stroke="#16a34a" stroke-width="1.5"/>
+                                <line x1="17" y1="12" x2="17" y2="18" stroke="#16a34a" stroke-width="1.5"/>
+                                <line x1="14" y1="22" x2="20" y2="22" stroke="#16a34a" stroke-width="1.5"/>
+                            </svg>
+                            05. Pile et accumulateur
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-5.html#formules-base">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="6" y="6" width="12" height="12" rx="1.5" fill="none" stroke="#16a34a" stroke-width="1.4"/>
+                                <line x1="9" y1="12" x2="15" y2="12" stroke="#16a34a" stroke-width="1.3"/>
+                                <line x1="12" y1="9" x2="12" y2="15" stroke="#16a34a" stroke-width="1.3"/>
+                            </svg>
+                            ↳ 05.1 Formules de base
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-5.html#charge-pile">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="7" y="5" width="10" height="14" rx="1.5" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+                                <path d="M9 9 L15 9 M9 12 L15 12 M9 15 L15 15" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+                                <polygon points="12,2 10,5 14,5" fill="#16a34a"/>
+                            </svg>
+                            ↳ 05.2 Charge d'une pile
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-5.html#couplage-piles">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="7" width="7" height="10" rx="1" fill="none" stroke="#16a34a" stroke-width="1.2"/>
+                                <rect x="14" y="7" width="7" height="10" rx="1" fill="none" stroke="#16a34a" stroke-width="1.2"/>
+                                <line x1="10" y1="12" x2="14" y2="12" stroke="#22c55e" stroke-width="1.3"/>
+                            </svg>
+                            ↳ 05.3 Couplage de piles et accumulateurs
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 6: Magnétisme -->
+                    <li>
+                        <a href="index.html#magnetisme">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+                                <path d="M8 12 L8 22 L12 22 L12 18 L22 18 L22 22 L26 22 L26 12" stroke="#dc2626" stroke-width="2" fill="none"/>
+                                <circle cx="8" cy="12" r="2" fill="#dc2626"/>
+                                <circle cx="26" cy="12" r="2" fill="#2563eb"/>
+                                <text x="8" y="10" text-anchor="middle" font-size="6" fill="#dc2626" font-weight="bold">N</text>
+                                <text x="26" y="10" text-anchor="middle" font-size="6" fill="#2563eb" font-weight="bold">S</text>
+                            </svg>
+                            06. Magnétisme
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 7: Les condensateurs -->
+                    <li>
+                        <a href="index.html#condensateurs">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+                                <line x1="8" y1="17" x2="14" y2="17" stroke="#2563eb" stroke-width="1.5"/>
+                                <line x1="14" y1="10" x2="14" y2="24" stroke="#2563eb" stroke-width="2.5"/>
+                                <line x1="20" y1="10" x2="20" y2="24" stroke="#2563eb" stroke-width="2.5"/>
+                                <line x1="20" y1="17" x2="26" y2="17" stroke="#2563eb" stroke-width="1.5"/>
+                                <text x="17" y="8" text-anchor="middle" font-size="5" fill="#2563eb" font-family="Georgia,serif" font-style="italic">C</text>
+                            </svg>
+                            07. Les condensateurs
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 8: Appareils de mesures -->
+                    <li>
+                        <a href="index.html#mesures">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8"/>
+                                <rect x="7" y="7" width="20" height="20" rx="2" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+                                <path d="M12 17 L15 14 L18 20 L22 12" stroke="#16a34a" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="17" r="1.5" fill="#16a34a"/>
+                                <circle cx="22" cy="12" r="1.5" fill="#16a34a"/>
+                            </svg>
+                            08. Appareils de mesures
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 9: Courant et tension alternative en monophasé -->
+                    <li>
+                        <a href="index.html#monophase">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+                                <path d="M6 17 Q10 8 14 17 T22 17 T30 17" stroke="#2563eb" stroke-width="2" fill="none"/>
+                                <line x1="6" y1="17" x2="30" y2="17" stroke="#64748b" stroke-width="0.5" stroke-dasharray="2,2"/>
+                            </svg>
+                            09. Courant et tension alternative en monophasé
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 10: Triphasé -->
+                    <li>
+                        <a href="index.html#triphase">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.8"/>
+                                <path d="M6 17 Q9 10 12 17 T18 17" stroke="#dc2626" stroke-width="1.5" fill="none"/>
+                                <path d="M6 20 Q9 13 12 20 T18 20" stroke="#2563eb" stroke-width="1.5" fill="none"/>
+                                <path d="M6 23 Q9 16 12 23 T18 23" stroke="#16a34a" stroke-width="1.5" fill="none"/>
+                                <text x="24" y="15" font-size="5" fill="#dc2626" font-weight="bold">L1</text>
+                                <text x="24" y="20" font-size="5" fill="#2563eb" font-weight="bold">L2</text>
+                                <text x="24" y="25" font-size="5" fill="#16a34a" font-weight="bold">L3</text>
+                            </svg>
+                            10. Triphasé
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 11: Les moteurs -->
+                    <li>
+                        <a href="index.html#moteurs">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
+                                <circle cx="17" cy="17" r="10" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+                                <circle cx="17" cy="17" r="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2"/>
+                                <path d="M17 11 L17 7 M17 27 L17 23 M11 17 L7 17 M27 17 L23 17" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"/>
+                                <text x="17" y="20" text-anchor="middle" font-size="6" fill="#0284c7" font-family="Georgia,serif" font-style="italic" font-weight="bold">M</text>
+                            </svg>
+                            11. Les moteurs
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 12: Les transformateurs -->
+                    <li>
+                        <a href="index.html#transformateurs">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+                                <circle cx="13" cy="17" r="6" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                                <circle cx="21" cy="17" r="6" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+                                <line x1="17" y1="8" x2="17" y2="26" stroke="#64748b" stroke-width="1.5"/>
+                            </svg>
+                            12. Les transformateurs
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 13: Éclairage -->
+                    <li>
+                        <a href="index.html#eclairage">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8"/>
+                                <circle cx="17" cy="15" r="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+                                <rect x="14" y="21" width="6" height="4" rx="1" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+                                <line x1="17" y1="5" x2="17" y2="8" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="9" y1="9" x2="11" y2="11" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="25" y1="9" x2="23" y2="11" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="6" y1="15" x2="9" y2="15" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="28" y1="15" x2="25" y2="15" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            13. Éclairage
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 14: Électronique -->
+                    <li>
+                        <a href="index.html#electronique">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
+                                <rect x="8" y="8" width="18" height="18" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.3"/>
+                                <circle cx="12" cy="12" r="1.5" fill="#7c3aed"/>
+                                <circle cx="22" cy="12" r="1.5" fill="#7c3aed"/>
+                                <circle cx="12" cy="22" r="1.5" fill="#7c3aed"/>
+                                <circle cx="22" cy="22" r="1.5" fill="#7c3aed"/>
+                                <path d="M12 12 L22 22 M22 12 L12 22" stroke="#7c3aed" stroke-width="0.8"/>
+                            </svg>
+                            14. Électronique
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 15: Sciences -->
+                    <li>
+                        <a href="index.html#sciences">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/>
+                                <path d="M12 8 L12 18 L10 22 L24 22 L22 18 L22 8" stroke="#059669" stroke-width="1.5" fill="none"/>
+                                <ellipse cx="17" cy="8" rx="5" ry="2" fill="none" stroke="#059669" stroke-width="1.5"/>
+                                <line x1="10" y1="22" x2="24" y2="22" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="17" cy="15" r="2" fill="#d1fae5" stroke="#059669" stroke-width="1"/>
+                            </svg>
+                            15. Sciences
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 16: Annexes -->
+                    <li>
+                        <a href="index.html#annexes">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+                                <rect x="9" y="6" width="16" height="22" rx="1" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+                                <line x1="12" y1="11" x2="22" y2="11" stroke="#d97706" stroke-width="1" stroke-linecap="round"/>
+                                <line x1="12" y1="15" x2="22" y2="15" stroke="#d97706" stroke-width="1" stroke-linecap="round"/>
+                                <line x1="12" y1="19" x2="18" y2="19" stroke="#d97706" stroke-width="1" stroke-linecap="round"/>
+                            </svg>
+                            16. Annexes
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Contenu principal -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Chapitre 03 : Travail, énergie et puissance électrique -->
+                <section id="travail-energie-puissance" class="content-section">
+                    <h2 data-icon="💪">03. Travail, énergie et puissance électrique</h2>
+                    
+                    <!-- Grande illustration : Chaîne de conversion d'énergie -->
+                    <div id="svg-chap3-main" style="margin: 40px 0 40px -20px; padding: 0; cursor: pointer; width: calc(100% + 40px);">
+                        <div style="text-align: center; margin-bottom: 20px; padding: 0 20px;">
+                            <h3 style="color: #1976D2; font-size: 1.5rem; margin-bottom: 10px;">⚡ Illustration : Chaîne de Conversion d'Énergie</h3>
+                            <p style="color: #666; font-size: 1rem;">Moteur 1 → Alternateur → Moteur 2 avec rendements η₁, η₂, η₃</p>
+                            <p style="color: #999; font-size: 0.9rem; font-style: italic; margin-top: 5px;">👆 Survolez pour animer</p>
+                        </div>
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" width="920" height="520" font-family="'Segoe UI', Arial, sans-serif" style="width: 100%; height: auto;">
+                                <defs>
+                                    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0"/>
+                                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+                                    </linearGradient>
+                                    <linearGradient id="motorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#c8daf5"/>
+                                        <stop offset="100%" style="stop-color:#a0bce8"/>
+                                    </linearGradient>
+                                    <linearGradient id="altGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#dcc8f5"/>
+                                        <stop offset="100%" style="stop-color:#c4a0e8"/>
+                                    </linearGradient>
+                                    <linearGradient id="shaftGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#aaaaaa"/>
+                                        <stop offset="50%" style="stop-color:#dddddd"/>
+                                        <stop offset="100%" style="stop-color:#888888"/>
+                                    </linearGradient>
+                                    <filter id="shadow">
+                                        <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
+                                    </filter>
+                                </defs>
+                                <!-- Fond -->
+                                <rect width="920" height="520" fill="transparent" rx="12"/>
+
+                                <!-- ═══ TITRE ═══ -->
+                                <text x="460" y="22" text-anchor="middle" fill="#111111" font-size="15" font-weight="bold" letter-spacing="1">Puissance électrique</text>
+                                <text x="460" y="38" text-anchor="middle" fill="#444444" font-size="12">Moteur 1  →  Alternateur  →  Moteur 2</text>
+
+                                <!-- ═══ LIGNE L / N → MOTEUR 1 ═══ -->
+                                <line x1="28" y1="88" x2="118" y2="88" stroke="#cc8800" stroke-width="3"/>
+                                <line x1="28" y1="88" x2="118" y2="88" stroke="#cc8800" stroke-width="2" stroke-dasharray="7,18" opacity="0.8">
+                                    <animate attributeName="stroke-dashoffset" from="0" to="-25" dur="0.7s" repeatCount="indefinite"/>
+                                </line>
+                                <!-- Points rouges courant ALLER sur L -->
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M28,88 L118,88 L118,118" dur="0.9s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M28,88 L118,88 L118,118" dur="0.9s" begin="0.3s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M28,88 L118,88 L118,118" dur="0.9s" begin="0.6s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="16" y="93" fill="#cc8800" font-size="14" font-weight="bold">L</text>
+
+                                <line x1="28" y1="107" x2="118" y2="107" stroke="#0066cc" stroke-width="3"/>
+                                <!-- Points rouges courant RETOUR sur N -->
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M118,138 L118,107 L28,107" dur="0.9s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M118,138 L118,107 L28,107" dur="0.9s" begin="0.3s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M118,138 L118,107 L28,107" dur="0.9s" begin="0.6s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="16" y="112" fill="#0066cc" font-size="14" font-weight="bold">N</text>
+                                <!-- descentes vers Mot1 -->
+                                <line x1="118" y1="88" x2="118" y2="118" stroke="#cc8800" stroke-width="2"/>
+                                <line x1="118" y1="107" x2="118" y2="138" stroke="#0066cc" stroke-width="2"/>
+
+                                <!-- ═══ MOTEUR 1 ═══ -->
+                                <g filter="url(#shadow)">
+                                    <rect x="118" y="118" width="128" height="100" rx="8" fill="url(#motorGrad)" stroke="#1a55cc" stroke-width="2"/>
+                                    <ellipse cx="182" cy="168" rx="24" ry="24" fill="none" stroke="#1a4488" stroke-width="1.5" opacity="0.4"/>
+                                    <!-- Mot. 1 → déplacé à GAUCHE -->
+                                    <text x="124" y="136" text-anchor="start" fill="#1a3a6a" font-size="13" font-weight="bold">Mot. 1</text>
+                                    <text x="182" y="185" text-anchor="middle" fill="#2255aa" font-size="12">⇒ η₁</text>
+                                </g>
+                                <line x1="182" y1="146" x2="182" y2="190" stroke="#4499dd" stroke-width="2.5" opacity="0.8">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 182 168" to="360 182 168" dur="2s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="160" y1="168" x2="204" y2="168" stroke="#4499dd" stroke-width="2.5" opacity="0.8">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 182 168" to="360 182 168" dur="2s" repeatCount="indefinite"/>
+                                </line>
+
+                                <!-- ═══ CHAÎNE MÉCANIQUE (Mot1 → Alternateur) ═══ -->
+                                <!-- Pignon gauche -->
+                                <circle cx="246" cy="168" r="12" fill="#cccccc" stroke="#555" stroke-width="2"/>
+                                <circle cx="246" cy="168" r="4" fill="#888"/>
+                                <g><animateTransform attributeName="transform" type="rotate" from="0 246 168" to="360 246 168" dur="0.7s" repeatCount="indefinite"/><rect x="243" y="154" width="6" height="5" rx="1" fill="#999"/><rect x="243" y="177" width="6" height="5" rx="1" fill="#999"/><rect x="232" y="165" width="5" height="6" rx="1" fill="#999"/><rect x="257" y="165" width="5" height="6" rx="1" fill="#999"/></g>
+                                <circle cx="328" cy="168" r="12" fill="#cccccc" stroke="#555" stroke-width="2"/>
+                                <circle cx="328" cy="168" r="4" fill="#888"/>
+                                <g><animateTransform attributeName="transform" type="rotate" from="0 328 168" to="360 328 168" dur="0.7s" repeatCount="indefinite"/><rect x="325" y="154" width="6" height="5" rx="1" fill="#999"/><rect x="325" y="177" width="6" height="5" rx="1" fill="#999"/><rect x="314" y="165" width="5" height="6" rx="1" fill="#999"/><rect x="339" y="165" width="5" height="6" rx="1" fill="#999"/></g>
+                                <rect x="246" y="154" width="82" height="8" rx="0" fill="#aaaaaa"/>
+                                <line x1="246" y1="156" x2="328" y2="156" stroke="#777" stroke-width="2" stroke-dasharray="7,5"><animate attributeName="stroke-dashoffset" from="0" to="-12" dur="0.35s" repeatCount="indefinite"/></line>
+                                <line x1="246" y1="160" x2="328" y2="160" stroke="#999" stroke-width="1" stroke-dasharray="7,5"><animate attributeName="stroke-dashoffset" from="0" to="-12" dur="0.35s" repeatCount="indefinite"/></line>
+                                <rect x="246" y="174" width="82" height="8" rx="0" fill="#aaaaaa"/>
+                                <line x1="246" y1="176" x2="328" y2="176" stroke="#777" stroke-width="2" stroke-dasharray="7,5"><animate attributeName="stroke-dashoffset" from="0" to="12" dur="0.35s" repeatCount="indefinite"/></line>
+                                <line x1="246" y1="180" x2="328" y2="180" stroke="#999" stroke-width="1" stroke-dasharray="7,5"><animate attributeName="stroke-dashoffset" from="0" to="12" dur="0.35s" repeatCount="indefinite"/></line>
+                                <text x="287" y="150" text-anchor="middle" fill="#7a6010" font-size="9" font-style="italic">⚙ mécanique</text>
+<!-- ═══ ALTERNATEUR ═══ -->
+                                <g filter="url(#shadow)">
+                                    <rect x="328" y="118" width="128" height="100" rx="8" fill="url(#altGrad)" stroke="#5500aa" stroke-width="2"/>
+                                    <ellipse cx="392" cy="168" rx="34" ry="34" fill="none" stroke="#441177" stroke-width="1.5" opacity="0.4"/>
+                                    <text x="334" y="136" text-anchor="start" fill="#5500bb" font-size="13" font-weight="bold">Alternateur</text>
+                                    <text x="392" y="173" text-anchor="middle" fill="#6622aa" font-size="12">⇒ η₂</text>
+                                    <path d="M377,185 Q382,178 387,185 Q392,192 397,185 Q402,178 407,185" fill="none" stroke="#7722cc" stroke-width="2"/>
+                                </g>
+                                <line x1="392" y1="146" x2="392" y2="190" stroke="#9955dd" stroke-width="2.5" opacity="0.8">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 392 168" to="360 392 168" dur="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="370" y1="168" x2="414" y2="168" stroke="#9955dd" stroke-width="2.5" opacity="0.8">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 392 168" to="360 392 168" dur="1.5s" repeatCount="indefinite"/>
+                                </line>
+
+                                <!-- ═══ FILS ÉLECTRIQUES L/N (Alternateur → Moteur 2) ═══ -->
+                                <polyline points="456,138 475,138 475,125 548,125 548,135" fill="none" stroke="#cc8800" stroke-width="2.5" stroke-linejoin="round"/>
+                                <polyline points="456,138 475,138 475,125 548,125 548,135" fill="none" stroke="#cc8800" stroke-width="1.5" stroke-dasharray="6,15" opacity="0.8">
+                                    <animate attributeName="stroke-dashoffset" from="0" to="-21" dur="0.6s" repeatCount="indefinite"/>
+                                </polyline>
+                                <!-- Points rouges courant ALLER vers Mot2 -->
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M456,138 L475,138 L475,125 L548,125 L548,135" dur="0.9s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M456,138 L475,138 L475,125 L548,125 L548,135" dur="0.9s" begin="0.3s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M456,138 L475,138 L475,125 L548,125 L548,135" dur="0.9s" begin="0.6s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="511" y="122" text-anchor="middle" fill="#cc8800" font-size="10" font-weight="bold">L</text>
+
+                                <!-- Fil N bleu (en bas) -->
+                                <polyline points="456,198 475,198 475,211 548,211 548,201" fill="none" stroke="#0066cc" stroke-width="2.5" stroke-linejoin="round"/>
+                                <!-- Points rouges courant RETOUR sur N depuis Mot2 -->
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M548,201 L548,211 L475,211 L475,198 L456,198" dur="0.9s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M548,201 L548,211 L475,211 L475,198 L456,198" dur="0.9s" begin="0.3s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ff2222" opacity="0.95">
+                                    <animateMotion path="M548,201 L548,211 L475,211 L475,198 L456,198" dur="0.9s" begin="0.6s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="511" y="222" text-anchor="middle" fill="#0066cc" font-size="10" font-weight="bold">N</text>
+                                <text x="511" y="236" text-anchor="middle" fill="#0044aa" font-size="9" font-style="italic">⚡ électrique</text>
+
+                                <!-- ═══ MOTEUR 2 ═══ -->
+                                <g filter="url(#shadow)">
+                                    <rect x="548" y="118" width="128" height="100" rx="8" fill="url(#motorGrad)" stroke="#1a55cc" stroke-width="2"/>
+                                    <ellipse cx="612" cy="168" rx="34" ry="34" fill="none" stroke="#1a4488" stroke-width="1.5" opacity="0.4"/>
+                                    <!-- Mot. 2 → déplacé en HAUT À GAUCHE -->
+                                    <text x="554" y="136" text-anchor="start" fill="#1a3a6a" font-size="13" font-weight="bold">Mot. 2</text>
+                                    <text x="612" y="180" text-anchor="middle" fill="#2255aa" font-size="12">⇒ η₃</text>
+                                </g>
+                                <line x1="612" y1="146" x2="612" y2="190" stroke="#4499dd" stroke-width="2.5" opacity="0.8">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 612 168" to="360 612 168" dur="2.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="590" y1="168" x2="634" y2="168" stroke="#4499dd" stroke-width="2.5" opacity="0.8">
+                                    <animateTransform attributeName="transform" type="rotate" from="0 612 168" to="360 612 168" dur="2.5s" repeatCount="indefinite"/>
+                                </line>
+
+                                <!-- ═══ ARBRE SORTIE ═══ -->
+                                <rect x="676" y="160" width="45" height="16" rx="4" fill="url(#shaftGrad)" stroke="#999" stroke-width="1"/>
+                                <circle r="4" fill="#00ffcc" opacity="0.9">
+                                    <animateMotion path="M676,168 L721,168" dur="0.45s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="3" fill="#ffffff" opacity="0.6">
+                                    <animateMotion path="M676,168 L721,168" dur="0.45s" begin="0.22s" repeatCount="indefinite"/>
+                                </circle>
+
+                                <!-- ═══ HÉLICE 3 PALES ═══ -->
+                                <g>
+                                    <animateTransform attributeName="transform" type="rotate" from="0 728 168" to="360 728 168" dur="0.35s" repeatCount="indefinite"/>
+                                    <ellipse cx="728" cy="148" rx="6" ry="18" fill="#3399ff" opacity="0.85"/>
+                                    <ellipse cx="728" cy="148" rx="6" ry="18" fill="#3399ff" opacity="0.85" transform="rotate(120 728 168)"/>
+                                    <ellipse cx="728" cy="148" rx="6" ry="18" fill="#3399ff" opacity="0.85" transform="rotate(240 728 168)"/>
+                                    <circle cx="728" cy="168" r="7" fill="#a0bce8" stroke="#1155cc" stroke-width="2"/>
+                                </g>
+                                <!-- Effet air / vent -->
+                                <g opacity="0.35">
+                                    <path d="M752,155 Q778,163 768,173" fill="none" stroke="#aaddff" stroke-width="2" stroke-dasharray="5,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="0.4s" repeatCount="indefinite"/>
+                                    </path>
+                                    <path d="M755,164 Q783,170 773,180" fill="none" stroke="#aaddff" stroke-width="1.5" stroke-dasharray="5,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="0.4s" begin="0.15s" repeatCount="indefinite"/>
+                                    </path>
+                                    <path d="M751,173 Q776,180 767,190" fill="none" stroke="#aaddff" stroke-width="2" stroke-dasharray="5,4">
+                                        <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="0.4s" begin="0.3s" repeatCount="indefinite"/>
+                                    </path>
+                                </g>
+                                <text x="728" y="205" text-anchor="middle" fill="#004488" font-size="9" font-style="italic">charge utile</text>
+
+                                <!-- ═══ ÉTIQUETTE P2 — Vert (au-dessus Mot1) ═══ -->
+                                <g>
+                                    <rect x="100" y="52" width="165" height="48" rx="7" fill="#eeffee" stroke="#008833" stroke-width="2">
+                                        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2.3s" repeatCount="indefinite"/>
+                                    </rect>
+                                    <text x="182" y="72" text-anchor="middle" fill="#007733" font-size="11" font-weight="bold">Puissance du moteur 1</text>
+                                    <text x="182" y="90" text-anchor="middle" fill="#006622" font-size="14" font-weight="bold">⇒ P₂</text>
+                                    <line x1="182" y1="100" x2="246" y2="156" stroke="#008833" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.9"/>
+                                </g>
+
+                                <!-- ═══ ÉTIQUETTE P3 — Violet (au-dessus Alternateur) ═══ -->
+                                <g>
+                                    <rect x="318" y="52" width="148" height="48" rx="7" fill="#f5eeff" stroke="#5500aa" stroke-width="2">
+                                        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="1.8s" repeatCount="indefinite"/>
+                                    </rect>
+                                    <text x="392" y="72" text-anchor="middle" fill="#6600aa" font-size="11" font-weight="bold">Puissance de l'alter.</text>
+                                    <text x="392" y="90" text-anchor="middle" fill="#5500aa" font-size="14" font-weight="bold">⇒ P₃</text>
+                                    <line x1="392" y1="100" x2="392" y2="118" stroke="#5500aa" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.9"/>
+                                </g>
+
+                                <!-- ═══ ÉTIQUETTE P4 — Cyan (droite, sous hélice) ═══ -->
+                                <g>
+                                    <rect x="688" y="245" width="200" height="65" rx="7" fill="#eefffa" stroke="#008866" stroke-width="2">
+                                        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2.5s" repeatCount="indefinite"/>
+                                    </rect>
+                                    <text x="788" y="268" text-anchor="middle" fill="#007755" font-size="11" font-weight="bold">Puissance utile</text>
+                                    <text x="788" y="284" text-anchor="middle" fill="#007755" font-size="11" font-weight="bold">du moteur 2</text>
+                                    <text x="788" y="303" text-anchor="middle" fill="#005544" font-size="14" font-weight="bold">⇒ P₄</text>
+                                    <line x1="728" y1="245" x2="728" y2="205" stroke="#008866" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.7"/>
+                                </g>
+
+                                <!-- ═══ ÉTIQUETTE P1 — Rouge (bas gauche) ═══ -->
+                                <g>
+                                    <rect x="18" y="348" width="195" height="68" rx="7" fill="#ffeeee" stroke="#cc0000" stroke-width="2">
+                                        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+                                    </rect>
+                                    <text x="115" y="368" text-anchor="middle" fill="#cc0000" font-size="11" font-weight="bold">Puissance électrique /</text>
+                                    <text x="115" y="384" text-anchor="middle" fill="#cc0000" font-size="11" font-weight="bold">Puissance absorbée</text>
+                                    <text x="115" y="405" text-anchor="middle" fill="#bb0000" font-size="14" font-weight="bold">⇒ P₁</text>
+                                    <!-- Traitillé vers fils L/N -->
+                                    <line x1="62" y1="348" x2="62" y2="107" stroke="#cc0000" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.85"/>
+                                    <line x1="62" y1="88" x2="28" y2="88" stroke="#cc0000" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.7"/>
+                                    <line x1="62" y1="107" x2="28" y2="107" stroke="#cc0000" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.7"/>
+                                </g>
+
+                                <!-- ═══ PERTES THERMIQUES ═══ -->
+                                <!-- Pertes η₁ -->
+                                <line x1="148" y1="268" x2="162" y2="218" stroke="#cc4400" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.9"/>
+                                <text x="118" y="282" fill="#cc4400" font-size="10" font-weight="bold" font-style="italic">pertes η₁</text>
+                                <text x="144" y="270" fill="#ff6600" font-size="13" opacity="0.85">🔥</text>
+                                <!-- Pertes η₂ -->
+                                <line x1="352" y1="296" x2="365" y2="218" stroke="#cc4400" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.9"/>
+                                <text x="322" y="310" fill="#cc4400" font-size="10" font-weight="bold" font-style="italic">pertes η₂</text>
+                                <text x="348" y="298" fill="#ff6600" font-size="13" opacity="0.85">🔥</text>
+                                <!-- Pertes η₃ -->
+                                <line x1="565" y1="296" x2="578" y2="218" stroke="#cc4400" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.9"/>
+                                <text x="535" y="310" fill="#cc4400" font-size="10" font-weight="bold" font-style="italic">pertes η₃</text>
+                                <text x="561" y="298" fill="#ff6600" font-size="13" opacity="0.85">🔥</text>
+
+                                <!-- ═══ FORMULE ═══ -->
+                                <rect x="110" y="428" width="600" height="65" rx="10" fill="#00000008" stroke="#00000015" stroke-width="1"/>
+                                <text x="410" y="452" text-anchor="middle" fill="#333333" font-size="11">Rendement global de la chaîne</text>
+                                <text x="410" y="474" text-anchor="middle" fill="#cc8800" font-size="17" font-weight="bold">η_total = η₁ × η₂ × η₃</text>
+                                <text x="410" y="488" text-anchor="middle" fill="#222222" font-size="10">P₄ = P₁ × η₁ × η₂ × η₃</text>
+
+                                <!-- Bordure légère -->
+                                <rect x="2" y="2" width="916" height="516" rx="12" fill="none" stroke="#cccccc" stroke-width="1.5">
+                                    <animate attributeName="stroke-opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/>
+                                </rect>
+                            </svg>
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 8px;">
+                            <p style="margin: 0 0 15px 0; color: #856404; font-size: 0.95rem; line-height: 1.6;">
+                                <strong>💡 Note pédagogique :</strong> Cette illustration montre une chaîne complète de conversion d'énergie avec 3 rendements successifs. 
+                                Le rendement global est le produit des rendements individuels : <strong>η_total = η₁ × η₂ × η₃</strong>.
+                            </p>
+                            
+                            <!-- Illustration des types de pertes -->
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 15px;">
+                                <!-- Pertes dans le stator -->
+                                <div style="flex: 1; min-width: 200px; background: white; border: 2px solid #6c757d; border-radius: 8px; padding: 12px; text-align: center;">
+                                    <div style="background: #e9ecef; padding: 8px; border-radius: 6px; margin-bottom: 8px; font-weight: bold; color: #495057; font-size: 0.9rem;">
+                                        Pertes dans le stator
+                                    </div>
+                                    <div style="display: flex; gap: 5px;">
+                                        <div style="flex: 1; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 8px; font-size: 0.85rem; color: #856404;">
+                                            <strong>Pertes cuivre</strong><br>(effet Joule)
+                                        </div>
+                                        <div style="flex: 1; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 8px; font-size: 0.85rem; color: #856404;">
+                                            <strong>Pertes fer</strong><br>(Hystérésis et Foucault)
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pertes rotor -->
+                                <div style="flex: 1; min-width: 180px; background: white; border: 2px solid #6c757d; border-radius: 8px; padding: 12px; text-align: center;">
+                                    <div style="background: #e9ecef; padding: 8px; border-radius: 6px; margin-bottom: 8px; font-weight: bold; color: #495057; font-size: 0.9rem;">
+                                        Pertes rotor
+                                    </div>
+                                    <div style="background: #d1ecf1; border: 1px solid #17a2b8; border-radius: 4px; padding: 8px; font-size: 0.85rem; color: #0c5460;">
+                                        <strong>Pertes</strong><br>cuivre + fer
+                                    </div>
+                                </div>
+                                
+                                <!-- Pertes mécaniques -->
+                                <div style="flex: 1; min-width: 180px; background: white; border: 2px solid #6c757d; border-radius: 8px; padding: 12px; text-align: center;">
+                                    <div style="background: #e9ecef; padding: 8px; border-radius: 6px; margin-bottom: 8px; font-weight: bold; color: #495057; font-size: 0.9rem;">
+                                        Pertes mécaniques
+                                    </div>
+                                    <div style="background: #d4edda; border: 1px solid #28a745; border-radius: 4px; padding: 8px; font-size: 0.85rem; color: #155724;">
+                                        <strong>Frottement</strong><br>Ventilation
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formules principales du chapitre 03 -->
+                    <div class="formula-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom de la formule</th>
+                                    <th>Expression littérale</th>
+                                    <th>Symboles de grandeurs et d'unités</th>
+                                    <th>Explication</th>
+                                    <th>Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formule 1: Travail électrique en Joule — formule 1 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Travail électrique en Joule — formule 1</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( W = U \cdot I \cdot t = [J] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( W \) = travail ou énergie électrique = [J]<br>
+                                        \( U \) = tension aux bornes du récepteur = [V]<br>
+                                        \( I \) = courant traversant le récepteur = [A]<br>
+                                        \( t \) = temps = [s]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Énergie électrique consommée en Joules en fonction de la tension, du courant et du temps.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U = \frac{W}{I \cdot t} = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \frac{W}{U \cdot t} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{W}{U \cdot I} = [s] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 2: Travail électrique en Joule — formule 2 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Travail électrique en Joule — formule 2</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( W = R \cdot I^2 \cdot t = [J] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( W \) = travail ou énergie électrique = [J]<br>
+                                        \( R \) = résistance du corps de chauffe = [Ω]<br>
+                                        \( I \) = courant traversant le récepteur = [A]<br>
+                                        \( t \) = temps = [s]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Énergie électrique en fonction de la résistance, du courant au carré et du temps.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{W}{I^2 \cdot t} = [\Omega] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \sqrt{\frac{W}{R \cdot t}} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{W}{R \cdot I^2} = [s] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 3: Travail électrique en Joule — formule 3 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Travail électrique en Joule — formule 3</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( W = \frac{U^2}{R} \cdot t = [J] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( W \) = travail ou énergie électrique = [J]<br>
+                                        \( U \) = tension aux bornes du corps de chauffe = [V]<br>
+                                        \( R \) = résistance du corps de chauffe = [Ω]<br>
+                                        \( t \) = temps = [s]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Énergie électrique en fonction de la tension au carré, de la résistance et du temps.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{U^2 \cdot t}{W} = [\Omega] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U = \sqrt{\frac{R \cdot W}{t}} = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{R \cdot W}{U^2} = [s] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 4: Travail électrique en Wh — formule 1 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Travail électrique en Wh — formule 1</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( W = U \cdot I \cdot t = [Wh] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( W \) = travail ou énergie électrique = [Wh]<br>
+                                        \( t \) = temps = [h]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Identique à la formule en Joule mais t est exprimé en heures [h].
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U = \frac{W}{I \cdot t} = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \frac{W}{U \cdot t} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{W}{U \cdot I} = [h] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 5: Travail électrique en Wh — formule 2 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Travail électrique en Wh — formule 2</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( W = R \cdot I^2 \cdot t = [Wh] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( W \) = travail ou énergie électrique = [Wh]<br>
+                                        \( t \) = temps = [h]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Énergie en Wh avec temps en heures.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{W}{I^2 \cdot t} = [\Omega] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \sqrt{\frac{W}{R \cdot t}} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{W}{R \cdot I^2} = [h] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 6: Travail électrique en Wh — formule 3 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Travail électrique en Wh — formule 3</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( W = \frac{U^2}{R} \cdot t = [Wh] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( W \) = travail ou énergie électrique = [Wh]<br>
+                                        \( t \) = temps = [h]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Énergie en Wh avec temps en heures.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{U^2 \cdot t}{W} = [\Omega] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U = \sqrt{\frac{R \cdot W}{t}} = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{R \cdot W}{U^2} = [h] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Sous-chapitre 03.1 : Puissance avec un compteur d'énergie -->
+                    <h3 id="compteur-energie">03.1 Puissance avec un compteur d'énergie</h3>
+                    
+                    <!-- Grande illustration : Mesure de la puissance électrique -->
+                    <div id="svg-chap3-1" style="margin: 40px 0 40px -20px; padding: 0; cursor: pointer; width: calc(100% + 40px);">
+                        <div style="text-align: center; margin-bottom: 20px; padding: 0 20px;">
+                            <h3 style="color: #1976D2; font-size: 1.5rem; margin-bottom: 10px;">⚡ Illustration : Mesure de la puissance électrique</h3>
+                            <p style="color: #666; font-size: 1rem;">Méthode directe (wattmètre) vs méthode indirecte (voltmètre + ampèremètre)</p>
+                            <p style="color: #999; font-size: 0.9rem; font-style: italic; margin-top: 5px;">👆 Survolez pour animer</p>
+                        </div>
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 460" width="840" height="460"
+     font-family="'Segoe UI', Arial, sans-serif" style="width: 100%; height: auto;">
+  <defs>
+    <!-- Flèche courant rouge -->
+    <marker id="iArr" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 9 3.5, 0 7" fill="#cc0000"/>
+    </marker>
+    <!-- Flèche tension bleue bas -->
+    <marker id="uArr" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0044cc"/>
+    </marker>
+    <!-- Filtre ombre -->
+    <filter id="sh">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#999" flood-opacity="0.25"/>
+    </filter>
+    <!-- Glow rouge particules -->
+    <filter id="gR">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ══ FOND ══ -->
+  <rect width="840" height="460" fill="white" rx="14"/>
+  <rect x="2" y="2" width="836" height="456" rx="14" fill="none" stroke="#e0e0e0" stroke-width="1.5"/>
+
+  <!-- ══ TITRE ══ -->
+  <text x="420" y="28" text-anchor="middle" fill="#1a1a1a" font-size="14.5">
+    La puissance électrique (P) peut être mesurée <tspan font-weight="bold">directement</tspan> ou <tspan font-weight="bold">indirectement</tspan>.
+  </text>
+
+  <!-- Séparateur -->
+  <line x1="420" y1="42" x2="420" y2="445" stroke="#e0e0e0" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- ═══════════════════════════════════════════════
+       GAUCHE — MESURE DIRECTE avec WATTMÈTRE
+       Grille : source à x=65, circuit 65→365, haut y=120, bas y=360
+  ═══════════════════════════════════════════════ -->
+
+  <text x="210" y="58" text-anchor="middle" fill="#222" font-size="13.5">
+    direct : avec <tspan font-weight="bold">wattmètre</tspan>
+  </text>
+
+  <!-- ── FILS CIRCUIT GAUCHE ── -->
+  <!-- Haut gauche : source (65,120) → W entrée (130,120) -->
+  <line x1="65"  y1="140" x2="130" y2="140" stroke="#333" stroke-width="2"/>
+  <!-- Haut droite : W sortie (270,120) → angle (365,120) -->
+  <line x1="270" y1="140" x2="365" y2="140" stroke="#333" stroke-width="2"/>
+  <!-- Vertical droit haut : (365,120) → R haut (365,200) -->
+  <line x1="365" y1="140" x2="365" y2="220" stroke="#333" stroke-width="2"/>
+  <!-- Vertical droit bas : R bas (365,280) → (365,360) -->
+  <line x1="365" y1="300" x2="365" y2="380" stroke="#333" stroke-width="2"/>
+  <!-- Bas : (65,360) → (365,360) -->
+  <line x1="65"  y1="380" x2="365" y2="380" stroke="#333" stroke-width="2"/>
+  <!-- Vertical gauche : (65,120) → pile haut (65,230) -->
+  <line x1="65"  y1="140" x2="65"  y2="250" stroke="#333" stroke-width="2"/>
+  <!-- Vertical gauche bas : pile bas (65,270) → (65,360) -->
+  <line x1="65"  y1="290" x2="65"  y2="380" stroke="#333" stroke-width="2"/>
+
+  <!-- ── PILE GAUCHE (IEC: 1 grand + 1 petit) ── -->
+  <!-- Trait long = borne + -->
+  <line x1="48"  y1="250" x2="82"  y2="250" stroke="#333" stroke-width="3.5"/>
+  <!-- Trait court = borne − -->
+  <line x1="55"  y1="272" x2="75"  y2="272" stroke="#333" stroke-width="1.8"/>
+  <!-- Fil entre les deux bornes -->
+  <line x1="65"  y1="250" x2="65"  y2="272" stroke="#333" stroke-width="2"/>
+  <!-- Fil bas pile → circuit -->
+  <line x1="65"  y1="272" x2="65"  y2="290" stroke="#333" stroke-width="2"/>
+
+  <!-- ── WATTMÈTRE W ── -->
+  <!-- Cercle -->
+  <circle cx="200" cy="140" r="50" fill="white" stroke="#333" stroke-width="2" filter="url(#sh)"/>
+  <!-- Lettre W -->
+  <text x="213" y="178" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">W</text>
+
+  <!-- Bobine de COURANT — série, horizontale rouge -->
+  <!-- Arcs représentant la bobine (dessus du fil = vers ext du cercle) -->
+  <path d="M 148,140 a8,8 0 0,0 16,0 a8,8 0 0,0 16,0 a8,8 0 0,0 16,0"
+        fill="none" stroke="#cc0000" stroke-width="2.2"/>
+  <!-- Fil rouge entre tangente gauche et tangente droite -->
+  <line x1="130" y1="140" x2="148" y2="140" stroke="#cc0000" stroke-width="2.2"/>
+  <line x1="196" y1="140" x2="270" y2="140" stroke="#cc0000" stroke-width="2.2"/>
+
+  <!-- Bobine de TENSION — parallèle, verticale bleue depuis nœud haut (330,120) vers nœud bas (65,175) -->
+  <!-- Nœud haut bobine tension : juste après flèche I -->
+  <circle cx="125" cy="140" r="5.5" fill="#111"/>
+  <!-- Fil : nœud haut → vers haut cercle W -->
+  <line x1="125" y1="140" x2="125" y2="65"  stroke="#0055cc" stroke-width="1.8"/>
+  <line x1="125" y1="65"  x2="200" y2="65"  stroke="#0055cc" stroke-width="1.8"/>
+  <line x1="200" y1="65"  x2="200" y2="108" stroke="#0055cc" stroke-width="1.8"/>
+  <!-- Arcs bobine tension (verticaux) -->
+  <path d="M200,108 a7,7 0 0,1 0,14 a7,7 0 0,1 0,14"
+        fill="none" stroke="#0055cc" stroke-width="2"/>
+  <!-- Fil bas bobine tension → descend verticalement jusqu'au fil bas du circuit -->
+  <line x1="200" y1="136" x2="200" y2="380" stroke="#0055cc" stroke-width="1.8"/>
+  <!-- Nœud jonction bas -->
+  <circle cx="200" cy="380" r="5.5" fill="#111"/>
+  <line x1="65" y1="152" x2="65" y2="175" stroke="#333" stroke-width="0"/>
+
+  <!-- Annotations bobines -->
+  <line x1="210" y1="90"  x2="258" y2="77"  stroke="#0055cc" stroke-width="1"/>
+  <text x="260" y="75" fill="#0055cc" font-size="11.5">Bobine de tension</text>
+  <line x1="200" y1="132" x2="258" y2="108" stroke="#cc0000" stroke-width="1"/>
+  <text x="260" y="106" fill="#cc0000" font-size="11.5">Bobine de courant</text>
+
+  <!-- ── RÉSISTANCE R gauche ── -->
+  <rect x="343" y="220" width="44" height="80" rx="4" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="365" y="266" text-anchor="middle" fill="#222" font-size="15" font-style="italic">R</text>
+
+  <!-- ── Flèche I gauche ── -->
+  <line x1="80"  y1="140" x2="122" y2="140" stroke="#cc0000" stroke-width="2" marker-end="url(#iArr)"/>
+  <text x="90" y="130" fill="#cc0000" font-size="15" font-style="italic" font-weight="bold">I</text>
+
+  <!-- ── Flèche U gauche ── -->
+  <line x1="328" y1="228" x2="328" y2="290" stroke="#0044cc" stroke-width="2" marker-end="url(#uArr)">
+    <animate attributeName="opacity" values="1;0.35;1" dur="1.6s" repeatCount="indefinite"/>
+  </line>
+  <text x="315" y="265" fill="#0044cc" font-size="15" font-style="italic" font-weight="bold">U</text>
+
+  <!-- ── Particules courant GAUCHE ── -->
+  <circle r="5" fill="#ee0000" filter="url(#gR)">
+    <animateMotion path="M65,140 L130,140 M196,140 L365,140 L365,220" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="5" fill="#ee0000">
+    <animateMotion path="M65,140 L130,140 M196,140 L365,140 L365,220" dur="1s" begin="0.33s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="5" fill="#ee0000">
+    <animateMotion path="M365,300 L365,380 L65,380 L65,290 L65,250" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="5" fill="#ee0000">
+    <animateMotion path="M365,300 L365,380 L65,380 L65,290 L65,250" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ═══════════════════════════════════════════════
+       DROITE — MESURE INDIRECTE A + V
+       Grille : x gauche=455, x droite=775
+       Haut y=140, bas y=380
+       A centré à x=560, R à x=730..774, V centré à x=660
+  ═══════════════════════════════════════════════ -->
+
+  <text x="625" y="58" text-anchor="middle" fill="#222" font-size="13.5">
+    indirect : avec voltmètre et ampèremètre
+  </text>
+  <text x="625" y="76" text-anchor="middle" fill="#222" font-size="13.5">
+    puis calculer avec
+    <tspan font-weight="bold" font-style="italic"> P = U · I</tspan>
+  </text>
+
+  <!-- ── FILS CIRCUIT DROIT ── -->
+  <!-- Haut gauche : source (455,140) → A entrée (525,140) -->
+  <line x1="455" y1="140" x2="525" y2="140" stroke="#333" stroke-width="2"/>
+  <!-- A sortie (595,140) → nœud haut (775,140) -->
+  <line x1="595" y1="140" x2="775" y2="140" stroke="#333" stroke-width="2"/>
+  <!-- Vertical droit haut : (775,140) → R haut (775,210) -->
+  <line x1="775" y1="140" x2="775" y2="210" stroke="#333" stroke-width="2"/>
+  <!-- Vertical droit bas : R bas (775,290) → bas (775,380) -->
+  <line x1="775" y1="300" x2="775" y2="380" stroke="#333" stroke-width="2"/>
+  <!-- Bas : (455,380) → (775,380) -->
+  <line x1="455" y1="380" x2="775" y2="380" stroke="#333" stroke-width="2"/>
+  <!-- Vertical gauche : (455,140) → pile haut (455,255) -->
+  <line x1="455" y1="140" x2="455" y2="255" stroke="#333" stroke-width="2"/>
+  <!-- pile bas → bas circuit -->
+  <line x1="455" y1="275" x2="455" y2="380" stroke="#333" stroke-width="2"/>
+
+  <!-- ── PILE DROITE ── -->
+  <line x1="438" y1="255" x2="472" y2="255" stroke="#333" stroke-width="3.5"/>
+  <line x1="444" y1="275" x2="466" y2="275" stroke="#333" stroke-width="1.8"/>
+  <line x1="455" y1="255" x2="455" y2="275" stroke="#333" stroke-width="2"/>
+
+  <!-- ── AMPÈREMÈTRE A ── -->
+  <circle cx="560" cy="140" r="35" fill="white" stroke="#333" stroke-width="2" filter="url(#sh)"/>
+  <text x="560" y="146" text-anchor="middle" fill="#333" font-size="18" font-weight="bold">A</text>
+
+  <!-- ── RÉSISTANCE R droite ──
+       R : x=752 y=210 w=46 h=80 → top=(775,210) bottom=(775,290)  -->
+  <line x1="775" y1="140" x2="775" y2="220" stroke="#333" stroke-width="2"/>
+  <line x1="775" y1="280" x2="775" y2="380" stroke="#333" stroke-width="2"/>
+  <!-- Nœud haut R -->
+  <circle cx="775" cy="175" r="5.5" fill="#111"/>
+  <!-- Nœud bas R -->
+  <circle cx="775" cy="325" r="5.5" fill="#111"/>
+  <rect x="753" y="220" width="44" height="80" rx="4" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="775" y="266" text-anchor="middle" fill="#222" font-size="15" font-style="italic">R</text>
+
+  <!-- ── VOLTMÈTRE V en PARALLÈLE sur R ──
+       V centré à (660, 250) r=35 → top=(660,215) bottom=(660,285)
+       Nœud haut R = (775,220) → fil horizontal → (660,220) → fil vertical → V top (660,215)
+       Nœud bas  R = (775,280) → fil horizontal → (660,280) → fil vertical → V bot (660,285)  -->
+
+  <!-- Fil haut dérivation -->
+  <line x1="775" y1="175" x2="660" y2="175" stroke="#333" stroke-width="2"/>
+  <line x1="660" y1="175" x2="660" y2="215" stroke="#333" stroke-width="2"/>
+
+  <!-- Fil bas dérivation -->
+  <line x1="660" y1="285" x2="660" y2="325" stroke="#333" stroke-width="2"/>
+  <line x1="660" y1="325" x2="775" y2="325" stroke="#333" stroke-width="2"/>
+
+  <!-- Cercle voltmètre -->
+  <circle cx="660" cy="250" r="35" fill="white" stroke="#333" stroke-width="2" filter="url(#sh)"/>
+  <text x="660" y="256" text-anchor="middle" fill="#333" font-size="18" font-weight="bold">V</text>
+
+  <!-- ── Flèche I droite ── -->
+  <line x1="468" y1="140" x2="516" y2="140" stroke="#cc0000" stroke-width="2" marker-end="url(#iArr)"/>
+  <text x="480" y="130" fill="#cc0000" font-size="15" font-style="italic" font-weight="bold">I</text>
+
+  <!-- ── Flèche U droite (à droite de R) ── -->
+  <line x1="812" y1="228" x2="812" y2="272" stroke="#0044cc" stroke-width="2" marker-end="url(#uArr)">
+    <animate attributeName="opacity" values="1;0.35;1" dur="1.6s" repeatCount="indefinite"/>
+  </line>
+  <text x="822" y="256" fill="#0044cc" font-size="15" font-style="italic" font-weight="bold">U</text>
+
+  <!-- ── Particules courant DROIT ── -->
+  <circle r="5" fill="#ee0000" filter="url(#gR)">
+    <animateMotion path="M455,140 L525,140 M595,140 L775,140 L775,220" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="5" fill="#ee0000">
+    <animateMotion path="M455,140 L525,140 M595,140 L775,140 L775,220" dur="1s" begin="0.33s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="5" fill="#ee0000">
+    <animateMotion path="M775,300 L775,380 L455,380 L455,275 L455,255" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="5" fill="#ee0000">
+    <animateMotion path="M775,300 L775,380 L455,380 L455,275 L455,255" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ── Formule P = U · I ── -->
+  <rect x="504" y="400" width="162" height="38" rx="9" fill="#eef3ff" stroke="#0044cc" stroke-width="1.5">
+    <animate attributeName="stroke-opacity" values="1;0.25;1" dur="2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="585" y="424" text-anchor="middle" font-size="16" font-weight="bold"><tspan fill="#bb8800">P</tspan><tspan fill="#333"> = </tspan><tspan fill="#0044cc">U</tspan><tspan fill="#333"> · </tspan><tspan fill="#cc0000">I</tspan></text>
+
+</svg>
+                        </div>
+                    </div>
+                    
+                    <div class="formula-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom de la formule</th>
+                                    <th>Expression littérale</th>
+                                    <th>Symboles de grandeurs et d'unités</th>
+                                    <th>Explication</th>
+                                    <th>Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formule 1: Puissance mesurée par compteur (méthode 1) -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Puissance mesurée par compteur (méthode 1 — avec temps en secondes)</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( P = \frac{n \cdot 3600}{c \cdot t} = [kW] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( P \) = puissance dégagée par le(s) récepteur(s) = [kW]<br>
+                                        \( n \) = nombre de tours du disque pendant le temps t = [-]<br>
+                                        \( c \) = constante du compteur = [tr/kWh]<br>
+                                        \( t \) = temps en secondes = [s]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Mesure de puissance par comptage du nombre de tours du disque d'un compteur à induction.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( c = \frac{n \cdot 3600}{P \cdot t} = \left[\frac{tr}{kWh}\right] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( t = \frac{n \cdot 3600}{P \cdot c} = [s] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( n = \frac{P \cdot c \cdot t}{3600} = [\text{nombre de tours}] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 2: Puissance mesurée par compteur (méthode 2) -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Puissance mesurée par compteur (méthode 2 — en 1 heure)</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( P = \frac{n}{c} = [kW] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( P \) = puissance dégagée par le(s) récepteur(s) = [kW]<br>
+                                        \( n \) = nombre de tours du disque en 1 heure = [-]<br>
+                                        \( c \) = constante du compteur = [tr/kWh]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Mesure simplifiée sur une durée d'une heure exactement.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( c = \frac{n}{P} = \left[\frac{tr}{kWh}\right] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( n = P \cdot c = [\text{nombre de tours en 1 h}] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Sous-chapitre 03.2 : Puissance électrique -->
+                    <h3 id="puissance-electrique">03.2 Puissance électrique</h3>
+                    
+                    <!-- Grande illustration : Puissance électrique du Moteur 1 -->
+                    <div id="svg-chap3-2" style="margin: 40px 0 40px -20px; padding: 0; cursor: pointer; width: calc(100% + 40px);">
+                        <div style="text-align: center; margin-bottom: 20px; padding: 0 20px;">
+                            <h3 style="color: #1976D2; font-size: 1.5rem; margin-bottom: 10px;">⚡ Illustration : Puissance Électrique</h3>
+                            <p style="color: #666; font-size: 1rem;">Conversion de la puissance électrique P₁ en puissance mécanique P₂ par le moteur</p>
+                            <p style="color: #999; font-size: 0.9rem; font-style: italic; margin-top: 5px;">👆 Survolez pour animer</p>
+                        </div>
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 460" width="560" height="460" font-family="'Segoe UI', Arial, sans-serif" style="width: 100%; height: auto;">
+                                <defs>
+                                    <linearGradient id="motorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#c8daf5"/>
+                                        <stop offset="100%" style="stop-color:#a0bce8"/>
+                                    </linearGradient>
+                                    <linearGradient id="shaftGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#aaaaaa"/>
+                                        <stop offset="50%" style="stop-color:#dddddd"/>
+                                        <stop offset="100%" style="stop-color:#888888"/>
+                                    </linearGradient>
+                                    <filter id="shadow">
+                                        <feDropShadow dx="3" dy="4" stdDeviation="6" flood-color="#aaaacc" flood-opacity="0.4"/>
+                                    </filter>
+                                </defs>
+
+                                <!-- ═══ TITRE ═══ -->
+                                <text x="280" y="32" text-anchor="middle" fill="#111111" font-size="20" font-weight="bold" letter-spacing="1">Puissance électrique</text>
+                                <line x1="60" y1="40" x2="500" y2="40" stroke="#cccccc" stroke-width="1"/>
+
+                                <!-- ═══ FILS L / N ═══ -->
+                                <line x1="40" y1="100" x2="195" y2="100" stroke="#cc8800" stroke-width="3.5" stroke-linecap="round"/>
+                                <line x1="40" y1="100" x2="195" y2="100" stroke="#ffcc00" stroke-width="2" stroke-dasharray="8,18" opacity="0.8">
+                                    <animate attributeName="stroke-dashoffset" from="0" to="-26" dur="0.7s" repeatCount="indefinite"/>
+                                </line>
+                                <text x="22" y="105" fill="#cc8800" font-size="16" font-weight="bold">L</text>
+
+                                <line x1="40" y1="125" x2="195" y2="125" stroke="#0066cc" stroke-width="3.5" stroke-linecap="round"/>
+                                <text x="22" y="130" fill="#0066cc" font-size="16" font-weight="bold">N</text>
+
+                                <!-- Descentes vers Moteur -->
+                                <line x1="195" y1="100" x2="195" y2="140" stroke="#cc8800" stroke-width="2.5"/>
+                                <line x1="195" y1="125" x2="195" y2="160" stroke="#0066cc" stroke-width="2.5"/>
+
+                                <!-- Points rouges ALLER sur L -->
+                                <circle r="6" fill="#ee0000" opacity="0.95">
+                                    <animateMotion path="M40,100 L195,100 L195,140" dur="1s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="6" fill="#ee0000" opacity="0.95">
+                                    <animateMotion path="M40,100 L195,100 L195,140" dur="1s" begin="0.33s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="6" fill="#ee0000" opacity="0.95">
+                                    <animateMotion path="M40,100 L195,100 L195,140" dur="1s" begin="0.66s" repeatCount="indefinite"/>
+                                </circle>
+
+                                <!-- Points rouges RETOUR sur N -->
+                                <circle r="6" fill="#ee0000" opacity="0.95">
+                                    <animateMotion path="M195,160 L195,125 L40,125" dur="1s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="6" fill="#ee0000" opacity="0.95">
+                                    <animateMotion path="M195,160 L195,125 L40,125" dur="1s" begin="0.33s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="6" fill="#ee0000" opacity="0.95">
+                                    <animateMotion path="M195,160 L195,125 L40,125" dur="1s" begin="0.66s" repeatCount="indefinite"/>
+                                </circle>
+
+                                <!-- Légendes fils -->
+                                <text x="110" y="92" text-anchor="middle" fill="#cc7700" font-size="10" font-style="italic">→ aller (courant)</text>
+                                <text x="110" y="140" text-anchor="middle" fill="#0055aa" font-size="10" font-style="italic">← retour (courant)</text>
+
+                                <!-- ═══ MOTEUR 1 ═══ -->
+                                <g filter="url(#shadow)">
+                                    <rect x="195" y="140" width="190" height="150" rx="14" fill="url(#motorGrad)" stroke="#1a55cc" stroke-width="2.5"/>
+                                    <ellipse cx="290" cy="215" rx="62" ry="62" fill="none" stroke="#5577bb" stroke-width="1.5" opacity="0.4"/>
+                                    <ellipse cx="290" cy="215" rx="44" ry="44" fill="none" stroke="#5577bb" stroke-width="1" opacity="0.3"/>
+                                    <!-- Mot. 1 déplacé à GAUCHE (text-anchor start, près du bord gauche du rect) -->
+                                    <text x="208" y="168" text-anchor="start" fill="#1a3a6a" font-size="16" font-weight="bold">Mot. 1</text>
+                                    <text x="290" y="222" text-anchor="middle" fill="#2255aa" font-size="14">⇒ η₁</text>
+                                </g>
+
+                                <!-- Rotor tournant -->
+                                <g>
+                                    <line x1="290" y1="185" x2="290" y2="245" stroke="#1166cc" stroke-width="3" opacity="0.85" stroke-linecap="round">
+                                        <animateTransform attributeName="transform" type="rotate" from="0 290 215" to="360 290 215" dur="1.8s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="258" y1="215" x2="322" y2="215" stroke="#1166cc" stroke-width="3" opacity="0.85" stroke-linecap="round">
+                                        <animateTransform attributeName="transform" type="rotate" from="0 290 215" to="360 290 215" dur="1.8s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="267" y1="192" x2="313" y2="238" stroke="#4488dd" stroke-width="1.5" opacity="0.5">
+                                        <animateTransform attributeName="transform" type="rotate" from="0 290 215" to="360 290 215" dur="1.8s" repeatCount="indefinite"/>
+                                    </line>
+                                    <line x1="313" y1="192" x2="267" y2="238" stroke="#4488dd" stroke-width="1.5" opacity="0.5">
+                                        <animateTransform attributeName="transform" type="rotate" from="0 290 215" to="360 290 215" dur="1.8s" repeatCount="indefinite"/>
+                                    </line>
+                                </g>
+
+                                <!-- ═══ SORTIE ARBRE MÉCANIQUE ═══ -->
+                                <rect x="385" y="207" width="45" height="16" rx="4" fill="url(#shaftGrad)" stroke="#999" stroke-width="1"/>
+
+                                <!-- ═══ PIGNON DE SORTIE ═══ -->
+                                <circle cx="450" cy="215" r="20" fill="#cccccc" stroke="#666" stroke-width="2"/>
+                                <circle cx="450" cy="215" r="8" fill="#888" stroke="#555" stroke-width="1"/>
+                                <g>
+                                    <animateTransform attributeName="transform" type="rotate" from="0 450 215" to="360 450 215" dur="0.9s" repeatCount="indefinite"/>
+                                    <rect x="447" y="193" width="6" height="8" rx="1.5" fill="#999"/>
+                                    <rect x="447" y="214" width="6" height="8" rx="1.5" fill="#999" transform="rotate(90 450 215)"/>
+                                    <rect x="447" y="214" width="6" height="8" rx="1.5" fill="#999" transform="rotate(180 450 215)"/>
+                                    <rect x="447" y="214" width="6" height="8" rx="1.5" fill="#999" transform="rotate(270 450 215)"/>
+                                    <rect x="447" y="214" width="6" height="8" rx="1.5" fill="#999" transform="rotate(45 450 215)"/>
+                                    <rect x="447" y="214" width="6" height="8" rx="1.5" fill="#999" transform="rotate(135 450 215)"/>
+                                    <rect x="447" y="214" width="6" height="8" rx="1.5" fill="#999" transform="rotate(225 450 215)"/>
+                                    <rect x="447" y="214" width="6" height="8" rx="1.5" fill="#999" transform="rotate(315 450 215)"/>
+                                </g>
+
+                                <!-- Particules arbre -->
+                                <circle r="5" fill="#ff9900" opacity="0.9">
+                                    <animateMotion path="M385,215 L430,215" dur="0.5s" repeatCount="indefinite"/>
+                                </circle>
+                                <circle r="4" fill="#ffcc00" opacity="0.8">
+                                    <animateMotion path="M385,215 L430,215" dur="0.5s" begin="0.25s" repeatCount="indefinite"/>
+                                </circle>
+                                <text x="490" y="248" text-anchor="middle" fill="#664400" font-size="10" font-style="italic">⚙ mécanique</text>
+
+                                <!-- ═══ ÉTIQUETTE P1 — Rouge  (SOUS le moteur, à gauche) ═══ -->
+                                <g>
+                                    <rect x="20" y="318" width="195" height="72" rx="8" fill="#ffeeee" stroke="#cc0000" stroke-width="2">
+                                        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+                                    </rect>
+                                    <text x="117" y="340" text-anchor="middle" fill="#cc0000" font-size="12" font-weight="bold">Puissance électrique /</text>
+                                    <text x="117" y="356" text-anchor="middle" fill="#cc0000" font-size="12" font-weight="bold">Puissance absorbée</text>
+                                    <text x="117" y="376" text-anchor="middle" fill="#bb0000" font-size="15" font-weight="bold">⇒ P₁</text>
+                                    <!-- Traitillé vers bas du moteur -->
+                                    <line x1="100" y1="318" x2="100" y2="290" stroke="#cc0000" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.8"/>
+                                    <line x1="100" y1="290" x2="195" y2="290" stroke="#cc0000" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.7"/>
+                                </g>
+
+                                <!-- ═══ ÉTIQUETTE P2 — Vert  (SOUS le moteur, à droite) ═══ -->
+                                <g>
+                                    <rect x="345" y="318" width="195" height="72" rx="8" fill="#eeffee" stroke="#008833" stroke-width="2">
+                                        <animate attributeName="stroke-opacity" values="1;0.4;1" dur="2.3s" repeatCount="indefinite"/>
+                                    </rect>
+                                    <text x="442" y="340" text-anchor="middle" fill="#007733" font-size="12" font-weight="bold">Puissance mécanique</text>
+                                    <text x="442" y="356" text-anchor="middle" fill="#006622" font-size="12" font-weight="bold">du moteur 1</text>
+                                    <text x="442" y="376" text-anchor="middle" fill="#005511" font-size="15" font-weight="bold">⇒ P₂</text>
+                                    <!-- Traitillé vers pignon -->
+                                    <line x1="442" y1="318" x2="450" y2="235" stroke="#008833" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.8"/>
+                                </g>
+
+                                <!-- η₁ centré entre les deux rectangles -->
+                                <text x="280" y="372" text-anchor="middle" fill="#884400" font-size="12" font-style="italic" font-weight="bold">η₁ = P₂ / P₁</text>
+
+                                <!-- Bordure légère -->
+                                <rect x="2" y="2" width="556" height="456" rx="12" fill="none" stroke="#dddddd" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px 20px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 8px;">
+                            <p style="margin: 0; color: #856404; font-size: 0.95rem; line-height: 1.6;">
+                                <strong>💡 Note pédagogique :</strong> Cette illustration montre la conversion de la puissance électrique <strong>P₁</strong> (absorbée par le moteur) en puissance mécanique <strong>P₂</strong> (délivrée par l'arbre). 
+                                Le rendement du moteur est : <strong>η₁ = P₂ / P₁</strong>. Les points rouges animés représentent le flux du courant électrique dans les fils L (aller) et N (retour).
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="formula-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom de la formule</th>
+                                    <th>Expression littérale</th>
+                                    <th>Symboles de grandeurs et d'unités</th>
+                                    <th>Explication</th>
+                                    <th>Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formule 1: Puissance depuis l'énergie -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Puissance depuis l'énergie</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( P = \frac{W}{t} = [W] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( P \) = puissance = [W]<br>
+                                        \( W \) = travail ou énergie électrique = [J]<br>
+                                        \( t \) = temps = [s]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Puissance comme rapport de l'énergie sur le temps.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( W = P \cdot t = [J] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( W = U \cdot I \cdot t = [J] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 2: Puissance — formule générale 1 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Puissance — formule générale 1</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( P = U \cdot I = [W] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( P \) = puissance dégagée par le récepteur = [W]<br>
+                                        \( U \) = tension aux bornes du récepteur = [V]<br>
+                                        \( I \) = courant traversant le récepteur = [A]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Formule fondamentale de la puissance électrique.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U = \frac{P}{I} = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \frac{P}{U} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 3: Puissance — formule générale 2 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Puissance — formule générale 2</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( P = R \cdot I^2 = [W] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( P \) = puissance = [W]<br>
+                                        \( R \) = résistance du récepteur = [Ω]<br>
+                                        \( I \) = courant traversant le récepteur = [A]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Puissance en fonction de la résistance et du courant au carré.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{P}{I^2} = [\Omega] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I = \sqrt{\frac{P}{R}} = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 4: Puissance — formule générale 3 -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Puissance — formule générale 3</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( P = \frac{U^2}{R} = [W] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( P \) = puissance = [W]<br>
+                                        \( U \) = tension aux bornes du récepteur = [V]<br>
+                                        \( R \) = résistance du récepteur = [Ω]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Puissance en fonction de la tension au carré et de la résistance.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U = \sqrt{P \cdot R} = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( R = \frac{U^2}{P} = [\Omega] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 5: Variation de puissance P en fonction du courant I -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Variation de puissance P en fonction du courant I</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( P_2 \cdot I_1^2 = P_1 \cdot I_2^2 \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( P_1 \) = puissance nominale = [W]<br>
+                                        \( P_2 \) = nouvelle puissance = [W]<br>
+                                        \( I_1 \) = courant nominal = [A]<br>
+                                        \( I_2 \) = nouveau courant = [A]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Relation permettant de calculer la nouvelle puissance lors d'une variation de courant (à résistance constante).
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( P_2 = \frac{P_1 \cdot I_2^2}{I_1^2} = [W] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( P_1 = \frac{P_2 \cdot I_1^2}{I_2^2} = [W] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I_2 = \sqrt{\frac{P_2}{P_1}} \cdot I_1 = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( I_1 = \sqrt{\frac{P_1}{P_2}} \cdot I_2 = [A] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 6: Variation de puissance P en fonction de la tension U -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Variation de puissance P en fonction de la tension U</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                        \( P_2 \cdot U_1^2 = P_1 \cdot U_2^2 \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( P_1 \) = puissance nominale = [W]<br>
+                                        \( P_2 \) = nouvelle puissance = [W]<br>
+                                        \( U_1 \) = tension nominale = [V]<br>
+                                        \( U_2 \) = nouvelle tension = [V]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Relation permettant de calculer la nouvelle puissance lors d'une variation de tension (à résistance constante).
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( P_2 = \frac{P_1 \cdot U_2^2}{U_1^2} = [W] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( P_1 = \frac{P_2 \cdot U_1^2}{U_2^2} = [W] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U_2 = \sqrt{\frac{P_2}{P_1}} \cdot U_1 = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( U_1 = \sqrt{\frac{P_1}{P_2}} \cdot U_2 = [V] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Sous-chapitre 03.3 : Rendement -->
+                    <h3 id="rendement">03.3 Rendement</h3>
+                    
+                    <!-- Grande illustration : Rendements de la chaîne de conversion -->
+                    <div id="svg-chap3-3" style="margin: 40px 0 40px -20px; padding: 0; cursor: pointer; width: calc(100% + 40px);">
+                        <div style="text-align: center; margin-bottom: 20px; padding: 0 20px;">
+                            <h3 style="color: #1976D2; font-size: 1.5rem; margin-bottom: 10px;">⚡ Illustration : Rendements de la chaîne de conversion</h3>
+                            <p style="color: #666; font-size: 1rem;">Effet domino des rendements η₁ → η₂ → η₃</p>
+                            <p style="color: #999; font-size: 0.9rem; font-style: italic; margin-top: 5px;">👆 Survolez pour animer</p>
+                        </div>
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 490" width="860" height="490" font-family="'Segoe UI', Arial, sans-serif" style="width: 100%; height: auto;">
+  <defs>
+    <marker id="arrowGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#888"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#cc4400"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1155cc"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#006622"/>
+    </marker>
+
+    <!-- Glow filter pour les boîtes actives -->
+    <filter id="glow1" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ═══ TITRE ═══ -->
+  <text x="430" y="30" text-anchor="middle" fill="#111" font-size="18" font-weight="bold">Rendements de la chaîne de conversion</text>
+  <text x="430" y="50" text-anchor="middle" fill="#555" font-size="12">Effet domino :  η₁  →  η₂  →  η₃</text>
+
+  <!-- ════════════════════════════════════════════════════
+       LIGNE PRINCIPALE HORIZONTALE (flux d'énergie)
+  ════════════════════════════════════════════════════ -->
+
+  <!-- Flèche P1 → Mot1 -->
+  <line x1="30" y1="165" x2="108" y2="165" stroke="#888" stroke-width="2.5" marker-end="url(#arrowGray)"/>
+  <!-- Label P1 -->
+  <text x="22" y="156" text-anchor="middle" fill="#cc0000" font-size="13" font-weight="bold">P₁</text>
+
+  <!-- Flèche Mot1 → Alt -->
+  <line x1="228" y1="165" x2="308" y2="165" stroke="#888" stroke-width="2.5" marker-end="url(#arrowGray)"/>
+  <!-- Label P2 -->
+  <text x="268" y="156" text-anchor="middle" fill="#007733" font-size="13" font-weight="bold">P₂</text>
+
+  <!-- Flèche Alt → Mot2 -->
+  <line x1="428" y1="165" x2="508" y2="165" stroke="#888" stroke-width="2.5" marker-end="url(#arrowGray)"/>
+  <!-- Label P3 -->
+  <text x="468" y="156" text-anchor="middle" fill="#5500aa" font-size="13" font-weight="bold">P₃</text>
+
+  <!-- Flèche Mot2 → P4 (raccourcie pour ne pas toucher η_total) -->
+  <line x1="628" y1="165" x2="700" y2="165" stroke="#888" stroke-width="2.5" marker-end="url(#arrowGray)"/>
+  <!-- Label P4 décalé vers Moteur 2 -->
+  <text x="655" y="155" text-anchor="middle" fill="#005544" font-size="13" font-weight="bold">P₄</text>
+
+  <!-- ════════════════════════════════════════════════════
+       BLOC η₁ — MOTEUR 1  (démarre en premier, 0s)
+  ════════════════════════════════════════════════════ -->
+  <g id="bloc_eta1">
+    <!-- Boîte η₁ — scale domino effect -->
+    <g>
+      <rect x="110" y="120" width="118" height="90" rx="12" fill="#ddeeff" stroke="#1155cc" stroke-width="2.5">
+        <!-- Pulse scale domino : 0s → s'agrandit, puis normal -->
+        <animate attributeName="stroke-width" values="2.5;5;2.5;2.5;2.5;2.5" dur="6s" repeatCount="indefinite" begin="0s"/>
+      </rect>
+      <animateTransform attributeName="transform" type="scale"
+        values="1 1;1.06 1.06;1 1;1 1;1 1;1 1"
+        additive="sum"
+        calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0 0 1 1;0 0 1 1;0 0 1 1"
+        dur="6s" repeatCount="indefinite" begin="0s"
+        keyTimes="0;0.12;0.25;0.5;0.75;1"
+        origin="169 165"/>
+    </g>
+    <text x="169" y="157" text-anchor="middle" fill="#1a3a6a" font-size="13" font-weight="bold">Moteur 1</text>
+    <text x="169" y="178" text-anchor="middle" fill="#0033aa" font-size="22" font-weight="bold">η₁</text>
+    <!-- Petite formule -->
+    <text x="169" y="198" text-anchor="middle" fill="#334466" font-size="11">P₂ = η₁ · P₁</text>
+    <!-- Flèche perte vers le bas -->
+    <line x1="169" y1="210" x2="169" y2="275" stroke="#cc4400" stroke-width="2" marker-end="url(#arrowOrange)" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="0.8s" repeatCount="indefinite" begin="0s"/>
+      <animate attributeName="opacity" values="0;1;1;1;0.3;0.3" dur="6s" repeatCount="indefinite" begin="0s"/>
+    </line>
+    <!-- Bloc pertes η₁ -->
+    <g>
+      <rect x="110" y="278" width="118" height="52" rx="8" fill="#fff3ee" stroke="#cc4400" stroke-width="1.8">
+        <animate attributeName="stroke-width" values="1.8;3.5;1.8;1.8;1.8;1.8" dur="6s" repeatCount="indefinite" begin="0s"/>
+        <animate attributeName="opacity" values="0;1;1;1;0.4;0.4" dur="6s" repeatCount="indefinite" begin="0s"/>
+      </rect>
+      <text x="169" y="298" text-anchor="middle" fill="#cc4400" font-size="11" font-weight="bold">
+        <animate attributeName="opacity" values="0;1;1;1;0.4;0.4" dur="6s" repeatCount="indefinite" begin="0s"/>
+        🔥 Pertes η₁
+      </text>
+      <text x="169" y="315" text-anchor="middle" fill="#aa3300" font-size="11">
+        <animate attributeName="opacity" values="0;1;1;1;0.4;0.4" dur="6s" repeatCount="indefinite" begin="0s"/>
+        P₁ · (1 − η₁)
+      </text>
+    </g>
+  </g>
+
+  <!-- ════════════════════════════════════════════════════
+       BLOC η₂ — ALTERNATEUR  (démarre à 2s)
+  ════════════════════════════════════════════════════ -->
+  <g id="bloc_eta2">
+    <g>
+      <rect x="310" y="120" width="118" height="90" rx="12" fill="#f0e8ff" stroke="#5500aa" stroke-width="2.5">
+        <animate attributeName="stroke-width" values="2.5;2.5;2.5;5;2.5;2.5" dur="6s" repeatCount="indefinite" begin="0s"/>
+      </rect>
+      <animateTransform attributeName="transform" type="scale"
+        values="1 1;1 1;1 1;1.06 1.06;1 1;1 1"
+        additive="sum"
+        calcMode="spline" keySplines="0 0 1 1;0 0 1 1;0.4 0 0.2 1;0.4 0 0.2 1;0 0 1 1"
+        dur="6s" repeatCount="indefinite" begin="0s"
+        keyTimes="0;0.25;0.37;0.5;0.62;1"
+        origin="369 165"/>
+    </g>
+    <text x="369" y="157" text-anchor="middle" fill="#330077" font-size="13" font-weight="bold">Alternateur</text>
+    <text x="369" y="178" text-anchor="middle" fill="#5500aa" font-size="22" font-weight="bold">η₂</text>
+    <text x="369" y="198" text-anchor="middle" fill="#442255" font-size="11">P₃ = η₂ · P₂</text>
+    <!-- Flèche perte -->
+    <line x1="369" y1="210" x2="369" y2="275" stroke="#cc4400" stroke-width="2" marker-end="url(#arrowOrange)" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="0.8s" repeatCount="indefinite" begin="2s"/>
+      <animate attributeName="opacity" values="0.3;0.3;0;1;1;1" dur="6s" repeatCount="indefinite" begin="0s"/>
+    </line>
+    <g>
+      <rect x="310" y="278" width="118" height="52" rx="8" fill="#fff3ee" stroke="#cc4400" stroke-width="1.8">
+        <animate attributeName="stroke-width" values="1.8;1.8;1.8;3.5;1.8;1.8" dur="6s" repeatCount="indefinite" begin="0s"/>
+        <animate attributeName="opacity" values="0.3;0.3;0;1;1;1" dur="6s" repeatCount="indefinite" begin="0s"/>
+      </rect>
+      <text x="369" y="298" text-anchor="middle" fill="#cc4400" font-size="11" font-weight="bold">
+        <animate attributeName="opacity" values="0.3;0.3;0;1;1;1" dur="6s" repeatCount="indefinite" begin="0s"/>
+        🔥 Pertes η₂
+      </text>
+      <text x="369" y="315" text-anchor="middle" fill="#aa3300" font-size="11">
+        <animate attributeName="opacity" values="0.3;0.3;0;1;1;1" dur="6s" repeatCount="indefinite" begin="0s"/>
+        P₂ · (1 − η₂)
+      </text>
+    </g>
+  </g>
+
+  <!-- ════════════════════════════════════════════════════
+       BLOC η₃ — MOTEUR 2  (démarre à 4s)
+  ════════════════════════════════════════════════════ -->
+  <g id="bloc_eta3">
+    <g>
+      <rect x="510" y="120" width="118" height="90" rx="12" fill="#ddeeff" stroke="#1155cc" stroke-width="2.5">
+        <animate attributeName="stroke-width" values="2.5;2.5;2.5;2.5;2.5;5" dur="6s" repeatCount="indefinite" begin="0s"/>
+      </rect>
+      <animateTransform attributeName="transform" type="scale"
+        values="1 1;1 1;1 1;1 1;1 1;1.06 1.06"
+        additive="sum"
+        calcMode="spline" keySplines="0 0 1 1;0 0 1 1;0 0 1 1;0 0 1 1;0.4 0 0.2 1"
+        dur="6s" repeatCount="indefinite" begin="0s"
+        keyTimes="0;0.2;0.4;0.6;0.75;1"
+        origin="569 165"/>
+    </g>
+    <text x="569" y="157" text-anchor="middle" fill="#1a3a6a" font-size="13" font-weight="bold">Moteur 2</text>
+    <text x="569" y="178" text-anchor="middle" fill="#0033aa" font-size="22" font-weight="bold">η₃</text>
+    <text x="569" y="198" text-anchor="middle" fill="#334466" font-size="11">P₄ = η₃ · P₃</text>
+    <!-- Flèche perte -->
+    <line x1="569" y1="210" x2="569" y2="275" stroke="#cc4400" stroke-width="2" marker-end="url(#arrowOrange)" stroke-dasharray="6,4">
+      <animate attributeName="stroke-dashoffset" from="0" to="20" dur="0.8s" repeatCount="indefinite" begin="4s"/>
+      <animate attributeName="opacity" values="0.3;0.3;0.3;0.3;0;1" dur="6s" repeatCount="indefinite" begin="0s"/>
+    </line>
+    <g>
+      <rect x="510" y="278" width="118" height="52" rx="8" fill="#fff3ee" stroke="#cc4400" stroke-width="1.8">
+        <animate attributeName="stroke-width" values="1.8;1.8;1.8;1.8;1.8;3.5" dur="6s" repeatCount="indefinite" begin="0s"/>
+        <animate attributeName="opacity" values="0.3;0.3;0.3;0.3;0;1" dur="6s" repeatCount="indefinite" begin="0s"/>
+      </rect>
+      <text x="569" y="298" text-anchor="middle" fill="#cc4400" font-size="11" font-weight="bold">
+        <animate attributeName="opacity" values="0.3;0.3;0.3;0.3;0;1" dur="6s" repeatCount="indefinite" begin="0s"/>
+        🔥 Pertes η₃
+      </text>
+      <text x="569" y="315" text-anchor="middle" fill="#aa3300" font-size="11">
+        <animate attributeName="opacity" values="0.3;0.3;0.3;0.3;0;1" dur="6s" repeatCount="indefinite" begin="0s"/>
+        P₃ · (1 − η₃)
+      </text>
+    </g>
+  </g>
+
+  <!-- ════════════════════════════════════════════════════
+       RÉSULTAT FINAL : η_total
+  ════════════════════════════════════════════════════ -->
+  <g>
+    <rect x="680" y="130" width="155" height="70" rx="12" fill="#fffbe6" stroke="#cc8800" stroke-width="2">
+      <animate attributeName="stroke-width" values="2;2;2;2;2;4" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="757" y="155" text-anchor="middle" fill="#664400" font-size="12" font-weight="bold">η_total</text>
+    <text x="757" y="172" text-anchor="middle" fill="#cc8800" font-size="14" font-weight="bold">= η₁ × η₂ × η₃</text>
+    <text x="757" y="190" text-anchor="middle" fill="#884400" font-size="11">P₄ = P₁ · η_total</text>
+    <animate attributeName="opacity" values="0.4;0.4;0.4;0.4;0.4;1" dur="6s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- ════════════════════════════════════════════════════
+       INDICATEUR DOMINO (barre de progression)
+  ════════════════════════════════════════════════════ -->
+  <!-- Fond barre -->
+  <rect x="110" y="370" width="636" height="10" rx="5" fill="#eeeeee" stroke="#cccccc" stroke-width="1"/>
+  <!-- Barre animée -->
+  <rect x="110" y="370" width="0" height="10" rx="5" fill="#1155cc">
+    <animate attributeName="width" values="0;212;212;424;424;636;636;636;0" keyTimes="0;0.1;0.33;0.43;0.55;0.65;0.85;0.99;1" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="fill" values="#1155cc;#1155cc;#5500aa;#5500aa;#1155cc;#1155cc;#cc8800;#cc8800;#1155cc" keyTimes="0;0.1;0.33;0.43;0.55;0.65;0.85;0.99;1" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <!-- Marqueurs étapes -->
+  <circle cx="322" cy="375" r="5" fill="white" stroke="#5500aa" stroke-width="2"/>
+  <circle cx="534" cy="375" r="5" fill="white" stroke="#1155cc" stroke-width="2"/>
+  <!-- Labels étapes -->
+  <text x="169" y="392" text-anchor="middle" fill="#1155cc" font-size="10">η₁ actif</text>
+  <text x="369" y="392" text-anchor="middle" fill="#5500aa" font-size="10">η₂ actif</text>
+  <text x="569" y="392" text-anchor="middle" fill="#1155cc" font-size="10">η₃ actif</text>
+  <text x="745" y="392" text-anchor="middle" fill="#cc8800" font-size="10">η_total</text>
+
+  <!-- ════ FORMULE RENDEMENT GLOBAL ════ -->
+  <rect x="110" y="405" width="636" height="68" rx="10" fill="#fffbe6" stroke="#cc8800" stroke-width="1.5"/>
+  <text x="428" y="425" text-anchor="middle" fill="#664400" font-size="11">Rendement global de la chaîne</text>
+  <text x="428" y="450" text-anchor="middle" fill="#cc8800" font-size="18" font-weight="bold">η_total = η₁ × η₂ × η₃</text>
+  <text x="428" y="467" text-anchor="middle" fill="#444" font-size="11">P₄ = P₁ × η₁ × η₂ × η₃</text>
+
+  <!-- Bordure -->
+  <rect x="2" y="2" width="856" height="484" rx="12" fill="none" stroke="#dddddd" stroke-width="1.5"/>
+</svg>
+                        </div>
+                        <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 8px;">
+                            <p style="margin: 0 0 15px 0; color: #856404; font-size: 0.95rem; line-height: 1.6;">
+                                <strong>💡 Note pédagogique :</strong> Cette illustration montre une chaîne complète de conversion d'énergie avec 3 rendements successifs. 
+                                Le rendement global est le produit des rendements individuels : <strong>η_total = η₁ × η₂ × η₃</strong>.
+                            </p>
+                            
+                            <!-- Illustration des types de pertes -->
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 15px;">
+                                <!-- Pertes dans le stator -->
+                                <div style="flex: 1; min-width: 200px; background: white; border: 2px solid #6c757d; border-radius: 8px; padding: 12px; text-align: center;">
+                                    <div style="background: #ffd966; padding: 8px; border-radius: 6px; margin-bottom: 8px; font-weight: bold; color: #000; font-size: 0.9rem;">
+                                        Pertes dans le stator
+                                    </div>
+                                    <div style="display: flex; gap: 5px;">
+                                        <div style="flex: 1; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 8px; font-size: 0.85rem; color: #856404;">
+                                            <strong>Pertes cuivre</strong><br>(effet Joule)
+                                        </div>
+                                        <div style="flex: 1; background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 8px; font-size: 0.85rem; color: #856404;">
+                                            <strong>Pertes fer</strong><br>(Hystérésis et Foucault)
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pertes rotor -->
+                                <div style="flex: 1; min-width: 180px; background: white; border: 2px solid #6c757d; border-radius: 8px; padding: 12px; text-align: center;">
+                                    <div style="background: #7dd3da; padding: 8px; border-radius: 6px; margin-bottom: 8px; font-weight: bold; color: #000; font-size: 0.9rem;">
+                                        Pertes rotor
+                                    </div>
+                                    <div style="background: #d1ecf1; border: 1px solid #17a2b8; border-radius: 4px; padding: 8px; font-size: 0.85rem; color: #0c5460;">
+                                        <strong>Pertes</strong><br>cuivre + fer
+                                    </div>
+                                </div>
+                                
+                                <!-- Pertes mécaniques -->
+                                <div style="flex: 1; min-width: 180px; background: white; border: 2px solid #6c757d; border-radius: 8px; padding: 12px; text-align: center;">
+                                    <div style="background: #90ee90; padding: 8px; border-radius: 6px; margin-bottom: 8px; font-weight: bold; color: #000; font-size: 0.9rem;">
+                                        Pertes mécaniques
+                                    </div>
+                                    <div style="background: #d4edda; border: 1px solid #28a745; border-radius: 4px; padding: 8px; font-size: 0.85rem; color: #155724;">
+                                        <strong>Frottement</strong><br>Ventilation
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="formula-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nom de la formule</th>
+                                    <th>Expression littérale</th>
+                                    <th>Symboles de grandeurs et d'unités</th>
+                                    <th>Explication</th>
+                                    <th>Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formule 1: Rendement du moteur (puissances) -->
+                                <tr>
+                                    <td style="padding: 20px;"><strong>Rendement du moteur (puissances)</strong></td>
+                                    <td class="formula" style="padding: 20px;">
+                                        \( \eta_{mot.} = \frac{P_2}{P_1} = [-] \)
+                                    </td>
+                                    <td style="padding: 20px;">
+                                        \( \eta_{mot.} \) = rendement du moteur = [-]<br>
+                                        \( P_1 \) = puissance absorbée ou électrique = [W]<br>
+                                        \( P_2 \) = puissance utile ou mécanique = [W]
+                                    </td>
+                                    <td style="padding: 20px; line-height: 1.6;">
+                                        Rapport entre la puissance utile délivrée et la puissance électrique absorbée.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( P_1 = \frac{P_2}{\eta_{mot.}} = [W] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( P_2 = P_1 \cdot \eta_{mot.} = [W] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 2: Rendement du moteur (travaux/énergies) -->
+                                <tr>
+                                    <td style="padding: 20px;"><strong>Rendement du moteur (travaux/énergies)</strong></td>
+                                    <td class="formula" style="padding: 20px;">
+                                        \( \eta_{mot.} = \frac{W_2}{W_1} = [-] \)
+                                    </td>
+                                    <td style="padding: 20px;">
+                                        \( \eta_{mot.} \) = rendement du moteur = [-]<br>
+                                        \( W_1 \) = travail absorbé ou électrique = [J]<br>
+                                        \( W_2 \) = travail utile ou mécanique = [J]
+                                    </td>
+                                    <td style="padding: 20px; line-height: 1.6;">
+                                        Rendement exprimé en termes d'énergie ou de travail.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( W_1 = \frac{W_2}{\eta_{mot.}} = [J] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( W_2 = W_1 \cdot \eta_{mot.} = [J] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <!-- Formule 3: Rendement global d'une installation -->
+                                <tr>
+                                    <td style="padding: 20px;"><strong>Rendement global d'une installation</strong></td>
+                                    <td class="formula" style="padding: 20px;">
+                                        \( \eta_{global} = \eta_1 \cdot \eta_2 \cdot \eta_3 = [-] \)
+                                    </td>
+                                    <td style="padding: 20px;">
+                                        \( \eta_{global} \) = rendement global de toute l'installation = [-]<br>
+                                        \( \eta_1 \) = rendement de la première partie = [-]<br>
+                                        \( \eta_2 \) = rendement de la deuxième partie = [-]<br>
+                                        \( \eta_3 \) = rendement de la troisième partie = [-]
+                                    </td>
+                                    <td style="padding: 20px; line-height: 1.6;">
+                                        Le rendement global est le produit des rendements de chaque élément de la chaîne énergétique.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        —
+                                    </td>
+                                </tr>
+                                <!-- Transformations invisibles -->
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( \eta_1 = \frac{\eta_{global}}{\eta_2 \cdot \eta_3} = [-] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( \eta_2 = \frac{\eta_{global}}{\eta_1 \cdot \eta_3} = [-] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="invisible-row">
+                                    <td></td>
+                                    <td class="formula">\( \eta_3 = \frac{\eta_{global}}{\eta_1 \cdot \eta_2} = [-] \)</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- Navigation entre chapitres -->
+                <div class="navigation-footer">
+                    <a href="chapitre-2.html" class="btn-prev">← Chapitre 02 : Couplages de résistances</a>
+                    <a href="chapitre-4.html" class="btn-next">Chapitre 04 : Effet calorifique →</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Contenu original par <strong>Denis (DS_de_Mo)</strong></p>
+            <p>Site modernisé par <strong>Garibobo</strong> - 2026</p>
+            <p class="footer-links">
+                <a href="../index.html">🏠 Accueil</a> |
+                <a href="https://tchapatch-stack.github.io/installations/" target="_blank">📚 Site Original</a>
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Contrôle des animations SVG SMIL au survol
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fonction pour configurer le contrôle d'animation d'un conteneur SVG
+            function setupSVGAnimation(containerId) {
+                const svgContainer = document.getElementById(containerId);
+                if (svgContainer) {
+                    const svg = svgContainer.querySelector('svg');
+                    if (svg) {
+                        // Mettre en pause toutes les animations au chargement
+                        svg.pauseAnimations();
+                        
+                        // Reprendre les animations au survol
+                        svgContainer.addEventListener('mouseenter', function() {
+                            svg.unpauseAnimations();
+                        });
+                        
+                        // Mettre en pause quand la souris quitte
+                        svgContainer.addEventListener('mouseleave', function() {
+                            svg.pauseAnimations();
+                        });
+                    }
+                }
+            }
+            
+            // Appliquer le contrôle d'animation à tous les SVG du chapitre 3
+            setupSVGAnimation('svg-chap3-main');  // Chapitre 3 principal
+            setupSVGAnimation('svg-chap3-1');     // Chapitre 3.1 - Rendements de la chaîne
+            setupSVGAnimation('svg-chap3-2');     // Chapitre 3.2 - Puissance électrique
+            setupSVGAnimation('svg-chap3-3');     // Chapitre 3.3 - Rendement
+        });
+    </script>
+</body>
+</html>

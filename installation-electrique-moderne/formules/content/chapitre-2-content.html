@@ -1,0 +1,1847 @@
+<div class="container">
+                
+                <!-- Section 2: Couplages de résistances -->
+                <section id="couplages" class="content-section" style="position: relative;">
+                <!-- Bouton d'impression Page 7 -->
+                <button onclick="printSection('couplages')" style="position: absolute; top: 20px; right: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Page 4</span>
+                </button>
+                
+                <h2 style="color: #000000;">
+                    <svg style="width: 64px; height: 64px; vertical-align: middle; margin-right: 15px;" viewBox="0 0 34 34" fill="none">
+                        <rect x="2" y="2" width="30" height="30" rx="5" fill="#e8f5ee" stroke="#1a5c35" stroke-width="1.8"/>
+                        <line x1="2" y1="17" x2="7" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                        <rect x="7" y="13" width="6" height="8" rx="1" fill="white" stroke="#1a5c35" stroke-width="1.5"/>
+                        <line x1="13" y1="17" x2="18" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                        <rect x="18" y="13" width="6" height="8" rx="1" fill="white" stroke="#1a5c35" stroke-width="1.5"/>
+                        <line x1="24" y1="17" x2="32" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                    </svg>
+                    2. Couplages de résistances
+                </h2>
+                    
+                    <h2 id="circuit-serie" style="color: #000000; margin-top: 40px; font-size: 1.8rem;">
+                        <svg style="width: 56px; height: 56px; vertical-align: middle; margin-right: 12px;" viewBox="0 0 24 24" fill="none">
+                            <line x1="0" y1="12" x2="4" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                            <rect x="4" y="8" width="7" height="8" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                            <line x1="11" y1="12" x2="15" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                            <rect x="15" y="8" width="7" height="8" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                            <line x1="22" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                        </svg>
+                        2.1 Circuit série
+                    </h2>
+                    
+                    <div class="formula-table" style="width: 100%;">
+                        <table style="width: 100%; table-layout: fixed;">
+                            <tbody>
+                                <!-- Schéma rallonges en série = résistances -->
+                                <tr>
+                                    <td colspan="5" style="padding: 30px; background-color: #f8f9fa;">
+                                        <style>
+                                            .rallonges-serie {
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                gap: 20px;
+                                                padding: 30px;
+                                                background-color: white;
+                                                border-radius: 8px;
+                                                flex-wrap: wrap;
+                                                margin-bottom: 40px;
+                                            }
+                                            
+                                            .resistance-box {
+                                                background: white;
+                                                border: 3px solid #22c55e;
+                                                border-radius: 8px;
+                                                padding: 20px 30px;
+                                                font-size: 24px;
+                                                font-weight: bold;
+                                                color: #22c55e;
+                                                box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
+                                            }
+                                            
+                                            .rallonge-img {
+                                                width: 120px;
+                                                height: auto;
+                                                border-radius: 8px;
+                                                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                                            }
+                                            
+                                            .plus-sign {
+                                                font-size: 36px;
+                                                font-weight: bold;
+                                                color: #666;
+                                            }
+                                        </style>
+                                        
+                                        <h4 style="color: #8B5CF6; text-align: center; margin-bottom: 20px; font-size: 1.3rem;">🔌 Rallonges en Série = Résistances en Série</h4>
+                                        
+                                        <div class="rallonges-serie">
+                                            <div class="resistance-box">R₁</div>
+                                            <span class="plus-sign">+</span>
+                                            <img src="../assets/images/rallonge.jpg" alt="Rallonge" class="rallonge-img">
+                                            <span class="plus-sign">+</span>
+                                            <div class="resistance-box">R₂</div>
+                                            <span class="plus-sign">+</span>
+                                            <img src="../assets/images/rallonge.jpg" alt="Rallonge" class="rallonge-img">
+                                            <span class="plus-sign">+</span>
+                                            <div class="resistance-box">R₃</div>
+                                            <span class="plus-sign">+</span>
+                                            <img src="../assets/images/rallonge.jpg" alt="Rallonge" class="rallonge-img">
+                                        </div>
+                                        
+                                        <p style="text-align: center; color: #666; margin-top: 20px; font-size: 1.1rem;">
+                                            <strong>R<sub>total</sub> = R₁ + R₂ + R₃</strong> (les résistances s'additionnent en série)
+                                        </p>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Schéma SVG circuit série -->
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 30px; background-color: #f8f9fa;">
+                                        <svg width="900" height="250" viewBox="0 0 900 250" class="circuit-serie-horizontal">
+                                            <style>
+                                                @keyframes flowSerieHorizontal {
+                                                    0% { offset-distance: 0%; }
+                                                    100% { offset-distance: 100%; }
+                                                }
+                                                .circuit-serie-horizontal:hover .current-dot-horiz {
+                                                    animation: flowSerieHorizontal 4s linear infinite;
+                                                }
+                                                .current-dot-horiz {
+                                                    offset-path: path('M 80 80 L 180 80 L 320 80 L 460 80 L 600 80 L 820 80');
+                                                }
+                                            </style>
+                                            
+                                            <!-- Borne gauche + -->
+                                            <circle cx="80" cy="80" r="8" fill="white" stroke="black" stroke-width="2"/>
+                                            <text x="60" y="70" font-size="20" font-weight="bold">+</text>
+                                            
+                                            <!-- Fil avec flèche I rouge SUR la ligne -->
+                                            <line x1="88" y1="80" x2="220" y2="80" stroke="black" stroke-width="3"/>
+                                            <defs>
+                                                <marker id="arrowRedSmall" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+                                                    <path d="M0,0 L0,6 L9,3 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="120" y1="80" x2="180" y2="80" stroke="red" stroke-width="3" marker-end="url(#arrowRedSmall)"/>
+                                            <text x="150" y="65" font-size="20" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            
+                                            <!-- Résistance R1 (verte) - centrée -->
+                                            <rect x="220" y="60" width="100" height="40" fill="none" stroke="#22c55e" stroke-width="3"/>
+                                            <text x="270" y="85" font-size="20" text-anchor="middle" font-weight="bold">R₁</text>
+                                            
+                                            <!-- Tension U1 (flèche bleue en dessous de R1) -->
+                                            <defs>
+                                                <marker id="arrowBlueSmall" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="315" y1="130" x2="225" y2="130" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueSmall)"/>
+                                            <text x="270" y="150" font-size="18" fill="blue" font-weight="bold" text-anchor="middle">U₁</text>
+                                            
+                                            <!-- Fil entre R1 et R2 -->
+                                            <line x1="320" y1="80" x2="350" y2="80" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Résistance R2 (verte) - centrée -->
+                                            <rect x="350" y="60" width="100" height="40" fill="none" stroke="#22c55e" stroke-width="3"/>
+                                            <text x="400" y="85" font-size="20" text-anchor="middle" font-weight="bold">R₂</text>
+                                            
+                                            <!-- Tension U2 (flèche bleue en dessous de R2) -->
+                                            <line x1="445" y1="130" x2="355" y2="130" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueSmall)"/>
+                                            <text x="400" y="150" font-size="18" fill="blue" font-weight="bold" text-anchor="middle">U₂</text>
+                                            
+                                            <!-- Fil entre R2 et R3 -->
+                                            <line x1="450" y1="80" x2="480" y2="80" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Résistance R3 (verte) - centrée -->
+                                            <rect x="480" y="60" width="100" height="40" fill="none" stroke="#22c55e" stroke-width="3"/>
+                                            <text x="530" y="85" font-size="20" text-anchor="middle" font-weight="bold">R₃</text>
+                                            
+                                            <!-- Tension U3 (flèche bleue en dessous de R3) -->
+                                            <line x1="575" y1="130" x2="485" y2="130" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueSmall)"/>
+                                            <text x="530" y="150" font-size="18" fill="blue" font-weight="bold" text-anchor="middle">U₃</text>
+                                            
+                                            <!-- Fil de sortie horizontal -->
+                                            <line x1="580" y1="80" x2="820" y2="80" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Borne droite - -->
+                                            <circle cx="820" cy="80" r="8" fill="white" stroke="black" stroke-width="2"/>
+                                            <text x="835" y="85" font-size="20" font-weight="bold">-</text>
+                                            
+                                            <!-- Tension totale U (grande flèche bleue en dessous) -->
+                                            <defs>
+                                                <marker id="arrowBlueBig" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
+                                                    <path d="M0,0 L0,8 L10,4 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="800" y1="180" x2="100" y2="180" stroke="blue" stroke-width="3" marker-end="url(#arrowBlueBig)"/>
+                                            <text x="450" y="200" font-size="24" fill="blue" font-weight="bold" text-anchor="middle">U</text>
+                                            
+                                            <!-- Points rouges animés (4 points) -->
+                                            <circle class="current-dot-horiz" cx="0" cy="0" r="4" fill="red" opacity="0.9"/>
+                                            <circle class="current-dot-horiz" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 1s;"/>
+                                            <circle class="current-dot-horiz" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 2s;"/>
+                                            <circle class="current-dot-horiz" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 3s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="formula-table" style="width: 100%;">
+                        <table style="width: 100%; table-layout: fixed;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 18%; font-size: 1.1rem; padding: 15px;">Nom de la formule</th>
+                                    <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Expression littérale</th>
+                                    <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Symboles de grandeurs et d'unités</th>
+                                    <th style="width: 25%; font-size: 1.1rem; padding: 15px;">Explication</th>
+                                    <th style="width: 13%; font-size: 1.1rem; padding: 15px; text-align: center;">Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formules Circuit Série -->
+                                <tr class="req-row">
+                                    <td style="font-size: 1.25rem;">Résistance équivalente</td>
+                                    <td style="font-size: 1.05rem;">
+                                        \( R_e = R_1 + R_2 + R_3 = [\Omega] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( R_e \) = résistance équivalente = [Ω]<br>
+                                        \( R_1, R_2, R_3 \) = résistances = [Ω]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Somme des résistances en série</td>
+                                    <td style="text-align: center;">
+                                        <svg width="180" height="100" viewBox="0 0 150 80" class="circuit-req" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes flowReq {
+                                                    0% { transform: translateX(0); opacity: 1; }
+                                                    100% { transform: translateX(110px); opacity: 0; }
+                                                }
+                                                .req-row:hover .current-dot-req {
+                                                    animation: flowReq 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                .current-dot-req {
+                                                    opacity: 0;
+                                                }
+                                            </style>
+                                            <circle cx="20" cy="40" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="10" y="35" font-size="12" font-weight="bold">+</text>
+                                            <line x1="25" y1="40" x2="50" y2="40" stroke="black" stroke-width="2"/>
+                                            <defs>
+                                                <marker id="arrowRedReq" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="30" y1="40" x2="45" y2="40" stroke="red" stroke-width="2" marker-end="url(#arrowRedReq)"/>
+                                            <text x="37" y="30" font-size="12" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            <rect x="50" y="25" width="50" height="30" fill="none" stroke="#22c55e" stroke-width="2"/>
+                                            <text x="75" y="43" font-size="11" text-anchor="middle" font-weight="bold">R₁,₂,₃</text>
+                                            <line x1="100" y1="40" x2="130" y2="40" stroke="black" stroke-width="2"/>
+                                            <circle cx="130" cy="40" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="138" y="43" font-size="12" font-weight="bold">-</text>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935"/>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935" style="animation-delay: 0.4s;"/>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935" style="animation-delay: 0.8s;"/>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935" style="animation-delay: 1.2s;"/>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935" style="animation-delay: 1.6s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr class="r1-row">
+                                    <td style="font-size: 1.25rem;">Résistances</td>
+                                    <td style="font-size: 1.05rem;">
+                                        \( R_1 = \frac{U_1}{I} = [\Omega] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( U_1 \) = tension aux bornes de R₁ = [V]<br>
+                                        \( I \) = courant dans le circuit = [A]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Calcul d'une résistance du circuit série</td>
+                                    <td style="text-align: center;">
+                                        <svg width="180" height="120" viewBox="0 0 150 100" class="circuit-r1" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes flowR1 {
+                                                    0% { transform: translateX(0); opacity: 1; }
+                                                    100% { transform: translateX(110px); opacity: 0; }
+                                                }
+                                                .r1-row:hover .current-dot-r1 {
+                                                    animation: flowR1 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                .current-dot-r1 {
+                                                    opacity: 0;
+                                                }
+                                            </style>
+                                            <circle cx="20" cy="50" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="10" y="45" font-size="12" font-weight="bold">+</text>
+                                            <line x1="25" y1="50" x2="50" y2="50" stroke="black" stroke-width="2"/>
+                                            <defs>
+                                                <marker id="arrowRedR1" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="30" y1="50" x2="45" y2="50" stroke="red" stroke-width="2" marker-end="url(#arrowRedR1)"/>
+                                            <text x="37" y="40" font-size="12" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            <rect x="50" y="35" width="50" height="30" fill="none" stroke="#22c55e" stroke-width="2"/>
+                                            <text x="75" y="53" font-size="12" text-anchor="middle" font-weight="bold">R₁</text>
+                                            <defs>
+                                                <marker id="arrowBlueR1" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="95" y1="80" x2="55" y2="80" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueR1)"/>
+                                            <text x="75" y="92" font-size="12" fill="blue" font-weight="bold" text-anchor="middle">U₁</text>
+                                            <line x1="100" y1="50" x2="130" y2="50" stroke="black" stroke-width="2"/>
+                                            <circle cx="130" cy="50" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="138" y="53" font-size="12" font-weight="bold">-</text>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935"/>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935" style="animation-delay: 0.4s;"/>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935" style="animation-delay: 0.8s;"/>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935" style="animation-delay: 1.2s;"/>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935" style="animation-delay: 1.6s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr class="u1-row">
+                                    <td style="font-size: 1.25rem;">Tensions partielles</td>
+                                    <td style="font-size: 1.05rem;">
+                                        \( U_1 = R_1 \cdot I = [V] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( U_1 \) = tension partielle = [V]<br>
+                                        \( R_1 \) = résistance = [Ω]<br>
+                                        \( I \) = courant = [A]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Chute de tension aux bornes d'une résistance</td>
+                                    <td style="text-align: center;">
+                                        <svg width="120" height="120" viewBox="0 0 100 100" class="circuit-u1" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes scaleU1 {
+                                                    0%, 100% { transform: scale(1); }
+                                                    50% { transform: scale(1.3); }
+                                                }
+                                                .u1-row:hover .scale-voltage {
+                                                    animation: scaleU1 1.5s ease-in-out infinite;
+                                                    transform-origin: center;
+                                                }
+                                            </style>
+                                            <rect x="25" y="35" width="50" height="30" fill="none" stroke="#22c55e" stroke-width="2"/>
+                                            <text x="50" y="53" font-size="12" text-anchor="middle" font-weight="bold">R₁</text>
+                                            <defs>
+                                                <marker id="arrowBlueU1" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <g class="scale-voltage">
+                                                <line x1="70" y1="80" x2="30" y2="80" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueU1)"/>
+                                                <text x="50" y="92" font-size="14" fill="blue" font-weight="bold" text-anchor="middle">U₁</text>
+                                            </g>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr class="utot-row">
+                                    <td style="font-size: 1.25rem;">Tension totale</td>
+                                    <td style="font-size: 1.05rem;">
+                                        \( U = U_1 + U_2 + U_3 = [V] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( U \) = tension totale = [V]<br>
+                                        \( U_1, U_2, U_3 \) = tensions partielles = [V]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Somme des tensions partielles en série</td>
+                                    <td style="text-align: center;">
+                                        <svg width="180" height="140" viewBox="0 0 150 120" class="circuit-utot" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes scaleUtot {
+                                                    0%, 100% { transform: scale(1); }
+                                                    50% { transform: scale(1.3); }
+                                                }
+                                                .utot-row:hover .scale-voltage-tot {
+                                                    animation: scaleUtot 1.5s ease-in-out infinite;
+                                                    transform-origin: center;
+                                                }
+                                            </style>
+                                            <circle cx="20" cy="60" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="10" y="55" font-size="12" font-weight="bold">+</text>
+                                            <line x1="25" y1="60" x2="40" y2="60" stroke="black" stroke-width="2"/>
+                                            <rect x="40" y="50" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="52" y="63" font-size="9" text-anchor="middle" font-weight="bold">R₁</text>
+                                            <line x1="65" y1="60" x2="70" y2="60" stroke="black" stroke-width="2"/>
+                                            <rect x="70" y="50" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="82" y="63" font-size="9" text-anchor="middle" font-weight="bold">R₂</text>
+                                            <line x1="95" y1="60" x2="100" y2="60" stroke="black" stroke-width="2"/>
+                                            <rect x="100" y="50" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="112" y="63" font-size="9" text-anchor="middle" font-weight="bold">R₃</text>
+                                            <line x1="125" y1="60" x2="130" y2="60" stroke="black" stroke-width="2"/>
+                                            <circle cx="130" cy="60" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="138" y="63" font-size="12" font-weight="bold">-</text>
+                                            <defs>
+                                                <marker id="arrowBlueUtot" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <g class="scale-voltage-tot">
+                                                <line x1="120" y1="95" x2="30" y2="95" stroke="blue" stroke-width="2.5" marker-end="url(#arrowBlueUtot)"/>
+                                                <text x="75" y="110" font-size="16" fill="blue" font-weight="bold" text-anchor="middle">U</text>
+                                            </g>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr class="i-row">
+                                    <td style="font-size: 1.25rem;">Courant</td>
+                                    <td style="font-size: 1.05rem;">
+                                        \( I = I_1 = I_2 = I_3 = [A] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( I \) = courant total = [A]<br>
+                                        \( I_1, I_2, I_3 \) = courants partiels = [A]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Le courant est identique dans toutes les résistances en série</td>
+                                    <td style="text-align: center;">
+                                        <svg width="180" height="110" viewBox="0 0 150 90" class="circuit-i" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes flowI {
+                                                    0% { transform: translateX(0); opacity: 1; }
+                                                    100% { transform: translateX(110px); opacity: 0; }
+                                                }
+                                                .i-row:hover .current-dot-i {
+                                                    animation: flowI 2.5s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                .current-dot-i {
+                                                    opacity: 0;
+                                                }
+                                            </style>
+                                            <circle cx="20" cy="45" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="10" y="40" font-size="12" font-weight="bold">+</text>
+                                            <line x1="25" y1="45" x2="40" y2="45" stroke="black" stroke-width="2"/>
+                                            <defs>
+                                                <marker id="arrowRedI" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="27" y1="45" x2="38" y2="45" stroke="red" stroke-width="2" marker-end="url(#arrowRedI)"/>
+                                            <text x="32" y="35" font-size="12" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            <rect x="40" y="35" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="52" y="48" font-size="9" text-anchor="middle" font-weight="bold">R₁</text>
+                                            <line x1="65" y1="45" x2="70" y2="45" stroke="black" stroke-width="2"/>
+                                            <rect x="70" y="35" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="82" y="48" font-size="9" text-anchor="middle" font-weight="bold">R₂</text>
+                                            <line x1="95" y1="45" x2="100" y2="45" stroke="black" stroke-width="2"/>
+                                            <rect x="100" y="35" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="112" y="48" font-size="9" text-anchor="middle" font-weight="bold">R₃</text>
+                                            <line x1="125" y1="45" x2="130" y2="45" stroke="black" stroke-width="2"/>
+                                            <circle cx="130" cy="45" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="138" y="48" font-size="12" font-weight="bold">-</text>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935"/>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935" style="animation-delay: 0.5s;"/>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935" style="animation-delay: 1s;"/>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935" style="animation-delay: 1.5s;"/>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935" style="animation-delay: 2s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                
+                <!-- Numérotation de page -->
+                <div class="page-number" style="text-align: center; margin-top: 40px; padding: 20px 0; font-size: 1.2rem; color: #667eea; font-weight: 600;">
+                    Page 4
+                </div>
+            </section>
+
+            <!-- Section 2.2: Circuit parallèle -->
+            <section id="circuit-parallele" class="content-section" style="position: relative;">
+                <!-- Bouton d'impression Page 5 -->
+                <button onclick="printSection('circuit-parallele')" style="position: absolute; top: 20px; right: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Page 5</span>
+                </button>
+                
+                    <h2 id="circuit-parallele" style="color: #000000; margin-top: 40px; font-size: 1.8rem;">
+                        <svg style="width: 56px; height: 56px; vertical-align: middle; margin-right: 12px;" viewBox="0 0 24 24" fill="none">
+                            <line x1="0" y1="12" x2="5" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                            <line x1="5" y1="5" x2="5" y2="19" stroke="#22c55e" stroke-width="1.5"/>
+                            <line x1="19" y1="5" x2="19" y2="19" stroke="#22c55e" stroke-width="1.5"/>
+                            <line x1="19" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                            <rect x="5" y="3" width="14" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                            <rect x="5" y="11" width="14" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                            <rect x="5" y="17" width="14" height="4" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                        </svg>
+                        2.2 Circuit parallèle
+                    </h3>
+                    
+                    <div class="formula-table" style="width: 100%;">
+                        <table style="width: 100%; table-layout: fixed;">
+                            <tbody>
+                                <!-- Schéma multiprise = résistances en parallèle -->
+                                <tr>
+                                    <td colspan="5" style="padding: 30px; background-color: #f8f9fa;">
+                                        <style>
+                                            .multiprise-parallele {
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: center;
+                                                gap: 40px;
+                                                padding: 30px;
+                                                background-color: white;
+                                                border-radius: 8px;
+                                                margin-bottom: 40px;
+                                            }
+                                            
+                                            .multiprise-img {
+                                                width: 200px;
+                                                height: auto;
+                                                border-radius: 8px;
+                                                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                                            }
+                                            
+                                            .resistances-parallele {
+                                                display: flex;
+                                                flex-direction: column;
+                                                gap: 15px;
+                                            }
+                                            
+                                            .resistance-box-parallele {
+                                                background: white;
+                                                border: 3px solid #22c55e;
+                                                border-radius: 8px;
+                                                padding: 15px 25px;
+                                                font-size: 22px;
+                                                font-weight: bold;
+                                                color: #22c55e;
+                                                box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
+                                                text-align: center;
+                                            }
+                                        </style>
+                                        
+                                        <h4 style="color: #8B5CF6; text-align: center; margin-bottom: 20px; font-size: 1.3rem;">🔌 Multiprise = Résistances en Parallèle</h4>
+                                        
+                                        <div class="multiprise-parallele">
+                                            <img src="../assets/images/prise-multiple.jpg" alt="Multiprise" class="multiprise-img">
+                                            <span style="font-size: 36px; font-weight: bold; color: #666;">=</span>
+                                            <div class="resistances-parallele">
+                                                <div class="resistance-box-parallele">R₁</div>
+                                                <div class="resistance-box-parallele">R₂</div>
+                                                <div class="resistance-box-parallele">R₃</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <p style="text-align: center; color: #666; margin-top: 20px; font-size: 1.1rem;">
+                                            <strong>1/R<sub>total</sub> = 1/R₁ + 1/R₂ + 1/R₃</strong> (couplage parallèle)
+                                        </p>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Schéma SVG circuit parallèle -->
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 30px; background-color: #f8f9fa;">
+                                        <svg width="900" height="300" viewBox="0 0 900 300" class="circuit-parallele-horizontal">
+                                            <style>
+                                                @keyframes flowParallele1 {
+                                                    0% { offset-distance: 0%; }
+                                                    100% { offset-distance: 100%; }
+                                                }
+                                                @keyframes flowParallele2 {
+                                                    0% { offset-distance: 0%; }
+                                                    100% { offset-distance: 100%; }
+                                                }
+                                                @keyframes flowParallele3 {
+                                                    0% { offset-distance: 0%; }
+                                                    100% { offset-distance: 100%; }
+                                                }
+                                                .circuit-parallele-horizontal:hover .current-dot-p1 {
+                                                    animation: flowParallele1 4s linear infinite;
+                                                }
+                                                .circuit-parallele-horizontal:hover .current-dot-p2 {
+                                                    animation: flowParallele2 4s linear infinite;
+                                                }
+                                                .circuit-parallele-horizontal:hover .current-dot-p3 {
+                                                    animation: flowParallele3 4s linear infinite;
+                                                }
+                                                .current-dot-p1 {
+                                                    offset-path: path('M 80 150 L 300 150 L 300 70 L 360 70 L 480 70 L 540 70 L 540 150 L 820 150');
+                                                }
+                                                .current-dot-p2 {
+                                                    offset-path: path('M 80 150 L 300 150 L 360 150 L 480 150 L 540 150 L 820 150');
+                                                }
+                                                .current-dot-p3 {
+                                                    offset-path: path('M 80 150 L 300 150 L 300 230 L 360 230 L 480 230 L 540 230 L 540 150 L 820 150');
+                                                }
+                                            </style>
+                                            
+                                            <!-- Borne gauche + -->
+                                            <circle cx="80" cy="150" r="8" fill="white" stroke="black" stroke-width="2"/>
+                                            <text x="60" y="140" font-size="20" font-weight="bold">+</text>
+                                            
+                                            <!-- Fil principal gauche avec I total -->
+                                            <line x1="88" y1="150" x2="300" y2="150" stroke="black" stroke-width="3"/>
+                                            <defs>
+                                                <marker id="arrowRedPara" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+                                                    <path d="M0,0 L0,6 L9,3 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="160" y1="150" x2="220" y2="150" stroke="red" stroke-width="3" marker-end="url(#arrowRedPara)"/>
+                                            <text x="190" y="135" font-size="20" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            
+                                            <!-- Nœud gauche (point de division) -->
+                                            <circle cx="300" cy="150" r="5" fill="black"/>
+                                            
+                                            <!-- Branche 1 (haut) - R1 -->
+                                            <line x1="300" y1="150" x2="300" y2="70" stroke="black" stroke-width="2"/>
+                                            <line x1="300" y1="70" x2="360" y2="70" stroke="black" stroke-width="2"/>
+                                            <!-- Résistance R1 -->
+                                            <rect x="360" y="55" width="120" height="30" fill="white" stroke="#22c55e" stroke-width="3" rx="5"/>
+                                            <text x="420" y="75" font-size="18" font-weight="bold" text-anchor="middle" fill="#22c55e">R₁</text>
+                                            <line x1="480" y1="70" x2="540" y2="70" stroke="black" stroke-width="2"/>
+                                            <line x1="540" y1="70" x2="540" y2="150" stroke="black" stroke-width="2"/>
+                                            <!-- Flèche I1 -->
+                                            <line x1="320" y1="70" x2="340" y2="70" stroke="#E53935" stroke-width="2" marker-end="url(#arrowRedPara)"/>
+                                            <text x="330" y="60" font-size="16" fill="#E53935" font-weight="bold" text-anchor="middle">I₁</text>
+                                            
+                                            <!-- Branche 2 (milieu) - R2 -->
+                                            <line x1="300" y1="150" x2="360" y2="150" stroke="black" stroke-width="2"/>
+                                            <!-- Résistance R2 -->
+                                            <rect x="360" y="135" width="120" height="30" fill="white" stroke="#22c55e" stroke-width="3" rx="5"/>
+                                            <text x="420" y="155" font-size="18" font-weight="bold" text-anchor="middle" fill="#22c55e">R₂</text>
+                                            <line x1="480" y1="150" x2="540" y2="150" stroke="black" stroke-width="2"/>
+                                            <!-- Flèche I2 -->
+                                            <line x1="320" y1="150" x2="340" y2="150" stroke="#E53935" stroke-width="2" marker-end="url(#arrowRedPara)"/>
+                                            <text x="330" y="140" font-size="16" fill="#E53935" font-weight="bold" text-anchor="middle">I₂</text>
+                                            
+                                            <!-- Branche 3 (bas) - R3 -->
+                                            <line x1="300" y1="150" x2="300" y2="230" stroke="black" stroke-width="2"/>
+                                            <line x1="300" y1="230" x2="360" y2="230" stroke="black" stroke-width="2"/>
+                                            <!-- Résistance R3 -->
+                                            <rect x="360" y="215" width="120" height="30" fill="white" stroke="#22c55e" stroke-width="3" rx="5"/>
+                                            <text x="420" y="235" font-size="18" font-weight="bold" text-anchor="middle" fill="#22c55e">R₃</text>
+                                            <line x1="480" y1="230" x2="540" y2="230" stroke="black" stroke-width="2"/>
+                                            <line x1="540" y1="230" x2="540" y2="150" stroke="black" stroke-width="2"/>
+                                            <!-- Flèche I3 -->
+                                            <line x1="320" y1="230" x2="340" y2="230" stroke="#E53935" stroke-width="2" marker-end="url(#arrowRedPara)"/>
+                                            <text x="330" y="220" font-size="16" fill="#E53935" font-weight="bold" text-anchor="middle">I₃</text>
+                                            
+                                            <!-- Nœud droit (point de réunion) -->
+                                            <circle cx="540" cy="150" r="5" fill="black"/>
+                                            
+                                            <!-- Fil principal droit -->
+                                            <line x1="540" y1="150" x2="820" y2="150" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Borne droite - -->
+                                            <circle cx="820" cy="150" r="8" fill="white" stroke="black" stroke-width="2"/>
+                                            <text x="835" y="155" font-size="20" font-weight="bold">-</text>
+                                            
+                                            <!-- Tension U avec flèche bleue -->
+                                            <defs>
+                                                <marker id="arrowBluePara" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+                                                    <path d="M0,0 L0,6 L9,3 z" fill="#1E88E5"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="800" y1="270" x2="100" y2="270" stroke="#1E88E5" stroke-width="3" marker-end="url(#arrowBluePara)"/>
+                                            <text x="450" y="290" font-size="24" fill="#1E88E5" font-weight="bold" text-anchor="middle">U</text>
+                                            
+                                            <!-- Points rouges animés - Branche 1 (R1) -->
+                                            <circle class="current-dot-p1" cx="0" cy="0" r="4" fill="red" opacity="0.9"/>
+                                            <circle class="current-dot-p1" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 1.3s;"/>
+                                            <circle class="current-dot-p1" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 2.6s;"/>
+                                            
+                                            <!-- Points rouges animés - Branche 2 (R2) -->
+                                            <circle class="current-dot-p2" cx="0" cy="0" r="4" fill="red" opacity="0.9"/>
+                                            <circle class="current-dot-p2" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 1.3s;"/>
+                                            <circle class="current-dot-p2" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 2.6s;"/>
+                                            
+                                            <!-- Points rouges animés - Branche 3 (R3) -->
+                                            <circle class="current-dot-p3" cx="0" cy="0" r="4" fill="red" opacity="0.9"/>
+                                            <circle class="current-dot-p3" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 1.3s;"/>
+                                            <circle class="current-dot-p3" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 2.6s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="formula-table" style="width: 100%;">
+                        <table style="width: 100%; table-layout: fixed;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 18%; font-size: 1.1rem; padding: 15px;">Nom de la formule</th>
+                                    <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Expression littérale</th>
+                                    <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Symboles de grandeurs et d'unités</th>
+                                    <th style="width: 25%; font-size: 1.1rem; padding: 15px;">Explication</th>
+                                    <th style="width: 13%; font-size: 1.1rem; padding: 15px; text-align: center;">Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formule 1: Résistance équivalente (2 résistances) -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Résistance équivalente</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( R_e = \frac{1}{\frac{1\,}{R_1} \; + \; \frac{1\,}{R_2} \; + \; \frac{1\,}{R_3}} = [\Omega] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( R_e \) = résistance équivalente = [Ω]<br>
+                                        \( R_1, R_2, R_3 \) = résistances = [Ω]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Somme des résistances en parallèle (La résistance équivalente est toujours plus petite que la plus petite résistance)
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        <svg width="120" height="110" viewBox="0 0 120 110" class="circuit-req-para">
+                                            <style>
+                                                @keyframes flowReqPara1 {
+                                                    0% { transform: translate(0, 0); opacity: 1; }
+                                                    100% { transform: translate(70px, 0); opacity: 0; }
+                                                }
+                                                @keyframes flowReqPara2 {
+                                                    0% { transform: translate(0, 0); opacity: 1; }
+                                                    100% { transform: translate(70px, 0); opacity: 0; }
+                                                }
+                                                @keyframes flowReqPara3 {
+                                                    0% { transform: translate(0, 0); opacity: 1; }
+                                                    100% { transform: translate(70px, 0); opacity: 0; }
+                                                }
+                                                tr:hover .current-dot-req-p1 {
+                                                    animation: flowReqPara1 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                tr:hover .current-dot-req-p2 {
+                                                    animation: flowReqPara2 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                tr:hover .current-dot-req-p3 {
+                                                    animation: flowReqPara3 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                .current-dot-req-p1, .current-dot-req-p2, .current-dot-req-p3 {
+                                                    opacity: 0;
+                                                }
+                                            </style>
+                                            
+                                            <!-- Fil d'entrée -->
+                                            <line x1="10" y1="55" x2="25" y2="55" stroke="black" stroke-width="2"/>
+                                            
+                                            <!-- Nœud gauche -->
+                                            <circle cx="25" cy="55" r="3" fill="black"/>
+                                            
+                                            <!-- Branche 1 (haut) - R1 -->
+                                            <line x1="25" y1="55" x2="25" y2="20" stroke="black" stroke-width="1.5"/>
+                                            <line x1="25" y1="20" x2="35" y2="20" stroke="black" stroke-width="1.5"/>
+                                            <rect x="35" y="15" width="40" height="10" fill="white" stroke="#22c55e" stroke-width="2" rx="2"/>
+                                            <text x="55" y="23" font-size="9" text-anchor="middle" fill="#22c55e" font-weight="bold">R₁</text>
+                                            <line x1="75" y1="20" x2="85" y2="20" stroke="black" stroke-width="1.5"/>
+                                            <line x1="85" y1="20" x2="85" y2="55" stroke="black" stroke-width="1.5"/>
+                                            
+                                            <!-- Branche 2 (milieu) - R2 -->
+                                            <line x1="25" y1="55" x2="35" y2="55" stroke="black" stroke-width="1.5"/>
+                                            <rect x="35" y="50" width="40" height="10" fill="white" stroke="#22c55e" stroke-width="2" rx="2"/>
+                                            <text x="55" y="58" font-size="9" text-anchor="middle" fill="#22c55e" font-weight="bold">R₂</text>
+                                            <line x1="75" y1="55" x2="85" y2="55" stroke="black" stroke-width="1.5"/>
+                                            
+                                            <!-- Branche 3 (bas) - R3 -->
+                                            <line x1="25" y1="55" x2="25" y2="90" stroke="black" stroke-width="1.5"/>
+                                            <line x1="25" y1="90" x2="35" y2="90" stroke="black" stroke-width="1.5"/>
+                                            <rect x="35" y="85" width="40" height="10" fill="white" stroke="#22c55e" stroke-width="2" rx="2"/>
+                                            <text x="55" y="93" font-size="9" text-anchor="middle" fill="#22c55e" font-weight="bold">R₃</text>
+                                            <line x1="75" y1="90" x2="85" y2="90" stroke="black" stroke-width="1.5"/>
+                                            <line x1="85" y1="90" x2="85" y2="55" stroke="black" stroke-width="1.5"/>
+                                            
+                                            <!-- Nœud droit -->
+                                            <circle cx="85" cy="55" r="3" fill="black"/>
+                                            
+                                            <!-- Fil de sortie -->
+                                            <line x1="85" y1="55" x2="100" y2="55" stroke="black" stroke-width="2"/>
+                                            
+                                            <!-- Points rouges animés - Branche 1 -->
+                                            <circle class="current-dot-req-p1" cx="25" cy="20" r="2.5" fill="#E53935"/>
+                                            <circle class="current-dot-req-p1" cx="25" cy="20" r="2.5" fill="#E53935" style="animation-delay: 0.6s;"/>
+                                            
+                                            <!-- Points rouges animés - Branche 2 -->
+                                            <circle class="current-dot-req-p2" cx="25" cy="55" r="2.5" fill="#E53935"/>
+                                            <circle class="current-dot-req-p2" cx="25" cy="55" r="2.5" fill="#E53935" style="animation-delay: 0.6s;"/>
+                                            
+                                            <!-- Points rouges animés - Branche 3 -->
+                                            <circle class="current-dot-req-p3" cx="25" cy="90" r="2.5" fill="#E53935"/>
+                                            <circle class="current-dot-req-p3" cx="25" cy="90" r="2.5" fill="#E53935" style="animation-delay: 0.6s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Ligne invisible pour R1 -->
+                                <tr style="border-top: none;">
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 10px 20px; border-top: none;">
+                                        \( R_1 = \frac{1}{\frac{1\,}{R_e} - \frac{1\,}{R_2} + \frac{1\,}{R_3}} = [\Omega] \)
+                                    </td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                </tr>
+                                
+                                <!-- Ligne invisible pour R2 -->
+                                <tr style="border-top: none;">
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 10px 20px; border-top: none;">
+                                        \( R_2 = \frac{1}{\frac{1\,}{R_e} - \frac{1\,}{R_1} + \frac{1\,}{R_3}} = [\Omega] \)
+                                    </td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                </tr>
+                                
+                                <!-- Ligne invisible pour R3 -->
+                                <tr style="border-top: none;">
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 10px 20px; border-top: none;">
+                                        \( R_3 = \frac{1}{\frac{1\,}{R_e} - \frac{1\,}{R_1} + \frac{1\,}{R_2}} = [\Omega] \)
+                                    </td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                </tr>
+                                
+                                <!-- Formule 2: Résistances -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Résistances</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( R_1 = \frac{U}{I_1} = [\Omega] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( U \) = tension aux bornes = [V]<br>
+                                        \( I_1 \) = courant dans R₁ = [A]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Calcul d'une résistance du circuit parallèle
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        
+                                    </td>
+                                </tr>
+                                
+                                <!-- Formule 3: Tension -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Tension</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( U = U_1 = U_2 = U_3 = [V] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( U \) = tension totale = [V]<br>
+                                        \( U_1, U_2, U_3 \) = tensions = [V]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        La tension est identique aux bornes de toutes les résistances en parallèle (<strong>Loi de Kirchhoff</strong> - <a href="#loi-des-mailles" style="color: #8B5CF6; text-decoration: underline;">Loi des mailles</a>)
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        <svg width="120" height="110" viewBox="0 0 120 110" class="circuit-tension-para">
+                                            <style>
+                                                @keyframes flowTensionPara1 {
+                                                    0% { transform: translate(0, 0); opacity: 1; }
+                                                    100% { transform: translate(70px, 0); opacity: 0; }
+                                                }
+                                                @keyframes flowTensionPara2 {
+                                                    0% { transform: translate(0, 0); opacity: 1; }
+                                                    100% { transform: translate(70px, 0); opacity: 0; }
+                                                }
+                                                tr:hover .current-dot-tension-p1 {
+                                                    animation: flowTensionPara1 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                tr:hover .current-dot-tension-p2 {
+                                                    animation: flowTensionPara2 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                .current-dot-tension-p1, .current-dot-tension-p2 {
+                                                    opacity: 0;
+                                                }
+                                            </style>
+                                            
+                                            <!-- Fil d'entrée -->
+                                            <line x1="10" y1="55" x2="25" y2="55" stroke="black" stroke-width="2"/>
+                                            
+                                            <!-- Flèche I (courant total entrant) -->
+                                            <defs>
+                                                <marker id="arrowRedTension" markerWidth="8" markerHeight="8" refX="4" refY="2" orient="auto">
+                                                    <path d="M0,0 L0,4 L6,2 z" fill="#E53935"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="12" y1="55" x2="20" y2="55" stroke="#E53935" stroke-width="2" marker-end="url(#arrowRedTension)"/>
+                                            <text x="16" y="50" font-size="10" fill="#E53935" font-weight="bold" text-anchor="middle">I</text>
+                                            
+                                            <!-- Nœud gauche -->
+                                            <circle cx="25" cy="55" r="3" fill="black"/>
+                                            
+                                            <!-- Branche 1 (haut) - R1 -->
+                                            <line x1="25" y1="55" x2="25" y2="30" stroke="black" stroke-width="1.5"/>
+                                            <line x1="25" y1="30" x2="35" y2="30" stroke="black" stroke-width="1.5"/>
+                                            <rect x="35" y="25" width="40" height="10" fill="white" stroke="#22c55e" stroke-width="2" rx="2"/>
+                                            <text x="55" y="33" font-size="9" text-anchor="middle" fill="#22c55e" font-weight="bold">R₁</text>
+                                            <line x1="75" y1="30" x2="85" y2="30" stroke="black" stroke-width="1.5"/>
+                                            <line x1="85" y1="30" x2="85" y2="55" stroke="black" stroke-width="1.5"/>
+                                            
+                                            <!-- Flèche I1 sur branche 1 -->
+                                            <line x1="28" y1="30" x2="32" y2="30" stroke="#E53935" stroke-width="1.5" marker-end="url(#arrowRedTension)"/>
+                                            <text x="30" y="25" font-size="8" fill="#E53935" font-weight="bold" text-anchor="middle">I₁</text>
+                                            
+                                            <!-- Label U1 = U à côté de R1 -->
+                                            <text x="55" y="20" font-size="8" fill="#1E88E5" font-weight="bold" text-anchor="middle">U₁ = U</text>
+                                            
+                                            <!-- Branche 2 (bas) - R2 -->
+                                            <line x1="25" y1="55" x2="25" y2="80" stroke="black" stroke-width="1.5"/>
+                                            <line x1="25" y1="80" x2="35" y2="80" stroke="black" stroke-width="1.5"/>
+                                            <rect x="35" y="75" width="40" height="10" fill="white" stroke="#22c55e" stroke-width="2" rx="2"/>
+                                            <text x="55" y="83" font-size="9" text-anchor="middle" fill="#22c55e" font-weight="bold">R₂</text>
+                                            <line x1="75" y1="80" x2="85" y2="80" stroke="black" stroke-width="1.5"/>
+                                            <line x1="85" y1="80" x2="85" y2="55" stroke="black" stroke-width="1.5"/>
+                                            
+                                            <!-- Flèche I2 sur branche 2 -->
+                                            <line x1="28" y1="80" x2="32" y2="80" stroke="#E53935" stroke-width="1.5" marker-end="url(#arrowRedTension)"/>
+                                            <text x="30" y="75" font-size="8" fill="#E53935" font-weight="bold" text-anchor="middle">I₂</text>
+                                            
+                                            <!-- Label U2 = U à côté de R2 -->
+                                            <text x="55" y="93" font-size="8" fill="#1E88E5" font-weight="bold" text-anchor="middle">U₂ = U</text>
+                                            
+                                            <!-- Nœud droit -->
+                                            <circle cx="85" cy="55" r="3" fill="black"/>
+                                            
+                                            <!-- Fil de sortie -->
+                                            <line x1="85" y1="55" x2="100" y2="55" stroke="black" stroke-width="2"/>
+                                            
+                                            <!-- Points rouges animés - Branche 1 -->
+                                            <circle class="current-dot-tension-p1" cx="25" cy="30" r="2.5" fill="#E53935"/>
+                                            <circle class="current-dot-tension-p1" cx="25" cy="30" r="2.5" fill="#E53935" style="animation-delay: 0.6s;"/>
+                                            
+                                            <!-- Points rouges animés - Branche 2 -->
+                                            <circle class="current-dot-tension-p2" cx="25" cy="80" r="2.5" fill="#E53935"/>
+                                            <circle class="current-dot-tension-p2" cx="25" cy="80" r="2.5" fill="#E53935" style="animation-delay: 0.6s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Formule 4: Courant total -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Courant total</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( I = I_1 + I_2 + I_3 = [A] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( I \) = courant total = [A]<br>
+                                        \( I_1, I_2, I_3 \) = courants = [A]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Somme des courants dans les branches parallèles<br>(<strong>Loi de Kirchhoff</strong> - <a href="#loi-des-noeuds" style="color: #8B5CF6; text-decoration: underline;">Loi des noeuds</a>)
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        
+                                    </td>
+                                </tr>
+                                
+                                <!-- Ligne invisible pour I1 -->
+                                <tr style="border-top: none;">
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 10px 20px; border-top: none;">
+                                        \( I_1 = I - I_2 + I_3 = [A] \)
+                                    </td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                </tr>
+                                
+                                <!-- Formule 5: Courant partiel -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Courant partiel</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( I_1 = \frac{U}{R_1} = [A] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( I_1 \) = courant dans R₁ = [A]<br>
+                                        \( U \) = tension = [V]<br>
+                                        \( R_1 \) = résistance = [Ω]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Calcul du courant dans une branche du circuit parallèle
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                
+                <!-- Numérotation de page -->
+                <div class="page-number" style="text-align: center; margin-top: 40px; padding: 20px 0; font-size: 1.2rem; color: #667eea; font-weight: 600;">
+                    Page 5
+                </div>
+            </section>
+
+            <!-- Section Page 6: Lois de Kirchhoff (suite du chapitre 2.2) -->
+            <section id="lois-kirchhoff" class="content-section" style="position: relative;">
+                <!-- Bouton d'impression Page 6 -->
+                <button onclick="printSection('lois-kirchhoff')" style="position: absolute; top: 20px; right: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Page 6</span>
+                </button>
+
+                <h3 style="color: #8B5CF6; font-size: 1.6rem; margin-bottom: 30px; margin-top: 60px; text-align: center;">
+                    📐 Lois de Kirchhoff (suite du chapitre 2.2)
+                </h3>
+
+                <!-- Loi des mailles -->
+                <div id="loi-des-mailles" style="margin-top: 40px; padding: 30px; background-color: #f8f9fa; border-left: 5px solid #8B5CF6; border-radius: 8px;">
+                    <h4 style="color: #8B5CF6; font-size: 1.5rem; margin-bottom: 20px;">Loi des mailles:</h4>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                        La somme algébrique des différences de potentiel le long de la maille est constamment nulle.
+                    </p>
+                    <div style="text-align: center;">
+                        <img src="../assets/images/loi-de-mailles.png" alt="Loi des mailles" style="max-width: 300px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+                
+                <!-- Loi des noeuds -->
+                <div id="loi-des-noeuds" style="margin-top: 40px; padding: 30px; background-color: #f8f9fa; border-left: 5px solid #8B5CF6; border-radius: 8px;">
+                    <h4 style="color: #8B5CF6; font-size: 1.5rem; margin-bottom: 20px;">Loi des noeuds:</h4>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                        La somme des intensités des courants qui entrent par un nœud est égale à la somme des intensités des courants qui sortent du même nœud.
+                    </p>
+                    <div style="text-align: center;">
+                        <img src="../assets/images/loi-des-noeuds.png" alt="Loi des noeuds" style="max-width: 300px; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+
+                <!-- Numérotation de page -->
+                <div class="page-number" style="text-align: center; margin-top: 40px; padding: 20px 0; font-size: 1.2rem; color: #667eea; font-weight: 600;">
+                    Page 6
+                </div>
+            </section>
+
+            <!-- Section 2.3: Résistance et chute de tension -->
+            <section id="resistance-ligne" class="content-section" style="position: relative;">
+                <!-- Bouton d'impression Page 7 -->
+                <button onclick="printSection('resistance-ligne')" style="position: absolute; top: 20px; right: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Page 7</span>
+                </button>
+                
+                    <h2 id="resistance-ligne" style="color: #000000; margin-top: 40px; font-size: 1.8rem;">
+                        <svg style="width: 56px; height: 56px; vertical-align: middle; margin-right: 12px;" viewBox="0 0 24 24" fill="none">
+                            <line x1="1" y1="8" x2="23" y2="8" stroke="#f97316" stroke-width="1.8"/>
+                            <line x1="1" y1="16" x2="23" y2="16" stroke="#2563eb" stroke-width="1.8"/>
+                            <rect x="7" y="10" width="10" height="4" rx="1" fill="#e8f5ee" stroke="#22c55e" stroke-width="1.2"/>
+                            <text x="12" y="14" text-anchor="middle" font-size="3.5" fill="#1a5c35" font-family="monospace">ΔU</text>
+                        </svg>
+                        2.3 Résistance et chute de tension dans une ligne
+                    </h3>
+                    <div class="formula-table">
+                        <table>
+                            <tbody>
+                                <!-- Grand schéma ligne électrique sur toute la largeur -->
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 30px; background-color: #f8f9fa;">
+                                        <svg width="900" height="270" viewBox="0 -20 900 290" class="circuit-ligne-horizontal">
+                                            <style>
+                                                @keyframes flowLigneHorizontal {
+                                                    /* Départ rapide */
+                                                    0% { offset-distance: 0%; }
+                                                    /* Ralentissement au passage de RC: aller (25%) */
+                                                    25% { offset-distance: 25%; }
+                                                    /* Ralentissement au passage de R (50%) */
+                                                    50% { offset-distance: 50%; }
+                                                    /* Ralentissement au passage de RC: retour (75%) */
+                                                    75% { offset-distance: 75%; }
+                                                    /* Fin du circuit */
+                                                    100% { offset-distance: 100%; }
+                                                }
+                                                .circuit-ligne-horizontal:hover .current-dot-ligne {
+                                                    /* Animation avec ralentissement progressif (ease-out) */
+                                                    animation: flowLigneHorizontal 6s ease-out infinite;
+                                                }
+                                                .current-dot-ligne {
+                                                    offset-path: path('M 80 80 L 780 80 L 780 170 L 80 170');
+                                                }
+                                            </style>
+                                            
+                                            <!-- Borne positive -->
+                                            <text x="60" y="75" font-size="18" font-weight="bold">+</text>
+                                            
+                                            <!-- Petit cercle blanc début du circuit -->
+                                            <circle cx="80" cy="80" r="4" fill="white" stroke="black" stroke-width="2"/>
+                                            
+                                            <!-- Tension U1 - flèche verticale bleue vers le bas -->
+                                            <line x1="50" y1="80" x2="50" y2="170" stroke="#1E88E5" stroke-width="2" marker-end="url(#arrowBlueU1Down)"/>
+                                            <defs>
+                                                <marker id="arrowBlueU1Down" markerWidth="8" markerHeight="8" refX="4" refY="2" orient="auto">
+                                                    <path d="M0,0 L0,4 L6,2 z" fill="#1E88E5"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="20" y="130" font-size="20" fill="#1E88E5" font-weight="bold">U₁</text>
+                                            
+                                            <!-- Ligne aller (haut) avec résistance verte -->
+                                            <line x1="80" y1="80" x2="350" y2="80" stroke="black" stroke-width="3"/>
+                                            <!-- Rectangle vert RC aller -->
+                                            <rect x="350" y="70" width="200" height="20" fill="white" stroke="#22c55e" stroke-width="3" rx="3"/>
+                                            <text x="450" y="85" font-size="16" fill="#22c55e" font-weight="bold" text-anchor="middle">RC: aller</text>
+                                            <line x1="550" y1="80" x2="780" y2="80" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Longueur l (aller) - cotation au-dessus -->
+                                            <!-- Trait vertical gauche -->
+                                            <line x1="80" y1="5" x2="80" y2="25" stroke="#8B5CF6" stroke-width="2"/>
+                                            <!-- Ligne de cotation avec flèche à droite -->
+                                            <line x1="80" y1="15" x2="780" y2="15" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowPurpleAller)"/>
+                                            <defs>
+                                                <marker id="arrowPurpleAller" markerWidth="8" markerHeight="8" refX="4" refY="2" orient="auto">
+                                                    <path d="M0,0 L0,4 L6,2 z" fill="#8B5CF6"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="430" y="10" font-size="20" fill="#8B5CF6" font-weight="bold" text-anchor="middle">l (longueur aller)</text>
+                                            
+                                            <!-- Chute de tension ΔU (aller) - au-dessus de RC: aller -->
+                                            <line x1="420" y1="55" x2="500" y2="55" stroke="#1E88E5" stroke-width="2" marker-end="url(#arrowBlueAller)"/>
+                                            <defs>
+                                                <marker id="arrowBlueAller" markerWidth="8" markerHeight="8" refX="4" refY="2" orient="auto">
+                                                    <path d="M0,0 L0,4 L6,2 z" fill="#1E88E5"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="460" y="45" font-size="18" fill="#1E88E5" font-weight="bold" text-anchor="middle">ΔU (aller)</text>
+                                            
+                                            <!-- Flèche courant I sur ligne aller -->
+                                            <defs>
+                                                <marker id="arrowRedLigne" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+                                                    <path d="M0,0 L0,6 L9,3 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="200" y1="80" x2="280" y2="80" stroke="red" stroke-width="3" marker-end="url(#arrowRedLigne)"/>
+                                            <text x="240" y="65" font-size="20" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            
+                                            <!-- Connexion verticale droite vers résistance -->
+                                            <line x1="780" y1="80" x2="780" y2="95" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Charge (résistance à droite) - grande et verticale -->
+                                            <rect x="770" y="95" width="20" height="50" fill="white" stroke="#22c55e" stroke-width="3"/>
+                                            <text x="780" y="125" font-size="18" fill="#22c55e" font-weight="bold" text-anchor="middle">R</text>
+                                            
+                                            <!-- Connexion verticale depuis résistance vers ligne retour -->
+                                            <line x1="780" y1="145" x2="780" y2="170" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Ligne retour (bas) avec résistance verte -->
+                                            <line x1="780" y1="170" x2="550" y2="170" stroke="black" stroke-width="3"/>
+                                            <!-- Rectangle vert RC retour -->
+                                            <rect x="350" y="160" width="200" height="20" fill="white" stroke="#22c55e" stroke-width="3" rx="3"/>
+                                            <text x="450" y="175" font-size="16" fill="#22c55e" font-weight="bold" text-anchor="middle">RC: retour</text>
+                                            <line x1="350" y1="170" x2="80" y2="170" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Petit cercle blanc fin du circuit -->
+                                            <circle cx="80" cy="170" r="4" fill="white" stroke="black" stroke-width="2"/>
+                                            
+                                            <!-- Borne négative -->
+                                            <text x="60" y="185" font-size="18" font-weight="bold">-</text>
+                                            
+                                            <!-- Longueur l (dimension) -->
+                                            <!-- Trait vertical gauche -->
+                                            <line x1="80" y1="200" x2="80" y2="220" stroke="#8B5CF6" stroke-width="2"/>
+                                            <!-- Ligne de cotation avec flèche à droite -->
+                                            <line x1="80" y1="210" x2="780" y2="210" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrowPurple)"/>
+                                            <defs>
+                                                <marker id="arrowPurple" markerWidth="8" markerHeight="8" refX="4" refY="2" orient="auto">
+                                                    <path d="M0,0 L0,4 L6,2 z" fill="#8B5CF6"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="430" y="230" font-size="20" fill="#8B5CF6" font-weight="bold" text-anchor="middle">l (longueur retour)</text>
+                                            
+                                            <!-- Tension U2 en fin de ligne - flèche verticale bleue vers le bas -->
+                                            <line x1="810" y1="95" x2="810" y2="145" stroke="#1E88E5" stroke-width="2" marker-end="url(#arrowBlueU2Down)"/>
+                                            <defs>
+                                                <marker id="arrowBlueU2Down" markerWidth="8" markerHeight="8" refX="4" refY="2" orient="auto">
+                                                    <path d="M0,0 L0,4 L6,2 z" fill="#1E88E5"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="830" y="125" font-size="20" fill="#1E88E5" font-weight="bold">U₂</text>
+                                            
+                                            <!-- Chute de tension ΔU (retour) - au-dessus de RC: retour -->
+                                            <line x1="500" y1="145" x2="420" y2="145" stroke="#1E88E5" stroke-width="2" marker-end="url(#arrowBlueRetour)"/>
+                                            <defs>
+                                                <marker id="arrowBlueRetour" markerWidth="8" markerHeight="8" refX="4" refY="2" orient="auto">
+                                                    <path d="M0,0 L0,4 L6,2 z" fill="#1E88E5"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="460" y="135" font-size="18" fill="#1E88E5" font-weight="bold" text-anchor="middle">ΔU (retour)</text>
+                                            
+                                            <!-- Points rouges animés (4 points) -->
+                                            <circle class="current-dot-ligne" cx="0" cy="0" r="4" fill="red" opacity="0.9"/>
+                                            <circle class="current-dot-ligne" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 1s;"/>
+                                            <circle class="current-dot-ligne" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 2s;"/>
+                                            <circle class="current-dot-ligne" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 3s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="formula-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 18%; font-size: 1.1rem; padding: 15px;">Nom de la formule</th>
+                                    <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Expression littérale</th>
+                                    <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Symboles de grandeurs et d'unités</th>
+                                    <th style="width: 25%; font-size: 1.1rem; padding: 15px;">Explication</th>
+                                    <th style="width: 13%; font-size: 1.1rem; padding: 15px; text-align: center;">Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Formule 1: Longueur du câble ou de la ligne -->
+                                <tr class="cable-row">
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Longueur du câble ou de la ligne</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( R_l = \frac{\rho \cdot 2 \cdot l}{A} = [\Omega] \)<br><br>
+                                        \( \rho = \frac{R_l \cdot A}{2 \cdot l} = [\Omega \cdot mm^2/m] \)<br><br>
+                                        \( l = \frac{R_l \cdot A}{\rho \cdot 2} = [m] \)<br><br>
+                                        \( A = \frac{\rho \cdot 2 \cdot l}{R_l} = [mm^2] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        Calcul de la longueur totale
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Permet de calculer la longueur maximale de la ligne ou du câble
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        <svg width="140" height="130" viewBox="0 0 110 110">
+                                            <style>
+                                                @keyframes flowCable {
+                                                    0% { transform: translate(0, 0); opacity: 1; }
+                                                    15% { transform: translate(32.5px, 0); opacity: 1; }
+                                                    25% { transform: translate(60px, 0); opacity: 1; }
+                                                    30% { transform: translate(75px, 0); opacity: 1; }
+                                                    35% { transform: translate(75px, 10px); opacity: 1; }
+                                                    45% { transform: translate(75px, 30px); opacity: 1; }
+                                                    50% { transform: translate(75px, 50px); opacity: 1; }
+                                                    60% { transform: translate(50px, 50px); opacity: 1; }
+                                                    70% { transform: translate(32.5px, 50px); opacity: 1; }
+                                                    90% { transform: translate(0, 50px); opacity: 1; }
+                                                    100% { transform: translate(0, 50px); opacity: 0; }
+                                                }
+                                                .cable-row:hover .electron-cable { animation: flowCable 3s linear infinite; }
+                                            </style>
+                                            
+                                            <!-- Fil d'entrée L -->
+                                            <line x1="5" y1="40" x2="20" y2="40" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Lettre L (ligne/phase) -->
+                                            <text x="12" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#7CB342">L</text>
+                                            
+                                            <!-- Premier Rc (aller) -->
+                                            <rect x="20" y="30" width="35" height="20" fill="rgba(124, 179, 66, 0.1)" stroke="#7CB342" stroke-width="2" rx="2"/>
+                                            <text x="37.5" y="44" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#7CB342">Rc</text>
+                                            
+                                            <!-- Fil horizontal vers R appareil -->
+                                            <line x1="55" y1="40" x2="80" y2="40" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Connexion verticale vers R -->
+                                            <line x1="80" y1="40" x2="80" y2="50" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- R appareil (résistance de l'appareil) -->
+                                            <rect x="70" y="50" width="20" height="30" fill="rgba(255, 152, 0, 0.1)" stroke="#FF9800" stroke-width="2" rx="2"/>
+                                            <text x="80" y="68" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#FF9800">R</text>
+                                            
+                                            <!-- Connexion verticale depuis R -->
+                                            <line x1="80" y1="80" x2="80" y2="90" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Fil horizontal de retour -->
+                                            <line x1="80" y1="90" x2="55" y2="90" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Deuxième Rc (retour) -->
+                                            <rect x="20" y="80" width="35" height="20" fill="rgba(124, 179, 66, 0.1)" stroke="#7CB342" stroke-width="2" rx="2"/>
+                                            <text x="37.5" y="94" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#7CB342">Rc</text>
+                                            
+                                            <!-- Fil de sortie N -->
+                                            <line x1="20" y1="90" x2="5" y2="90" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Lettre N (neutre) -->
+                                            <text x="12" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#7CB342">N</text>
+                                            
+                                            <!-- Cercles rouges animés (électrons au survol uniquement) -->
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 0.5s;"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 1s;"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 1.5s;"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 2s;"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 2.5s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Formule 2: Chute de tension -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Chute de tension</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( \Delta U = R_l \cdot I = [V] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( \Delta U \) = chute de tension = [V]<br>
+                                        \( R_l \) = résistance de ligne = [Ω]<br>
+                                        \( I \) = courant = [A]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Perte de tension due à la résistance de la ligne. Application de la loi d'Ohm (U = R · I).
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        <svg width="120" height="110" viewBox="0 0 120 110">
+                                            <!-- Ligne avec résistance -->
+                                            <line x1="10" y1="40" x2="30" y2="40" stroke="black" stroke-width="2"/>
+                                            <rect x="30" y="30" width="60" height="20" fill="white" stroke="#666" stroke-width="2"/>
+                                            <text x="60" y="45" font-size="11" text-anchor="middle" fill="#666" font-weight="bold">Rl</text>
+                                            <line x1="90" y1="40" x2="110" y2="40" stroke="black" stroke-width="2"/>
+                                            
+                                            <!-- Courant I -->
+                                            <line x1="15" y1="40" x2="25" y2="40" stroke="red" stroke-width="2" marker-end="url(#arrowI2)"/>
+                                            <defs>
+                                                <marker id="arrowI2" markerWidth="6" markerHeight="6" refX="3" refY="1.5" orient="auto">
+                                                    <path d="M0,0 L0,3 L4,1.5 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="20" y="30" font-size="12" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            
+                                            <!-- Chute ΔU -->
+                                            <line x1="30" y1="70" x2="90" y2="70" stroke="#FF6B6B" stroke-width="2" marker-end="url(#arrowDU)"/>
+                                            <defs>
+                                                <marker id="arrowDU" markerWidth="6" markerHeight="6" refX="3" refY="1.5" orient="auto">
+                                                    <path d="M0,0 L0,3 L4,1.5 z" fill="#FF6B6B"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="60" y="85" font-size="12" fill="#FF6B6B" font-weight="bold" text-anchor="middle">ΔU</text>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Formule 3: Chute en % -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Chute en %</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( \Delta U\% = \frac{\Delta U}{U_1} \cdot 100 = [\%] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( \Delta U\% \) = chute en pourcentage = [%]<br>
+                                        \( \Delta U \) = chute de tension = [V]<br>
+                                        \( U_1 \) = tension initiale = [V]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Pourcentage de chute de tension par rapport à la tension initiale. Permet de vérifier les normes (max 3% en général).
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        <svg width="120" height="110" viewBox="0 0 120 110">
+                                            <!-- U1 (grande barre) -->
+                                            <rect x="20" y="20" width="80" height="25" fill="#1E88E5" opacity="0.3" stroke="#1E88E5" stroke-width="2"/>
+                                            <text x="60" y="37" font-size="12" fill="#1E88E5" font-weight="bold" text-anchor="middle">U₁ (100%)</text>
+                                            
+                                            <!-- ΔU (petite barre) -->
+                                            <rect x="20" y="60" width="20" height="25" fill="#FF6B6B" opacity="0.3" stroke="#FF6B6B" stroke-width="2"/>
+                                            <text x="30" y="77" font-size="10" fill="#FF6B6B" font-weight="bold" text-anchor="middle">ΔU</text>
+                                            
+                                            <!-- Pourcentage -->
+                                            <text x="60" y="100" font-size="11" fill="#666" font-weight="bold" text-anchor="middle">ΔU% = (ΔU/U₁)·100</text>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Formule 4: Tension en fin de ligne -->
+                                <tr>
+                                    <td style="padding: 20px; font-size: 1.05rem;"><strong>Tension en fin de ligne</strong></td>
+                                    <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                        \( U_2 = U_1 - \Delta U = [V] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        \( U_2 \) = tension finale = [V]<br>
+                                        \( U_1 \) = tension initiale = [V]<br>
+                                        \( \Delta U \) = chute de tension = [V]
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                        Tension disponible à la charge après la chute de tension dans la ligne. C'est la tension réellement utilisable.
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        <svg width="120" height="110" viewBox="0 0 120 110">
+                                            <!-- Source U1 -->
+                                            <circle cx="20" cy="50" r="6" fill="white" stroke="black" stroke-width="2"/>
+                                            <text x="10" y="45" font-size="10" font-weight="bold">+</text>
+                                            <text x="5" y="65" font-size="12" fill="#1E88E5" font-weight="bold">U₁</text>
+                                            
+                                            <!-- Ligne -->
+                                            <line x1="26" y1="50" x2="94" y2="50" stroke="black" stroke-width="2"/>
+                                            
+                                            <!-- Charge -->
+                                            <rect x="94" y="35" width="10" height="30" fill="white" stroke="#22c55e" stroke-width="2"/>
+                                            <text x="115" y="55" font-size="12" fill="#1E88E5" font-weight="bold">U₂</text>
+                                            
+                                            <!-- Flèche ΔU -->
+                                            <line x1="40" y1="70" x2="60" y2="70" stroke="#FF6B6B" stroke-width="2" marker-end="url(#arrowDU2)"/>
+                                            <defs>
+                                                <marker id="arrowDU2" markerWidth="6" markerHeight="6" refX="3" refY="1.5" orient="auto">
+                                                    <path d="M0,0 L0,3 L4,1.5 z" fill="#FF6B6B"/>
+                                                </marker>
+                                            </defs>
+                                            <text x="50" y="85" font-size="10" fill="#FF6B6B" font-weight="bold" text-anchor="middle">ΔU</text>
+                                            
+                                            <!-- Formule -->
+                                            <text x="60" y="100" font-size="10" fill="#666" font-weight="bold" text-anchor="middle">U₂ = U₁ - ΔU</text>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Ligne invisible pour U1 -->
+                                <tr style="border-top: none;">
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 10px 20px; border-top: none;">
+                                        \( U_1 = U_2 + \Delta U = [V] \)
+                                    </td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                
+                <!-- Numérotation de page -->
+                <div class="page-number" style="text-align: center; margin-top: 40px; padding: 20px 0; font-size: 1.2rem; color: #667eea; font-weight: 600;">
+                    Page 7
+                </div>
+            </section>
+
+            <!-- Section Page 8: Diviseur de tension (suite du chapitre 2.3) -->
+            <section id="diviseur-tension" class="content-section" style="position: relative;">
+                <!-- Bouton d'impression Page 8 -->
+                <button onclick="printSection('diviseur-tension')" style="position: absolute; top: 20px; right: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Page 8</span>
+                </button>
+
+                <!-- Sous-chapitre 02.4 : Diviseur de tension -->
+                <h3 id="diviseur-tension-formules" style="color: #000000; margin-top: 40px; font-size: 1.6rem;">
+                    <svg style="width: 56px; height: 56px; vertical-align: middle; margin-right: 12px;" viewBox="0 0 24 24" fill="none">
+                        <line x1="12" y1="0" x2="12" y2="5" stroke="#22c55e" stroke-width="1.5"/>
+                        <rect x="6" y="5" width="12" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                        <line x1="12" y1="10" x2="12" y2="14" stroke="#22c55e" stroke-width="1.5"/>
+                        <rect x="6" y="14" width="12" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                        <line x1="12" y1="19" x2="12" y2="24" stroke="#22c55e" stroke-width="1.5"/>
+                        <line x1="12" y1="12" x2="21" y2="12" stroke="#f97316" stroke-width="1.3" stroke-dasharray="2,1"/>
+                        <circle cx="21" cy="12" r="1.5" fill="#f97316"/>
+                    </svg>
+                    2.4 Diviseur de tension
+                </h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Formule 1: Tension U2 à vide -->
+                            <tr class="diviseur-row">
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Tension U₂ à vide</strong></td>
+                                <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                    \( U_2 = \frac{U}{R_1 + R_2} \cdot R_2 = [V] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( U_2 \) = Tension à vide aux bornes de R₂ = [V]<br>
+                                    \( U \) = Tension d'entrée = [V]<br>
+                                    \( R_1 \) = Résistance 1 = [Ω]<br>
+                                    \( R_2 \) = Résistance 2 = [Ω]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Tension de sortie d'un diviseur de tension à vide (sans charge). Utilisé pour réduire une tension.
+                                </td>
+                                <td style="text-align: center;">
+                                    <svg width="240" height="190" viewBox="0 0 220 170" class="circuit-diviseur" style="max-width: 100%; height: auto;">
+                                        <style>
+                                            @keyframes flowDiviseur {
+                                                0% { transform: translateY(0); opacity: 1; }
+                                                100% { transform: translateY(120px); opacity: 0; }
+                                            }
+                                            .diviseur-row:hover .current-dot-diviseur {
+                                                animation: flowDiviseur 2s linear infinite;
+                                                opacity: 1;
+                                            }
+                                            .current-dot-diviseur {
+                                                opacity: 0;
+                                            }
+                                        </style>
+                                        <!-- Source de tension -->
+                                        <circle cx="35" cy="25" r="6" fill="white" stroke="black" stroke-width="2"/>
+                                        <text x="20" y="20" font-size="14" font-weight="bold">+</text>
+                                        <line x1="35" y1="31" x2="35" y2="50" stroke="black" stroke-width="2.5"/>
+                                        <!-- Flèche de courant -->
+                                        <defs>
+                                            <marker id="arrowRedDiviseur" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                            </marker>
+                                        </defs>
+                                        <line x1="35" y1="35" x2="35" y2="47" stroke="red" stroke-width="2.5" marker-end="url(#arrowRedDiviseur)"/>
+                                        <text x="48" y="42" font-size="13" fill="red" font-weight="bold">I</text>
+                                        <!-- Résistance R1 -->
+                                        <rect x="15" y="50" width="40" height="30" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+                                        <text x="35" y="68" font-size="13" text-anchor="middle" font-weight="bold">R₁</text>
+                                        <line x1="35" y1="80" x2="35" y2="95" stroke="black" stroke-width="2.5"/>
+                                        <!-- Point de connexion pour sortie -->
+                                        <circle cx="35" cy="95" r="3" fill="black"/>
+                                        <!-- Résistance R2 -->
+                                        <rect x="15" y="95" width="40" height="30" fill="none" stroke="#22c55e" stroke-width="2.5"/>
+                                        <text x="35" y="113" font-size="13" text-anchor="middle" font-weight="bold">R₂</text>
+                                        <line x1="35" y1="125" x2="35" y2="145" stroke="black" stroke-width="2.5"/>
+                                        <!-- Borne négative -->
+                                        <circle cx="35" cy="145" r="6" fill="white" stroke="black" stroke-width="2"/>
+                                        <text x="45" y="148" font-size="14" font-weight="bold">-</text>
+                                        <!-- Tension U_entrée (totale) -->
+                                        <defs>
+                                            <marker id="arrowBlueU" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                            </marker>
+                                        </defs>
+                                        <line x1="80" y1="135" x2="80" y2="40" stroke="blue" stroke-width="2.5" marker-end="url(#arrowBlueU)"/>
+                                        <text x="90" y="90" font-size="13" fill="blue" font-weight="bold">U_entrée</text>
+                                        <!-- Sortie U2 en parallèle avec R2 -->
+                                        <line x1="35" y1="95" x2="140" y2="95" stroke="black" stroke-width="2.5"/>
+                                        <line x1="35" y1="125" x2="140" y2="125" stroke="black" stroke-width="2.5"/>
+                                        <!-- Flèche U2_Sortie -->
+                                        <defs>
+                                            <marker id="arrowOrangeU2" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                <path d="M0,0 L0,5 L6,2.5 z" fill="#FF6B35"/>
+                                            </marker>
+                                        </defs>
+                                        <line x1="140" y1="120" x2="140" y2="100" stroke="#FF6B35" stroke-width="2.5" marker-end="url(#arrowOrangeU2)"/>
+                                        <text x="150" y="113" font-size="13" fill="#FF6B35" font-weight="bold">U₂_Sortie</text>
+                                        <!-- Points de courant animés -->
+                                        <circle class="current-dot-diviseur" cx="35" cy="25" r="3.5" fill="#E53935"/>
+                                        <circle class="current-dot-diviseur" cx="35" cy="25" r="3.5" fill="#E53935" style="animation-delay: 0.4s;"/>
+                                        <circle class="current-dot-diviseur" cx="35" cy="25" r="3.5" fill="#E53935" style="animation-delay: 0.8s;"/>
+                                        <circle class="current-dot-diviseur" cx="35" cy="25" r="3.5" fill="#E53935" style="animation-delay: 1.2s;"/>
+                                    </svg>
+                                </td>
+                            </tr>
+                            
+                            <!-- Formule 2: Tension U223 en charge -->
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Tension U₂₂₃ en charge</strong></td>
+                                <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                    \( U_{223} = \frac{U}{R_1 + R_{23}} \cdot R_{23} = [V] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( U_{223} \) = Tension en charge = [V]<br>
+                                    \( U \) = Tension d'entrée = [V]<br>
+                                    \( R_1 \) = Résistance 1 = [Ω]<br>
+                                    \( R_{23} \) = Résistance équivalente de R₂ et R₃ en parallèle = [Ω]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Tension de sortie d'un diviseur de tension en charge (avec résistance R₃ connectée). La tension diminue par rapport à la tension à vide.
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 02.4.1 : Résistance additionnelle -->
+                <h3 id="resistance-additionnelle" style="color: #000000; margin-top: 40px; font-size: 1.6rem;">
+                    <svg style="width: 48px; height: 48px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24" fill="none">
+                        <line x1="0" y1="12" x2="5" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                        <rect x="5" y="8" width="14" height="8" rx="2" stroke="#22c55e" stroke-width="1.5" fill="#e8f5ee"/>
+                        <line x1="19" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                        <text x="12" y="15" text-anchor="middle" font-size="5" fill="#1a5c35" font-family="Georgia,serif" font-style="italic">R</text>
+                    </svg>
+                    2.4.1 Résistance additionnelle
+                </h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Formule : Résistance additionnelle -->
+                            <tr class="radd-row">
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Résistance additionnelle</strong></td>
+                                <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                    \( I_{nominal} = \frac{U_{add}}{R_{add}} = [A] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( I_{nominal} \) = Courant nominal = [A]<br>
+                                    \( U_{add} \) = Tension aux bornes de la résistance additionnelle = [V]<br>
+                                    \( R_{add} \) = Résistance additionnelle = [Ω]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Résistance ajoutée en série avec un appareil de mesure (voltmètre) pour augmenter sa plage de mesure. Permet de mesurer des tensions plus élevées.
+                                </td>
+                                <td style="text-align: center;">
+                                    <svg width="240" height="180" viewBox="0 0 200 150" class="circuit-radd" style="max-width: 100%; height: auto;">
+                                        <style>
+                                            @keyframes flowRadd {
+                                                0% { transform: translateY(0); opacity: 1; }
+                                                100% { transform: translateY(110px); opacity: 0; }
+                                            }
+                                            .radd-row:hover .current-dot-radd {
+                                                animation: flowRadd 2s linear infinite;
+                                                opacity: 1;
+                                            }
+                                            .current-dot-radd {
+                                                opacity: 0;
+                                            }
+                                        </style>
+                                        <!-- Source de tension -->
+                                        <circle cx="35" cy="20" r="6" fill="white" stroke="black" stroke-width="2"/>
+                                        <text x="20" y="15" font-size="14" font-weight="bold">+</text>
+                                        <line x1="35" y1="26" x2="35" y2="45" stroke="black" stroke-width="2.5"/>
+                                        <!-- Flèche de courant -->
+                                        <defs>
+                                            <marker id="arrowRedRadd" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                            </marker>
+                                        </defs>
+                                        <line x1="35" y1="30" x2="35" y2="42" stroke="red" stroke-width="2.5" marker-end="url(#arrowRedRadd)"/>
+                                        <text x="48" y="37" font-size="13" fill="red" font-weight="bold">I_nom</text>
+                                        <!-- Résistance additionnelle -->
+                                        <rect x="13" y="45" width="44" height="28" fill="none" stroke="#FF6B35" stroke-width="2.5"/>
+                                        <text x="35" y="62" font-size="12" text-anchor="middle" font-weight="bold">R_add</text>
+                                        <line x1="35" y1="73" x2="35" y2="87" stroke="black" stroke-width="2.5"/>
+                                        <!-- Voltmètre (cercle avec V) -->
+                                        <circle cx="35" cy="105" r="18" fill="white" stroke="#1976D2" stroke-width="2.5"/>
+                                        <text x="35" y="112" font-size="16" text-anchor="middle" font-weight="bold" fill="#1976D2">V</text>
+                                        <line x1="35" y1="123" x2="35" y2="133" stroke="black" stroke-width="2.5"/>
+                                        <!-- Borne négative -->
+                                        <circle cx="35" cy="133" r="6" fill="white" stroke="black" stroke-width="2"/>
+                                        <text x="45" y="136" font-size="14" font-weight="bold">-</text>
+                                        <!-- Tension U_add -->
+                                        <defs>
+                                            <marker id="arrowOrangeRadd" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                <path d="M0,0 L0,5 L6,2.5 z" fill="#FF6B35"/>
+                                            </marker>
+                                        </defs>
+                                        <line x1="80" y1="71" x2="80" y2="48" stroke="#FF6B35" stroke-width="2.5" marker-end="url(#arrowOrangeRadd)"/>
+                                        <text x="90" y="61" font-size="13" fill="#FF6B35" font-weight="bold">U_add</text>
+                                        <!-- Points de courant animés -->
+                                        <circle class="current-dot-radd" cx="35" cy="20" r="3.5" fill="#E53935"/>
+                                        <circle class="current-dot-radd" cx="35" cy="20" r="3.5" fill="#E53935" style="animation-delay: 0.4s;"/>
+                                        <circle class="current-dot-radd" cx="35" cy="20" r="3.5" fill="#E53935" style="animation-delay: 0.8s;"/>
+                                    </svg>
+                                </td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( R_{add} = \frac{U_{add}}{I_{nominal}} = [Ω] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( U_{add} = R_{add} \cdot I_{nominal} = [V] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 02.4.2 : Résistance shunt -->
+                <h3 id="resistance-shunt" style="color: #000000; margin-top: 40px; font-size: 1.6rem;">
+                    <svg style="width: 48px; height: 48px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 24 24" fill="none">
+                        <line x1="0" y1="12" x2="5" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                        <rect x="5" y="8" width="14" height="8" rx="2" stroke="#22c55e" stroke-width="1.5" fill="#e8f5ee"/>
+                        <line x1="19" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                        <text x="12" y="15" text-anchor="middle" font-size="5" fill="#1a5c35" font-family="Georgia,serif" font-style="italic">R</text>
+                    </svg>
+                    2.4.2 Résistance shunt
+                </h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Formule : Courant shunt -->
+                            <tr class="shunt-row">
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Courant dans le shunt</strong></td>
+                                <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                    \( I_{shunt} = I - I_{nominal} = [A] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( I_{shunt} \) = Courant dans le shunt = [A]<br>
+                                    \( I \) = Courant total à mesurer = [A]<br>
+                                    \( I_{nominal} \) = Courant nominal de l'appareil = [A]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Résistance ajoutée en parallèle avec un appareil de mesure (ampèremètre) pour augmenter sa plage de mesure. Dérive une partie du courant.
+                                </td>
+                                <td style="text-align: center;">
+                                    <svg width="280" height="160" viewBox="0 0 240 130" class="circuit-shunt" style="max-width: 100%; height: auto;">
+                                        <style>
+                                            @keyframes flowShuntTop {
+                                                0% { transform: translate(0, 0); opacity: 1; }
+                                                100% { transform: translate(140px, 0); opacity: 0; }
+                                            }
+                                            @keyframes flowShuntBottom {
+                                                0% { transform: translate(0, 0); opacity: 1; }
+                                                100% { transform: translate(140px, 0); opacity: 0; }
+                                            }
+                                            .shunt-row:hover .current-dot-shunt-top {
+                                                animation: flowShuntTop 2s linear infinite;
+                                                opacity: 1;
+                                            }
+                                            .shunt-row:hover .current-dot-shunt-bottom {
+                                                animation: flowShuntBottom 2s linear infinite;
+                                                opacity: 1;
+                                            }
+                                            .current-dot-shunt-top, .current-dot-shunt-bottom {
+                                                opacity: 0;
+                                            }
+                                        </style>
+                                        <!-- Source -->
+                                        <circle cx="25" cy="65" r="6" fill="white" stroke="black" stroke-width="2"/>
+                                        <text x="10" y="60" font-size="14" font-weight="bold">+</text>
+                                        <line x1="31" y1="65" x2="55" y2="65" stroke="black" stroke-width="2.5"/>
+                                        <!-- Flèche courant total -->
+                                        <defs>
+                                            <marker id="arrowRedShunt" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                            </marker>
+                                        </defs>
+                                        <line x1="35" y1="65" x2="51" y2="65" stroke="red" stroke-width="2.5" marker-end="url(#arrowRedShunt)"/>
+                                        <text x="43" y="55" font-size="13" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                        <!-- Noeud de division -->
+                                        <circle cx="55" cy="65" r="3" fill="black"/>
+                                        <!-- Branche supérieure (Ampèremètre) -->
+                                        <line x1="55" y1="65" x2="55" y2="30" stroke="black" stroke-width="2.5"/>
+                                        <line x1="55" y1="30" x2="130" y2="30" stroke="black" stroke-width="2.5"/>
+                                        <!-- Ampèremètre -->
+                                        <circle cx="92" cy="30" r="15" fill="white" stroke="#1976D2" stroke-width="2.5"/>
+                                        <text x="92" y="36" font-size="14" text-anchor="middle" font-weight="bold" fill="#1976D2">A</text>
+                                        <!-- Flèche I_nominal -->
+                                        <line x1="60" y1="30" x2="75" y2="30" stroke="#1976D2" stroke-width="2.5" marker-end="url(#arrowBlueShunt)"/>
+                                        <defs>
+                                            <marker id="arrowBlueShunt" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                <path d="M0,0 L0,5 L6,2.5 z" fill="#1976D2"/>
+                                            </marker>
+                                        </defs>
+                                        <text x="68" y="20" font-size="12" fill="#1976D2" font-weight="bold" text-anchor="middle">I_nom</text>
+                                        <!-- Branche inférieure (Shunt) -->
+                                        <line x1="55" y1="65" x2="55" y2="100" stroke="black" stroke-width="2.5"/>
+                                        <line x1="55" y1="100" x2="75" y2="100" stroke="black" stroke-width="2.5"/>
+                                        <!-- Résistance shunt -->
+                                        <rect x="75" y="90" width="55" height="20" fill="none" stroke="#FF6B35" stroke-width="2.5"/>
+                                        <text x="102.5" y="102" font-size="11" text-anchor="middle" font-weight="bold">R_shunt</text>
+                                        <line x1="130" y1="100" x2="130" y2="30" stroke="black" stroke-width="2.5"/>
+                                        <!-- Flèche I_shunt -->
+                                        <line x1="60" y1="100" x2="72" y2="100" stroke="#FF6B35" stroke-width="2.5" marker-end="url(#arrowOrangeShunt)"/>
+                                        <defs>
+                                            <marker id="arrowOrangeShunt" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                <path d="M0,0 L0,5 L6,2.5 z" fill="#FF6B35"/>
+                                            </marker>
+                                        </defs>
+                                        <text x="66" y="115" font-size="12" fill="#FF6B35" font-weight="bold" text-anchor="middle">I_shunt</text>
+                                        <!-- Retour -->
+                                        <line x1="130" y1="65" x2="165" y2="65" stroke="black" stroke-width="2.5"/>
+                                        <circle cx="165" cy="65" r="6" fill="white" stroke="black" stroke-width="2"/>
+                                        <text x="175" y="68" font-size="14" font-weight="bold">-</text>
+                                        <!-- Points de courant animés -->
+                                        <circle class="current-dot-shunt-top" cx="25" cy="30" r="3" fill="#1976D2"/>
+                                        <circle class="current-dot-shunt-top" cx="25" cy="30" r="3" fill="#1976D2" style="animation-delay: 0.5s;"/>
+                                        <circle class="current-dot-shunt-bottom" cx="25" cy="100" r="3" fill="#FF6B35"/>
+                                        <circle class="current-dot-shunt-bottom" cx="25" cy="100" r="3" fill="#FF6B35" style="animation-delay: 0.5s;"/>
+                                    </svg>
+                                </td>
+                            </tr>
+                            
+                            <!-- Formule alternative -->
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Courant nominal de l'appareil</strong></td>
+                                <td class="formula" style="font-size: 1.05rem; padding: 20px;">
+                                    \( I_{nominal} = I - I_{shunt} = [A] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( I_{nominal} \) = Courant nominal de l'appareil = [A]<br>
+                                    \( I \) = Courant total = [A]<br>
+                                    \( I_{shunt} \) = Courant dans le shunt = [A]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Courant qui traverse l'appareil de mesure. Le reste du courant passe par le shunt.
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( I = I_{nominal} + I_{shunt} = [A] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Note importante -->
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 8px; margin: 30px 0; border-left: 5px solid #2196F3;">
+                    <h4 style="color: #1565C0; margin-top: 0;">💡 Applications pratiques</h4>
+                    <ul style="color: #1565C0; line-height: 1.8;">
+                        <li><strong>Diviseur de tension</strong> : Utilisé pour réduire une tension (alimentation, capteurs, circuits électroniques).</li>
+                        <li><strong>Résistance additionnelle</strong> : Permet d'augmenter la plage de mesure d'un voltmètre (ex: mesurer 230V avec un voltmètre 10V).</li>
+                        <li><strong>Résistance shunt</strong> : Permet d'augmenter la plage de mesure d'un ampèremètre (ex: mesurer 100A avec un ampèremètre 1A).</li>
+                        <li><strong>⚠️ Attention</strong> : La résistance additionnelle est en <strong>série</strong>, le shunt est en <strong>parallèle</strong>.</li>
+                    </ul>
+                </div>
+
+                <!-- Numérotation de page -->
+                <div class="page-number" style="text-align: center; margin-top: 40px; padding: 20px 0; font-size: 1.2rem; color: #667eea; font-weight: 600;">
+                    Page 8
+                </div>
+            </section>
+            </div>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schéma Rallonges en Série - Résistances</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px;
+            margin: 0;
+        }
+        
+        .schema-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #8B5CF6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .rallonges-serie {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .resistance-box {
+            background: white;
+            border: 3px solid #22c55e;
+            border-radius: 8px;
+            padding: 20px 30px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #22c55e;
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.2);
+        }
+        
+        .rallonge-img {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .plus-sign {
+            font-size: 36px;
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .explication {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e0e7ff;
+            border-left: 4px solid #8B5CF6;
+            border-radius: 4px;
+        }
+        
+        .explication h2 {
+            color: #8B5CF6;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+        
+        .explication p {
+            line-height: 1.8;
+            color: #333;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="schema-container">
+        <h1>🔌 Rallonges en Série = Résistances en Série</h1>
+        
+        <div class="rallonges-serie">
+            <div class="resistance-box">R₁</div>
+            <span class="plus-sign">+</span>
+            <img src="../assets/images/rallonge.jpg" alt="Rallonge électrique" class="rallonge-img">
+            <span class="plus-sign">+</span>
+            <div class="resistance-box">R₂</div>
+            <span class="plus-sign">+</span>
+            <img src="../assets/images/rallonge.jpg" alt="Rallonge électrique" class="rallonge-img">
+            <span class="plus-sign">+</span>
+            <div class="resistance-box">R₃</div>
+            <span class="plus-sign">+</span>
+            <img src="../assets/images/rallonge.jpg" alt="Rallonge électrique" class="rallonge-img">
+        </div>
+        
+        <div class="explication">
+            <h2>💡 Explication</h2>
+            <p><strong>Chaque rallonge électrique possède une résistance interne</strong> due à la longueur et à la section de ses conducteurs.</p>
+            <p>Lorsque plusieurs rallonges sont branchées <strong>en série</strong> (l'une après l'autre), leurs résistances s'additionnent :</p>
+            <p style="text-align: center; font-size: 1.2rem; color: #8B5CF6; font-weight: bold; margin: 20px 0;">
+                R<sub>total</sub> = R₁ + R₂ + R₃ + ...
+            </p>
+            <p><strong>Conséquence :</strong> Plus on ajoute de rallonges, plus la résistance totale augmente, ce qui entraîne :</p>
+            <ul>
+                <li>Une <strong>chute de tension</strong> plus importante</li>
+                <li>Un <strong>échauffement</strong> des câbles</li>
+                <li>Une <strong>perte de puissance</strong> pour les appareils</li>
+            </ul>
+            <p style="color: #dc2626; font-weight: bold;">⚠️ C'est pourquoi il est déconseillé de brancher trop de rallonges en série !</p>
+        </div>
+    </div>
+</body>
+</html>

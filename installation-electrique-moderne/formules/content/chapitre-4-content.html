@@ -1,0 +1,507 @@
+
+            <section id="calorifique" class="content-section">
+                <h2 data-icon="🔥">04. Effet calorifique du courant</h2>
+                
+                <!-- Sous-chapitre 04.1 : Production de chaleur -->
+                <h3 id="production-chaleur">04.1 Production de chaleur</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Formule 1: Quantité de chaleur fournie par un corps de chauffe -->
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Quantité de chaleur fournie par un corps de chauffe</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( Q_1 = U \cdot I \cdot t = P \cdot t = [J] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( Q_1 \) = Quantité d'énergie électrique = Joule = [J]<br>
+                                    \( P \) = Puissance électrique = [W]<br>
+                                    \( U \) = Tension aux bornes du corps de chauffe = [V]<br>
+                                    \( I \) = Courant traversant le corps de chauffe = [A]<br>
+                                    \( R \) = Résistance du corps de chauffe = [Ω]<br>
+                                    \( t \) = temps = sec = [s]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Énergie électrique transformée en chaleur par effet Joule dans un corps de chauffe (résistance électrique).
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( Q_1 = \frac{U^2}{R} \cdot t = [J] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( Q_1 = R \cdot I^2 \cdot t = [J] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( U = \sqrt{\frac{Q_1 \cdot R}{t}} = [V] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( I = \sqrt{\frac{Q_1}{R \cdot t}} = [A] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( R = \frac{U^2 \cdot t}{Q_1} = [\Omega] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( t = \frac{Q_1 \cdot R}{U^2} = [s] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( t = \frac{Q_1}{U \cdot I} = [s] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formule 2: Quantité de chaleur utile pour chauffer une masse -->
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Quantité de chaleur utile pour chauffer une masse</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( Q_2 = m \cdot c \cdot \Delta\theta = m \cdot c \cdot (\theta_2 - \theta_1) = [J] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( Q_2 \) = Quantité d'énergie utile pour chauffer une masse = Joule = [J]<br>
+                                    \( m \) = masse = [kg]<br>
+                                    \( c \) = chaleur massique = \( \left[\frac{J}{kg \cdot °C}\right] \)<br>
+                                    \( \Delta\theta \) = différence de température = [°C]<br>
+                                    \( \theta_1 \) = température de départ = [°C]<br>
+                                    \( \theta_2 \) = température finale = [°C]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Quantité de chaleur nécessaire pour élever la température d'une masse donnée. La chaleur massique \( c \) dépend du matériau.
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Tableau de chaleur massique (page 27) -->
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin: 30px 0;">
+                    <h4 style="color: #FF6B35; margin-bottom: 20px; font-size: 1.3rem;">🌡️ Quelques valeurs de chaleur massique</h4>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 22%;">Matériau</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd; width: 28%;">\( c = \left[\frac{J}{kg \cdot °C}\right] \)</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 22%;">Matériau</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd; width: 28%;">\( c = \left[\frac{J}{kg \cdot °C}\right] \)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Acier</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">460</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Platine</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">134</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Aluminium</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">904</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Plomb</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">130</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Argent</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">234</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600; font-style: italic;"><strong>Liquide</strong></td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"></td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Bronze</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">357</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Alcool</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">2426</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Constantan</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">410</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Benzine</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">1715</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Cuivre</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">394</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Eau (15°)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">4187</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Étain</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">250</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Huile moteur</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">1670</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Fer</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">450</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Pétrole</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">2090</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Fonte</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">532</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600; font-style: italic;"><strong>Divers</strong></td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"></td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Laiton</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">390</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Béton</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">879</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Mercure</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">133</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Bois de sapin</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">2510</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Or</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">130</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Glace 0°C</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">2092</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.2 : Rendement thermique -->
+                <h3 id="rendement-thermique">04.2 Rendement thermique</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Rendement thermique</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( \eta = \frac{Q_2}{Q_1} = \frac{Q_{utile}}{Q_{fournie}} = [-] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( \eta \) = rendement thermique = [-]<br>
+                                    \( Q_2 \) = chaleur utile = [J]<br>
+                                    \( Q_1 \) = chaleur fournie = [J]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Rapport entre l'énergie thermique utile et l'énergie électrique fournie. Toujours inférieur à 1 (ou 100%) à cause des pertes.
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( Q_2 = Q_1 \cdot \eta = [J] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( Q_1 = \frac{Q_2}{\eta} = [J] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.3 : Perte dans un conducteur -->
+                <h3 id="perte-conducteur">04.3 Perte dans un conducteur</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Perte d'énergie dans un conducteur (effet Joule)</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( W = R_{cond} \cdot I^2 \cdot t = [J] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( W \) = Quantité d'énergie dégagée par le conducteur = Joule = [J]<br>
+                                    \( R_{cond} \) = Résistance du conducteur = [Ω]<br>
+                                    \( I \) = courant dans le conducteur = [A]<br>
+                                    \( t \) = temps = [s]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Pertes par effet Joule dans les conducteurs. Cette énergie est dissipée sous forme de chaleur et représente une perte pour l'installation.
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( R_{cond} = \frac{W}{I^2 \cdot t} = [\Omega] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( I = \sqrt{\frac{W}{R_{cond} \cdot t}} = [A] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( t = \frac{W}{R_{cond} \cdot I^2} = [s] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.4 : Conversion d'énergies -->
+                <h3 id="conversion-energies">04.4 Conversion d'énergies</h3>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <h4 style="color: #FF6B35; margin-bottom: 15px;">📊 Tableau de conversion d'énergies</h4>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">De</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Vers</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Formule</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">1[Wh]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">→ 3600[J]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">1 Wh = 3600 J</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">1[kWh]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">→ 3'600'000[J]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">1 kWh = 3,6·10⁶ J</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">1[J]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">→ 0,000'277[Wh]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">1 J = 2,77·10⁻⁴ Wh</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">1[kJ]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">→ 0,277[Wh]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">1 kJ = 0,277 Wh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.5 : Densité de courant -->
+                <h3 id="densite-courant">04.5 Densité de courant</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Densité de courant dans un conducteur</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( J = \frac{I}{A} = \left[\frac{A}{mm^2}\right] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( J \) = Densité de courant dans un conducteur = [A/mm²]<br>
+                                    \( I \) = Courant dans le conducteur = [A]<br>
+                                    \( A \) = Section du conducteur = [mm²]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Intensité du courant par unité de surface. Une densité trop élevée provoque un échauffement excessif du conducteur. Valeurs typiques: 4-6 A/mm² pour installations fixes.
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( I = J \cdot A = [A] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( A = \frac{I}{J} = [mm^2] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.6 : Effet thermique sur les résistances -->
+                <h3 id="effet-thermique-resistances">04.6 Effet thermique sur les résistances</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Variation de la résistance avec la température</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( R_\theta = R_{20} \cdot [1 + \alpha \cdot (\theta - 20)] = [\Omega] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( R_\theta \) = Résistance à la température θ = [Ω]<br>
+                                    \( R_{20} \) = Résistance à 20°C = [Ω]<br>
+                                    \( \alpha \) = Coefficient de température = [1/°C]<br>
+                                    \( \theta \) = Température du conducteur = [°C]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    La résistance des conducteurs métalliques augmente avec la température. Le coefficient α dépend du matériau (Cuivre: 0,004/°C).
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Tableau des coefficients de température (page 29) -->
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin: 30px 0;">
+                    <h4 style="color: #FF6B35; margin-bottom: 20px; font-size: 1.3rem;">💡 Coefficients de température des matériaux</h4>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 22%;">Matériau</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd; width: 28%;">\( \alpha = \left[\frac{1}{°C}\right] \) ou \( \left[\frac{1}{K}\right] \)</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 22%;">Matériau</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd; width: 28%;">\( \alpha = \left[\frac{1}{°C}\right] \) ou \( \left[\frac{1}{K}\right] \)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Aluminium</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Charbon</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">- 0,003</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Argent</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Germanium</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">- 0,05</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Cuivre</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Silicium</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">- 0,075</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Chrome-nickel</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,0002</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Constantan</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,00004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Étain</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Fer</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,005</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Or</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: #666; font-style: italic;">
+                        ⚠️ <strong>Note:</strong> Les coefficients négatifs (Charbon, Germanium, Silicium) indiquent que la résistance diminue avec l'augmentation de la température (comportement des semi-conducteurs).
+                    </p>
+                </div>
+            </section>
+            
+            <div class="navigation-footer">
+                <a href="chapitre-3.html" class="btn-prev">← Chapitre 03 : Travail, énergie et puissance</a>
+                <a href="index.html#pile" class="btn-next">Chapitre 05 : Pile et accumulateur →</a>
+            </div>
+        

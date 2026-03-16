@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chapitre 4 - Effet Calorifique - Formulaires d'électrotechnique">
+    <meta name="author" content="Denis (DS_de_Mo) - Modernisé par Garibobo 2026">
+    <title>Chapitre 4 - Effet Calorifique - Formulaires Électrotechnique Garibobo</title>
+    
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 1.8,
+                minScale: 1.6,
+                mtextInheritFont: true
+            },
+            chtml: {
+                scale: 1.8,
+                minScale: 1.6,
+                mtextInheritFont: true
+            },
+            options: {
+                enableMenu: false,
+                renderActions: {
+                    addMenu: []
+                }
+            }
+        };
+    </script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-size: 18px;
+            background-color: #f8f9fa;
+        }
+        
+        /* Styles MathJax optimisés pour grand écran et PDF */
+        .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+            font-size: 1.8em !important;
+            line-height: 2.2 !important;
+            margin: 0.6em 0 !important;
+        }
+        
+        .formula-table .MathJax,
+        .formula-table .MathJax_Display,
+        .formula-table .MathJax_SVG,
+        .formula-table .MathJax_CHTML {
+            font-size: 1.8em !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.03em !important;
+        }
+        
+        td .MathJax,
+        p .MathJax {
+            font-size: 1.8em !important;
+            vertical-align: middle !important;
+        }
+        
+        @media print {
+            .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+                font-size: 1.9em !important;
+                page-break-inside: avoid !important;
+            }
+        }
+        
+        @media screen and (min-width: 1920px) {
+            .MathJax, .MathJax_Display, .MathJax_SVG, .MathJax_CHTML {
+                font-size: 2em !important;
+            }
+            .formula-table .MathJax {
+                font-size: 2em !important;
+            }
+        }
+        
+        /* Styles hover pour tableaux de formules */
+        .formula-table {
+            overflow: visible;
+            padding: 20px 0;
+        }
+        
+        .formula-table tbody tr {
+            transition: all 0.3s ease;
+            transform: scale(0.98);
+            transform-origin: center;
+        }
+        
+        .formula-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            transform: scale(1);
+            transform-origin: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25), 
+                        0 0 30px rgba(102, 126, 234, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                        0 0 0 4px #FF9800,
+                        0 0 0 8px #FFB74D;
+            border-radius: 8px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #047857 0%, #14b8a6 100%);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 30px 0;
+            z-index: 100;
+        }
+        .sidebar-header {
+            padding: 0 25px 20px 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+        .sidebar-header h2 {
+            font-size: 1.4em;
+            margin: 0 0 10px 0;
+        }
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: #FFF;
+        }
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 40px 20px;
+        }
+        .content-section {
+            background: white;
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        .content-section h2 {
+            font-size: 2.8rem;
+            color: #FF6B35;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .content-section h2::before {
+            content: attr(data-icon);
+            font-size: 3rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+        .formula-table {
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .formula-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .formula-table thead {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        .formula-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+        
+        .formula-table tbody {
+            display: block;
+            overflow: visible;
+        }
+        
+        .formula-table tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        .formula-table td {
+            padding: 25px 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+            vertical-align: middle;
+        }
+        .formula-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            transform: scale(1.03);
+            transform-origin: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25), 
+                        0 0 30px rgba(102, 126, 234, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                        0 0 0 4px #FF9800,
+                        0 0 0 8px #FFB74D;
+            border-radius: 8px;
+            position: relative;
+            z-index: 10;
+            margin: 15px 0;
+            padding: 5px;
+        }
+        .formula {
+            font-family: 'Consolas', monospace;
+            font-weight: 600;
+            color: #000000;
+            font-size: 1.2em;
+        }
+        .navigation-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 40px;
+            background: white;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        .navigation-footer a {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #047857 0%, #14b8a6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .footer {
+            background: #e9ecef;
+            color: #1a1a1a;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .footer strong {
+            color: #047857;
+        }
+        .footer-links a {
+            color: #047857;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <aside class="sidebar">
+            <div class="sidebar-header" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: white; padding: 25px 20px; margin: -30px 0 20px 0; text-align: center;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px;">
+                    <span style="font-size: 1.8rem;">📐</span>
+                    <h2 style="margin: 0; font-size: 1.3rem; font-weight: 700; color: white;">Formulaires Électrotechnique</h2>
+                </div>
+                <p style="margin: 0 0 15px 0; font-size: 0.85rem; opacity: 0.95; color: white;">Formules essentielles pour le domaine de l'électricité</p>
+                <a href="../index.html" style="display: inline-block; color: white; text-decoration: none; padding: 8px 20px; background: rgba(255,255,255,0.2); border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; border: 2px solid rgba(255,255,255,0.3);">
+                    ← Retour à l'accueil
+                </a>
+            </div>
+            <div style="padding: 0 20px 10px 20px;">
+                <p style="font-size: 0.85rem; color: #6b7280; margin: 0; font-weight: 600;">Navigation rapide</p>
+            </div>
+            
+            <nav>
+                <ul class="sidebar-menu">
+                    <!-- CHAPITRE 1: Loi d'Ohm -->
+                    <li>
+                        <a href="chapitre-1.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <circle cx="17" cy="17" r="15" fill="#e8f5ee" stroke="#1a5c35" stroke-width="1.8"/>
+                                <circle cx="17" cy="17" r="10" fill="none" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,3"/>
+                                <text x="17" y="23" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="16" fill="#1a5c35" font-weight="bold">Ω</text>
+                            </svg>
+                            01. Loi d'Ohm
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-1.html#resistance-conducteurs">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="0" y1="12" x2="5" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                                <rect x="5" y="8" width="14" height="8" rx="2" stroke="#22c55e" stroke-width="1.5" fill="#e8f5ee"/>
+                                <line x1="19" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                                <text x="12" y="15" text-anchor="middle" font-size="5" fill="#1a5c35" font-family="Georgia,serif" font-style="italic">R</text>
+                            </svg>
+                            ↳ 01.2 Résistance d'un conducteur
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 2: Couplages de résistances -->
+                    <li>
+                        <a href="chapitre-2.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#e8f5ee" stroke="#1a5c35" stroke-width="1.8"/>
+                                <line x1="2" y1="17" x2="7" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                                <rect x="7" y="13" width="6" height="8" rx="1" fill="white" stroke="#1a5c35" stroke-width="1.5"/>
+                                <line x1="13" y1="17" x2="18" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                                <rect x="18" y="13" width="6" height="8" rx="1" fill="white" stroke="#1a5c35" stroke-width="1.5"/>
+                                <line x1="24" y1="17" x2="32" y2="17" stroke="#1a5c35" stroke-width="1.6"/>
+                            </svg>
+                            02. Couplages de résistances
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-2.html#circuit-serie">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="0" y1="12" x2="4" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="4" y="8" width="7" height="8" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <line x1="11" y1="12" x2="15" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="15" y="8" width="7" height="8" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <line x1="22" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                            </svg>
+                            ↳ 02.1 Circuit série
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-2.html#resistance-ligne">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="1" y1="8" x2="23" y2="8" stroke="#f97316" stroke-width="1.8"/>
+                                <line x1="1" y1="16" x2="23" y2="16" stroke="#2563eb" stroke-width="1.8"/>
+                                <rect x="7" y="10" width="10" height="4" rx="1" fill="#e8f5ee" stroke="#22c55e" stroke-width="1.2"/>
+                                <text x="12" y="14" text-anchor="middle" font-size="3.5" fill="#1a5c35" font-family="monospace">ΔU</text>
+                            </svg>
+                            ↳ 02.2 Résistance et chute de tension
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-2.html#circuit-parallele">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="0" y1="12" x2="5" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                                <line x1="5" y1="5" x2="5" y2="19" stroke="#22c55e" stroke-width="1.5"/>
+                                <line x1="19" y1="5" x2="19" y2="19" stroke="#22c55e" stroke-width="1.5"/>
+                                <line x1="19" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="5" y="3" width="14" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <rect x="5" y="11" width="14" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <rect x="5" y="17" width="14" height="4" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                            </svg>
+                            ↳ 02.3 Circuit parallèle
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-2.html#diviseur-tension">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="12" y1="0" x2="12" y2="5" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="6" y="5" width="12" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <line x1="12" y1="10" x2="12" y2="14" stroke="#22c55e" stroke-width="1.5"/>
+                                <rect x="6" y="14" width="12" height="5" rx="1" fill="none" stroke="#22c55e" stroke-width="1.4"/>
+                                <line x1="12" y1="19" x2="12" y2="24" stroke="#22c55e" stroke-width="1.5"/>
+                                <line x1="12" y1="12" x2="21" y2="12" stroke="#f97316" stroke-width="1.3" stroke-dasharray="2,1"/>
+                                <circle cx="21" cy="12" r="1.5" fill="#f97316"/>
+                            </svg>
+                            ↳ 02.4 Diviseur de tension
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 3: Travail, énergie et puissance électrique -->
+                    <li>
+                        <a href="chapitre-3.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="1.8"/>
+                                <polygon points="17,5 21,13 30,14.5 23.5,21 25,29 17,25 9,29 10.5,21 4,14.5 13,13" fill="none" stroke="#f97316" stroke-width="1.6"/>
+                                <text x="17" y="21" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="10" fill="#f97316" font-weight="bold">P</text>
+                            </svg>
+                            03. Travail, énergie et puissance électrique
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-3.html#compteur-energie">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="5" width="18" height="14" rx="2" fill="#fff7ed" stroke="#f97316" stroke-width="1.4"/>
+                                <line x1="3" y1="14" x2="21" y2="14" stroke="#f97316" stroke-width="1"/>
+                                <text x="12" y="12" text-anchor="middle" font-size="4.5" fill="#f97316" font-family="monospace" font-weight="bold">kWh</text>
+                                <rect x="7" y="15.5" width="10" height="2" rx=".5" fill="#f97316" opacity=".35"/>
+                            </svg>
+                            ↳ 03.1 Puissance avec un compteur d'énergie
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-3.html#puissance-electrique">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.4"/>
+                                <text x="12" y="17" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="13" fill="#f97316" font-weight="bold">P</text>
+                            </svg>
+                            ↳ 03.2 Puissance électrique
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-3.html#rendement">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <path d="M2 20 Q12 3 22 20" stroke="#22c55e" stroke-width="1.5" fill="none"/>
+                                <line x1="12" y1="20" x2="12" y2="8" stroke="#f97316" stroke-width="1.2" stroke-dasharray="2,1.5"/>
+                                <text x="12" y="23.5" text-anchor="middle" font-size="5.5" fill="#f97316" font-family="Georgia,serif" font-style="italic">η</text>
+                            </svg>
+                            ↳ 03.3 Rendement
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 4: Effet calorifique du courant -->
+                    <li>
+                        <a href="chapitre-4.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fff3e0" stroke="#e65100" stroke-width="1.8"/>
+                                <path d="M17 30 C11 25 9 18 13 13 C11 20 17 20 15 11 C20 15 21 9 17 5 C24 9 26 19 21 24 C23 19 20 28 17 30Z" fill="none" stroke="#e65100" stroke-width="1.7"/>
+                                <circle cx="17" cy="24" r="2.5" fill="#e65100" opacity=".5"/>
+                            </svg>
+                            04. Effet calorifique du courant
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#production-chaleur">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 22 C8 18 7 13 10 10 C9 15 12 15 11 8 C14 11 15 7 12 4 C17 7 18 14 15 18 C16 14 14 21 12 22Z" fill="none" stroke="#e65100" stroke-width="1.5"/>
+                                <circle cx="12" cy="18" r="1.8" fill="#e65100" opacity=".4"/>
+                            </svg>
+                            ↳ 04.1 Production de chaleur
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#rendement-thermique">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <path d="M2 18 Q12 4 22 18" stroke="#e65100" stroke-width="1.3" fill="none"/>
+                                <line x1="12" y1="18" x2="12" y2="8" stroke="#f97316" stroke-width="1.1" stroke-dasharray="1.5,1"/>
+                                <text x="12" y="22" text-anchor="middle" font-size="5" fill="#e65100" font-family="Georgia,serif" font-style="italic">η</text>
+                            </svg>
+                            ↳ 04.2 Rendement thermique
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#perte-conducteur">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <line x1="2" y1="12" x2="22" y2="12" stroke="#e65100" stroke-width="2.5"/>
+                                <path d="M8 8 L8 16 M12 6 L12 18 M16 8 L16 16" stroke="#f97316" stroke-width="1.2" opacity="0.6"/>
+                            </svg>
+                            ↳ 04.3 Perte dans un conducteur
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#conversion-energies">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <circle cx="6" cy="12" r="4" fill="none" stroke="#2563eb" stroke-width="1.3"/>
+                                <path d="M10 12 L14 12" stroke="#22c55e" stroke-width="1.5"/>
+                                <polygon points="13,10 17,12 13,14" fill="#22c55e"/>
+                                <circle cx="18" cy="12" r="4" fill="none" stroke="#e65100" stroke-width="1.3"/>
+                            </svg>
+                            ↳ 04.4 Conversion d'énergies
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#densite-courant">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="8" y="4" width="8" height="16" rx="1" fill="none" stroke="#e65100" stroke-width="1.4"/>
+                                <path d="M10 8 L14 8 M10 12 L14 12 M10 16 L14 16" stroke="#f97316" stroke-width="1" stroke-dasharray="2,1"/>
+                                <text x="12" y="22" text-anchor="middle" font-size="4" fill="#e65100" font-family="Georgia,serif" font-style="italic">J</text>
+                            </svg>
+                            ↳ 04.5 Densité de courant
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-4.html#effet-thermique-resistances">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="6" y="9" width="12" height="6" rx="1" fill="none" stroke="#e65100" stroke-width="1.3"/>
+                                <path d="M9 6 L9 9 M12 5 L12 9 M15 6 L15 9" stroke="#f97316" stroke-width="1.1"/>
+                                <text x="12" y="13.5" text-anchor="middle" font-size="3.5" fill="#e65100" font-family="Georgia,serif" font-style="italic">R</text>
+                            </svg>
+                            ↳ 04.6 Effet thermique sur les résistances
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 5: Pile et accumulateur -->
+                    <li>
+                        <a href="chapitre-5.html">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8"/>
+                                <rect x="10" y="8" width="14" height="20" rx="2" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+                                <rect x="13" y="5" width="3" height="3" fill="#16a34a"/>
+                                <rect x="18" y="5" width="3" height="3" fill="#16a34a"/>
+                                <line x1="14" y1="15" x2="20" y2="15" stroke="#16a34a" stroke-width="1.5"/>
+                                <line x1="17" y1="12" x2="17" y2="18" stroke="#16a34a" stroke-width="1.5"/>
+                                <line x1="14" y1="22" x2="20" y2="22" stroke="#16a34a" stroke-width="1.5"/>
+                            </svg>
+                            05. Pile et accumulateur
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-5.html#formules-base">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="6" y="6" width="12" height="12" rx="1.5" fill="none" stroke="#16a34a" stroke-width="1.4"/>
+                                <line x1="9" y1="12" x2="15" y2="12" stroke="#16a34a" stroke-width="1.3"/>
+                                <line x1="12" y1="9" x2="12" y2="15" stroke="#16a34a" stroke-width="1.3"/>
+                            </svg>
+                            ↳ 05.1 Formules de base
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-5.html#charge-pile">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="7" y="5" width="10" height="14" rx="1.5" fill="none" stroke="#16a34a" stroke-width="1.3"/>
+                                <path d="M9 9 L15 9 M9 12 L15 12 M9 15 L15 15" stroke="#22c55e" stroke-width="1" opacity="0.6"/>
+                                <polygon points="12,2 10,5 14,5" fill="#16a34a"/>
+                            </svg>
+                            ↳ 05.2 Charge d'une pile
+                        </a>
+                    </li>
+                    <li style="padding-left: 20px;">
+                        <a href="chapitre-5.html#couplage-piles">
+                            <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="7" width="7" height="10" rx="1" fill="none" stroke="#16a34a" stroke-width="1.2"/>
+                                <rect x="14" y="7" width="7" height="10" rx="1" fill="none" stroke="#16a34a" stroke-width="1.2"/>
+                                <line x1="10" y1="12" x2="14" y2="12" stroke="#22c55e" stroke-width="1.3"/>
+                            </svg>
+                            ↳ 05.3 Couplage de piles et accumulateurs
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 6: Magnétisme -->
+                    <li>
+                        <a href="index.html#magnetisme">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+                                <path d="M8 12 L8 22 L12 22 L12 18 L22 18 L22 22 L26 22 L26 12" stroke="#dc2626" stroke-width="2" fill="none"/>
+                                <circle cx="8" cy="12" r="2" fill="#dc2626"/>
+                                <circle cx="26" cy="12" r="2" fill="#2563eb"/>
+                                <text x="8" y="10" text-anchor="middle" font-size="6" fill="#dc2626" font-weight="bold">N</text>
+                                <text x="26" y="10" text-anchor="middle" font-size="6" fill="#2563eb" font-weight="bold">S</text>
+                            </svg>
+                            06. Magnétisme
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 7: Les condensateurs -->
+                    <li>
+                        <a href="index.html#condensateurs">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+                                <line x1="8" y1="17" x2="14" y2="17" stroke="#2563eb" stroke-width="1.5"/>
+                                <line x1="14" y1="10" x2="14" y2="24" stroke="#2563eb" stroke-width="2.5"/>
+                                <line x1="20" y1="10" x2="20" y2="24" stroke="#2563eb" stroke-width="2.5"/>
+                                <line x1="20" y1="17" x2="26" y2="17" stroke="#2563eb" stroke-width="1.5"/>
+                                <text x="17" y="8" text-anchor="middle" font-size="5" fill="#2563eb" font-family="Georgia,serif" font-style="italic">C</text>
+                            </svg>
+                            07. Les condensateurs
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 8: Appareils de mesures -->
+                    <li>
+                        <a href="index.html#mesures">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.8"/>
+                                <rect x="7" y="7" width="20" height="20" rx="2" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+                                <path d="M12 17 L15 14 L18 20 L22 12" stroke="#16a34a" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="12" cy="17" r="1.5" fill="#16a34a"/>
+                                <circle cx="22" cy="12" r="1.5" fill="#16a34a"/>
+                            </svg>
+                            08. Appareils de mesures
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 9: Courant et tension alternative en monophasé -->
+                    <li>
+                        <a href="index.html#monophase">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+                                <path d="M6 17 Q10 8 14 17 T22 17 T30 17" stroke="#2563eb" stroke-width="2" fill="none"/>
+                                <line x1="6" y1="17" x2="30" y2="17" stroke="#64748b" stroke-width="0.5" stroke-dasharray="2,2"/>
+                            </svg>
+                            09. Courant et tension alternative en monophasé
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 10: Triphasé -->
+                    <li>
+                        <a href="index.html#triphase">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.8"/>
+                                <path d="M6 17 Q9 10 12 17 T18 17" stroke="#dc2626" stroke-width="1.5" fill="none"/>
+                                <path d="M6 20 Q9 13 12 20 T18 20" stroke="#2563eb" stroke-width="1.5" fill="none"/>
+                                <path d="M6 23 Q9 16 12 23 T18 23" stroke="#16a34a" stroke-width="1.5" fill="none"/>
+                                <text x="24" y="15" font-size="5" fill="#dc2626" font-weight="bold">L1</text>
+                                <text x="24" y="20" font-size="5" fill="#2563eb" font-weight="bold">L2</text>
+                                <text x="24" y="25" font-size="5" fill="#16a34a" font-weight="bold">L3</text>
+                            </svg>
+                            10. Triphasé
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 11: Les moteurs -->
+                    <li>
+                        <a href="index.html#moteurs">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.8"/>
+                                <circle cx="17" cy="17" r="10" fill="none" stroke="#0284c7" stroke-width="1.5"/>
+                                <circle cx="17" cy="17" r="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.2"/>
+                                <path d="M17 11 L17 7 M17 27 L17 23 M11 17 L7 17 M27 17 L23 17" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"/>
+                                <text x="17" y="20" text-anchor="middle" font-size="6" fill="#0284c7" font-family="Georgia,serif" font-style="italic" font-weight="bold">M</text>
+                            </svg>
+                            11. Les moteurs
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 12: Les transformateurs -->
+                    <li>
+                        <a href="index.html#transformateurs">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+                                <circle cx="13" cy="17" r="6" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+                                <circle cx="21" cy="17" r="6" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+                                <line x1="17" y1="8" x2="17" y2="26" stroke="#64748b" stroke-width="1.5"/>
+                            </svg>
+                            12. Les transformateurs
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 13: Éclairage -->
+                    <li>
+                        <a href="index.html#eclairage">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.8"/>
+                                <circle cx="17" cy="15" r="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+                                <rect x="14" y="21" width="6" height="4" rx="1" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+                                <line x1="17" y1="5" x2="17" y2="8" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="9" y1="9" x2="11" y2="11" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="25" y1="9" x2="23" y2="11" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="6" y1="15" x2="9" y2="15" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                                <line x1="28" y1="15" x2="25" y2="15" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            13. Éclairage
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 14: Électronique -->
+                    <li>
+                        <a href="index.html#electronique">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.8"/>
+                                <rect x="8" y="8" width="18" height="18" rx="2" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.3"/>
+                                <circle cx="12" cy="12" r="1.5" fill="#7c3aed"/>
+                                <circle cx="22" cy="12" r="1.5" fill="#7c3aed"/>
+                                <circle cx="12" cy="22" r="1.5" fill="#7c3aed"/>
+                                <circle cx="22" cy="22" r="1.5" fill="#7c3aed"/>
+                                <path d="M12 12 L22 22 M22 12 L12 22" stroke="#7c3aed" stroke-width="0.8"/>
+                            </svg>
+                            14. Électronique
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 15: Sciences -->
+                    <li>
+                        <a href="index.html#sciences">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#ecfdf5" stroke="#059669" stroke-width="1.8"/>
+                                <path d="M12 8 L12 18 L10 22 L24 22 L22 18 L22 8" stroke="#059669" stroke-width="1.5" fill="none"/>
+                                <ellipse cx="17" cy="8" rx="5" ry="2" fill="none" stroke="#059669" stroke-width="1.5"/>
+                                <line x1="10" y1="22" x2="24" y2="22" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="17" cy="15" r="2" fill="#d1fae5" stroke="#059669" stroke-width="1"/>
+                            </svg>
+                            15. Sciences
+                        </a>
+                    </li>
+                    
+                    <!-- CHAPITRE 16: Annexes -->
+                    <li>
+                        <a href="index.html#annexes">
+                            <svg style="width: 24px; height: 24px; vertical-align: middle; margin-right: 10px;" viewBox="0 0 34 34" fill="none">
+                                <rect x="2" y="2" width="30" height="30" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+                                <rect x="9" y="6" width="16" height="22" rx="1" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+                                <line x1="12" y1="11" x2="22" y2="11" stroke="#d97706" stroke-width="1" stroke-linecap="round"/>
+                                <line x1="12" y1="15" x2="22" y2="15" stroke="#d97706" stroke-width="1" stroke-linecap="round"/>
+                                <line x1="12" y1="19" x2="18" y2="19" stroke="#d97706" stroke-width="1" stroke-linecap="round"/>
+                            </svg>
+                            16. Annexes
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <section id="calorifique" class="content-section">
+                <h2 data-icon="🔥">04. Effet calorifique du courant</h2>
+                
+                <!-- Sous-chapitre 04.1 : Production de chaleur -->
+                <h3 id="production-chaleur">04.1 Production de chaleur</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Formule 1: Quantité de chaleur fournie par un corps de chauffe -->
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Quantité de chaleur fournie par un corps de chauffe</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( Q_1 = U \cdot I \cdot t = P \cdot t = [J] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( Q_1 \) = Quantité d'énergie électrique = Joule = [J]<br>
+                                    \( P \) = Puissance électrique = [W]<br>
+                                    \( U \) = Tension aux bornes du corps de chauffe = [V]<br>
+                                    \( I \) = Courant traversant le corps de chauffe = [A]<br>
+                                    \( R \) = Résistance du corps de chauffe = [Ω]<br>
+                                    \( t \) = temps = sec = [s]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Énergie électrique transformée en chaleur par effet Joule dans un corps de chauffe (résistance électrique).
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( Q_1 = \frac{U^2}{R} \cdot t = [J] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( Q_1 = R \cdot I^2 \cdot t = [J] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( U = \sqrt{\frac{Q_1 \cdot R}{t}} = [V] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( I = \sqrt{\frac{Q_1}{R \cdot t}} = [A] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( R = \frac{U^2 \cdot t}{Q_1} = [\Omega] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( t = \frac{Q_1 \cdot R}{U^2} = [s] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( t = \frac{Q_1}{U \cdot I} = [s] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formule 2: Quantité de chaleur utile pour chauffer une masse -->
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Quantité de chaleur utile pour chauffer une masse</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( Q_2 = m \cdot c \cdot \Delta\theta = m \cdot c \cdot (\theta_2 - \theta_1) = [J] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( Q_2 \) = Quantité d'énergie utile pour chauffer une masse = Joule = [J]<br>
+                                    \( m \) = masse = [kg]<br>
+                                    \( c \) = chaleur massique = \( \left[\frac{J}{kg \cdot °C}\right] \)<br>
+                                    \( \Delta\theta \) = différence de température = [°C]<br>
+                                    \( \theta_1 \) = température de départ = [°C]<br>
+                                    \( \theta_2 \) = température finale = [°C]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Quantité de chaleur nécessaire pour élever la température d'une masse donnée. La chaleur massique \( c \) dépend du matériau.
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Tableau de chaleur massique (page 27) -->
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin: 30px 0;">
+                    <h4 style="color: #FF6B35; margin-bottom: 20px; font-size: 1.3rem;">🌡️ Quelques valeurs de chaleur massique</h4>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 22%;">Matériau</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd; width: 28%;">\( c = \left[\frac{J}{kg \cdot °C}\right] \)</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 22%;">Matériau</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd; width: 28%;">\( c = \left[\frac{J}{kg \cdot °C}\right] \)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Acier</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">460</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Platine</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">134</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Aluminium</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">904</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Plomb</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">130</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Argent</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">234</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600; font-style: italic;"><strong>Liquide</strong></td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"></td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Bronze</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">357</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Alcool</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">2426</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Constantan</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">410</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Benzine</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">1715</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Cuivre</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">394</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Eau (15°)</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">4187</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Étain</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">250</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Huile moteur</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">1670</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Fer</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">450</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Pétrole</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">2090</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Fonte</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">532</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600; font-style: italic;"><strong>Divers</strong></td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"></td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Laiton</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">390</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Béton</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">879</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Mercure</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">133</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Bois de sapin</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">2510</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Or</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">130</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Glace 0°C</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">2092</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.2 : Rendement thermique -->
+                <h3 id="rendement-thermique">04.2 Rendement thermique</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Rendement thermique</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( \eta = \frac{Q_2}{Q_1} = \frac{Q_{utile}}{Q_{fournie}} = [-] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( \eta \) = rendement thermique = [-]<br>
+                                    \( Q_2 \) = chaleur utile = [J]<br>
+                                    \( Q_1 \) = chaleur fournie = [J]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Rapport entre l'énergie thermique utile et l'énergie électrique fournie. Toujours inférieur à 1 (ou 100%) à cause des pertes.
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( Q_2 = Q_1 \cdot \eta = [J] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( Q_1 = \frac{Q_2}{\eta} = [J] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.3 : Perte dans un conducteur -->
+                <h3 id="perte-conducteur">04.3 Perte dans un conducteur</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Perte d'énergie dans un conducteur (effet Joule)</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( W = R_{cond} \cdot I^2 \cdot t = [J] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( W \) = Quantité d'énergie dégagée par le conducteur = Joule = [J]<br>
+                                    \( R_{cond} \) = Résistance du conducteur = [Ω]<br>
+                                    \( I \) = courant dans le conducteur = [A]<br>
+                                    \( t \) = temps = [s]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Pertes par effet Joule dans les conducteurs. Cette énergie est dissipée sous forme de chaleur et représente une perte pour l'installation.
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( R_{cond} = \frac{W}{I^2 \cdot t} = [\Omega] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( I = \sqrt{\frac{W}{R_{cond} \cdot t}} = [A] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( t = \frac{W}{R_{cond} \cdot I^2} = [s] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.4 : Conversion d'énergies -->
+                <h3 id="conversion-energies">04.4 Conversion d'énergies</h3>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <h4 style="color: #FF6B35; margin-bottom: 15px;">📊 Tableau de conversion d'énergies</h4>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">De</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Vers</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Formule</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">1[Wh]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">→ 3600[J]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">1 Wh = 3600 J</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">1[kWh]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">→ 3'600'000[J]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">1 kWh = 3,6·10⁶ J</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">1[J]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">→ 0,000'277[Wh]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">1 J = 2,77·10⁻⁴ Wh</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">1[kJ]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;">→ 0,277[Wh]</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">1 kJ = 0,277 Wh</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.5 : Densité de courant -->
+                <h3 id="densite-courant">04.5 Densité de courant</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Densité de courant dans un conducteur</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( J = \frac{I}{A} = \left[\frac{A}{mm^2}\right] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( J \) = Densité de courant dans un conducteur = [A/mm²]<br>
+                                    \( I \) = Courant dans le conducteur = [A]<br>
+                                    \( A \) = Section du conducteur = [mm²]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    Intensité du courant par unité de surface. Une densité trop élevée provoque un échauffement excessif du conducteur. Valeurs typiques: 4-6 A/mm² pour installations fixes.
+                                </td>
+                                <td></td>
+                            </tr>
+                            
+                            <!-- Formules dérivées -->
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( I = J \cdot A = [A] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="invisible-row">
+                                <td></td>
+                                <td class="formula">\( A = \frac{I}{J} = [mm^2] \)</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Sous-chapitre 04.6 : Effet thermique sur les résistances -->
+                <h3 id="effet-thermique-resistances">04.6 Effet thermique sur les résistances</h3>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de la formule</th>
+                                <th>Expression littérale</th>
+                                <th>Symboles de grandeurs et d'unités</th>
+                                <th>Explication</th>
+                                <th>Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 20px; font-size: 1.05rem;"><strong>Variation de la résistance avec la température</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">
+                                    \( R_\theta = R_{20} \cdot [1 + \alpha \cdot (\theta - 20)] = [\Omega] \)
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem;">
+                                    \( R_\theta \) = Résistance à la température θ = [Ω]<br>
+                                    \( R_{20} \) = Résistance à 20°C = [Ω]<br>
+                                    \( \alpha \) = Coefficient de température = [1/°C]<br>
+                                    \( \theta \) = Température du conducteur = [°C]
+                                </td>
+                                <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6;">
+                                    La résistance des conducteurs métalliques augmente avec la température. Le coefficient α dépend du matériau (Cuivre: 0,004/°C).
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Tableau des coefficients de température (page 29) -->
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin: 30px 0;">
+                    <h4 style="color: #FF6B35; margin-bottom: 20px; font-size: 1.3rem;">💡 Coefficients de température des matériaux</h4>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 22%;">Matériau</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd; width: 28%;">\( \alpha = \left[\frac{1}{°C}\right] \) ou \( \left[\frac{1}{K}\right] \)</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd; width: 22%;">Matériau</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd; width: 28%;">\( \alpha = \left[\frac{1}{°C}\right] \) ou \( \left[\frac{1}{K}\right] \)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Aluminium</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Charbon</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">- 0,003</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Argent</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Germanium</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">- 0,05</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Cuivre</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Silicium</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">- 0,075</td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Chrome-nickel</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,0002</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Constantan</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,00004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Étain</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Fer</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,005</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                            <tr style="background: #f8f9fa;">
+                                <td style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Or</td>
+                                <td style="padding: 12px; border: 1px solid #ddd; text-align: center; font-family: monospace;">0,004</td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                                <td style="padding: 12px; border: 1px solid #ddd;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: #666; font-style: italic;">
+                        ⚠️ <strong>Note:</strong> Les coefficients négatifs (Charbon, Germanium, Silicium) indiquent que la résistance diminue avec l'augmentation de la température (comportement des semi-conducteurs).
+                    </p>
+                </div>
+            </section>
+            
+            <div class="navigation-footer">
+                <a href="chapitre-3.html" class="btn-prev">← Chapitre 03 : Travail, énergie et puissance</a>
+                <a href="index.html#pile" class="btn-next">Chapitre 05 : Pile et accumulateur →</a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Contenu original par <strong>Denis (DS_de_Mo)</strong></p>
+            <p>Site modernisé par <strong>Garibobo</strong> - 2026</p>
+            <p class="footer-links">
+                <a href="../index.html">🏠 Accueil</a> |
+                <a href="https://tchapatch-stack.github.io/installations/" target="_blank">📚 Site Original</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

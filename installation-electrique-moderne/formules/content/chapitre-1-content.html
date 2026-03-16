@@ -1,0 +1,706 @@
+            <div class="container">
+                
+                <!-- Section 01: Loi d'Ohm -->
+            <section id="loi-ohm" class="content-section" style="position: relative;">
+                <!-- Bouton d'impression Page 1 -->
+                <button onclick="printSection('loi-ohm')" style="position: absolute; top: 20px; right: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Page 1</span>
+                </button>
+                
+                <h2 style="color: #000000;">
+                    <svg style="width: 64px; height: 64px; vertical-align: middle; margin-right: 15px;" viewBox="0 0 34 34" fill="none">
+                        <circle cx="17" cy="17" r="15" fill="#e8f5ee" stroke="#22c55e" stroke-width="1.8"/>
+                        <circle cx="17" cy="17" r="10" fill="none" stroke="#22c55e" stroke-width="1" stroke-dasharray="3,3"/>
+                        <text x="17" y="23" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="16" fill="#1a5c35" font-weight="bold">Ω</text>
+                    </svg>
+                    1. Loi d'Ohm
+                </h2>
+                
+                <!-- Roue d'Ohm colorisée avec appareils de mesure -->
+                <div style="margin-bottom: 40px; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);">
+                    <h3 style="text-align: center; color: #667eea; margin-bottom: 30px; font-size: 2rem;">⚡ La Roue d'Ohm</h3>
+                    <div style="display: flex; justify-content: center; align-items: center; max-width: 900px; margin: 0 auto;">
+                        <img src="../assets/images/roue-ohm-v3.svg" alt="Roue d'Ohm" style="width: 100%; max-width: 900px; height: auto;">
+                    </div>
+                    <p style="text-align: center; color: #333; font-size: 1rem; margin-top: 20px; font-style: italic;">
+                        💡 Roue d'Ohm avec les 4 grandeurs : <span style="color: #E53935; font-weight: bold;">I (Courant - Ampères [A])</span>, 
+                        <span style="color: #1d8bcc; font-weight: bold;">U (Tension - Volts [V])</span>, 
+                        <span style="color: #D4A017; font-weight: bold;">P (Puissance - Watts [W])</span>, 
+                        <span style="color: #7CB342; font-weight: bold;">R (Résistance - Ohms [Ω])</span>
+                    </p>
+                    <p style="text-align: center; color: black; font-size: 0.95rem; margin-top: 10px;">
+                        (En monophasé, uniquement valable pour les circuits purement ohmiques.)
+                    </p>
+                </div>
+                
+                <div class="formula-table" style="width: 100%;">
+                    <table style="width: 100%; table-layout: fixed;">
+                        <thead>
+                            <tr>
+                                <th style="width: 18%; font-size: 1.1rem; padding: 15px;">Nom de la formule</th>
+                                <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Expression littérale</th>
+                                <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Symboles de grandeurs et d'unités</th>
+                                <th style="width: 25%; font-size: 1.1rem; padding: 15px;">Explication</th>
+                                <th style="width: 13%; font-size: 1.1rem; padding: 15px; text-align: center;">Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="triangle-row">
+                                <td><strong>Formule de base</strong></td>
+                                <td class="formula">$U = R \cdot I$</td>
+                                <td class="description">U: tension [V]<br>I: courant [A]<br>R: résistance [Ω]</td>
+                                <td style="font-size: 1rem; text-align: left;">La tension est proportionnelle au courant et à la résistance</td>
+                                <td style="text-align: center;">
+                                    <svg width="120" height="140" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                        <style>
+                                            @keyframes pulseTriangle {
+                                                0%, 100% { transform: scale(1); }
+                                                50% { transform: scale(1.2); }
+                                            }
+                                            @keyframes glowTriangle {
+                                                0%, 100% { filter: drop-shadow(0 0 3px rgba(102, 126, 234, 0.3)); }
+                                                50% { filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.8)); }
+                                            }
+                                            @keyframes colorShift {
+                                                0%, 100% { fill: rgba(102, 126, 234, 0.05); }
+                                                50% { fill: rgba(102, 126, 234, 0.2); }
+                                            }
+                                            .triangle-row:hover .triangle-shape {
+                                                animation: pulseTriangle 1.5s ease-in-out infinite, glowTriangle 1.5s ease-in-out infinite, colorShift 1.5s ease-in-out infinite;
+                                                transform-origin: center;
+                                            }
+                                        </style>
+                                        <!-- Triangle principal -->
+                                        <polygon class="triangle-shape" points="50,10 85,80 15,80" 
+                                                 fill="rgba(102, 126, 234, 0.05)" 
+                                                 stroke="#667eea" 
+                                                 stroke-width="2" 
+                                                 stroke-linejoin="round"/>
+                                        
+                                        <!-- Ligne horizontale (sépare U de R et I) -->
+                                        <line x1="32" y1="45" x2="68" y2="45" 
+                                              stroke="#667eea" 
+                                              stroke-width="1.5"/>
+                                        
+                                        <!-- Ligne verticale (sépare R et I) -->
+                                        <line x1="50" y1="45" x2="50" y2="80" 
+                                              stroke="#667eea" 
+                                              stroke-width="1.5"/>
+                                        
+                                        <!-- Lettre U (en haut) - JAUNE -->
+                                        <text x="50" y="35" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="20" 
+                                              font-weight="bold" 
+                                              text-anchor="middle" 
+                                              fill="#FBBC05">U</text>
+                                        
+                                        <!-- Lettre R (en bas à gauche) - VERT -->
+                                        <text x="32" y="68" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="20" 
+                                              font-weight="bold" 
+                                              text-anchor="middle" 
+                                              fill="#7CB342">R</text>
+                                        
+                                        <!-- Lettre I (en bas à droite) - ROUGE -->
+                                        <text x="68" y="68" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="20" 
+                                              font-weight="bold" 
+                                              text-anchor="middle" 
+                                              fill="#E53935">I</text>
+                                        
+                                        <!-- Texte explicatif -->
+                                        <text x="50" y="100" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="7" 
+                                              text-anchor="middle" 
+                                              fill="#666" 
+                                              font-style="italic">💡 Cachez une lettre</text>
+                                        <text x="50" y="110" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="7" 
+                                              text-anchor="middle" 
+                                              fill="#666" 
+                                              font-style="italic">pour trouver la formule</text>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr class="courant-row">
+                                <td><strong>Courant</strong></td>
+                                <td class="formula">$I = \frac{U}{R}$</td>
+                                <td class="description">Calcul du courant</td>
+                                <td style="font-size: 1rem; text-align: left;">Le courant diminue quand la résistance augmente</td>
+                                <td style="text-align: center;">
+                                    <svg width="140" height="130" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+                                        <style>
+                                            @keyframes moveElectrons {
+                                                0% { transform: translateX(0); opacity: 1; }
+                                                100% { transform: translateX(100px); opacity: 0; }
+                                            }
+                                            .courant-row:hover .electron {
+                                                animation: moveElectrons 2s linear infinite;
+                                            }
+                                            .courant-row:hover .electron:nth-child(2) { animation-delay: 0.3s; }
+                                            .courant-row:hover .electron:nth-child(3) { animation-delay: 0.6s; }
+                                            .courant-row:hover .electron:nth-child(4) { animation-delay: 0.9s; }
+                                            .courant-row:hover .electron:nth-child(5) { animation-delay: 1.2s; }
+                                            .courant-row:hover .electron:nth-child(6) { animation-delay: 1.5s; }
+                                        </style>
+                                        
+                                        <!-- Conducteur vert -->
+                                        <line x1="5" y1="55" x2="105" y2="55" 
+                                              stroke="#7CB342" 
+                                              stroke-width="10" 
+                                              stroke-linecap="round"/>
+                                        
+                                        <!-- Petits cercles rouges animés représentant les électrons/courant -->
+                                        <circle class="electron" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        <circle class="electron" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        <circle class="electron" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        <circle class="electron" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        <circle class="electron" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        <circle class="electron" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        
+                                        <!-- Flèche indiquant le sens du courant -->
+                                        <defs>
+                                            <marker id="arrowCurrent" markerWidth="10" markerHeight="10" 
+                                                    refX="5" refY="5" orient="auto">
+                                                <polygon points="0,0 10,5 0,10" fill="#E53935"/>
+                                            </marker>
+                                        </defs>
+                                        <line x1="70" y1="40" x2="95" y2="40" 
+                                              stroke="#E53935" 
+                                              stroke-width="2" 
+                                              marker-end="url(#arrowCurrent)"/>
+                                        
+                                        <!-- Lettre A en rouge majuscule -->
+                                        <text x="55" y="85" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="20" 
+                                              font-weight="bold" 
+                                              text-anchor="middle" 
+                                              fill="#E53935">A</text>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr class="resistance-row">
+                                <td><strong>Résistance</strong></td>
+                                <td class="formula">$R = \frac{U}{I}$</td>
+                                <td class="description">Calcul de la résistance</td>
+                                <td style="font-size: 1rem; text-align: left;">Rapport entre tension et courant</td>
+                                <td style="text-align: center;">
+                                    <svg width="140" height="130" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+                                        <style>
+                                            .resistance-row:hover .electron-resistance {
+                                                animation: moveElectronsResistance 2s linear infinite;
+                                            }
+                                            @keyframes moveElectronsResistance {
+                                                0% { transform: translateX(0); opacity: 1; }
+                                                100% { transform: translateX(100px); opacity: 0; }
+                                            }
+                                        </style>
+                                        
+                                        <!-- Fil d'entrée -->
+                                        <line x1="5" y1="55" x2="25" y2="55" 
+                                              stroke="#7CB342" 
+                                              stroke-width="3" 
+                                              stroke-linecap="round"/>
+                                        
+                                        <!-- Résistance (rectangle agrandi) -->
+                                        <rect x="25" y="45" width="60" height="20" 
+                                              fill="none" 
+                                              stroke="#7CB342" 
+                                              stroke-width="3" 
+                                              rx="3"/>
+                                        
+                                        <!-- Fil de sortie -->
+                                        <line x1="85" y1="55" x2="105" y2="55" 
+                                              stroke="#7CB342" 
+                                              stroke-width="3" 
+                                              stroke-linecap="round"/>
+                                        
+                                        <!-- Cercles rouges animés (électrons) -->
+                                        <circle class="electron-resistance" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        <circle class="electron-resistance" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.3s;"/>
+                                        <circle class="electron-resistance" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.6s;"/>
+                                        <circle class="electron-resistance" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.9s;"/>
+                                        <circle class="electron-resistance" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 1.2s;"/>
+                                        <circle class="electron-resistance" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 1.5s;"/>
+                                        
+                                        <!-- Texte R -->
+                                        <text x="55" y="75" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="14" 
+                                              font-weight="bold" 
+                                              text-anchor="middle" 
+                                              fill="#7CB342">R</text>
+                                    </svg>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Numérotation de page -->
+                <div class="page-number" style="text-align: center; margin-top: 40px; padding: 20px 0; font-size: 1.2rem; color: #667eea; font-weight: 600;">
+                    Page 1
+                </div>
+            </section>
+
+            <!-- Section 02: Résistance d'un ou des conducteurs -->
+            <section id="resistance-conducteurs" class="content-section" style="position: relative;">
+                <!-- Bouton d'impression Page 2 -->
+                <button onclick="printSection('resistance-conducteurs')" style="position: absolute; top: 20px; right: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Page 2</span>
+                </button>
+                
+                <h2 style="color: #000000;">
+                    <svg style="width: 56px; height: 56px; vertical-align: middle; margin-right: 12px;" viewBox="0 0 24 24" fill="none">
+                        <line x1="0" y1="12" x2="5" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                        <rect x="5" y="8" width="14" height="8" rx="2" stroke="#22c55e" stroke-width="1.5" fill="#e8f5ee"/>
+                        <line x1="19" y1="12" x2="24" y2="12" stroke="#22c55e" stroke-width="1.8"/>
+                        <text x="12" y="15" text-anchor="middle" font-size="5" fill="#1a5c35" font-family="Georgia,serif" font-style="italic">R</text>
+                    </svg>
+                    1.2 Résistance d'un conducteur
+                </h2>
+                
+                <div class="formula-table" style="width: 100%;">
+                    <table style="width: 100%; table-layout: fixed;">
+                        <thead>
+                            <tr>
+                                <th style="width: 18%; font-size: 1.1rem; padding: 15px;">Nom de la formule</th>
+                                <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Expression littérale</th>
+                                <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Symboles de grandeurs et d'unités</th>
+                                <th style="width: 25%; font-size: 1.1rem; padding: 15px;">Explication</th>
+                                <th style="width: 13%; font-size: 1.1rem; padding: 15px; text-align: center;">Dessin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="conducteur-row">
+                                <td><strong>Résistance d'un conducteur</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">\( R = \frac{\rho \cdot l}{A} \)</td>
+                                <td class="description">ρ: résistivité [Ω·mm²/m]<br>l: longueur [m]<br>A: section [mm²]</td>
+                                <td style="font-size: 1rem; text-align: left;">Plus le conducteur est long et fin, plus la résistance augmente</td>
+                                <td style="text-align: center;">
+                                    <svg width="140" height="130" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+                                        <style>
+                                            .conducteur-row:hover .electron-conducteur {
+                                                animation: moveElectronsConducteur 2s linear infinite;
+                                            }
+                                            @keyframes moveElectronsConducteur {
+                                                0% { transform: translateX(0); opacity: 1; }
+                                                100% { transform: translateX(100px); opacity: 0; }
+                                            }
+                                        </style>
+                                        <!-- Fil conducteur principal agrandi -->
+                                        <line x1="5" y1="55" x2="105" y2="55" 
+                                              stroke="#7CB342" 
+                                              stroke-width="8" 
+                                              stroke-linecap="round"/>
+                                        
+                                        <!-- Cercles rouges animés -->
+                                        <circle class="electron-conducteur" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        <circle class="electron-conducteur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.3s;"/>
+                                        <circle class="electron-conducteur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.6s;"/>
+                                        <circle class="electron-conducteur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.9s;"/>
+                                        <circle class="electron-conducteur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 1.2s;"/>
+                                        <circle class="electron-conducteur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 1.5s;"/>
+                                        
+                                        <!-- Texte Rc au-dessus du fil -->
+                                        <text x="55" y="40" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="16" 
+                                              font-weight="bold" 
+                                              text-anchor="middle" 
+                                              fill="#7CB342">Rc</text>
+                                        
+                                        <!-- Flèche de longueur en bas -->
+                                        <line x1="10" y1="80" x2="100" y2="80" 
+                                              stroke="#7CB342" 
+                                              stroke-width="2" 
+                                              marker-start="url(#arrowStartCond)" 
+                                              marker-end="url(#arrowEndCond)"/>
+                                        <text x="55" y="100" 
+                                              font-size="18" 
+                                              text-anchor="middle" 
+                                              fill="#7CB342" 
+                                              font-weight="bold">L</text>
+                                        
+                                        <!-- Définition des flèches -->
+                                        <defs>
+                                            <marker id="arrowStartCond" markerWidth="8" markerHeight="8" 
+                                                    refX="4" refY="4" orient="auto">
+                                                <polygon points="8,4 0,0 0,8" fill="#7CB342"/>
+                                            </marker>
+                                            <marker id="arrowEndCond" markerWidth="8" markerHeight="8" 
+                                                    refX="4" refY="4" orient="auto">
+                                                <polygon points="0,4 8,0 8,8" fill="#7CB342"/>
+                                            </marker>
+                                        </defs>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr class="longueur-row">
+                                <td><strong>Longueur du conducteur</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">\( l = \frac{Rc \cdot A}{\rho} \)</td>
+                                <td class="description">Calcul de la longueur</td>
+                                <td style="font-size: 1rem; text-align: left;">Permet de calculer la longueur maximale d'un fil ou conducteur</td>
+                                <td style="text-align: center;">
+                                    <svg width="140" height="130" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+                                        <style>
+                                            .longueur-row:hover .electron-longueur {
+                                                animation: moveElectronsLongueur 2s linear infinite;
+                                            }
+                                            @keyframes moveElectronsLongueur {
+                                                0% { transform: translateX(0); opacity: 1; }
+                                                100% { transform: translateX(75px); opacity: 0; }
+                                            }
+                                        </style>
+                                        <!-- Fils de connexion -->
+                                        <line x1="5" y1="55" x2="30" y2="55" 
+                                              stroke="#7CB342" 
+                                              stroke-width="3"/>
+                                        <line x1="80" y1="55" x2="105" y2="55" 
+                                              stroke="#7CB342" 
+                                              stroke-width="3"/>
+                                        
+                                        <!-- Cercles rouges animés -->
+                                        <circle class="electron-longueur" cx="5" cy="55" r="3" fill="#E53935"/>
+                                        <circle class="electron-longueur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.3s;"/>
+                                        <circle class="electron-longueur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.6s;"/>
+                                        <circle class="electron-longueur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 0.9s;"/>
+                                        <circle class="electron-longueur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 1.2s;"/>
+                                        <circle class="electron-longueur" cx="5" cy="55" r="3" fill="#E53935" style="animation-delay: 1.5s;"/>
+                                        
+                                        <!-- Rectangle résistance -->
+                                        <rect x="30" y="40" width="50" height="30" 
+                                              fill="rgba(124, 179, 66, 0.1)" 
+                                              stroke="#7CB342" 
+                                              stroke-width="3" 
+                                              rx="3"/>
+                                        
+                                        <!-- Texte Rc dans le rectangle -->
+                                        <text x="55" y="62" 
+                                              font-family="Arial, sans-serif" 
+                                              font-size="18" 
+                                              font-weight="bold" 
+                                              text-anchor="middle" 
+                                              fill="#7CB342">Rc</text>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr class="cable-row">
+                                    <td style="padding: 20px; font-size: 1.15rem; text-align: left;"><strong>Longueur du câble ou de la ligne</strong></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 20px;">
+                                        \( R_l = \frac{\rho \cdot 2 \cdot l}{A} = [\Omega] \)
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem;">
+                                        Calcul de la longueur totale
+                                    </td>
+                                    <td style="padding: 20px; font-size: 1.05rem; line-height: 1.6; text-align: left;">
+                                        Permet de calculer la longueur maximale de la ligne ou du câble
+                                    </td>
+                                    <td style="text-align: center; padding: 15px;">
+                                        <svg width="140" height="130" viewBox="0 0 110 110">
+                                            <style>
+                                                @keyframes flowCable {
+                                                    0% { transform: translate(0, 0); opacity: 1; }
+                                                    15% { transform: translate(32.5px, 0); opacity: 1; }
+                                                    25% { transform: translate(60px, 0); opacity: 1; }
+                                                    30% { transform: translate(75px, 0); opacity: 1; }
+                                                    35% { transform: translate(75px, 10px); opacity: 1; }
+                                                    45% { transform: translate(75px, 30px); opacity: 1; }
+                                                    50% { transform: translate(75px, 50px); opacity: 1; }
+                                                    60% { transform: translate(50px, 50px); opacity: 1; }
+                                                    70% { transform: translate(32.5px, 50px); opacity: 1; }
+                                                    90% { transform: translate(0, 50px); opacity: 1; }
+                                                    100% { transform: translate(0, 50px); opacity: 0; }
+                                                }
+                                                .cable-row:hover .electron-cable { animation: flowCable 3s linear infinite; }
+                                            </style>
+                                            
+                                            <!-- Fil d'entrée L -->
+                                            <line x1="5" y1="40" x2="20" y2="40" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Lettre L (ligne/phase) -->
+                                            <text x="12" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#7CB342">L</text>
+                                            
+                                            <!-- Premier Rc (aller) -->
+                                            <rect x="20" y="30" width="35" height="20" fill="rgba(124, 179, 66, 0.1)" stroke="#7CB342" stroke-width="2" rx="2"/>
+                                            <text x="37.5" y="44" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#7CB342">Rc</text>
+                                            
+                                            <!-- Fil horizontal vers R appareil -->
+                                            <line x1="55" y1="40" x2="80" y2="40" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Connexion verticale vers R -->
+                                            <line x1="80" y1="40" x2="80" y2="50" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- R appareil (résistance de l'appareil) -->
+                                            <rect x="70" y="50" width="20" height="30" fill="rgba(255, 152, 0, 0.1)" stroke="#FF9800" stroke-width="2" rx="2"/>
+                                            <text x="80" y="68" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#FF9800">R</text>
+                                            
+                                            <!-- Connexion verticale depuis R -->
+                                            <line x1="80" y1="80" x2="80" y2="90" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Fil horizontal de retour -->
+                                            <line x1="80" y1="90" x2="55" y2="90" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Deuxième Rc (retour) -->
+                                            <rect x="20" y="80" width="35" height="20" fill="rgba(124, 179, 66, 0.1)" stroke="#7CB342" stroke-width="2" rx="2"/>
+                                            <text x="37.5" y="94" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#7CB342">Rc</text>
+                                            
+                                            <!-- Fil de sortie N -->
+                                            <line x1="20" y1="90" x2="5" y2="90" stroke="#7CB342" stroke-width="2"/>
+                                            
+                                            <!-- Lettre N (neutre) -->
+                                            <text x="12" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#7CB342">N</text>
+                                            
+                                            <!-- Cercles rouges animés (électrons au survol uniquement) -->
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 0.5s;"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 1s;"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 1.5s;"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 2s;"/>
+                                            <circle class="electron-cable" cx="5" cy="40" r="3" fill="#E53935" style="animation-delay: 2.5s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            <!-- Ligne invisible pour la 2ème formule ρ -->
+                            <tr class="cable-row" style="border-top: none;">
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 10px 20px; border-top: none;">
+                                        \( \rho = \frac{R_l \cdot A}{2 \cdot l} = [\Omega \cdot mm^2/m] \)
+                                    </td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                </tr>
+                            <!-- Ligne invisible pour la 3ème formule l -->
+                            <tr class="cable-row" style="border-top: none;">
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 10px 20px; border-top: none;">
+                                        \( l = \frac{R_l \cdot A}{\rho \cdot 2} = [m] \)
+                                    </td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                </tr>
+                            <!-- Ligne invisible pour la 4ème formule A -->
+                            <tr class="cable-row" style="border-top: none;">
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td class="formula" style="font-size: clamp(0.8rem, 1.8vw, 1.1rem); padding: 10px 20px; border-top: none;">
+                                        \( A = \frac{\rho \cdot 2 \cdot l}{R_l} = [mm^2] \)
+                                    </td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                    <td style="padding: 5px 20px; border-top: none;"></td>
+                                </tr>
+                            <tr class="section-conducteur-row">
+                                <td><strong>Section du conducteur</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">\( A = \frac{\rho \cdot l}{R} \)</td>
+                                <td class="description">Calcul de la section</td>
+                                <td style="font-size: 1rem; text-align: left;">Section nécessaire pour une résistance donnée</td>
+                                <td style="text-align: center;">
+                                    <svg width="100" height="100" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                                        <style>
+                                            @keyframes blinkDot {
+                                                0%, 100% { opacity: 0; }
+                                                50% { opacity: 1; }
+                                            }
+                                            .section-conducteur-row:hover .dot1 { animation: blinkDot 1s ease-in-out infinite; }
+                                            .section-conducteur-row:hover .dot2 { animation: blinkDot 1s ease-in-out infinite 0.2s; }
+                                            .section-conducteur-row:hover .dot3 { animation: blinkDot 1s ease-in-out infinite 0.4s; }
+                                            .section-conducteur-row:hover .dot4 { animation: blinkDot 1s ease-in-out infinite 0.6s; }
+                                            .section-conducteur-row:hover .dot5 { animation: blinkDot 1s ease-in-out infinite 0.8s; }
+                                            .section-conducteur-row:hover .dot6 { animation: blinkDot 1s ease-in-out infinite 0.3s; }
+                                            .section-conducteur-row:hover .dot7 { animation: blinkDot 1s ease-in-out infinite 0.5s; }
+                                            .section-conducteur-row:hover .dot8 { animation: blinkDot 1s ease-in-out infinite 0.7s; }
+                                        </style>
+                                        <circle cx="40" cy="40" r="20" fill="none" stroke="#4285F4" stroke-width="2"/>
+                                        <circle cx="40" cy="40" r="15" fill="#4285F4" opacity="0.2"/>
+                                        
+                                        <!-- Points rouges qui apparaissent/disparaissent -->
+                                        <circle class="dot1" cx="35" cy="35" r="2" fill="#E53935" opacity="0"/>
+                                        <circle class="dot2" cx="45" cy="35" r="2" fill="#E53935" opacity="0"/>
+                                        <circle class="dot3" cx="35" cy="45" r="2" fill="#E53935" opacity="0"/>
+                                        <circle class="dot4" cx="45" cy="45" r="2" fill="#E53935" opacity="0"/>
+                                        <circle class="dot5" cx="40" cy="32" r="2" fill="#E53935" opacity="0"/>
+                                        <circle class="dot6" cx="40" cy="48" r="2" fill="#E53935" opacity="0"/>
+                                        <circle class="dot7" cx="32" cy="40" r="2" fill="#E53935" opacity="0"/>
+                                        <circle class="dot8" cx="48" cy="40" r="2" fill="#E53935" opacity="0"/>
+                                        
+                                        <text x="40" y="45" font-size="12" text-anchor="middle" fill="#4285F4" font-weight="bold">A</text>
+                                    </svg>
+                                </td>
+                            </tr>
+                            <tr class="section-ronde-row">
+                                <td><strong>Section ronde (diamètre)</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">\( A = \frac{\pi \cdot d^2}{4} \)</td>
+                                <td class="description">d: diamètre [mm]</td>
+                                <td style="font-size: 1rem; text-align: left;">Calcul de la section à partir du diamètre</td>
+                                <td style="text-align: center;">
+                                    <svg width="100" height="100" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                                        <style>
+                                            @keyframes pulseLine {
+                                                0%, 100% { stroke-width: 2; }
+                                                50% { stroke-width: 4; }
+                                            }
+                                            .section-ronde-row:hover .diameter-line { animation: pulseLine 1.5s ease-in-out infinite; }
+                                        </style>
+                                        <circle cx="40" cy="40" r="22" fill="none" stroke="#9C27B0" stroke-width="2"/>
+                                        <line class="diameter-line" x1="18" y1="40" x2="62" y2="40" stroke="#9C27B0" stroke-width="2" stroke-dasharray="3,2"/>
+                                        <text x="40" y="30" font-size="12" text-anchor="middle" fill="#9C27B0" font-weight="bold">d</text>
+                                    </svg></td>
+                            </tr>
+                            <tr class="diametre-section-row">
+                                <td><strong>Diamètre (section)</strong></td>
+                                <td class="formula" style="font-size: clamp(0.9rem, 2vw, 1.25rem); padding: 20px;">\( d = \sqrt{\frac{4 \cdot A}{\pi}} \)</td>
+                                <td class="description">Calcul du diamètre</td>
+                                <td style="font-size: 1rem; text-align: left;">Diamètre nécessaire pour une section donnée</td>
+                                <td style="text-align: center;">
+                                    <svg width="100" height="100" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                                        <style>
+                                            @keyframes pulseRadiusLine {
+                                                0%, 100% { stroke-width: 2; }
+                                                50% { stroke-width: 4; }
+                                            }
+                                            @keyframes pulseDiameterLine {
+                                                0%, 100% { stroke-width: 2; }
+                                                50% { stroke-width: 4; }
+                                            }
+                                            .diametre-section-row:hover .radius-line { animation: pulseRadiusLine 1.5s ease-in-out infinite; }
+                                            .diametre-section-row:hover .diameter-line-d { animation: pulseDiameterLine 1.5s ease-in-out infinite; }
+                                        </style>
+                                        <circle cx="40" cy="40" r="22" fill="#FF9800" opacity="0.2" stroke="#FF9800" stroke-width="2"/>
+                                        
+                                        <!-- Ligne diamètre (orange) -->
+                                        <line class="diameter-line-d" x1="18" y1="40" x2="62" y2="40" stroke="#FF9800" stroke-width="2"/>
+                                        <circle cx="18" cy="40" r="2" fill="#FF9800"/>
+                                        <circle cx="62" cy="40" r="2" fill="#FF9800"/>
+                                        
+                                        <!-- Barre verte pour le rayon (du bord au centre) -->
+                                        <line class="radius-line" x1="40" y1="18" x2="40" y2="40" stroke="#7CB342" stroke-width="2"/>
+                                        <circle cx="40" cy="18" r="2" fill="#7CB342"/>
+                                        
+                                        <!-- Texte d (diamètre) -->
+                                        <text x="40" y="58" font-size="12" text-anchor="middle" fill="#FF9800" font-weight="bold">d</text>
+                                        
+                                        <!-- Texte r (rayon) au milieu -->
+                                        <text x="45" y="30" font-size="10" text-anchor="middle" fill="#7CB342" font-weight="bold">r</text>
+                                    </svg>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Numérotation de page -->
+                <div class="page-number" style="text-align: center; margin-top: 40px; padding: 20px 0; font-size: 1.2rem; color: #667eea; font-weight: 600;">
+                    Page 2
+                </div>
+            </section>
+
+            <!-- Section 03: Tableau résistivité des matériaux -->
+            <section id="tableau-resistivite" class="content-section" style="position: relative;">
+                <!-- Bouton d'impression Page 3 -->
+                <button onclick="printSection('tableau-resistivite')" style="position: absolute; top: 20px; right: 20px; z-index: 100; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; border: none; border-radius: 10px; font-size: 0.95rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); transition: all 0.3s;">
+                    <svg style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    <span>Page 3</span>
+                </button>
+                
+                <h2 style="color: #000000;">
+                    <svg style="width: 56px; height: 56px; vertical-align: middle; margin-right: 12px;" viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="2" width="20" height="20" rx="2" stroke="#8B5CF6" stroke-width="1.5" fill="none"/>
+                        <line x1="2" y1="8" x2="22" y2="8" stroke="#8B5CF6" stroke-width="1.2"/>
+                        <line x1="2" y1="14" x2="22" y2="14" stroke="#8B5CF6" stroke-width="1.2"/>
+                        <line x1="8" y1="2" x2="8" y2="22" stroke="#8B5CF6" stroke-width="1.2"/>
+                        <line x1="16" y1="2" x2="16" y2="22" stroke="#8B5CF6" stroke-width="1.2"/>
+                    </svg>
+                    1.3 Tableau résistivité des matériaux
+                </h2>
+                
+                <div class="formula-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Matériau</th>
+                                <th>ρ [Ω·mm²/m]</th>
+                                <th>Matériau</th>
+                                <th>ρ [Ω·mm²/m]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Aldrey</td><td>0,033</td>
+                                <td style="color: #E53935;">Nickel</td><td style="color: #E53935;">0,07</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #E53935;">Aluminium</td><td style="color: #E53935;">0,029</td>
+                                <td>Or</td><td>0,023</td>
+                            </tr>
+                            <tr>
+                                <td>Argent</td><td>0,0165</td>
+                                <td style="color: #E53935;">Platine</td><td style="color: #E53935;">0,11</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #E53935;">Cobalt</td><td style="color: #E53935;">0,057</td>
+                                <td>Plomb</td><td>0,22</td>
+                            </tr>
+                            <tr>
+                                <td>Cuivre</td><td>0,0175</td>
+                                <td style="color: #E53935;">Tungstène</td><td style="color: #E53935;">0,06</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #E53935;">Étain</td><td style="color: #E53935;">0,12</td>
+                                <td>Zinc</td><td>0,063</td>
+                            </tr>
+                            <tr>
+                                <td>Fer</td><td>0,13</td>
+                                <td style="color: #E53935;">Chrome-nickel</td><td style="color: #E53935;">1,1</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #E53935;">Invar</td><td style="color: #E53935;">0,75</td>
+                                <td>Constantan</td><td>0,5</td>
+                            </tr>
+                            <tr>
+                                <td>Laiton</td><td>0,075</td>
+                                <td style="color: #E53935;">Manganine</td><td style="color: #E53935;">0,43</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #E53935;">Mercure</td><td style="color: #E53935;">0,958</td>
+                                <td>Nickeline</td><td>0,42</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Numérotation de page -->
+                <div class="page-number" style="text-align: center; margin-top: 40px; padding: 20px 0; font-size: 1.2rem; color: #667eea; font-weight: 600;">
+                    Page 3
+                </div>
+            </section>
+                
+                <!-- Navigation footer -->
+                <div class="navigation-footer">
+                    <a href="index.html" class="btn-prev">← Accueil</a>
+                    <a href="chapitre-2.html" class="btn-next">Chapitre 2 - Couplages de résistances</a>
+                </div>
+                
+            </div>
+        

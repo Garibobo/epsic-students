@@ -1,0 +1,681 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chapitre 2 - Couplages de rÃ©sistances - Formulaires d'Ã©lectrotechnique">
+    <meta name="author" content="Denis (DS_de_Mo) - ModernisÃ© par Garibobo 2026">
+    <title>Chapitre 2 - Couplages de rÃ©sistances - Formulaires Ã‰lectrotechnique Garibobo</title>
+    
+    <!-- MathJax pour rendu des formules mathÃ©matiques -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    
+    <!-- CSS Moderne -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Styles spÃ©cifiques pour les tableaux de formules */
+        body {
+            font-size: 18px;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Layout avec sidebar */
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Menu latÃ©ral gauche (sidebar) */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #047857 0%, #14b8a6 100%);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 30px 0;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 0 25px 20px 25px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 1.4em;
+            margin: 0 0 10px 0;
+            color: #FFF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .sidebar-header p {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .sidebar-menu li {
+            margin: 0;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            font-weight: 500;
+            font-size: 0.95em;
+        }
+        
+        .sidebar-menu a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: #FFF;
+            padding-left: 30px;
+        }
+        
+        .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-left-color: #FFF;
+            font-weight: 600;
+        }
+        
+        /* Contenu principal */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0;
+            padding: 0 20px;
+        }
+        
+        /* Sections */
+        .content-section {
+            background: white;
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .content-section h2 {
+            font-size: 2.8rem;
+            color: #FF6B35;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .content-section h2::before {
+            content: attr(data-icon);
+            font-size: 3rem;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        /* Tableaux de formules */
+        .formula-table {
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .formula-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .formula-table thead {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        .formula-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+        
+        .formula-table tbody {
+            display: block;
+            overflow: visible;
+        }
+        
+        .formula-table tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        .formula-table td {
+            padding: 25px 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 1.05rem;
+            vertical-align: middle;
+        }
+        
+        .formula-table tbody tr:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            transform: scale(1.03);
+            transform-origin: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25), 
+                        0 0 30px rgba(102, 126, 234, 0.15),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                        0 0 0 4px #FF9800,
+                        0 0 0 8px #FFB74D;
+            border-radius: 8px;
+            position: relative;
+            z-index: 10;
+            margin: 15px 0;
+            padding: 5px;
+        }
+        
+        /* Navigation footer */
+        .navigation-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+        }
+        
+        .navigation-footer a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #047857 0%, #14b8a6 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(4, 120, 87, 0.3);
+        }
+        
+        .navigation-footer a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(4, 120, 87, 0.4);
+        }
+        
+        .navigation-footer .btn-prev::before {
+            content: "â†";
+            font-size: 1.3rem;
+        }
+        
+        .navigation-footer .btn-next::after {
+            content: "â†’";
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #e9ecef;
+            color: var(--text-dark);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        .footer strong {
+            color: #047857;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #047857;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #14b8a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Menu latÃ©ral -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>ðŸ“ Formulaires</h2>
+                <p>Navigation rapide</p>
+            </div>
+            
+            <nav>
+                <ul class="sidebar-menu">
+                    <li><a href="index.html#loi-ohm">âš¡ 01. Loi d'Ohm</a></li>
+                    <li><a href="index.html#resistance-conducteurs">ðŸ”Œ 01.2 RÃ©sistance d'un conducteur</a></li>
+                    <li><a href="chapitre-2.html" class="active">ðŸ”— 02. Couplages de rÃ©sistances</a></li>
+                    <li><a href="chapitre-3.html">ðŸ’ª 03. Travail, Ã©nergie et puissance Ã©lectrique</a></li>
+                    <li><a href="chapitre-4.html">ðŸ”¥ 04. Effet calorifique du courant</a></li>
+                    <li><a href="index.html#pile">ðŸ”‹ 05. Pile et accumulateur</a></li>
+                    <li><a href="index.html#magnetisme">ðŸ§² 06. MagnÃ©tisme</a></li>
+                    <li><a href="index.html#condensateurs">âš™ï¸ 07. Les condensateurs</a></li>
+                    <li><a href="index.html#mesures">ï¿½ 08. Appareils de mesures</a></li>
+                    <li><a href="index.html#monophase">ã€°ï¸ 09. Courant et tension alternative en monophasÃ©</a></li>
+                    <li><a href="index.html#triphase">âš¡ 10. TriphasÃ©</a></li>
+                    <li><a href="index.html#moteurs">ðŸ”„ 11. Les moteurs</a></li>
+                    <li><a href="index.html#transformateurs">ðŸ”Œ 12. Les transformateurs</a></li>
+                    <li><a href="index.html#eclairage">ðŸ’¡ 13. Ã‰clairage</a></li>
+                    <li><a href="index.html#electronique">ðŸ–¥ï¸ 14. Ã‰lectronique</a></li>
+                    <li><a href="index.html#sciences">ðŸ”¬ 15. Sciences</a></li>
+                    <li><a href="index.html#annexes">ðŸ“š 16. Annexes</a></li>
+                </ul>
+            </nav>
+        </aside>
+        
+        <!-- Contenu principal -->
+        <main class="main-content">
+            <div class="container">
+                
+                <!-- Section 02: Couplages de rÃ©sistances -->
+                <section id="couplages" class="content-section">
+                    <h2 data-icon="ðŸ”—">02. Couplages de rÃ©sistances</h2>
+                    
+                    <h3 style="color: #8B5CF6; margin-top: 20px; font-size: 1.8rem;">02.1 Circuit sÃ©rie</h3>
+                    
+                    <div class="formula-table" style="width: 100%;">
+                        <table style="width: 100%; table-layout: fixed;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 18%; font-size: 1.1rem; padding: 15px;">Nom de la formule</th>
+                                    <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Expression littÃ©rale</th>
+                                    <th style="width: 22%; font-size: 1.1rem; padding: 15px;">Symboles de grandeurs et d'unitÃ©s</th>
+                                    <th style="width: 25%; font-size: 1.1rem; padding: 15px;">Explication</th>
+                                    <th style="width: 13%; font-size: 1.1rem; padding: 15px; text-align: center;">Dessin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- SchÃ©ma sur toute la largeur -->
+                                <tr>
+                                    <td colspan="5" style="text-align: center; padding: 30px; background-color: #f8f9fa;">
+                                        <svg width="900" height="250" viewBox="0 0 900 250" class="circuit-serie-horizontal">
+                                            <style>
+                                                @keyframes flowSerieHorizontal {
+                                                    0% { offset-distance: 0%; }
+                                                    100% { offset-distance: 100%; }
+                                                }
+                                                .circuit-serie-horizontal:hover .current-dot-horiz {
+                                                    animation: flowSerieHorizontal 4s linear infinite;
+                                                }
+                                                .current-dot-horiz {
+                                                    offset-path: path('M 80 80 L 180 80 L 320 80 L 460 80 L 600 80 L 820 80');
+                                                }
+                                            </style>
+                                            
+                                            <!-- Borne gauche + -->
+                                            <circle cx="80" cy="80" r="8" fill="white" stroke="black" stroke-width="2"/>
+                                            <text x="60" y="70" font-size="20" font-weight="bold">+</text>
+                                            
+                                            <!-- Fil avec flÃ¨che I rouge SUR la ligne -->
+                                            <line x1="88" y1="80" x2="220" y2="80" stroke="black" stroke-width="3"/>
+                                            <defs>
+                                                <marker id="arrowRedSmall" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+                                                    <path d="M0,0 L0,6 L9,3 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="120" y1="80" x2="180" y2="80" stroke="red" stroke-width="3" marker-end="url(#arrowRedSmall)"/>
+                                            <text x="150" y="65" font-size="20" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            
+                                            <!-- RÃ©sistance R1 (verte) - centrÃ©e -->
+                                            <rect x="220" y="60" width="100" height="40" fill="none" stroke="#22c55e" stroke-width="3"/>
+                                            <text x="270" y="85" font-size="20" text-anchor="middle" font-weight="bold">Râ‚</text>
+                                            
+                                            <!-- Tension U1 (flÃ¨che bleue en dessous de R1) -->
+                                            <defs>
+                                                <marker id="arrowBlueSmall" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="315" y1="130" x2="225" y2="130" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueSmall)"/>
+                                            <text x="270" y="150" font-size="18" fill="blue" font-weight="bold" text-anchor="middle">Uâ‚</text>
+                                            
+                                            <!-- Fil entre R1 et R2 -->
+                                            <line x1="320" y1="80" x2="350" y2="80" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- RÃ©sistance R2 (verte) - centrÃ©e -->
+                                            <rect x="350" y="60" width="100" height="40" fill="none" stroke="#22c55e" stroke-width="3"/>
+                                            <text x="400" y="85" font-size="20" text-anchor="middle" font-weight="bold">Râ‚‚</text>
+                                            
+                                            <!-- Tension U2 (flÃ¨che bleue en dessous de R2) -->
+                                            <line x1="445" y1="130" x2="355" y2="130" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueSmall)"/>
+                                            <text x="400" y="150" font-size="18" fill="blue" font-weight="bold" text-anchor="middle">Uâ‚‚</text>
+                                            
+                                            <!-- Fil entre R2 et R3 -->
+                                            <line x1="450" y1="80" x2="480" y2="80" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- RÃ©sistance R3 (verte) - centrÃ©e -->
+                                            <rect x="480" y="60" width="100" height="40" fill="none" stroke="#22c55e" stroke-width="3"/>
+                                            <text x="530" y="85" font-size="20" text-anchor="middle" font-weight="bold">Râ‚ƒ</text>
+                                            
+                                            <!-- Tension U3 (flÃ¨che bleue en dessous de R3) -->
+                                            <line x1="575" y1="130" x2="485" y2="130" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueSmall)"/>
+                                            <text x="530" y="150" font-size="18" fill="blue" font-weight="bold" text-anchor="middle">Uâ‚ƒ</text>
+                                            
+                                            <!-- Fil de sortie horizontal -->
+                                            <line x1="580" y1="80" x2="820" y2="80" stroke="black" stroke-width="3"/>
+                                            
+                                            <!-- Borne droite - -->
+                                            <circle cx="820" cy="80" r="8" fill="white" stroke="black" stroke-width="2"/>
+                                            <text x="835" y="85" font-size="20" font-weight="bold">-</text>
+                                            
+                                            <!-- Tension totale U (grande flÃ¨che bleue en dessous) -->
+                                            <defs>
+                                                <marker id="arrowBlueBig" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
+                                                    <path d="M0,0 L0,8 L10,4 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="800" y1="180" x2="100" y2="180" stroke="blue" stroke-width="3" marker-end="url(#arrowBlueBig)"/>
+                                            <text x="450" y="200" font-size="24" fill="blue" font-weight="bold" text-anchor="middle">U</text>
+                                            
+                                            <!-- Points rouges animÃ©s (4 points) -->
+                                            <circle class="current-dot-horiz" cx="0" cy="0" r="4" fill="red" opacity="0.9"/>
+                                            <circle class="current-dot-horiz" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 1s;"/>
+                                            <circle class="current-dot-horiz" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 2s;"/>
+                                            <circle class="current-dot-horiz" cx="0" cy="0" r="4" fill="red" opacity="0.9" style="animation-delay: 3s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                
+                                <!-- Formules Circuit SÃ©rie -->
+                                <tr class="req-row">
+                                    <td style="font-size: 1.25rem;">RÃ©sistance Ã©quivalente</td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( R_e = R_1 + R_2 + R_3 = [\Omega] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( R_e \) = rÃ©sistance Ã©quivalente = [Î©]<br>
+                                        \( R_1, R_2, R_3 \) = rÃ©sistances = [Î©]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Somme des rÃ©sistances en sÃ©rie</td>
+                                    <td style="text-align: center;">
+                                        <svg width="180" height="100" viewBox="0 0 150 80" class="circuit-req" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes flowReq {
+                                                    0% { transform: translateX(0); opacity: 1; }
+                                                    100% { transform: translateX(110px); opacity: 0; }
+                                                }
+                                                .req-row:hover .current-dot-req {
+                                                    animation: flowReq 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                .current-dot-req {
+                                                    opacity: 0;
+                                                }
+                                            </style>
+                                            <circle cx="20" cy="40" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="10" y="35" font-size="12" font-weight="bold">+</text>
+                                            <line x1="25" y1="40" x2="50" y2="40" stroke="black" stroke-width="2"/>
+                                            <defs>
+                                                <marker id="arrowRedReq" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="30" y1="40" x2="45" y2="40" stroke="red" stroke-width="2" marker-end="url(#arrowRedReq)"/>
+                                            <text x="37" y="30" font-size="12" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            <rect x="50" y="25" width="50" height="30" fill="none" stroke="#22c55e" stroke-width="2"/>
+                                            <text x="75" y="43" font-size="11" text-anchor="middle" font-weight="bold">Râ‚,â‚‚,â‚ƒ</text>
+                                            <line x1="100" y1="40" x2="130" y2="40" stroke="black" stroke-width="2"/>
+                                            <circle cx="130" cy="40" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="138" y="43" font-size="12" font-weight="bold">-</text>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935"/>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935" style="animation-delay: 0.4s;"/>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935" style="animation-delay: 0.8s;"/>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935" style="animation-delay: 1.2s;"/>
+                                            <circle class="current-dot-req" cx="20" cy="40" r="3" fill="#E53935" style="animation-delay: 1.6s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr class="r1-row">
+                                    <td style="font-size: 1.25rem;">RÃ©sistances</td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( R_1 = \frac{U_1}{I} = [\Omega] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( U_1 \) = tension aux bornes de Râ‚ = [V]<br>
+                                        \( I \) = courant dans le circuit = [A]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Calcul d'une rÃ©sistance du circuit sÃ©rie</td>
+                                    <td style="text-align: center;">
+                                        <svg width="180" height="120" viewBox="0 0 150 100" class="circuit-r1" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes flowR1 {
+                                                    0% { transform: translateX(0); opacity: 1; }
+                                                    100% { transform: translateX(110px); opacity: 0; }
+                                                }
+                                                .r1-row:hover .current-dot-r1 {
+                                                    animation: flowR1 2s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                .current-dot-r1 {
+                                                    opacity: 0;
+                                                }
+                                            </style>
+                                            <circle cx="20" cy="50" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="10" y="45" font-size="12" font-weight="bold">+</text>
+                                            <line x1="25" y1="50" x2="50" y2="50" stroke="black" stroke-width="2"/>
+                                            <defs>
+                                                <marker id="arrowRedR1" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="30" y1="50" x2="45" y2="50" stroke="red" stroke-width="2" marker-end="url(#arrowRedR1)"/>
+                                            <text x="37" y="40" font-size="12" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            <rect x="50" y="35" width="50" height="30" fill="none" stroke="#22c55e" stroke-width="2"/>
+                                            <text x="75" y="53" font-size="12" text-anchor="middle" font-weight="bold">Râ‚</text>
+                                            <defs>
+                                                <marker id="arrowBlueR1" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="95" y1="80" x2="55" y2="80" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueR1)"/>
+                                            <text x="75" y="92" font-size="12" fill="blue" font-weight="bold" text-anchor="middle">Uâ‚</text>
+                                            <line x1="100" y1="50" x2="130" y2="50" stroke="black" stroke-width="2"/>
+                                            <circle cx="130" cy="50" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="138" y="53" font-size="12" font-weight="bold">-</text>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935"/>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935" style="animation-delay: 0.4s;"/>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935" style="animation-delay: 0.8s;"/>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935" style="animation-delay: 1.2s;"/>
+                                            <circle class="current-dot-r1" cx="20" cy="50" r="3" fill="#E53935" style="animation-delay: 1.6s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr class="u1-row">
+                                    <td style="font-size: 1.25rem;">Tensions partielles</td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( U_1 = R_1 \cdot I = [V] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( U_1 \) = tension partielle = [V]<br>
+                                        \( R_1 \) = rÃ©sistance = [Î©]<br>
+                                        \( I \) = courant = [A]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Chute de tension aux bornes d'une rÃ©sistance</td>
+                                    <td style="text-align: center;">
+                                        <svg width="120" height="120" viewBox="0 0 100 100" class="circuit-u1" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes scaleU1 {
+                                                    0%, 100% { transform: scale(1); }
+                                                    50% { transform: scale(1.3); }
+                                                }
+                                                .u1-row:hover .scale-voltage {
+                                                    animation: scaleU1 1.5s ease-in-out infinite;
+                                                    transform-origin: center;
+                                                }
+                                            </style>
+                                            <rect x="25" y="35" width="50" height="30" fill="none" stroke="#22c55e" stroke-width="2"/>
+                                            <text x="50" y="53" font-size="12" text-anchor="middle" font-weight="bold">Râ‚</text>
+                                            <defs>
+                                                <marker id="arrowBlueU1" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <g class="scale-voltage">
+                                                <line x1="70" y1="80" x2="30" y2="80" stroke="blue" stroke-width="2" marker-end="url(#arrowBlueU1)"/>
+                                                <text x="50" y="92" font-size="14" fill="blue" font-weight="bold" text-anchor="middle">Uâ‚</text>
+                                            </g>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr class="utot-row">
+                                    <td style="font-size: 1.25rem;">Tension totale</td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( U = U_1 + U_2 + U_3 = [V] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( U \) = tension totale = [V]<br>
+                                        \( U_1, U_2, U_3 \) = tensions partielles = [V]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Somme des tensions partielles en sÃ©rie</td>
+                                    <td style="text-align: center;">
+                                        <svg width="180" height="140" viewBox="0 0 150 120" class="circuit-utot" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes scaleUtot {
+                                                    0%, 100% { transform: scale(1); }
+                                                    50% { transform: scale(1.3); }
+                                                }
+                                                .utot-row:hover .scale-voltage-tot {
+                                                    animation: scaleUtot 1.5s ease-in-out infinite;
+                                                    transform-origin: center;
+                                                }
+                                            </style>
+                                            <circle cx="20" cy="60" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="10" y="55" font-size="12" font-weight="bold">+</text>
+                                            <line x1="25" y1="60" x2="40" y2="60" stroke="black" stroke-width="2"/>
+                                            <rect x="40" y="50" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="52" y="63" font-size="9" text-anchor="middle" font-weight="bold">Râ‚</text>
+                                            <line x1="65" y1="60" x2="70" y2="60" stroke="black" stroke-width="2"/>
+                                            <rect x="70" y="50" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="82" y="63" font-size="9" text-anchor="middle" font-weight="bold">Râ‚‚</text>
+                                            <line x1="95" y1="60" x2="100" y2="60" stroke="black" stroke-width="2"/>
+                                            <rect x="100" y="50" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="112" y="63" font-size="9" text-anchor="middle" font-weight="bold">Râ‚ƒ</text>
+                                            <line x1="125" y1="60" x2="130" y2="60" stroke="black" stroke-width="2"/>
+                                            <circle cx="130" cy="60" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="138" y="63" font-size="12" font-weight="bold">-</text>
+                                            <defs>
+                                                <marker id="arrowBlueUtot" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="blue"/>
+                                                </marker>
+                                            </defs>
+                                            <g class="scale-voltage-tot">
+                                                <line x1="120" y1="95" x2="30" y2="95" stroke="blue" stroke-width="2.5" marker-end="url(#arrowBlueUtot)"/>
+                                                <text x="75" y="110" font-size="16" fill="blue" font-weight="bold" text-anchor="middle">U</text>
+                                            </g>
+                                        </svg>
+                                    </td>
+                                </tr>
+                                <tr class="i-row">
+                                    <td style="font-size: 1.25rem;">Courant</td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( I = I_1 = I_2 = I_3 = [A] \)
+                                    </td>
+                                    <td style="font-size: 1.25rem;">
+                                        \( I \) = courant total = [A]<br>
+                                        \( I_1, I_2, I_3 \) = courants partiels = [A]
+                                    </td>
+                                    <td style="font-size: 1rem; text-align: left;">Le courant est identique dans toutes les rÃ©sistances en sÃ©rie</td>
+                                    <td style="text-align: center;">
+                                        <svg width="180" height="110" viewBox="0 0 150 90" class="circuit-i" style="max-width: 100%; height: auto;">
+                                            <style>
+                                                @keyframes flowI {
+                                                    0% { transform: translateX(0); opacity: 1; }
+                                                    100% { transform: translateX(110px); opacity: 0; }
+                                                }
+                                                .i-row:hover .current-dot-i {
+                                                    animation: flowI 2.5s linear infinite;
+                                                    opacity: 1;
+                                                }
+                                                .current-dot-i {
+                                                    opacity: 0;
+                                                }
+                                            </style>
+                                            <circle cx="20" cy="45" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="10" y="40" font-size="12" font-weight="bold">+</text>
+                                            <line x1="25" y1="45" x2="40" y2="45" stroke="black" stroke-width="2"/>
+                                            <defs>
+                                                <marker id="arrowRedI" markerWidth="8" markerHeight="8" refX="4" refY="2.5" orient="auto">
+                                                    <path d="M0,0 L0,5 L6,2.5 z" fill="red"/>
+                                                </marker>
+                                            </defs>
+                                            <line x1="27" y1="45" x2="38" y2="45" stroke="red" stroke-width="2" marker-end="url(#arrowRedI)"/>
+                                            <text x="32" y="35" font-size="12" fill="red" font-weight="bold" text-anchor="middle">I</text>
+                                            <rect x="40" y="35" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="52" y="48" font-size="9" text-anchor="middle" font-weight="bold">Râ‚</text>
+                                            <line x1="65" y1="45" x2="70" y2="45" stroke="black" stroke-width="2"/>
+                                            <rect x="70" y="35" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="82" y="48" font-size="9" text-anchor="middle" font-weight="bold">Râ‚‚</text>
+                                            <line x1="95" y1="45" x2="100" y2="45" stroke="black" stroke-width="2"/>
+                                            <rect x="100" y="35" width="25" height="20" fill="none" stroke="#22c55e" stroke-width="1.5"/>
+                                            <text x="112" y="48" font-size="9" text-anchor="middle" font-weight="bold">Râ‚ƒ</text>
+                                            <line x1="125" y1="45" x2="130" y2="45" stroke="black" stroke-width="2"/>
+                                            <circle cx="130" cy="45" r="5" fill="white" stroke="black" stroke-width="1.5"/>
+                                            <text x="138" y="48" font-size="12" font-weight="bold">-</text>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935"/>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935" style="animation-delay: 0.5s;"/>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935" style="animation-delay: 1s;"/>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935" style="animation-delay: 1.5s;"/>
+                                            <circle class="current-dot-i" cx="20" cy="45" r="3" fill="#E53935" style="animation-delay: 2s;"/>
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    

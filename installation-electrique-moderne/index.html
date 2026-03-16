@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Installations Électriques - Ressources pédagogiques pour électriciens">
+    <meta name="author" content="Garibobo - Modernisation 2026">
+    <title>Installations Électriques - Guide Moderne</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Bouton mode nuit */
+        .theme-toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(37, 99, 235, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-toggle-btn:hover {
+            background: rgba(37, 99, 235, 1);
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+        
+        .theme-toggle-btn .sun-icon,
+        .theme-toggle-btn .moon-icon {
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle-btn .sun-icon {
+            display: none;
+        }
+        
+        .theme-toggle-btn .moon-icon {
+            display: block;
+        }
+        
+        /* Mode nuit actif */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .theme-toggle-btn {
+            background: rgba(251, 191, 36, 0.9);
+        }
+        
+        body.dark-mode .theme-toggle-btn:hover {
+            background: rgba(251, 191, 36, 1);
+        }
+        
+        body.dark-mode .theme-toggle-btn .sun-icon {
+            display: block;
+        }
+        
+        body.dark-mode .theme-toggle-btn .moon-icon {
+            display: none;
+        }
+        
+        body.dark-mode .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1e293b 100%);
+        }
+        
+        body.dark-mode .main-nav {
+            background: #2a2a2a;
+            border-bottom: 2px solid #404040;
+        }
+        
+        body.dark-mode .main-nav a {
+            color: #b0b0b0;
+        }
+        
+        body.dark-mode .main-nav a:hover {
+            color: #66B3FF;
+            background: rgba(102, 179, 255, 0.1);
+        }
+        
+        body.dark-mode .main-content {
+            background-color: #1a1a1a;
+        }
+        
+        body.dark-mode .content-section {
+            background: #2a2a2a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .card {
+            background: #333333;
+            border: 1px solid #404040;
+        }
+        
+        body.dark-mode .card:hover {
+            background: #3a3a3a;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        body.dark-mode .btn {
+            background: linear-gradient(135deg, #334488 0%, #445599 100%);
+        }
+        
+        body.dark-mode .btn:hover {
+            background: linear-gradient(135deg, #445599 0%, #5566aa 100%);
+        }
+        
+        body.dark-mode .footer {
+            background: #2a2a2a;
+            color: #b0b0b0;
+            border-top: 1px solid #404040;
+        }
+        
+        body.dark-mode .footer a {
+            color: #66B3FF;
+        }
+        
+        body.dark-mode .footer a:hover {
+            color: #88ccff;
+        }
+    </style>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Bouton mode nuit -->
+    <button id="theme-toggle" class="theme-toggle-btn" title="Basculer le mode nuit">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+    </button>
+    
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="hero-title">⚡ Installations Électriques</h1>
+            <p class="hero-subtitle">Guide Moderne pour Électriciens</p>
+            <p class="hero-description">Ressources pédagogiques complètes en français</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#electrotechnique">⚡ Électrotechnique</a></li>
+                <li><a href="#telecommunications">📡 Télécommunications</a></li>
+                <li><a href="#appareillage">🔌 Appareillage</a></li>
+                <li><a href="#eclairagisme">💡 Éclairagisme</a></li>
+                <li><a href="#normes">📋 Normes</a></li>
+                <li><a href="#formules">📊 Formules</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Section Électrotechnique -->
+            <section id="electrotechnique" class="content-section">
+                <h2>⚡ Électrotechnique</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>🔋 Les Composants</h3>
+                        <p>Résistance, inductance, capacité</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>⚙️ Filtres</h3>
+                        <p>Passe-bas, passe-haut, passe-bande</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>🔄 Théorèmes</h3>
+                        <p>Norton, Thévenin, Ohm</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Télécommunications -->
+            <section id="telecommunications" class="content-section">
+                <h2>📡 Télécommunications</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>📞 Téléphonie</h3>
+                        <p>Analogique et numérique</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>🌐 Réseaux</h3>
+                        <p>Network, terminaison réseau</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>📶 Modulation</h3>
+                        <p>Techniques de modulation</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Formules -->
+            <section id="formules" class="content-section">
+                <h2>📊 Formules</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>⚡ Formulaire Technique</h3>
+                        <p>Toutes les formules d'électrotechnique</p>
+                        <a href="formules/index.html#home" class="btn" target="_blank">Voir le formulaire</a>
+                    </div>
+                    <div class="card">
+                        <h3>🔢 Loi d'Ohm</h3>
+                        <p>Formules de base et dérivées</p>
+                        <a href="formules/index.html#loi-ohm" class="btn" target="_blank">Voir les formules</a>
+                    </div>
+                    <div class="card">
+                        <h3>🔋 Puissance</h3>
+                        <p>Calculs de puissance et énergie</p>
+                        <a href="formules/index.html#chapitre-3" class="btn" target="_blank">Voir les formules</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Appareillage -->
+            <section id="appareillage" class="content-section">
+                <h2>🔌 Appareillage</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>🔒 Sécurité</h3>
+                        <p>DDR, FI, disjoncteurs, fusibles</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>⚡ Contacteurs</h3>
+                        <p>Relais et contacteurs</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>🔄 Moteurs</h3>
+                        <p>Synchrone, asynchrone, brushless</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Éclairagisme -->
+            <section id="eclairagisme" class="content-section">
+                <h2>💡 Éclairagisme</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>💡 Types de Lampes</h3>
+                        <p>Sodium, mercure, néon, LED</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>🌟 Luminescence</h3>
+                        <p>Incandescence, fluorescence</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>📊 Calculs</h3>
+                        <p>Flux lumineux, éclairement</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Normes -->
+            <section id="normes" class="content-section">
+                <h2>📋 Normes et Directives</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>📘 NIBT</h3>
+                        <p>Normes installations basse tension</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>📗 DIT</h3>
+                        <p>Directives installations télécommunication</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                    <div class="card">
+                        <h3>⚠️ Sécurité</h3>
+                        <p>Règles et consignes de sécurité</p>
+                        <a href="#" class="btn" onclick="alert('Lien vers ancien site à venir'); return false;">Voir le cours</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Contenu original par <strong>Denis (DS_de_Mo)</strong></p>
+            <p>Site modernisé par <strong>Garibobo</strong> - 2026</p>
+            <p class="footer-links">
+                <a href="https://tchapatch-stack.github.io/installations/" target="_blank">📚 Site Original</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Fonction pour basculer le mode nuit
+        function initThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+            
+            if (!themeToggle) {
+                console.error('Bouton mode nuit non trouvé');
+                return;
+            }
+            
+            // Vérifier la préférence sauvegardée
+            const savedTheme = localStorage.getItem('theme');
+            
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+            }
+            
+            // Écouter les changements du thème système si aucune préférence sauvegardée
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (!savedTheme && systemPrefersDark) {
+                body.classList.add('dark-mode');
+            }
+            
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                if (!localStorage.getItem('theme')) {
+                    if (e.matches) {
+                        body.classList.add('dark-mode');
+                    } else {
+                        body.classList.remove('dark-mode');
+                    }
+                }
+            });
+            
+            // Gérer le clic sur le bouton
+            themeToggle.addEventListener('click', () => {
+                const isDark = body.classList.contains('dark-mode');
+                
+                if (isDark) {
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        }
+
+        // Initialiser le mode nuit au chargement de la page
+        document.addEventListener('DOMContentLoaded', initThemeToggle);
+    </script>
+</body>
+</html>
